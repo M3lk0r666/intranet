@@ -1,0 +1,309 @@
+/* Apartado para Organigrama*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   Components (OBLIGATORIO)
+================================ */
+
+@layer components {
+    /* .grid-pattern {
+        background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+        background-size: 30px 30px;
+    } */
+
+    .dark .grid-pattern {
+        background-image: radial-gradient(#374151 1px, transparent 1px);
+    }
+
+    .node-orange {
+        @apply bg-primary text-white shadow-lg rounded-xl border-2 border-orange-600/20;
+    }
+
+    .node-blue {
+        @apply bg-netjer-blue text-white shadow-md rounded-lg border border-blue-600/20;
+    }
+
+    .node-grey {
+        @apply bg-slate-500 text-white shadow-md rounded-lg border border-slate-600/20;
+    }
+
+    .connector-h {
+        @apply h-px bg-slate-400 dark:bg-slate-600;
+    }
+
+    .connector-v {
+        @apply w-px bg-slate-400 dark:bg-slate-600;
+    }
+
+    .org-scroll-container::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .org-scroll-container::-webkit-scrollbar-track {
+        @apply bg-slate-100 dark:bg-slate-800 rounded-full;
+    }
+
+    .org-scroll-container::-webkit-scrollbar-thumb {
+        @apply bg-primary rounded-full;
+    }
+
+    .node-ceo {
+        @apply bg-ceo-level text-white shadow-xl rounded-xl border-2 border-blue-800/30;
+    }
+
+    .node-director {
+        @apply bg-director-level text-white shadow-lg rounded-lg border border-blue-700/30;
+    }
+
+    .node-manager {
+        @apply bg-manager-level text-white shadow-md rounded-lg border border-blue-600/30;
+    }
+
+    .node-team {
+        @apply bg-team-level text-white shadow-sm rounded-lg border border-blue-500/30;
+    }
+
+    .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+
+    /*PAra las etiquets de Fases*/
+    .grid-pattern {
+        background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+    .arrow-header {
+        position: relative;
+        clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%, 5% 50%);
+        margin-left: -1rem;
+    }
+    .arrow-header:first-child {
+        clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+        margin-left: 0;
+    }
+    .phase-card {
+        @apply bg-[#E9E9E9] rounded-2xl border border-gray-300 p-4 mb-4;
+    }
+    .phase-section {
+        scroll-margin-top: 100px;
+    }
+    @media (max-width: 768px) {
+        .arrow-header {
+            clip-path: polygon(
+                0% 0%,
+                95% 0%,
+                100% 50%,
+                95% 100%,
+                0% 100%,
+                5% 50%
+            );
+            margin-left: -0.5rem;
+        }
+        .arrow-header:first-child {
+            clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+            margin-left: 0;
+        }
+    }
+
+    .poc-card {
+        @apply bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-300 p-6 shadow-sm;
+    }
+
+    .phase-btn {
+        @apply bg-white border border-gray-200 rounded-xl px-4 py-3
+            font-semibold text-sm
+            hover:bg-primary hover:text-white
+            transition;
+    }
+    /*Para la tabla de RACI*/
+    .vertical-text {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+    }
+    .raci-table th,
+    .raci-table td {
+        @apply border border-slate-300;
+    }
+    .rotated-header {
+        height: 180px;
+        @apply align-bottom pb-4;
+    }
+    .rotated-header > div {
+        @apply -rotate-45 whitespace-nowrap origin-bottom-left translate-x-1/2 font-bold text-slate-700 text-sm;
+    }
+
+    /*PAra los Posts*/
+    .post-image {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .card-hover {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(234, 88, 12, 0.15);
+    }
+
+    .nav-active {
+        color: #ea580c;
+        border-bottom-color: #ea580c;
+    }
+
+    .post-content h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1f2937;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .post-content h3 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #374151;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .post-content p {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+        color: #4b5563;
+    }
+
+    .post-content ul,
+    .post-content ol {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    .post-content li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+
+    .post-content blockquote {
+        border-left: 4px solid #ea580c;
+        padding-left: 1rem;
+        font-style: italic;
+        color: #6b7280;
+        margin: 1.5rem 0;
+    }
+
+    .post-content img {
+        border-radius: 0.5rem;
+        margin: 1.5rem 0;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .post-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+    }
+
+    .post-content table th,
+    .post-content table td {
+        border: 1px solid #e5e7eb;
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    .post-content table th {
+        background-color: #f9fafb;
+        font-weight: 600;
+    }
+
+    .bg-primary-light {
+        background-color: #ffedd5;
+    }
+
+    .text-primary {
+        color: #0000ff;
+    }
+
+    /*PAra el post*/
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .post-content img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .post-content table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .post-content pre {
+        overflow-x: auto;
+    }
+
+    .post-content iframe {
+        max-width: 100%;
+    }
+
+    .post-content {
+        overflow-x: hidden;
+    }
+
+    /*PAra el TOC*/
+
+    #toc-list {
+        border-left: 1px solid #e5e7eb;
+        padding-left: 14px;
+    }
+
+    #toc-list a {
+        display: block;
+        padding: 4px 0;
+        color: #6b7280;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+
+    #toc-list a.active {
+        color: #111827;
+        font-weight: 600;
+    }
+
+    #toc-list a.active::before {
+        content: "";
+        position: absolute;
+        left: -15px;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: #3b82f6;
+        border-radius: 4px;
+    }
+
+    .post-content h2::before,
+    .post-content h3::before {
+        content: attr(data-number);
+        margin-right: 10px;
+        font-weight: 600;
+        color: #9ca3af;
+    }
+
+    /*Guas*/
+    .chapter-link {
+        @apply text-slate-600 hover:bg-slate-100;
+    }
+
+    .chapter-link.active {
+        @apply bg-orange-50 text-primary font-semibold;
+    }
+}
