@@ -86,7 +86,7 @@
             <div class="inline-flex items-center justify-center gap-4">
                 <!-- Número -->
                 <p id="office-number" class="text-3xl sm:text-4xl font-extrabold text-orange-600 tracking-wide">
-                    +52 55 12345678
+                    +52 55 1054-1184/1185
                 </p>
             </div>
         </div>
