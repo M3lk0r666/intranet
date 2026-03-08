@@ -113,9 +113,9 @@
                         móvil. Escanea el código para ir directo al formulario de captura.
                     </p>
                     <a href="https://netjernetworksproduccion.odoo.com/vacaciones-rh" target="_blank"
-                        class="w-full bg-primary text-white py-1 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all shadow-md shadow-primary/10">
+                        class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+                        Levantar Incidencia
                         <i class="las la-external-link-alt text-xl"></i>
-                        Ir al portal Incidencias
                     </a>
                 </div>
             </div>

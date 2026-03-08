@@ -92,12 +92,15 @@
                     <li>Fecha y Hora de solicitud de camioneta</li>
                     <li>Fecha y Hora (estimada) de regreso de camioneta</li>
                 </ol>
-
                 <h6 class="font-bold text-sm mb-2 uppercase text-phase-1">Aceptación asignación:</h6>
-                <p>Con base en la disponibilidad se asigna la camioneta para su uso</p>
+                <p class="mb-2">Con base en la disponibilidad se asigna la camioneta para su uso</p>
                 <ol class="text-xs space-y-2 list-decimal ml-4 mb-4">
                     <li>Se entrega formato a solicitante</li>
-                    <a href="#" class="text-orange-500 text-lg">Formato Asignación camioneta</a>
+                    <li class="list-none mt-2">
+                        <a href="#"
+                            class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">Formato
+                            Asignación camioneta</a>
+                    </li>
                 </ol>
 
                 <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
@@ -112,8 +115,8 @@
                 <h6 class="font-bold text-sm mb-2 uppercase text-phase-1">Reservar Vehiculo</h6>
                 <p>
                     <a href="https://api.leadconnectorhq.com/widget/booking/FiuBKgXfyoEvw5l1PlTJ" target="_blank"
-                        class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-xl font-bold transition-all shadow-lg shadow-primary/20">Ir
-                        a reservar Camioneta</a>
+                        class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">Reservar
+                        Camioneta</a>
                 </p>
             </div>
         </div>

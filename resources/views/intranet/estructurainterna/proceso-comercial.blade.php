@@ -232,10 +232,13 @@
                         <li>Creación de contenido relevante (webinars, estudios de caso)</li>
                     </ol>
 
-                    <h4 class="font-bold text-gray-700 mb-2">Entregables:</h4>
+                    <h4 class="font-bold text-gray-700 py-2">Entregables:</h4>
                     <ol class="list-disc pl-5 text-gray-600 space-y-1">
-                        <li>Leads Captados
-                            <a href="#" class="text-orange-500">Ver Archivo</a>
+                        <li>Leads Captados</li>
+                        <li class="list-none mt-2">
+                            <a href="#"
+                                class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">Ver
+                                Archivo</a>
                         </li>
                         <li>Reporte de métricas de campañas</li>
                     </ol>
@@ -277,7 +280,7 @@
                         <li>Asignar ejecutivos de cuenta</li>
                         <li>Establecer prioridades según el potencial y tamaño del cliente</li>
                     </ol>
-                    <h4 class="font-bold text-gray-700 mb-2">Entregables:</h4>
+                    <h4 class="font-bold text-gray-700 py-2">Entregables:</h4>
                     <ol class="list-disc pl-5 text-gray-600 space-y-1">
                         <li>Porcentaje de oportunidades atendidas en tiempo y forma</li>
                         <li>Tasa de conversión por tipo de oportunidad</li>
@@ -316,7 +319,7 @@
                         <li>Documentar requerimientos y objetivos de negocio</li>
                         <li>Analizar restricciones técnicas, financieras y de tiempo</li>
                     </ol>
-                    <h4 class="font-bold text-gray-700 mb-2">Entregables:</h4>
+                    <h4 class="font-bold text-gray-700 py-2">Entregables:</h4>
                     <ol class="list-disc pl-5 text-gray-600 space-y-1">
                         <li>Documento de Requisitos del Cliente (RFP)</li>
                         <li>Mapa de requerimientos</li>
@@ -348,13 +351,19 @@
                     <p class="text-gray-700 mb-3">Preparar y presentar una propuesta
                         detallada que incluya costos, términos y condiciones, según las
                         necesidades del proyecto.</p>
-                    <h4 class="font-bold text-gray-700 mb-2 text-base">Ver Proceso:
+                    {{-- <h4 class="font-bold text-gray-700 mb-2 text-base">Ver Proceso:
                         <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
-                            class="text-orange-500">
-                            Ingenieria - Proceso Comercial Ingeniería</a>
+                            class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+                            Proceso Comercial Ingeniería</a>
+                    </h4> --}}
+                    <h4 class="font-bold text-gray-700 mb-2 text-base">
+                        Ver Proceso:
                     </h4>
+                    <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
+                        class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+                        Proceso Comercial Ingeniería
+                    </a>
                 </div>
-
                 <div class="flex items-center text-sm text-gray-500">
                     <span class="mr-4">
                         <i class="far fa-clock mr-1"></i> Duración: 7-14 días
@@ -381,11 +390,18 @@
                         <li>Generación de facturación (anticipos, pago a una exposición, inicio de pagos a varias
                             exposiciones)</li>
                     </ol>
-                    <h4 class="font-bold text-gray-700 mb-2 mt-2">Ver Proceso:
+                    {{-- <h4 class="font-bold text-gray-700 mb-2 mt-2">Ver Proceso:
                         <a href="{{ route('intranet.administracion.facturacion-inventario') }}" target="_blank"
                             class="text-orange-500">
                             Administración Finanzas - Inventario</a>
+                    </h4> --}}
+                    <h4 class="font-bold text-gray-700 mb-2 text-base py-2">
+                        Ver Proceso:
                     </h4>
+                    <a href="{{ route('intranet.administracion.facturacion-inventario') }}" target="_blank"
+                        class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+                        Finanzas - Inventario
+                    </a>
                 </div>
 
                 <div class="flex items-center text-sm text-gray-500">
@@ -419,7 +435,7 @@
                         <li>Formalizar acuerdos (contratos, órdenes de compra)</li>
                         <li>Entrega Factura(s)</li>
                     </ol>
-                    <h4 class="font-bold text-gray-700 mb-2">Entregables:</h4>
+                    <h4 class="font-bold text-gray-700 py-2">Entregables:</h4>
                     <ol class="list-disc pl-5 text-gray-600 space-y-1">
                         <li>Paquete de diseño final (documentación consolidada)</li>
                         <li>Checklist de revisión técnica y comercial</li>
@@ -453,10 +469,17 @@
                         alcance, tiempo y entregables que se ofreció en el contrato</p>
                     <p class="text-gray-700 mb-3">Entrega formal del proyecto finalizado al cliente</p>
 
-                    <h4 class="font-bold text-gray-700 mb-2">Ver Proceso:
+                    {{--  <h4 class="font-bold text-gray-700 mb-2">Ver Proceso:
                         <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" class="text-orange-500">
                             Ingeniería Proceso Comercial Ingeniería</a>
+                    </h4> --}}
+                    <h4 class="font-bold text-gray-700 mb-2 text-base">
+                        Ver Proceso:
                     </h4>
+                    <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
+                        class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+                        Proceso Comercial Ingeniería
+                    </a>
                 </div>
 
                 <div class="flex items-center text-sm text-gray-500">
@@ -484,11 +507,18 @@
                         SLA y
                         gestionando incidentes,problemas y cambios.</p>
 
-                    <h4 class="font-bold text-gray-700 mb-2">Ver Proceso:
+                    {{--  <h4 class="font-bold text-gray-700 mb-2">Ver Proceso:
                         <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
                             class="text-orange-500">
                             Ingeniería Proceso Comercial Ingeniería</a>
+                    </h4> --}}
+                    <h4 class="font-bold text-gray-700 mb-2 text-base">
+                        Ver Proceso:
                     </h4>
+                    <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
+                        class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+                        Proceso Comercial Ingeniería
+                    </a>
                 </div>
 
                 <div class="flex items-center text-sm text-gray-500">
@@ -520,7 +550,7 @@
                         <li>Identificación de necesidades adicionales (cross-selling,upselling)</li>
                         <li>Proponer mejoras continuas a las soluciones existentes</li>
                     </ol>
-                    <h4 class="font-bold text-gray-700 mb-2">Entregables:</h4>
+                    <h4 class="font-bold text-gray-700 py-2">Entregables:</h4>
                     <ol class="list-disc pl-5 text-gray-600 space-y-1">
                         <li>Informes de Rendimiento</li>
                     </ol>
@@ -555,7 +585,7 @@
                         <li>Reconocer a clientes destacados</li>
                         <li>Ofrecer programas personalizados de capacitación o soporte</li>
                     </ol>
-                    <h4 class="font-bold text-gray-700 mb-2">Entregables:</h4>
+                    <h4 class="font-bold text-gray-700 py-2">Entregables:</h4>
                     <ol class="list-disc pl-5 text-gray-600 space-y-1">
                         <li>Plan de programas de lealtad</li>
                     </ol>

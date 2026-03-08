@@ -298,12 +298,20 @@
         color: #9ca3af;
     }
 
-    /*Guas*/
+    /*Guias*/
     .chapter-link {
         @apply text-slate-600 hover:bg-slate-100;
     }
 
     .chapter-link.active {
         @apply bg-orange-50 text-primary font-semibold;
+    }
+
+    .lista {
+        list-style-type: lower-alpha;
+    }
+
+    .lista li::marker {
+        content: counter(list-item, lower-alpha) ") ";
     }
 }

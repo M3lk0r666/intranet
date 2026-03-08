@@ -230,6 +230,9 @@
                                 incidente o soporte interno.</li>
                         </ul>
                     </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        Seleccionar la opcion 3<strong class="text-primary"> "Incidentes Internos Netjer"</strong>.
+                    </p>
                     <!-- Imagen -->
                     <div class="border border-gray-200 bg-gray-50 overflow-hidden">
                         <img src="{{ asset('storage/media/tipo-solicitud.png') }}" alt="Portal Netjer Networks Jira"

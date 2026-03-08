@@ -87,7 +87,19 @@ Route::get('/intranet/estructura-interna/proceso-ingenieria/mantto-preventivo', 
 Route::get('/intranet/estructura-interna/proceso-ingenieria/mantto-correctivo', [IntranetController::class, 'correctivo'])->name('intranet.estructurainterna.proceso-ingenieria.mantto-correctivo');
 
 //Ruta GuiasOnSite
-Route::get('/intranet/ingenieria/guias/instalacion-switches', [IngenieriaController::class, 'switches'])->name('intranet.ingenieria.instalacion-switches');
+Route::get('/intranet/ingenieria/guias/instalacion-switch', [IngenieriaController::class, 'switch'])->name('intranet.ingenieria.instalacion-switch');
+// Ruta para descargar PDF del post
+Route::get('/intranet/ingenieria/guias/instalacion-switch/pdf', [IngenieriaController::class, 'downloadPDF'])->name('intranet.ingenieria.instalacion-switch-pdf');
+
+Route::get('/intranet/ingenieria/guias/instalacion-firewall', [IngenieriaController::class, 'firewall'])->name('intranet.ingenieria.instalacion-firewall');
+Route::get('/intranet/ingenieria/guias/implementacion-aps', [IngenieriaController::class, 'wireless'])->name('intranet.ingenieria.instalacion-aps');
+
+Route::get('/intranet/ingenieria/guias/instalacion-poc', [IngenieriaController::class, 'poc'])->name('intranet.ingenieria.instalacion-poc');
+Route::get('/intranet/ingenieria/guias/mantto-preventivo', [IngenieriaController::class, 'preventivo'])->name('intranet.ingenieria.mantto-preventivo');
+Route::get('/intranet/ingenieria/guias/mantto-correctivo', [IngenieriaController::class, 'correctivo'])->name('intranet.ingenieria.mantto-correctivo');
+Route::get('/intranet/ingenieria/guias/site-survey', [IngenieriaController::class, 'survey'])->name('intranet.ingenieria.site-survey');
+Route::get('/intranet/ingenieria/guias/site-survey/si-wifi', [IngenieriaController::class, 'surveysi'])->name('intranet.ingenieria.sitesurvey-si');
+Route::get('/intranet/ingenieria/guias/site-survey/no-wifi', [IngenieriaController::class, 'surveyno'])->name('intranet.ingenieria.sitesurvey-no');
 
 //Ruta Soporte
 Route::get('/intranet/ingenieria/portal-soporte', [IntranetController::class, 'portsoporte'])->name('intranet.ingenieria.portal-soporte');

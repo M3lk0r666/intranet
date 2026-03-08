@@ -39,147 +39,211 @@
     </div>
 
     <!-- Encabezado -->
-    <div class="mt-8 mb-8">
-        <h1 class="text-3xl font-black text-slate-900 tracking-tight mb-2">Biblioteca de Recursos Materiales</h1>
-        <p class="text-slate-500  mt-2">Acceda a documentacion, guías, tutoriales, formatos y plantillas oficiales de la
-            empresa.</p>
+    <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 mt-8">
+        <div class="max-w-4xl">
+            <h1 class="text-2xl md:text-4xl font-black tracking-tight mb-4">Biblioteca de Recursos Digitales</h1>
+            <p class="text-slate-600 dark:text-slate-400 text-md leading-relaxed">
+                Acceda a documentación técnica, guías operativas, tutoriales multimedia y formatos oficiales actualizados de
+                la empresa para optimizar sus procesos diarios.
+            </p>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6 mb-8 max-w-6xl mx-auto">
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6 border-b border-slate-200 pb-3">
+                <i class="ri-book-shelf-line text-primary text-3xl"></i>
+                <h2 class="text-2xl font-extrabold tracking-tight">Diseño Empresarial - Imagen</h2>
+            </div>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
+                <div
+                    class="bg-white border border-slate-200 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
+                    <div class="flex items-center gap-4">
+                        <!-- Contenido -->
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                                Imagen Corporativa
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-4 line-clamp-2">
+                                Lineamientos de marca, comunicación visual y posicionamiento del mercado.
+                            </p>
+                            <a href="{{ route('intranet.estructurainterna.imagen-corporativa') }}"
+                                class="inline-flex px-6 py-3 bg-primary rounded-xl text-white font-bold text-sm tracking-widest hover:bg-primary/90 transition-colors items-center gap-2">
+                                Ir a recurso ...
+                            </a>
+                        </div>
+                        <!-- Imagen -->
+                        <div class="w-28 h-28 flex-shrink-0 opacity-80 group-hover:scale-105 transition">
+                            <img src="{{ asset('assets/media/operaciones.png') }}" class="w-full h-full object-contain"
+                                alt="Imagen corporativa">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <div class="bg-white rounded-lg shadow p-6 mb-8">
-        <section class="space-y-20">
-            <div class="scroll-mt-32" id="it">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-1 h-8 bg-primary rounded-full"></div>
-                    <h2 class="text-2xl font-bold text-slate-900">Tecnologías de Información (TI)</h2>
-                    <span class="ml-auto text-xs font-bold text-slate-400 uppercase tracking-widest">12 Recursos</span>
+        <!-- Category: TI -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6 border-b border-slate-200 dark:border-primary/20 pb-3">
+                <i class="las la-terminal text-primary text-3xl"></i>
+                <h2 class="text-2xl font-extrabold tracking-tight">Tecnologías de Información (TI)</h2>
+                <span class="ml-auto text-xs font-bold text-slate-400 bg-slate-100 dark:bg-primary/5 px-2 py-1 rounded">3
+                    ARCHIVOS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
+                            <i class="las la-shield-alt text-primary text-3xl"></i>
+                        </div>
+                        <span
+                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">PDF
+                            • 2.4 MB</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Política de Ciberseguridad
+                        2024</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Lineamientos oficiales para la
+                        protección de activos digitales y gestión de incidentes.</p>
+                    <button
+                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
+                        <i class="ri-file-download-line text-sm"></i>
+                        Descargar
+                    </button>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div
-                        class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-primary">
-                                <i class="las la-plus text-3xl"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded">PDF • 2.4
-                                MB</span>
+                <!-- Card 2 -->
+                <div
+                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
+                            <i class="las la-key text-3xl"></i>
                         </div>
-                        <h3 class="font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Política de
-                            Ciberseguridad 2024</h3>
-                        <p class="text-sm text-slate-500 mb-6 line-clamp-2">Lineamientos obligatorios para el manejo de
-                            activos digitales y protección de datos corporativos.</p>
-                        <button
-                            class="w-full py-2.5 bg-primary text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-sm">download</span> Descargar
-                        </button>
+                        <span
+                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">GUIDE
+                            • 1.8 MB</span>
                     </div>
-                    <div
-                        class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-primary">
-                                <i class="las la-plus text-3xl"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded">GUIDE •
-                                Web</span>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Manual de Configuración
+                        VPN
+                    </h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Paso a paso para establecer
+                        conexiones seguras remotas a la infraestructura corporativa.</p>
+                    <button
+                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
+                        <i class="ri-file-download-line text-sm"></i>
+                        Descargar
+                    </button>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
+                            <i class="ri-line-chart-line text-3xl"></i>
                         </div>
-                        <h3 class="font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Manual de
-                            Configuración VPN</h3>
-                        <p class="text-sm text-slate-500 mb-6 line-clamp-2">Paso a paso para la configuración del cliente
-                            VPN corporativo en dispositivos Windows y MacOS.</p>
-                        <button
-                            class="w-full py-2.5 bg-primary text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-sm">open_in_new</span> Leer Guía
-                        </button>
+                        <span
+                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">TOOL
+                            • 5.2 MB</span>
                     </div>
-                    <div
-                        class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-primary">
-                                <i class="las la-plus text-3xl"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded">TOOL •
-                                EXE</span>
-                        </div>
-                        <h3 class="font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Diagnóstico de
-                            Red Local</h3>
-                        <p class="text-sm text-slate-500 mb-6 line-clamp-2">Herramienta interna para validación de latencia
-                            y puertos abiertos en la red corporativa.</p>
-                        <button
-                            class="w-full py-2.5 bg-primary text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-sm">download</span> Descargar
-                        </button>
-                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Diagnóstico de Red Local
+                    </h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Herramienta automatizada para la
+                        validación de latencia y estado de puertos locales.</p>
+                    <button
+                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
+                        <i class="ri-file-download-line text-sm"></i>
+                        Descargar
+                    </button>
                 </div>
             </div>
-            <div class="scroll-mt-32" id="rrhh">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-1 h-8 bg-slate-300 rounded-full"></div>
-                    <h2 class="text-2xl font-bold text-slate-900">Recursos Humanos</h2>
-                    <span class="ml-auto text-xs font-bold text-slate-400 uppercase tracking-widest">8 Recursos</span>
+        </section>
+        <!-- Category: RH -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6 border-b border-slate-200 dark:border-primary/20 pb-3">
+                <i class="ri-team-line text-primary text-3xl"></i>
+                <h2 class="text-2xl font-extrabold tracking-tight">Recursos Humanos</h2>
+                <span class="ml-auto text-xs font-bold text-slate-400 bg-slate-100 dark:bg-primary/5 px-2 py-1 rounded">2
+                    ARCHIVOS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card RH 1 -->
+                <div
+                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
+                            <i class="ri-auction-line text-3xl"></i>
+                        </div>
+                        <span
+                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">DOC
+                            • 1.1 MB</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Código de Ética y Conducta
+                    </h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Valores y normas que rigen el
+                        comportamiento profesional dentro de Netjer Networks.</p>
+                    <button
+                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
+                        <i class="ri-file-download-line text-sm"></i>
+                        Descargar
+                    </button>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div
-                        class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-primary">
-                                <i class="las la-plus text-3xl"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded">DOC • 1.1
-                                MB</span>
+                <!-- Card RH 2 -->
+                <div
+                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
+                            <i class="ri-calendar-event-line text-3xl"></i>
                         </div>
-                        <h3 class="font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Código de Ética
-                            y Conducta</h3>
-                        <p class="text-sm text-slate-500 mb-6 line-clamp-2">Documento integral que rige el comportamiento
-                            profesional y valores corporativos de la organización.</p>
-                        <button
-                            class="w-full py-2.5 bg-primary text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-sm">download</span> Descargar
-                        </button>
+                        <span
+                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">PDF
+                            • 3.4 MB</span>
                     </div>
-                    <div
-                        class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-primary">
-                                <i class="las la-plus text-3xl"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded">PDF • 800
-                                KB</span>
-                        </div>
-                        <h3 class="font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Calendario de
-                            Vacaciones 2024</h3>
-                        <p class="text-sm text-slate-500 mb-6 line-clamp-2">Cronograma de días festivos y periodos de
-                            solicitud de vacaciones para el personal administrativo.</p>
-                        <button
-                            class="w-full py-2.5 bg-primary text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-sm">download</span> Descargar
-                        </button>
-                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Calendario de Vacaciones
+                        2024
+                    </h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Fechas oficiales, días festivos
+                        y
+                        periodos de solicitud para el personal administrativo.</p>
+                    <button
+                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
+                        <i class="ri-file-download-line text-sm"></i>
+                        Descargar
+                    </button>
                 </div>
             </div>
-            <div class="scroll-mt-32" id="ventas">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-1 h-8 bg-slate-300 rounded-full"></div>
-                    <h2 class="text-2xl font-bold text-slate-900">Ventas &amp; Comercial</h2>
-                    <span class="ml-auto text-xs font-bold text-slate-400 uppercase tracking-widest">5 Recursos</span>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div
-                        class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-primary">
-                                <i class="las la-plus text-3xl"></i>
-                            </div>
-                            <span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded">XLS • 4.5
-                                MB</span>
+        </section>
+        <!-- Category: Ventas -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6 border-b border-slate-200 dark:border-primary/20 pb-3">
+                <i class="ri-bill-line text-primary text-3xl"></i>
+                <h2 class="text-2xl font-extrabold tracking-tight">Ventas &amp; Comercial</h2>
+                <span class="ml-auto text-xs font-bold text-slate-400 bg-slate-100 dark:bg-primary/5 px-2 py-1 rounded">1
+                    ARCHIVO</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card Ventas 1 -->
+                <div
+                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
+                            <i class="ri-calculator-line text-3xl"></i>
                         </div>
-                        <h3 class="font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Calculadora de
-                            Comisiones v4</h3>
-                        <p class="text-sm text-slate-500 mb-6 line-clamp-2">Herramienta de cálculo para proyecciones de
-                            ventas y bonificaciones mensuales.</p>
-                        <button
-                            class="w-full py-2.5 bg-primary text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors">
-                            <span class="material-symbols-outlined text-sm">download</span> Descargar
-                        </button>
+                        <span
+                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">XLS
+                            • 0.9 MB</span>
                     </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Calculadora de Comisiones
+                        v4
+                    </h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Plantilla interactiva para el
+                        cálculo de incentivos comerciales según objetivos trimestrales.</p>
+                    <button
+                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
+                        <i class="ri-file-download-line text-sm"></i>
+                        Descargar
+                    </button>
                 </div>
             </div>
         </section>
@@ -187,6 +251,6 @@
 
 
 
+
+
 @endsection
-@push('js')
-@endpush

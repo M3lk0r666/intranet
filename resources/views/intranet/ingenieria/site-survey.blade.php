@@ -4,7 +4,6 @@
 
 @push('css')
     <link href="/assets/css/intrahome.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
 @endpush
 
 @section('content')
@@ -40,8 +39,7 @@
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">Guias on Site - Instalación
-                                Switches</span>
+                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">Guias on Site - Site Survey</span>
                         </div>
                     </li>
                 </ol>
@@ -52,7 +50,7 @@
     <!-- Encabezado -->
     <div class="text-center mb-16 mt-8">
         <h1 class="text-4xl font-black font-display tracking-tight text-slate-900 uppercase">
-            Guia<span class="text-primary  uppercase"> Implementación Switches</span>
+            Guia<span class="text-primary  uppercase"> Site Survey</span>
         </h1>
     </div>
 
@@ -104,16 +102,9 @@
                             Descargar Recursos
                         </p>
                         <div class="space-y-2">
-                            <a href="#"
+                            <a href="{{ route('intranet.ingenieria.instalacion-switch-pdf') }}"
                                 class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium  text-slate-600 bg-slate-50  hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Esta Guía</span>
-                                <i
-                                    class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
-                            </a>
-
-                            <a href="#"
-                                class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600transition-colors duration-300">
-                                <span>Plan de Actividades</span>
                                 <i
                                     class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                             </a>
@@ -138,14 +129,38 @@
                 <div>
                     <span
                         class="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-primary text-xs font-bold mb-4">
-                        GUÍA DE IMPLEMENTACIÓN v3.0
+                        GUÍA DE IMPLEMENTACIÓN v1.0
                     </span>
-                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Sustitución de Switches de Acceso</h1>
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Realizar estudio de Red Inalambrica</h1>
                     <p class="text-lg text-slate-600 leading-relaxed">
-                        Guía detallada para el proceso de sustitución y configuración de switches, asegurando el
-                        cumplimiento de estándares corporativos y minimizando el tiempo de inactividad.
+                        Guía detallada para el proceso de realización del estudio <span
+                            class="text-orange-500 font-bold uppercase">Site Survey</span> para el analizar el
+                        comportamiento de la red inalambrica, asegurando el
+                        cumplimiento de estándares corporativos.
                     </p>
                 </div>
+                <section class="scroll-mt-32">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-red-600">
+                            <i class="las la-exclamation-triangle"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">Consideración <span
+                                class="text-red-500  uppercase">Importante</span>
+
+                        </h2>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-red-100 p-8 shadow-sm">
+                        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl mb-3">
+                            <h4 class="text-sm font-bold text-orange-800 flex items-center gap-2 mb-1">
+                                <i class="las la-info-circle"></i> Mapa arquitectonico
+                            </h4>
+                            <p class="text-sm text-orange-700">Es indispensable contar o tener el plano arquitectónico del
+                                área donde se realizará el estudio, ya que este es el pilar para un buen diseño, ya que con
+                                el uso de la herramienta Ekahau se podrá escalar/dimensionar el área y así poder tener una
+                                propagación más real de la señal en base a la distancia.</p>
+                        </div>
+                    </div>
+                </section>
                 <section class="scroll-mt-32" id="previas">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">

@@ -3,10 +3,7 @@
 @section('title', 'Intranet Corporativa')
 
 @push('css')
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="/assets/css/intrahome.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
 @endpush
 
 @section('content')
@@ -49,148 +46,132 @@
     </div>
 
     <!-- Encabezado -->
-    <div class="mt-8 mb-8">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">Procesos y Actividades Administración</h1>
-        <p class="text-gray-600">En cualquier organización, contar con un proceso formalizado de selección, evaluación y
-            contratación de personal es fundamental para asegurar que los nuevos colaboradores no solo cubran los requisitos
-            técnicos del puesto, sino que también se alineen con la cultura, valores y objetivos estratégicos de la empresa.
-        </p>
-    </div>
-
-    <!-- Procesos RH-->
-    <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="text-2xl font-bold mb-6 text-center uppercase text-orange-600"> Recursos Humanos</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Categoría 1 -->
-            <a href="{{ route('intranet.administracion.alta-colaborador') }}"
-                class="card-hover p-5 border border-gray-200 rounded-lg text-center hover:border-primary hover:bg-orange-50">
-                <div class="bg-green-100 text-green-600 p-4 rounded-full inline-flex mb-4">
-                    <i class="las la-user-plus text-2xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2">Alta de Colaborador</h3>
-                <p class="text-gray-600 text-sm mb-3">El proceso de alta es el conjunto de actividades administrativas,
-                    legales y operativas que realiza el área de Recursos Humanos cuando una persona se incorpora formalmente
-                    a la empresa.</p>
-                <span class="text-primary font-medium">1 Procedimiento 2 archivos</span>
-            </a>
-
-            <!-- Categoría 2 -->
-            <a href="{{ route('intranet.administracion.baja-colaborador') }}"
-                class="card-hover p-5 border border-gray-200 rounded-lg text-center hover:border-primary hover:bg-orange-50">
-                <div class="bg-red-100 text-red-600 p-4 rounded-full inline-flex mb-4">
-                    <i class="las la-user-times text-2xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2">Baja de Colaborador</h3>
-                <p class="text-gray-600 text-sm mb-3">El proceso de baja comprende las acciones que realiza RH cuando
-                    termina la relación laboral, ya sea por renuncia, despido, término de contrato o jubilación.</p>
-                <span class="text-primary font-medium">1 Procedimiento 1 archivo</span>
-            </a>
-
-            <!-- Categoría 3 -->
-            <a href="{{ route('intranet.administracion.uso-camioneta') }}"
-                class="card-hover p-5 border border-gray-200 rounded-lg text-center hover:border-primary hover:bg-orange-50">
-                <div class="bg-blue-100 text-blue-600 p-4 rounded-full inline-flex mb-4">
-                    <i class="las la-car-side text-2xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2">Uso de Camioneta</h3>
-                <p class="text-gray-600 text-sm mb-3">La camioneta representa una herramienta escencial para las operaciones
-                    diarias, transporte de personal y traslado de materiales.</p>
-                <span class="text-primary font-medium">1 Procedimineto y 1 archivo</span>
-            </a>
-
-            <!-- Categoría 4 -->
-            <a href="{{ route('intranet.administracion.incidencias') }}"
-                class="card-hover p-5 border border-gray-200 rounded-lg text-center hover:border-primary hover:bg-orange-50">
-                <div class="bg-orange-100 text-orange-600 p-4 rounded-full inline-flex mb-4">
-                    <i class="las la-map-signs text-2xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2">Incidencias</h3>
-                <p class="text-gray-600 text-sm mb-3">Guia para el levantamiento de incidencia poara nómina</p>
-                <span class="text-primary font-medium">Procedimiento</span>
-            </a>
-
-            <!-- Categoría 5 -->
-            <a href="{{ route('intranet.administracion.horario-laboral') }}"
-                class="card-hover p-5 border border-gray-200 rounded-lg text-center hover:border-primary hover:bg-orange-50">
-                <div class="bg-purple-100 text-purple-600 p-4 rounded-full inline-flex mb-4">
-                    <i class="las la-business-time text-2xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2">Horarios Laborales</h3>
-                <p class="text-gray-600 text-sm mb-3">Regsitro, Control y Cumplimiento de los horarios laboarales</p>
-                <span class="text-primary font-medium">Proceso</span>
-            </a>
-        </div>
-    </div>
-    <hr>
-    <!-- Procesos Facturacion-->
-    <div class="bg-white rounded-lg shadow p-6 mt-6">
-        <h2 class="text-2xl font-bold mb-6 text-center uppercase text-orange-600">Inventario - Facturación</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Categoría 1 -->
-            <a href="{{ route('intranet.administracion.facturacion-inventario') }}"
-                class="card-hover p-5 border border-gray-200 rounded-lg text-center hover:border-primary hover:bg-orange-50">
-                <div class="bg-blue-100 text-blue-600 p-4 rounded-full inline-flex mb-4">
-                    <i class="las la-file-invoice-dollar text-2xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2">Inventario-Facturación</h3>
-                <p class="text-gray-600 text-sm mb-3">El proceso de facturación e inventario es un conjunto de actividades
-                    administrativas y operativas que permiten registrar, controlar y gestionar las ventas de productos o
-                    servicios, así como mantener actualizado el control de existencias dentro de una organización.</p>
-                <span class="text-primary font-medium">3 Fases 8 Tareas Clave</span>
-            </a>
-        </div>
-    </div>
-    <hr>
-
-    <section class="mt-20 opacity-40 pointer-events-none cursor-not-allowed">
-        <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-bold border-l-4 border-primary pl-4">Procesos Por Definir</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Proceso Marketing -->
-            <div
-                class="bg-white dark:bg-surface-dark p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex items-center gap-6 shadow-sm hover:border-primary transition-all cursor-pointer">
-                <div
-                    class="h-16 w-16 bg-orange-100 dark:bg-primary/20 rounded-2xl flex items-center justify-center text-primary">
-                    <i class="las la-question text-2xl"></i>
-                </div>
+    <div class="flex flex-col lg:flex-row gap-10 mt-8">
+        <!-- Content Area -->
+        <div class="flex-1 flex flex-col gap-8">
+            <!-- Page Hero Header -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h4 class="text-xl font-bold mb-1">Proceso Marketing</h4>
-                    <p class="text-slate-500 text-sm">Descripcion por definir ...</p>
+                    <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 ">Procesos
+                        Administrativos</h1>
+                    <p class="text-slate-500  mt-2 text-lg">Estandarización y eficiencia en la gestión
+                        operativa de Netjer Networks.</p>
                 </div>
-                <span class="material-symbols-outlined ml-auto text-slate-400">proximamente ...</span>
             </div>
-            <!-- Proceso Inventario -->
+            <!-- Main Section: Recursos Humanos -->
             <div
-                class="bg-white dark:bg-surface-dark p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex items-center gap-6 shadow-sm hover:border-primary transition-all cursor-pointer">
-                <div
-                    class="h-16 w-16 bg-orange-100 dark:bg-primary/20 rounded-2xl flex items-center justify-center text-primary">
-                    <i class="las la-question text-2xl"></i>
+                class="relative overflow-hidden rounded-3xl bg-slate-900 min-h-[400px] flex flex-col justify-end p-8 group">
+                <div class="absolute inset-0 opacity-60 group-hover:scale-105 transition-transform duration-700 bg-center bg-cover"
+                    data-alt="Modern professional office building interior with clean aesthetics"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCH_wn5bMfCm_QyzJrwsdSgXkENU5qeB-bdUrrlUSucaU-R-fGlbIERK3Ryg0PXEwcyYwK7RGlBI5sjjtMRLEz0L6C-TVZ7Qhk6G8OZRdz9nbRM89-kYo7Qmvv6IJ8MDjwolCPr1Yr1dPUCaCCN2grYaHi8BgALbxzzTUEpcZdspdhDROs86Tty4FWYnsNTrNgeWWKfq9z8lD-ldKdBp6wse86bH6Q1TCupW2BKLQEMTZtBY-WEntk5NZ4TdgenID1v-BfoogyP4688')">
                 </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-1">Proceso Inventario</h4>
-                    <p class="text-slate-500 text-sm">Descripcion por definir ...</p>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="relative z-10">
+                    <span
+                        class="bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Sección
+                        Crítica</span>
+                    <h2 class="text-4xl font-black text-white mt-4">Recursos Humanos</h2>
+                    <p class="text-slate-200 max-w-xl mt-2 text-lg">Gestión integral del ciclo de vida del colaborador,
+                        desde la integración hasta la desvinculación oficial.</p>
+                    <div class="flex flex-wrap gap-4 mt-6">
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex-1 min-w-[200px]">
+                            <div class="flex items-center gap-2 text-primary mb-1">
+                                <i class="ri-user-add-line"></i>
+                                <span class="font-bold text-sm uppercase">Alta</span>
+                            </div>
+                            <p class="text-white text-sm font-medium">Procedimiento de contratación y bienvenida.</p>
+                            <a href="{{ route('intranet.administracion.alta-colaborador') }}"
+                                class="mt-4 text-xs font-bold text-white flex items-center gap-1 hover:text-primary transition-colors">VER
+                                PROCEDIMIENTO <i class="ri-arrow-right-s-line text-sn"></i>
+                            </a>
+                        </div>
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex-1 min-w-[200px]">
+                            <div class="flex items-center gap-2 text-primary mb-1">
+                                <i class="ri-user-minus-line"></i>
+                                <span class="font-bold text-sm uppercase">Baja</span>
+                            </div>
+                            <p class="text-white text-sm font-medium">Protocolo de desvinculación y entrega de activos.
+                            </p>
+                            <a href="{{ route('intranet.administracion.baja-colaborador') }}"
+                                class="mt-4 text-xs font-bold text-white flex items-center gap-1 hover:text-primary transition-colors">VER
+                                PROCEDIMIENTO <i class="ri-arrow-right-s-line text-sn"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <span class="material-symbols-outlined ml-auto text-slate-400">proximamente ...</span>
             </div>
-            <!-- Proceso Compras -->
-            <div
-                class="bg-white dark:bg-surface-dark p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex items-center gap-6 shadow-sm hover:border-primary transition-all cursor-pointer">
-                <div
-                    class="h-16 w-16 bg-orange-100 dark:bg-primary/20 rounded-2xl flex items-center justify-center text-primary">
-                    <i class="las la-question text-2xl"></i>
+            <!-- Secondary Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Uso de Camioneta -->
+                <div class="group relative h-80 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Corporate logistic white van in a parking area"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCmaWwdY-yoRUen1-Yi10IqVWFEpbzMBJqbPpyaQqvm9zs-6E8y6a-ieh3B1zQ7oWvPm0QNZpM6Dcv5K4kOJPYmkTO2GNprWadfbB7muAYBd9-0_ANgBvJZVyZcXQ7Hx6JufvyAn-F_UKKBpmcyvAkk1cQOkjqq17lud9EOJEicWAWsDHFEejPnHRuP9kxFHQbzBkbjNlG3wIcWE_Vram6avga0Px2-4141uYNff-Lfu0VxlgLMrQysxqpqCQz9KmrPo2stPf0YCT9')">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white">Uso de Camioneta</h3>
+                        <p class="text-slate-300 text-sm mt-1 mb-4">Control de bitácoras, mantenimiento y asignación de
+                            vehículos.</p>
+                        {{-- <a href="{{ route('intranet.administracion.uso-camioneta') }}"
+                            class="block w-full bg-primary py-3 rounded-xl text-white font-bold text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors">Procedimiento
+                        </a> --}}
+                        <a href="{{ route('intranet.administracion.uso-camioneta') }}"
+                            class="inline-flex px-6 py-3 bg-primary rounded-xl text-white font-bold text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors items-center justify-center">
+                            Procedimiento
+                        </a>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-1">Proceso Compras</h4>
-                    <p class="text-slate-500 text-sm">Descripcion por definir ...</p>
+                <!-- Incidencias -->
+                <div class="group relative h-80 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Modern calculator and accounting financial documents on a desk"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhv-gSrQLq1VVcly-45DqcJO9BLORd4KfLvuLhyBZbSpKD6KkINpaKVihVdUk9_MAVXAhfa-j4hwLufcCyY8MZTdg1ggYNU_eyigUSePfdm6MzsUVrV8VxspSwINAxY0fzKk7RRzqpJ6N4CHcqT0eZOdrGF6TXnQI96HzDqP9tRjs65t6B-FMwe_jBYU02_FqZEoc7Am5zkz0E_Wwq9d-Uh3izSWpuxjP5jXkgtdyYd3b69TVC8FCdZtcSsM2so9B6Tdifi4S9_Iko')">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white">Incidencias</h3>
+                        <p class="text-slate-300 text-sm mt-1 mb-4">Reporte de nómina, faltas, retardos y bonificaciones
+                            extraordinarias.</p>
+                        <a href="{{ route('intranet.administracion.incidencias') }}"
+                            class="inline-flex px-6 py-3 bg-primary rounded-xl text-white font-bold text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors items-center justify-center">Procedimiento</a>
+                    </div>
                 </div>
-                <span class="material-symbols-outlined ml-auto text-slate-400">proximamente ...</span>
+                <!-- Horarios Laborales -->
+                <div class="group relative h-80 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Classic office clock on a minimalist wall"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXSs4i7482epFlPO5_3HbxK-Pc0VIw1bdbth6SA55jsr7nOX_jsgyjcoIyuSv35qPBqI26g6ZNgz9CA1mkoz1F4VM26lndB6qxIl6K7F1mrd9XU39Omv-pT59otfjd5c-7y4ReEjiK4tBbEO3bISXZt66GXAKyGiKUdl6i9dVqKSAvThbzAJd7CGHCY0w7FSvF4HeSFUNz5yv20t4dtb4X6M0b-OIGhs8aeLTqbbuP4ACJpNKeOeptqKdBtPoVyT2QOGZ0SRaUBtSR')">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white">Horarios Laborales</h3>
+                        <p class="text-slate-300 text-sm mt-1 mb-4">Registro de asistencia, turnos rotativos y
+                            cumplimiento
+                            de jornada.</p>
+                        <a href="{{ route('intranet.administracion.horario-laboral') }}"
+                            class="inline-flex px-6 py-3 bg-primary rounded-xl text-white font-bold text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors items-center justify-center">Procedimiento</a>
+                    </div>
+                </div>
+                <!-- Inventario - Facturación -->
+                <div class="group relative h-80 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                        data-alt="Modern warehouse shelves with organized products"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAU4E5Z1GbdzCee5L3S9yPLa47cWhbIyvoVXSUYIYeZuN_wm8olnyek_0FzO8gVoaJ3a63dz4AcsIFpbxW_ARoZwhuO-yFOg_XsPkwKUoXUOfUxX7Dem-UXpNnf-0sEe0jIBBq2MHuwLGOcqQyYQjHsQ6LOIJmD0xV37HBlHfQqbLBi5cNigEX3RTZSMdT7rB6hpEBjvekHa7M0GeU3gVNlCgz_fWq5yM54R61jxtxUazr12mtXsuMniTgn7qenUc8vZVmWVe-B2-ph')">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white">Inventario - Facturación</h3>
+                        <p class="text-slate-300 text-sm mt-1 mb-4">Control de existencias, flujo de ventas y emisión de
+                            facturas fiscales.</p>
+                        <a href="{{ route('intranet.administracion.facturacion-inventario') }}"
+                            class="inline-flex px-6 py-3 bg-primary rounded-xl text-white font-bold text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors items-center justify-center">Procedimiento</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
 @endsection
-@push('js')
-@endpush

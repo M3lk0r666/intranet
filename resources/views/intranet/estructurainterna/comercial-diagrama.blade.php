@@ -105,12 +105,12 @@
         <p class="text-slate-600 mt-4">Fases 1 a 10 - Ciclo completo del Proceso Comercial IT</p>
     </header>
 
-    <div class="p-4 bg-slate-50 flex justify-start space-x-2 border-t border-slate-100">
+    {{-- <div class="p-4 bg-slate-50 flex justify-start space-x-2 border-t border-slate-100">
         <a href="3"
             class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded text-xs font-bold transition-colors">
             <i class="ri-arrow-left-line"></i> Regresar
         </a>
-    </div>
+    </div> --}}
 
     <!-- Grid de fases (1-5 en primera fila, 6-10 en segunda fila) -->
     <div class="space-y-12">
@@ -139,8 +139,11 @@
                 <div class="phase-card">
                     <h4 class="font-bold text-sm mb-2 uppercase">Entregables:</h4>
                     <ol class="text-xs space-y-2 list-decimal ml-4">
-                        <li>Leads Captados<br>
-                            <a href="#" class="text-orange-500">Ver Archivo</a>
+                        <li>Leads Captados</li>
+                        <li class="list-none mt-2">
+                            <a href="#"
+                                class="inline-block bg-orange-500 text-white text-xm px-4 py-2 rounded-lg hover:bg-orange-600 transition">Ver
+                                Archivo</a>
                         </li>
                         <li>Reporte de métricas de campañas</li>
                     </ol>
@@ -251,11 +254,13 @@
                             necesidades del proyecto.</p>
                         <p class="text-sm leading-relaxed mb-6">Entrega formal del proyecto finalizado al cliente</p>
                     </div>
-                    <div class="mt-8 pt-4 border-t border-white/20 text-xs text-left">
-                        <span class="font-bold opacity-80">Ver Proceso:</span><br />
-                        <a href="#" class="text-white-500 font-medium"> Ingenieria - Proceso Comercial
-                            Ingeniería</a>
-                    </div>
+                </div>
+                <div class="phase-card">
+                    <p class="text-sm leading-relaxed"><span class="font-bold">Consultar Proceso:</span></p>
+                    <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
+                        class="inline-block mt-2 bg-orange-500 text-white px-3 py-1.5 rounded-md text-xs hover:bg-phase-4 transition">
+                        Finanzas - Inventario
+                    </a>
                 </div>
             </div>
 
@@ -263,7 +268,7 @@
             <div id="fase-5" class="phase-section flex flex-col space-y-4">
                 <div
                     class="arrow-header bg-phase-5 text-white p-4 h-24 flex flex-col justify-center items-center text-center">
-                    <span class="text-sm font-bold uppercase">4. Fase: Proceso Administrativo - Facturación -
+                    <span class="text-sm font-bold uppercase">5. Fase: Proceso Administrativo - Facturación -
                         Inventario</span>
                 </div>
                 <div class="bg-phase-5 rounded-2xl p-6 text-white text-left h-full flex flex-col justify-between">
@@ -276,10 +281,13 @@
                                 exposiciones)</li>
                         </ol>
                     </div>
-                    <div class="mt-8 pt-4 border-t border-white/20 text-xs text-left">
-                        <span class="font-bold opacity-80">Ver Proceso:</span><br />
-                        <a href="#" class="text-white-500 font-medium"> Administración Finanzas - Inventario</a>
-                    </div>
+                </div>
+                <div class="phase-card">
+                    <p class="text-sm leading-relaxed"><span class="font-bold">Consultar Proceso:</span></p>
+                    <a href="{{ route('intranet.administracion.facturacion-inventario') }}" target="_blank"
+                        class="inline-block mt-2 bg-orange-500 text-white px-3 py-1.5 rounded-md text-xs hover:bg-phase-5 transition">
+                        Finanzas - Inventario
+                    </a>
                 </div>
             </div>
         </div>
@@ -336,14 +344,18 @@
                 <div class="bg-phase-7 rounded-2xl p-6 text-white text-center h-full flex flex-col justify-between">
                     <div>
                         <span class="block font-bold mb-3">Objetivo:</span>
-                        <p class="text-sm leading-relaxed mb-6">Realizar la implementación de la solución, cuidando el
+                        <p class="text-sm leading-relaxed mb-6 text-justify">Realizar la implementación de la solución,
+                            cuidando el
                             alcance, tiempo y entregables que se ofreció en el contrato.</p>
                         <p class="text-sm leading-relaxed mb-6">Entrega formal del proyecto finalizado al cliente</p>
                     </div>
-                    <div class="mt-8 pt-4 border-t border-white/20 text-xs text-left">
-                        <span class="opacity-80">Ver Proceso:</span><br />
-                        Ingeniería - Proceso Comercial Ingeniería
-                    </div>
+                </div>
+                <div class="phase-card">
+                    <p class="text-sm leading-relaxed"><span class="font-bold">Consultar Proceso:</span></p>
+                    <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
+                        class="inline-block mt-2 bg-orange-500 text-white px-3 py-1.5 rounded-md text-xs hover:bg-phase-7 transition">
+                        Comercial Ingeniería
+                    </a>
                 </div>
             </div>
 
@@ -359,10 +371,13 @@
                         <p class="text-sm leading-relaxed mb-6">Asegurar la operación continua y eficiente de los
                             servicios, cumpliendo SLA y gestionando incidentes, problemas y cambios.</p>
                     </div>
-                    <div class="mt-8 pt-4 border-t border-white/20 text-xs text-left">
-                        <span class="opacity-80">Ver Proceso:</span><br />
-                        Ingeniería - Proceso Comercial Ingeniería
-                    </div>
+                </div>
+                <div class="phase-card">
+                    <p class="text-sm leading-relaxed"><span class="font-bold">Consultar Proceso:</span></p>
+                    <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
+                        class="inline-block mt-2 bg-orange-500 text-white px-3 py-1.5 rounded-md text-xs hover:bg-phase-8 transition">
+                        Comercial Ingeniería
+                    </a>
                 </div>
             </div>
 

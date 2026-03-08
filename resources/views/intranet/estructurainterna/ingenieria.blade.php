@@ -246,8 +246,80 @@
 
     <!-- Grid guias -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <!-- Material 1 -->
-        <a href="{{ route('intranet.ingenieria.instalacion-switches') }}"
+        <!-- Guia 1 -->
+        <a href="{{ route('intranet.ingenieria.instalacion-switch') }}"
+            class="group block bg-white border border-slate-200 rounded-xl p-6 hover:border-orange-400 hover:shadow-md hover:ring-1 hover:ring-orange-100 transition-all duration-300 ease-out">
+            <!-- Top Row -->
+            <div class="flex items-center justify-between mb-6">
+                <span
+                    class="inline-flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full  group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors duration-300">
+                    <i class="fas fa-folder text-[11px]"></i>
+                    Infraestructura
+                </span>
+                <span class="text-xs text-slate-400">
+                    21/02/2026
+                </span>
+            </div>
+            <!-- Content -->
+            <div class="flex items-start gap-4">
+                <div
+                    class="p-3 rounded-lg bg-slate-100 text-slate-600 
+                    group-hover:bg-orange-50 group-hover:text-orange-600
+                    transition-colors duration-300">
+                    <i class="las la-tasks text-xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h3
+                        class="text-base font-semibold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">
+                        Implementación Switches
+                    </h3>
+                    <p class="text-sm text-slate-500 mt-1">
+                        Guía de actividades en la implementación de switches.
+                    </p>
+                </div>
+                <div class="text-slate-300 group-hover:text-orange-500 transition-colors duration-300">
+                    <i class="las la-arrow-right text-lg group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
+            </div>
+        </a>
+        <!-- Guia 2 -->
+        <a href="{{ route('intranet.ingenieria.instalacion-firewall') }}"
+            class="group block bg-white border border-slate-200 rounded-xl p-6 hover:border-orange-400 hover:shadow-md hover:ring-1 hover:ring-orange-100 transition-all duration-300 ease-out">
+            <!-- Top Row -->
+            <div class="flex items-center justify-between mb-6">
+                <span
+                    class="inline-flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full  group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors duration-300">
+                    <i class="fas fa-folder text-[11px]"></i>
+                    Seguridad
+                </span>
+                <span class="text-xs text-slate-400">
+                    21/02/2026
+                </span>
+            </div>
+            <!-- Content -->
+            <div class="flex items-start gap-4">
+                <div
+                    class="p-3 rounded-lg bg-slate-100 text-slate-600 
+                    group-hover:bg-orange-50 group-hover:text-orange-600
+                    transition-colors duration-300">
+                    <i class="las la-tasks text-xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h3
+                        class="text-base font-semibold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">
+                        Implementación Firewalls
+                    </h3>
+                    <p class="text-sm text-slate-500 mt-1">
+                        Guía de actividades en la implementación de firewall.
+                    </p>
+                </div>
+                <div class="text-slate-300 group-hover:text-orange-500 transition-colors duration-300">
+                    <i class="las la-arrow-right text-lg group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
+            </div>
+        </a>
+        <!-- Guia 3 -->
+        <a href="{{ route('intranet.ingenieria.instalacion-aps') }}"
             class="group block bg-white border border-slate-200 rounded-xl p-6 hover:border-orange-400 hover:shadow-md hover:ring-1 hover:ring-orange-100 transition-all duration-300 ease-out">
             <!-- Top Row -->
             <div class="flex items-center justify-between mb-6">
@@ -271,21 +343,155 @@
                 <div class="flex-1">
                     <h3
                         class="text-base font-semibold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">
-                        Implementación Switches
+                        Implementación Acces Points
                     </h3>
                     <p class="text-sm text-slate-500 mt-1">
-                        Guía de actividades en la implementación de switches.
+                        Guía de actividades en la implementación de antenas inalambricas.
                     </p>
-                    <div class="flex items-center gap-6 mt-4 text-xs text-slate-400">
-                        <span class="flex items-center gap-1">
-                            <i class="fas fa-file"></i>
-                            PDF
-                        </span>
-                        <span class="flex items-center gap-1">
-                            <i class="fas fa-database"></i>
-                            3.2 MB
-                        </span>
-                    </div>
+                </div>
+                <div class="text-slate-300 group-hover:text-orange-500 transition-colors duration-300">
+                    <i class="las la-arrow-right text-lg group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
+            </div>
+        </a>
+        <!-- Guia 4 -->
+        <a href="#"
+            class="group block bg-white border border-slate-200 rounded-xl p-6 hover:border-orange-400 hover:shadow-md hover:ring-1 hover:ring-orange-100 transition-all duration-300 ease-out">
+            <!-- Top Row -->
+            <div class="flex items-center justify-between mb-6">
+                <span
+                    class="inline-flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full  group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors duration-300">
+                    <i class="fas fa-folder text-[11px]"></i>
+                    Guía de Actividades
+                </span>
+                <span class="text-xs text-slate-400">
+                    21/02/2026
+                </span>
+            </div>
+            <!-- Content -->
+            <div class="flex items-start gap-4">
+                <div
+                    class="p-3 rounded-lg bg-slate-100 text-slate-600 
+                    group-hover:bg-orange-50 group-hover:text-orange-600
+                    transition-colors duration-300">
+                    <i class="las la-tasks text-xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h3
+                        class="text-base font-semibold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">
+                        Guia para PoC
+                    </h3>
+                    <p class="text-sm text-slate-500 mt-1">
+                        Guía de actividades para realizar una PoC.
+                    </p>
+                </div>
+                <div class="text-slate-300 group-hover:text-orange-500 transition-colors duration-300">
+                    <i class="las la-arrow-right text-lg group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
+            </div>
+        </a>
+        <!-- Guia 5 -->
+        <a href="#"
+            class="group block bg-white border border-slate-200 rounded-xl p-6 hover:border-orange-400 hover:shadow-md hover:ring-1 hover:ring-orange-100 transition-all duration-300 ease-out">
+            <!-- Top Row -->
+            <div class="flex items-center justify-between mb-6">
+                <span
+                    class="inline-flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full  group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors duration-300">
+                    <i class="fas fa-folder text-[11px]"></i>
+                    Guía de Actividades
+                </span>
+                <span class="text-xs text-slate-400">
+                    21/02/2026
+                </span>
+            </div>
+            <!-- Content -->
+            <div class="flex items-start gap-4">
+                <div
+                    class="p-3 rounded-lg bg-slate-100 text-slate-600 
+                    group-hover:bg-orange-50 group-hover:text-orange-600
+                    transition-colors duration-300">
+                    <i class="las la-tasks text-xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h3
+                        class="text-base font-semibold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">
+                        Mantenimiento Preventivo
+                    </h3>
+                    <p class="text-sm text-slate-500 mt-1">
+                        Guía de actividades para la realiazación de mantenimineto preventivo.
+                    </p>
+                </div>
+                <div class="text-slate-300 group-hover:text-orange-500 transition-colors duration-300">
+                    <i class="las la-arrow-right text-lg group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
+            </div>
+        </a>
+        <!-- Guia 6 -->
+        <a href="#"
+            class="group block bg-white border border-slate-200 rounded-xl p-6 hover:border-orange-400 hover:shadow-md hover:ring-1 hover:ring-orange-100 transition-all duration-300 ease-out">
+            <!-- Top Row -->
+            <div class="flex items-center justify-between mb-6">
+                <span
+                    class="inline-flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full  group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors duration-300">
+                    <i class="fas fa-folder text-[11px]"></i>
+                    Guía de Actividades
+                </span>
+                <span class="text-xs text-slate-400">
+                    21/02/2026
+                </span>
+            </div>
+            <!-- Content -->
+            <div class="flex items-start gap-4">
+                <div
+                    class="p-3 rounded-lg bg-slate-100 text-slate-600 
+                    group-hover:bg-orange-50 group-hover:text-orange-600
+                    transition-colors duration-300">
+                    <i class="las la-tasks text-xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h3
+                        class="text-base font-semibold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">
+                        Mantenimiento Correctivo
+                    </h3>
+                    <p class="text-sm text-slate-500 mt-1">
+                        Guía de actividades para la realiazación de mantenimineto correctivo.
+                    </p>
+                </div>
+                <div class="text-slate-300 group-hover:text-orange-500 transition-colors duration-300">
+                    <i class="las la-arrow-right text-lg group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
+            </div>
+        </a>
+        <!-- Guia 7 -->
+        <a href="{{ route('intranet.ingenieria.site-survey') }}"
+            class="group block bg-white border border-slate-200 rounded-xl p-6 hover:border-orange-400 hover:shadow-md hover:ring-1 hover:ring-orange-100 transition-all duration-300 ease-out">
+            <!-- Top Row -->
+            <div class="flex items-center justify-between mb-6">
+                <span
+                    class="inline-flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full  group-hover:bg-orange-50 group-hover:text-orange-600 transition-colors duration-300">
+                    <i class="fas fa-folder text-[11px]"></i>
+                    Guía de Actividades
+                </span>
+                <span class="text-xs text-slate-400">
+                    21/02/2026
+                </span>
+            </div>
+            <!-- Content -->
+            <div class="flex items-start gap-4">
+                <div
+                    class="p-3 rounded-lg bg-slate-100 text-slate-600 
+                    group-hover:bg-orange-50 group-hover:text-orange-600
+                    transition-colors duration-300">
+                    <i class="las la-tasks text-xl"></i>
+                </div>
+                <div class="flex-1">
+                    <h3
+                        class="text-base font-semibold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">
+                        Guia para Site Survey
+                    </h3>
+                    <p class="text-sm text-slate-500 mt-1">
+                        Guía de actividades para la realiazación de Site Survey.
+                    </p>
                 </div>
                 <div class="text-slate-300 group-hover:text-orange-500 transition-colors duration-300">
                     <i class="las la-arrow-right text-lg group-hover:translate-x-1 transition-transform duration-300"></i>

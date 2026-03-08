@@ -95,13 +95,25 @@
                 </ol>
 
                 <h6 class="font-bold text-sm mb-2 uppercase text-phase-1">Verificar recursos:</h6>
-                <ol class="text-xs space-y-2 list-decimal ml-4 mb-4">
+                {{-- <ol class="text-xs space-y-2 list-decimal ml-4 mb-4">
                     <li>Asegurarse de contar con las herramientas necesarias (tester de cables, software de diagnostico,
                         etc.)</li>
                     <li>Confirmar disponibilidad de respuestos (fuentes de poder, ventiladores, cables, etc.)</li>
                     <li>Levantar ticket JIRA</li>
                     <a href="{{ route('intranet.ingenieria.guia-tickets') }}" target="_blank"
-                        class="text-orange-500 text-lg">Levantar Ticket</a>
+                        class="text-orange-500 text-base">Levantar Ticket</a>
+                </ol> --}}
+                <ol class="text-xs space-y-2 list-decimal ml-4 mb-4">
+                    <li>Asegurarse de contar con las herramientas necesarias (tester de cables, software de diagnostico,
+                        etc.)</li>
+                    <li>Confirmar disponibilidad de respuestos (fuentes de poder, ventiladores, cables, etc.)</li>
+                    <li>Levantar ticket JIRA</li>
+                    <li class="list-none mt-2">
+                        <a href="{{ route('intranet.ingenieria.guia-tickets') }}" target="_blank"
+                            class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+                            Levantar Ticket
+                        </a>
+                    </li>
                 </ol>
                 <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
                     <h5 class="font-bold text-xs mb-1 text-blue-700">Participantes</h5>
