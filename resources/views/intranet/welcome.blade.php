@@ -42,7 +42,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="h-150 md:h-80 rounded-lg bg-center bg-no-repeat bg-contain bg-gradient-to-br from-orange-500 to-orange-600"
+                    <div class="h-150 md:h-80 rounded-lg bg-center bg-no-repeat bg-cover bg-gradient-to-br from-orange-500 to-orange-600"
                         style="background-image: url('/storage/media/netjer.jpg');">
                     </div>
                 </div>

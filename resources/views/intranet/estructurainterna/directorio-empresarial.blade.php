@@ -3,10 +3,7 @@
 @section('title', 'Intranet Corporativa')
 
 @push('css')
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="/assets/css/intrahome.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
 @endpush
 
 @section('content')
@@ -47,7 +44,6 @@
                 class="text-primary uppercase">Netjer Networks</span> </h1>
         <p class="text-slate-500 max-w-2xl text-lg mb-8">Acceda a la red interna completa de profesionales de Netjer
             Networks.</p>
-        <p class="text-slate-500 max-w-2xl text-lg mb-8"> Busque por nombre, departamento o puesto especializado.</p>
         <div class="flex flex-col md:flex-row gap-4 max-w-4xl mx-auto opacity-40 pointer-events-none cursor-not-allowed">
             <!-- Input de búsqueda -->
             <div class="relative flex-grow group">
@@ -56,7 +52,7 @@
                     <i class="las la-search text-lg"></i>
                 </span>
                 <input type="text" placeholder="Buscar por nombre, extensión, puesto o departamento..."
-                    class="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all shadow-sm hover:shadow-md" />
+                    class="w-full pl-10 pr-4 py-4 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all shadow-sm hover:shadow-md" />
             </div>
 
             <!-- Botón Filtrar -->
@@ -598,41 +594,6 @@
                 <!-- Foto -->
                 <div
                     class="h-20 w-20 rounded-xl overflow-hidden border-2 border-slate-100 group-hover:border-orange-400 transition-colors">
-                    <img class="w-full h-full object-cover" src="{{ asset('storage/media/female.png') }}" />
-                </div>
-            </div>
-            <!-- Nombre y Cargo -->
-            <h3 class="text-lg font-semibold text-slate-800 mb-1">Priscilla Iturralde</h3>
-            <p class="text-sm font-medium text-orange-600 uppercase tracking-wider mb-4">
-                Costumer Success Rep.
-            </p>
-            <!-- Información de contacto -->
-            <div class="space-y-3 pt-4 border-t border-slate-100">
-                <!-- Extensión -->
-                <div class="flex items-center gap-3 text-sm text-slate-600">
-                    <i class="las la-phone-volume text-lg text-slate-400"></i>
-                    <span class="font-medium">
-                        Zoom Ext: <span class="text-slate-800">206</span>
-                    </span>
-                </div>
-                <!-- Email -->
-                <div class="flex items-center gap-3 text-sm text-slate-600">
-                    <i class="las la-envelope text-lg text-slate-400"></i>
-                    <a class="hover:text-orange-600 transition-colors"
-                        href="mailto:priscilla.iturralde@netjernetworks.com">
-                        priscilla.iturralde@netjernetworks.com
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Card de colaborador -->
-        <div
-            class="group bg-white border border-slate-200 rounded-xl p-6 hover:border-orange-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <!-- Top: Foto + Botón de acción -->
-            <div class="flex justify-between items-start mb-4">
-                <!-- Foto -->
-                <div
-                    class="h-20 w-20 rounded-xl overflow-hidden border-2 border-slate-100 group-hover:border-orange-400 transition-colors">
                     <img class="w-full h-full object-cover" src="{{ asset('storage/media/male.png') }}" />
                 </div>
             </div>
@@ -801,15 +762,9 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 
-    <!-- Pagination Placeholder -->
-    <div class="mt-12 flex justify-center">
-        Paginacion
-    </div>
+
 
 @endsection
 @push('js')

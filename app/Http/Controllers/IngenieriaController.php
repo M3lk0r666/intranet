@@ -58,13 +58,13 @@ class IngenieriaController extends Controller
     public function preventivo()
     {
     
-        return view('intranet.ingenieria.mantto-preventivo');
+        return view('intranet.ingenieria.guia-preventivo');
     }
 
     public function correctivo()
     {
     
-        return view('intranet.ingenieria.mantto-correctivo');
+        return view('intranet.ingenieria.guia-correctivo');
     }
 
     public function survey()
@@ -80,6 +80,11 @@ class IngenieriaController extends Controller
     public function surveyno()
     {
         return view('intranet.ingenieria.sitesurvey-no');
+    }
+
+    public function onsite()
+    {
+        return view('intranet.ingenieria.guias-on-site');
     }
 }
 

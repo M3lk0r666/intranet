@@ -9,6 +9,7 @@ use App\Http\Controllers\IntranetController;
 use App\Http\Controllers\FileDocumentController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\IngenieriaController;
+use App\Http\Controllers\ClientController;
 
 /*Route::redirect('/', 'posts')->name('home');
  Route::get('/', function () {
@@ -87,6 +88,8 @@ Route::get('/intranet/estructura-interna/proceso-ingenieria/mantto-preventivo', 
 Route::get('/intranet/estructura-interna/proceso-ingenieria/mantto-correctivo', [IntranetController::class, 'correctivo'])->name('intranet.estructurainterna.proceso-ingenieria.mantto-correctivo');
 
 //Ruta GuiasOnSite
+Route::get('/intranet/ingenieria/guias-on-site', [IngenieriaController::class, 'onsite'])->name('intranet.ingenieria.guias-on-site');
+//Ruta guias
 Route::get('/intranet/ingenieria/guias/instalacion-switch', [IngenieriaController::class, 'switch'])->name('intranet.ingenieria.instalacion-switch');
 // Ruta para descargar PDF del post
 Route::get('/intranet/ingenieria/guias/instalacion-switch/pdf', [IngenieriaController::class, 'downloadPDF'])->name('intranet.ingenieria.instalacion-switch-pdf');
@@ -95,8 +98,8 @@ Route::get('/intranet/ingenieria/guias/instalacion-firewall', [IngenieriaControl
 Route::get('/intranet/ingenieria/guias/implementacion-aps', [IngenieriaController::class, 'wireless'])->name('intranet.ingenieria.instalacion-aps');
 
 Route::get('/intranet/ingenieria/guias/instalacion-poc', [IngenieriaController::class, 'poc'])->name('intranet.ingenieria.instalacion-poc');
-Route::get('/intranet/ingenieria/guias/mantto-preventivo', [IngenieriaController::class, 'preventivo'])->name('intranet.ingenieria.mantto-preventivo');
-Route::get('/intranet/ingenieria/guias/mantto-correctivo', [IngenieriaController::class, 'correctivo'])->name('intranet.ingenieria.mantto-correctivo');
+Route::get('/intranet/ingenieria/guias/mantto-preventivo', [IngenieriaController::class, 'preventivo'])->name('intranet.ingenieria.guia-preventivo');
+Route::get('/intranet/ingenieria/guias/mantto-correctivo', [IngenieriaController::class, 'correctivo'])->name('intranet.ingenieria.guia-correctivo');
 Route::get('/intranet/ingenieria/guias/site-survey', [IngenieriaController::class, 'survey'])->name('intranet.ingenieria.site-survey');
 Route::get('/intranet/ingenieria/guias/site-survey/si-wifi', [IngenieriaController::class, 'surveysi'])->name('intranet.ingenieria.sitesurvey-si');
 Route::get('/intranet/ingenieria/guias/site-survey/no-wifi', [IngenieriaController::class, 'surveyno'])->name('intranet.ingenieria.sitesurvey-no');
@@ -124,6 +127,9 @@ Route::get('/intranet/documentos/{document}', [FileDocumentController::class, 'v
 Route::get('/intranet/documentos/{document}/descargar', [FileDocumentController::class, 'download'])->name('intranet.documentos.download');
 Route::post('/intranet/documentos/{document}/view', [FileDocumentController::class, 'incrementView'])->name('intranet.documentos.view');
 Route::get('/intranet/documentos/{document}/content', [FileDocumentController::class, 'getContent'])->name('intranet.documentos.content');
+
+//Ruta para ClientePolizas
+Route::get('/intranet/ingenieria/clientes', [ClientController::class,'index'])->name('intranet.ingenieria.clientes-polizas');
 
 //Route::post('/documents/{document}/view', [FileDocumentController::class, 'incrementView'])->name('intranet.documents.view');
 //Route::get('/documents/{document}/content', [FileDocumentController::class, 'getContent'])->name('intranet.documents.content');

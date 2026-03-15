@@ -127,14 +127,16 @@
 
         .watermark {
             position: fixed;
-            top: 50px;
-            left: 50px;
+            top: 50%;
+            left: 50%;
             opacity: 0.2;
             font-size: 100px;
             color: #3b82f6;
-            transform: translate(10%, 90%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg);
             pointer-events: none;
             white-space: nowrap;
+            z-index: 9999;
+            user-select: none;
         }
 
         .post-info {

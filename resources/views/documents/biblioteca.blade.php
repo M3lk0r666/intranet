@@ -74,8 +74,8 @@
                         </div>
                         <!-- Imagen -->
                         <div class="w-28 h-28 flex-shrink-0 opacity-80 group-hover:scale-105 transition">
-                            <img src="{{ asset('assets/media/operaciones.png') }}" class="w-full h-full object-contain"
-                                alt="Imagen corporativa">
+                            <img src="{{ asset('assets/media/imagen-corporativa.png') }}"
+                                class="w-full h-full object-contain" alt="Imagen corporativa">
                         </div>
                     </div>
                 </div>
@@ -83,10 +83,11 @@
         </section>
     </div>
 
-    <div class="bg-white rounded-lg shadow p-6 mb-8">
+    <div class="bg-white rounded-lg shadow p-6 mb-8 opacity-50 cursor-not-allowed pointer-events-none">
         <!-- Category: TI -->
         <section class="mb-12">
-            <div class="flex items-center gap-3 mb-6 border-b border-slate-200 dark:border-primary/20 pb-3">
+            <div
+                class="flex items-center gap-3 mb-6 border-b border-slate-200 dark:border-primary/20 pb-3 cursor-not-allowed pointer-events-none">
                 <i class="las la-terminal text-primary text-3xl"></i>
                 <h2 class="text-2xl font-extrabold tracking-tight">Tecnologías de Información (TI)</h2>
                 <span class="ml-auto text-xs font-bold text-slate-400 bg-slate-100 dark:bg-primary/5 px-2 py-1 rounded">3
@@ -248,9 +249,4 @@
             </div>
         </section>
     </div>
-
-
-
-
-
 @endsection

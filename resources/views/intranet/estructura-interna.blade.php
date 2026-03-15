@@ -52,13 +52,9 @@
             <div
                 class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
                 <div class="h-48 overflow-hidden relative">
-                    <div
-                        class="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
-                        <i class="ri-flow-chart text-6xl text-primary opacity-80"></i>
-                    </div>
                     <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
                         data-alt="Internal company structure and organizational chart diagram"
-                        style='background-image: url({{ asset('assets/media/estructura-interna.png') }});'>
+                        style='background-image: url({{ asset('assets/media/estruc-interna.png') }});'>
                     </div>
                 </div>
                 <div class="p-6 flex flex-col gap-3">
@@ -67,20 +63,16 @@
                         responsabilidades de los equipos de trabajo.</p>
                     <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
                         href="{{ route('intranet.estructurainterna.organigrama') }}">
-                        Ver proceso <i class="ri-arrow-right-long-line text-sm"></i>
+                        Ver organigrama <i class="ri-arrow-right-long-line text-sm"></i>
                     </a>
                 </div>
             </div>
             <div
                 class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
                 <div class="h-48 overflow-hidden relative">
-                    <div
-                        class="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
-                        <i class="ri-wallet-line text-6xl text-primary opacity-80"></i>
-                    </div>
                     <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
                         data-alt="Sales pipeline and IT business commerce analytics"
-                        style='background-image: url({{ asset('assets/media/comercial-it.png') }});'>
+                        style='background-image: url({{ asset('assets/media/comercial-ti.png') }});'>
                     </div>
                 </div>
                 <div class="p-6 flex flex-col gap-3">
@@ -96,13 +88,9 @@
             <div
                 class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
                 <div class="h-48 overflow-hidden relative">
-                    <div
-                        class="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
-                        <i class="ri-settings-5-line text-6xl text-primary opacity-80"></i>
-                    </div>
                     <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
                         data-alt="Operational management and service delivery dashboard"
-                        style='background-image: url({{ asset('assets/media/operaciones.png') }});'>
+                        style='background-image: url({{ asset('assets/media/operacionesb.png') }});'>
                     </div>
                 </div>
                 <div class="p-6 flex flex-col gap-3">
@@ -118,10 +106,6 @@
             <div
                 class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl ">
                 <div class="h-48 overflow-hidden relative">
-                    <div
-                        class="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
-                        <i class="ri-palette-line text-6xl text-primary opacity-80"></i>
-                    </div>
                     <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
                         data-alt="Brand identity guidelines and corporate imaging assets"
                         style='background-image: url({{ asset('assets/media/imagen-corporativa.png') }});'>
@@ -133,20 +117,16 @@
                         comunicación visual y posicionamiento del mercado.</p>
                     <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
                         href="{{ route('intranet.estructurainterna.imagen-corporativa') }}">
-                        Ver proceso <i class="ri-arrow-right-long-line text-sm"></i>
+                        Ver recursos <i class="ri-arrow-right-long-line text-sm"></i>
                     </a>
                 </div>
             </div>
             <div
                 class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
                 <div class="h-48 overflow-hidden relative">
-                    <div
-                        class="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
-                        <i class="las la-robot text-6xl text-primary opacity-80"></i>
-                    </div>
                     <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
                         data-alt="Engineering team designing hardware and network systems"
-                        style='background-image: url({{ asset('assets/media/proceso-ingenieria.png') }});'>
+                        style='background-image: url({{ asset('assets/media/ingenieria.png') }});'>
                     </div>
                 </div>
                 <div class="p-6 flex flex-col gap-3">
@@ -162,13 +142,9 @@
             <div
                 class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
                 <div class="h-48 overflow-hidden relative">
-                    <div
-                        class="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
-                        <i class="ri-bank-line text-6xl text-primary opacity-80"></i>
-                    </div>
                     <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
                         data-alt="Administration and finance accounting and auditing papers"
-                        style='background-image: url({{ asset('assets/media/proceso-finanzas.png') }});'>
+                        style='background-image: url({{ asset('assets/media/admon-finanzas.png') }});'>
                     </div>
                 </div>
                 <div class="p-6 flex flex-col gap-3">

@@ -46,7 +46,7 @@
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">Instalación Acces Points</span>
+                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">Mantenimiento Correctivo</span>
                         </div>
                     </li>
                 </ol>
@@ -57,7 +57,7 @@
     <!-- Encabezado -->
     <div class="text-center mb-16 mt-8">
         <h1 class="text-4xl font-black font-display tracking-tight text-slate-900 uppercase">
-            Guia<span class="text-primary  uppercase"> Implementación de Access Points</span>
+            Guia<span class="text-primary  uppercase"> Mantenimiento Correctivo</span>
         </h1>
     </div>
 
@@ -75,12 +75,6 @@
                                 class="chapter-link flex items-center gap-3 px-3 py-2 rounded-lg transition-colors">
                                 <i class="las la-tasks"></i>
                                 Previas
-                            </a>
-
-                            <a href="#cambio" data-section="cambio"
-                                class="chapter-link flex items-center gap-3 px-3 py-2 rounded-lg transition-colors">
-                                <i class="lab la-stack-exchange"></i>
-                                El Cambio
                             </a>
 
                             <a href="#verificacion" data-section="verificacion"
@@ -109,6 +103,7 @@
                                 <i
                                     class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                             </a>
+
                             <a href="#"
                                 class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Reporte Actividades</span>
@@ -125,15 +120,15 @@
                     </div>
                 </div>
             </aside>
-            <article class="flex-grow max-w-4xl lg:max-w-6xl space-y-8">
+            <article class="flex-grow max-w-4xl lg:max-w-6xl space-y-10">
                 <div>
                     <span
                         class="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-primary text-xs font-bold mb-4">
                         GUÍA DE IMPLEMENTACIÓN v1.0
                     </span>
-                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Instalacion de Access Points</h1>
+                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Mantenimiento Correctivo de equipos</h1>
                     <p class="text-lg text-slate-600 leading-relaxed">
-                        Guía detallada para el proceso de sustitución/instalción y configuración de APs, asegurando el
+                        Guía detallada para el proceso del mantenimineto correctivo de los equipos, asegurando el
                         cumplimiento de estándares corporativos y minimizando el tiempo de inactividad.
                     </p>
                 </div>
@@ -145,46 +140,12 @@
                         <h2 class="text-2xl font-bold text-slate-900">Consideraciones Iniciales</h2>
                     </div>
                     <div class="bg-white rounded-2xl border border-red-100 p-8 shadow-sm">
-                        {{-- <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl mb-3">
-                            <h4 class="text-sm font-bold text-orange-800 flex items-center gap-2 mb-1">
-                                <i class="las la-info-circle"></i> Cuestionario Site Survey
+                        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl mb-3">
+                            <h4 class="text-sm font-bold text-red-800 flex items-center gap-2 mb-1">
+                                <i class="las la-info-circle uppercase"></i> Importante
                             </h4>
-                            <p class="text-sm text-orange-700">Tomar como base el Cuestionario,
-                                para una mejor ejecución en la implementación</p>
-                        </div> --}}
-                        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl mb-3">
-                            <h4 class="text-sm font-bold text-orange-800 flex items-center gap-2 mb-1">
-                                <i class="las la-info-circle"></i> Cuestionario Site Survey
-                            </h4>
-                            <p class="text-sm text-orange-700">
-                                Tomar como base el Cuestionario para el Site Survey, para una mejor ejecución en la
-                                implementación
+                            <p class="text-base text-red-700">► Validar si el o los equipos están en contrato de garantía.
                             </p>
-                            <!-- Contenedor de botones -->
-                            <div class="mt-3 flex gap-2">
-                                <a href="{{ route('intranet.ingenieria.sitesurvey-si') }}"
-                                    class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">
-                                    Si cuenta con Wifi
-                                </a>
-                                <a href="{{ route('intranet.ingenieria.sitesurvey-no') }}"
-                                    class="bg-white border border-orange-500 text-orange-500 px-4 py-2 rounded hover:bg-orange-100 transition">
-                                    No cuenta con Wifi
-                                </a>
-                            </div>
-                        </div>
-                        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl mb-3">
-                            <h4 class="text-sm font-bold text-orange-800 flex items-center gap-2 mb-1">
-                                <i class="las la-info-circle"></i> Cableado
-                            </h4>
-                            <p class="text-sm text-orange-700">Considerar quien instala el cableados, tiempos, ubicaciones,
-                                etc.</p>
-                        </div>
-                        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl mb-3">
-                            <h4 class="text-sm font-bold text-orange-800 flex items-center gap-2 mb-1">
-                                <i class="las la-info-circle"></i> Configuraciones en equpos intermedios
-                            </h4>
-                            <p class="text-sm text-orange-700">Considerar al personal que administra la infraestructura para
-                                los ajustes necesarios.</p>
                         </div>
                     </div>
                 </section>
@@ -196,89 +157,120 @@
                         <h2 class="text-2xl font-bold text-slate-900">1. Actividades Previas</h2>
                     </div>
                     <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-                        <ul class="space-y-3 py-2">
+                        <p class="text-slate-600 mb-6 font-medium">Realizar análisis inicial (Remoto o Presencial).</p>
+                        <ul class="space-y-3 ">
                             <li class="flex items-center gap-3 text-slate-800 text-sm">
                                 <i class="las la-check-circle text-emerald-500 text-xl"></i>
-                                Verificación de los nodos de red (donde iran las antenas).
-                            </li>
-                            <li class="flex items-center gap-3 text-slate-800 text-sm">
-                                <i class="las la-check-circle text-emerald-500 text-xl"></i>
-                                Configuraciones o ajustes en la infraestructura del cliente [switches, firewall, etc.].
+                                Recabar información del cliente y del problema reportado (ticket).
                             </li>
                             <li class="flex items-center gap-3 text-slate-800 text-sm">
                                 <i class="las la-check-circle text-emerald-500 text-xl"></i>
-                                Acceso y configuración a la controladora Wifi [SSIDs, seguridad, puertos, vlans, etc.].
-                            </li>
-                            <li class="flex flex-col gap-3 text-slate-800 text-sm">
-                                <div class="flex items-start gap-3">
-                                    <i class="las la-check-circle text-emerald-500 text-xl mt-0.5"></i>
-                                    <span>
-                                        Revisión del equipamiento necesario para la instalación
-                                    </span>
-                                </div>
-                                <div
-                                    class="ml-8 flex items-start gap-2 text-xm text-amber-800 bg-amber-50 px-4 py-3 rounded-lg">
-                                    <i class="las la-exclamation-triangle text-amber-500 mt-0.5"></i>
-                                    <span>
-                                        Revisón previa a la antrega de los insumos requeridos (bases, accesorios, etc.).
-                                    </span>
-                                </div>
-                            </li>
-                            <li class="flex flex-col gap-3 text-slate-800 text-sm">
-                                <div class="flex items-start gap-3">
-                                    <i class="las la-check-circle text-emerald-500 text-xl mt-0.5"></i>
-                                    <span>
-                                        Inspeccion visual de donde se colocaran las antenas.
-                                    </span>
-                                </div>
-                                <div
-                                    class="ml-8 flex items-start gap-2 text-xm text-amber-800 bg-amber-50 px-4 py-3 rounded-lg">
-                                    <i class="las la-exclamation-triangle text-amber-500 mt-0.5"></i>
-                                    <span>
-                                        Deben estar en las marcadas en la posicion que se determino con el estudio del Site
-                                        Survey.
-                                    </span>
-                                </div>
+                                Revisión/inspección visual en busca de algun daño, corto o daño fisico en el equipo.
                             </li>
                         </ul>
                     </div>
-                </section>
-                <section class="scroll-mt-32" id="cambio">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                            <i class="las la-cog"></i>
+                    <!-- Card contenedor -->
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm mt-4">
+                        <p class="text-slate-600 mb-6 font-medium">Detección del Fallo.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Paso A -->
+                            <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                                <span class="text-xs font-bold text-primary uppercase tracking-wider">
+                                    PASO A
+                                </span>
+                                <h4 class="font-semibold text-slate-900 mt-2 mb-3">
+                                    Si Fallo es de Hardware
+                                </h4>
+                                <ul class="text-sm text-slate-600 space-y-1 list-disc list-inside">
+                                    <li>Identificar si el problema es externo (algun componente dañado)</li>
+                                    <li>Si fuente de poder del equipo no enciende, probar en diferentes contactos de
+                                        alimentación y cables de corriente.</li>
+                                </ul>
+                            </div>
+                            <!-- Paso B -->
+                            <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                                <span class="text-xs font-bold text-primary uppercase tracking-wider">
+                                    PASO B
+                                </span>
+                                <h4 class="font-semibold text-slate-900 mt-2 mb-3">
+                                    Si Fallo es de Software
+                                </h4>
+                                <ul class="text-sm text-slate-600 space-y-1 list-disc list-inside">
+                                    <li>Identificar si el problema es interno (configuracion).</li>
+                                    <li>Verificar logs y alarmas del equipo</li>
+                                    <li>Probar conectividad y fucnionabilidad básica</li>
+                                </ul>
+                            </div>
                         </div>
-                        <h2 class="text-2xl font-bold text-slate-900">2. Actividades en el Cambio</h2>
                     </div>
-                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-                        <div class="grid md:grid-cols-2 gap-6 mb-8">
-                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50">
-                                <p class="text-xs font-bold text-primary uppercase mb-2">Paso A</p>
-                                <h4 class="font-bold mb-1 text-slate-900">Colocación del soporte</h4>
-                                <p class="text-xs text-slate-500">Instalacion del soporte de la antena en su ubicación.
-                                </p>
+                    <!-- Card contenedor -->
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm mt-4">
+                        <p class="text-slate-600 mb-6 font-medium">Confirmación del Fallo.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Paso A -->
+                            <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                                <span class="text-xs font-bold text-primary uppercase tracking-wider">
+                                    PASO A
+                                </span>
+                                <h4 class="font-semibold text-slate-900 mt-2 mb-3">
+                                    Si Fallo es de Hardware
+                                </h4>
+                                <ul class="text-sm text-slate-600 space-y-1 list-disc list-inside">
+                                    <li>Validar si equipo esta en garantía</li>
+                                    <li>Identificar si la falla es solucionable localmente o requerie reparación/reemplazo
+                                    </li>
+                                    <li>Levantar caso ante fabricante RMA para reposición del mismo</li>
+                                    <li>En espera de respuesta y envio del fabricante</li>
+                                </ul>
                             </div>
-                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50">
-                                <p class="text-xs font-bold text-primary uppercase mb-2">Paso B</p>
-                                <h4 class="font-bold mb-1 text-slate-900">Colocacion</h4>
-                                <p class="text-xs text-slate-500">Aseguramiento de la antena en su base y conexión con el
-                                    cable de red.</p>
+                            <!-- Paso B -->
+                            <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                                <span class="text-xs font-bold text-primary uppercase tracking-wider">
+                                    PASO B
+                                </span>
+                                <h4 class="font-semibold text-slate-900 mt-2 mb-3">
+                                    Si Fallo es de Software
+                                </h4>
+                                <ul class="text-sm text-slate-600 space-y-1 list-disc list-inside">
+                                    <li>Revisión ante fabricante y ver si es problema conocido y aplicar posibles
+                                        soluciones.</li>
+                                    <li>Ejecutar pruebas especificas segun sea el caso</li>
+                                    <li>Realizar ajustes necesarios en la configuración</li>
+                                    <li>Actualizar firmware del dispositivo en base al modelo y tecnología</li>
+                                </ul>
                             </div>
-                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50">
-                                <p class="text-xs font-bold text-primary uppercase mb-2">Paso C</p>
-                                <h4 class="font-bold mb-1 text-slate-900">Nodo en switch</h4>
-                                <p class="text-xs text-slate-500">Conexion al nodo correspondiente en el
-                                    puerto establecido del switch.</p>
+                        </div>
+                    </div>
+                    <!-- Card contenedor -->
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm mt-4">
+                        <p class="text-slate-600 mb-6 font-medium">Proximos Pasos.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Paso A -->
+                            <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                                <span class="text-xs font-bold text-primary uppercase tracking-wider">
+                                    Registro
+                                </span>
+                                <h4 class="font-semibold text-slate-900 mt-2 mb-3">
+                                    Registro del diagnostico
+                                </h4>
+                                <ul class="text-sm text-slate-600 space-y-1 list-disc list-inside">
+                                    <li>Documentar los hallazgos encontrados en base a la falla reportada.</li>
+                                    <li>Recabar los datos del equipos, Serie, Modelo y Version del firmware</li>
+                                    <li>Levantar RMA ante fabricante.</li>
+                                </ul>
                             </div>
-                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50">
-                                <p class="text-xs font-bold text-primary uppercase mb-2">Paso D</p>
-                                <h4 class="font-bold mb-1 text-slate-900">Endendido</h4>
-                                <p class="text-xs text-slate-500">Validacion de entrega de PoE hacia la antena.</p>
-                            </div>
-                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50">
-                                <p class="text-xs font-bold text-primary uppercase mb-2">Paso E</p>
-                                <h4 class="font-bold mb-1 text-slate-900">Operatividad</h4>
-                                <p class="text-xs text-slate-500">Emision de los SSIDs correspondientes.</p>
+                            <!-- Paso B -->
+                            <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                                <span class="text-xs font-bold text-primary uppercase tracking-wider">
+                                    Recepción del equipo
+                                </span>
+                                <h4 class="font-semibold text-slate-900 mt-2 mb-3">
+                                    Validar equipo entregado
+                                </h4>
+                                <ul class="text-sm text-slate-600 space-y-1 list-disc list-inside">
+                                    <li>Verificar que el equipo cumple con lo solicitado en el RMA.</li>
+                                    <li>Entrega o envio del equipo con el cliente</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -293,33 +285,26 @@
                     <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
                         <div class="space-y-6">
                             <div>
-                                <h4 class="text-sm font-bold uppercase text-slate-400 tracking-wider mb-4">Operatividad de
-                                    la antena</h4>
+                                <h4 class="text-sm font-bold uppercase text-slate-400 tracking-wider mb-4">Instalacion del
+                                    dispositivo</h4>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div
                                         class="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200">
-                                        <span class="text-sm font-semibold text-slate-900">Emision de los SSIDs
-                                            correctamente</span>
+                                        <span class="text-sm font-semibold text-slate-900">Colocación del eqiopo en
+                                            rack</span>
                                         <span
                                             class="px-2 py-1 rounded-md bg-emerald-100 text-emerald-700 text-[10px] font-bold">REQUERIDO</span>
                                     </div>
                                     <div
                                         class="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200">
-                                        <span class="text-sm font-semibold text-slate-900">Entrega del direccionamiento
-                                            correspondiente</span>
+                                        <span class="text-sm font-semibold text-slate-900">Cargar la configuración del
+                                            equipo</span>
                                         <span
                                             class="px-2 py-1 rounded-md bg-emerald-100 text-emerald-700 text-[10px] font-bold">REQUERIDO</span>
                                     </div>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-slate-400 tracking-wider mb-4">Pruebas de
-                                    Conectividad Interna </h4>
-                                <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
                                     <div
                                         class="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200">
-                                        <span class="text-sm font-semibold text-slate-900">Acceso a la Red Interna (LAN),
-                                            servidores de impresión, NAS, etc.</span>
+                                        <span class="text-sm font-semibold text-slate-900">Ping a Servicios</span>
                                         <span
                                             class="px-2 py-1 rounded-md bg-emerald-100 text-emerald-700 text-[10px] font-bold">REQUERIDO</span>
                                     </div>
@@ -327,31 +312,32 @@
                             </div>
                             <div>
                                 <h4 class="text-sm font-bold uppercase text-slate-400 tracking-wider mb-4">Pruebas de
-                                    Conectividad Externa </h4>
+                                    Conectividad por parte del Cliente</h4>
                                 <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
                                     <div
                                         class="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200">
-                                        <span class="text-sm font-semibold text-slate-900">Acceso a la Red Externa (WAN)
-                                            internet</span>
+                                        <span class="text-sm font-semibold text-slate-900">Comunicacion y operatividad de
+                                            sus
+                                            servicios</span>
                                         <span
                                             class="px-2 py-1 rounded-md bg-emerald-100 text-emerald-700 text-[10px] font-bold">REQUERIDO</span>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <h4 class="text-sm font-bold uppercase text-slate-400 tracking-wider mb-4">Ajustes en
-                                    Configuración</h4>
+                                <h4 class="text-sm font-bold uppercase text-slate-400 tracking-wider mb-4">Ajustes
+                                </h4>
                                 <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
                                     <div
                                         class="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200">
-                                        <span class="text-sm font-semibold text-slate-900">En caso de ser necesario,
-                                            realizar los ajustes necesarios</span>
+                                        <span class="text-sm font-semibold text-slate-900">Realizar ajustes en la
+                                            configuración - en caso de ser necesario-</span>
                                         <span
-                                            class="px-2 py-1 rounded-md bg-emerald-100 text-emerald-700 text-[10px] font-bold">SI
-                                            SE REQUIERE</span>
+                                            class="px-2 py-1 rounded-md bg-emerald-100 text-emerald-700 text-[10px] font-bold">REQUERIDO</span>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </section>
@@ -365,15 +351,18 @@
                     <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
                         <div class="space-y-8">
                             <div>
-                                <h4 class="text-sm font-bold mb-4 text-slate-900">
-                                    Registro Fotográfico de los Access Points instalados
-                                </h4>
-                                <div class="flex justify-center">
+                                <h4 class="text-sm font-bold mb-4 text-slate-900">Registro Fotográfico [Antes/Despues] del
+                                    reemplazo del dispositivo</h4>
+                                <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
                                     <div
-                                        class="bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 
-                                                p-4 hover:border-primary/50 transition-colors">
-                                        <img src="{{ asset('assets/media/instalacion-aps.png') }}" alt="foto_antes"
-                                            class="max-w-md w-full object-contain rounded-lg">
+                                        class="aspect-square bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-2 text-slate-400 hover:border-primary/50 transition-colors cursor-pointer group">
+                                        <img src="{{ asset('storage/media/switch-antes.png') }}" alt="foto_antes"
+                                            class="w-full h-full object-cover rounded-xl" />
+                                    </div>
+                                    <div
+                                        class="aspect-square bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-2 text-slate-400 hover:border-primary/50 transition-colors cursor-pointer group">
+                                        <img src="{{ asset('storage/media/switch-despues.png') }}" alt="foto_despues"
+                                            class="w-full h-full object-cover rounded-xl" />
                                     </div>
                                 </div>
                             </div>
@@ -382,18 +371,15 @@
                                     <i class="las la-check-circle text-emerald-500 text-xl"></i>
                                     Realizar el Backup de la configuración.
                                 </li>
-
                                 <li class="flex items-center gap-3 text-slate-600 text-sm">
                                     <i class="las la-check-circle text-emerald-500 text-xl"></i>
                                     Entrega y Firma del reporte de Actividades.
                                 </li>
-
                                 <li class="flex items-center gap-3 text-slate-600 text-sm">
                                     <i class="las la-check-circle text-emerald-500 text-xl"></i>
                                     Notificación del fin de la Ventana.
                                 </li>
                             </ul>
-
                         </div>
                     </div>
                 </section>

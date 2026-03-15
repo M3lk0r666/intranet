@@ -12,11 +12,11 @@
         </span>
 
         <!-- Menú -->
-        <div class="hidden md:flex space-x-6">
+        {{-- <div class="hidden md:flex space-x-6">
             <a href="{{ route('home') }}" class="nav-active font-medium border-b-2 pb-1">
                 Home
             </a>
-        </div>
+        </div> --}}
 
     </div>
 </nav>

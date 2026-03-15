@@ -57,7 +57,7 @@
             class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
             <!-- Imagen de la tarjeta -->
             <div class="w-full aspect-[4/3] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                style="background-image: url('{{ asset('storage/media/estructura-interna.png') }}');">
+                style="background-image: url('{{ asset('assets/media/estructura-interna.png') }}');">
             </div>
             <!-- Texto debajo -->
             <div class="p-6 flex flex-col items-center justify-center text-center">
@@ -73,7 +73,7 @@
 
         <!-- Tarjeta 3: Nube Privada -->
         <a href="https://owncloud.netjernetworks.net" target="_blank"
-            class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
+            class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm hover:shadow-lg opacity-50 cursor-not-allowed pointer-events-none">
             <!-- Imagen de la tarjeta -->
             <div class="w-full aspect-[4/3] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
                 style="background-image: url('{{ asset('storage/media/nube-privada.png') }}');">
@@ -170,7 +170,7 @@
             class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
             <!-- Imagen de la tarjeta -->
             <div class="w-full aspect-[4/3] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                style="background-image: url('{{ asset('storage/media/biblioteca-recursos.png') }}');">
+                style="background-image: url('{{ asset('assets/media/techquila-news.png') }}');">
             </div>
             <!-- Texto debajo -->
             <div class="p-6 flex flex-col items-center justify-center text-center">

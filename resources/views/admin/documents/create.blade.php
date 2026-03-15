@@ -15,9 +15,6 @@
 
 
     <x-wire-card>
-
-
-
         <form action="{{ route('admin.documents.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <h1
@@ -125,10 +122,4 @@
         </script>
 
     </x-wire-card>
-
-
-
-
-
-
 </x-admin-layout>

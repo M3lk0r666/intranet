@@ -62,44 +62,17 @@
             'href' => route('admin.documents.index'),
             'active' => request()->routeIs('admin.documents.*'),
         ],
-        /*[
-            'name' => 'Guias',
-            'icon' => 'las la-school',
-            'href' => '#',
-            'active' => false,
-        ],
-         [
-            'header' => 'Analizador TXT',
+        [
+            'header' => 'Polizas',
         ],
         [
-            'name' => 'Subir Archivo',
-            'icon' => 'ri-file-upload-line',
-            'href' => '#',
-            'active' => false,
+            'name' => 'Cliente',
+            'icon' => 'ri-user-2-line',
+            'href' => route('admin.clients.index'),
+            'active' => request()->routeIs('admin.clients.*'),
         ],
         [
-            'name' => 'Listado Optimizado',
-            'icon' => 'ri-eye-line',
-            'href' => '#',
-            'active' => false,
-        ],
-        [
-            'header' => 'Graficos',
-        ],
-        [
-            'name' => 'Diagrama',
-            'icon' => 'ri-flow-chart',
-            'href' => '#',
-            'active' => false,
-        ],
-        [
-            'name' => 'Aun no se',
-            'icon' => 'ri-close-large-line',
-            'href' => '#',
-            'active' => false,
-        ], */
-        [
-            'header' => 'ADMIN',
+            'header' => 'Mi Cuenta',
         ],
         [
             'name' => 'Perfil',

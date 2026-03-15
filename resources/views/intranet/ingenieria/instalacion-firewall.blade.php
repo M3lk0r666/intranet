@@ -35,12 +35,18 @@
                             </a>
                         </div>
                     </li>
-
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                            <a href="{{ route('intranet.ingenieria.guias-on-site') }}"
+                                class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Guias on Site
+                            </a>
+                        </div>
+                    </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">Guias on Site - Instalación
-                                Firewall</span>
+                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">Instalación Firewall</span>
                         </div>
                     </li>
                 </ol>
@@ -123,7 +129,7 @@
                                 <i
                                     class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                             </a>
-                            <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                            <a href="{{ route('intranet.ingenieria.guias-on-site') }}"
                                 class="group flex flex-row-reverse items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Regresar</span>
                                 <i

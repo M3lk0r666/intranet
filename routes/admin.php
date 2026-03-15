@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\GuideController;
 use App\Http\Controllers\Admin\GuideExportController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\StepController;
+use App\Http\Controllers\Admin\ClientController;
 
 Route::get('/', function () {
     return view('admin.dashboard');
@@ -35,6 +36,9 @@ Route::get('guides/{guide}/import', [GuideController::class, 'importForm'])->nam
 Route::post('guides/{guide}/import', [GuideController::class, 'importProcess'])->name('guides.import.process');
 //Route::delete('guide-files/{file}', [AdminGuideController::class, 'deleteFile'])->name('guides.import.delete-file');
 Route::delete('guide-files/{file}', [GuideController::class, 'deleteFile'])->name('guides.import.delete-file');
+
+//Rutas PolizasClientes
+Route::resource('clients', ClientController::class);
 
 // Importación
 

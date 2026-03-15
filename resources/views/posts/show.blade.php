@@ -216,9 +216,6 @@
                     </div>
                 </aside>
 
-
-
-
                 <!-- Botones -->
                 <div class="bg-white border border-slate-200 rounded-xl p-5">
                     <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-4">

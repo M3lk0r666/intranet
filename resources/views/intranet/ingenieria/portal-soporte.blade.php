@@ -141,15 +141,26 @@
                                         </div>
                                         <div class="w-full md:w-5/12 order-3"></div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col gap-4">
-
-                            <p class="text-center text-md text-[#9c7349]">Recuerda: Aun no manejamos lectura de mentes ni
-                                clarividencia, por lo que te pedimos que seas los mas claro y detalladao con la información
-                                del incidente, para poder dar un servicio mas eficiente.</p>
+                        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-4 flex gap-3 items-start">
+                            <i class="las la-lightbulb text-3xl text-amber-500"></i>
+                            <div class="flex flex-col gap-1">
+                                <p class="text-sm font-bold text-amber-900">
+                                    Consejo para un mejor soporte
+                                </p>
+                                <p class="text-sm text-amber-800">
+                                    Nuestro equipo de IT aún <span class="font-semibold">no tiene poderes de lectura de
+                                        mentes o clarividencia</span>.
+                                    Describe tu incidente de forma
+                                    <span class="font-semibold">clara, detallada y con el mayor contexto posible</span>.
+                                </p>
+                                <p class="text-sm text-amber-800">
+                                    Esto nos ayudará a darte una <span class="font-semibold">solución más rápida y
+                                        precisa</span>.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -255,14 +266,10 @@
                     <!-- Botón guía -->
                     <div class="flex flex-col gap-4">
                         <a href="{{ route('intranet.ingenieria.guia-tickets') }}"
-                            class="flex items-center justify-center gap-4 rounded-lg bg-primary text-white text-lg font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                            class="flex items-center justify-center self-center px-6 py-3 gap-4 rounded-lg bg-primary text-white text-lg font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
                             Guía para levantar un Ticket
                             <i class="las la-graduation-cap text-4xl"></i>
                         </a>
-                        <p class="text-center text-xs text-[#9c7349]">
-                            Recuerda: solo abre un ticket cuando se requiere intervención directa de IT. Consultas simples
-                            no necesitan ticket.
-                        </p>
                     </div>
                 </div>
 
