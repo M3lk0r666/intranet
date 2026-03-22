@@ -30,7 +30,7 @@
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">Biblioteca</span>
+                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">Biblioteca de Recursos</span>
                         </div>
                     </li>
                 </ol>
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Encabezado -->
-    <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 mt-8">
+    <div class="mb-6 flex flex-col md:flex-row md:items-end justify-between gap-6 mt-8">
         <div class="max-w-4xl">
             <h1 class="text-2xl md:text-4xl font-black tracking-tight mb-4">Biblioteca de Recursos Digitales</h1>
             <p class="text-slate-600 dark:text-slate-400 text-md leading-relaxed">
@@ -49,204 +49,217 @@
         </div>
     </div>
 
-    <div class="bg-white rounded-lg shadow p-6 mb-8 max-w-6xl mx-auto">
-        <section class="mb-12">
-            <div class="flex items-center gap-3 mb-6 border-b border-slate-200 pb-3">
-                <i class="ri-book-shelf-line text-primary text-3xl"></i>
-                <h2 class="text-2xl font-extrabold tracking-tight">Diseño Empresarial - Imagen</h2>
-            </div>
-            <div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
-                <div
-                    class="bg-white border border-slate-200 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
-                    <div class="flex items-center gap-4">
-                        <!-- Contenido -->
-                        <div class="flex-1">
-                            <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
-                                Imagen Corporativa
-                            </h3>
-                            <p class="text-sm text-slate-500 mb-4 line-clamp-2">
-                                Lineamientos de marca, comunicación visual y posicionamiento del mercado.
-                            </p>
-                            <a href="{{ route('intranet.estructurainterna.imagen-corporativa') }}"
-                                class="inline-flex px-6 py-3 bg-primary rounded-xl text-white font-bold text-sm tracking-widest hover:bg-primary/90 transition-colors items-center gap-2">
-                                Ir a recurso ...
-                            </a>
-                        </div>
-                        <!-- Imagen -->
-                        <div class="w-28 h-28 flex-shrink-0 opacity-80 group-hover:scale-105 transition">
-                            <img src="{{ asset('assets/media/imagen-corporativa.png') }}"
-                                class="w-full h-full object-contain" alt="Imagen corporativa">
-                        </div>
+    <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8 mt-8">
+        <div class="w-full px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex items-center justify-between mb-8">
+                <!-- IZQUIERDA -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                        <i class="las la-terminal"></i>
                     </div>
+                    <h2 class="text-xl font-semibold text-slate-800">
+                        Tecnologías de Información (TI)
+                    </h2>
+                </div>
+                <!-- DERECHA -->
+                <div class="flex items-center gap-2 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-sm">
+                    <span class="text-xs text-slate-500">
+                        Hay un total de
+                    </span>
+                    <span class="text-lg font-bold text-primary">
+                        {{ \App\Models\FileDocument::count() }}
+                    </span>
+                    <span class="text-xs text-slate-500">
+                        documentos para consultar.
+                    </span>
                 </div>
             </div>
-        </section>
-    </div>
+            <!-- LAYOUT -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- SIDEBAR -->
+                <aside class="lg:col-span-3">
+                    <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm sticky top-6">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
+                            Categorías
+                        </h3>
+                        <!-- Todas -->
+                        <a href="{{ route('documentos.biblioteca') }}"
+                            class="flex items-center justify-between px-3 py-2 rounded-lg text-sm transition {{ $selectedCategory == 'all' ? 'bg-primary/10 text-primary font-semibold' : 'text-slate-600 hover:bg-slate-100' }}">
+                            <span class="flex items-center gap-2">
+                                <i class="las la-layer-group"></i>
+                                Todas
+                            </span>
+                            <span class="text-xs">{{ \App\Models\FileDocument::count() }}</span>
+                        </a>
+                        <!-- Dinámicas -->
+                        <div class="mt-2 space-y-1">
+                            @foreach ($categoriesWithCount as $key => $category)
+                                <a href="{{ route('documentos.biblioteca', ['category' => $key]) }}"
+                                    class="flex items-center justify-between px-3 py-2 rounded-lg text-sm transition {{ $selectedCategory == $key ? 'bg-primary/10 font-semibold' : 'text-slate-600 hover:bg-slate-100' }}">
+                                    <span class="flex items-center gap-2">
+                                        <i class="{{ $category['icon'] }}"></i>
+                                        {{ $category['name'] }}
+                                    </span>
+                                    <span class="text-xs">{{ $category['count'] }}</span>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </aside>
 
-    <div class="bg-white rounded-lg shadow p-6 mb-8 opacity-50 cursor-not-allowed pointer-events-none">
-        <!-- Category: TI -->
-        <section class="mb-12">
-            <div
-                class="flex items-center gap-3 mb-6 border-b border-slate-200 dark:border-primary/20 pb-3 cursor-not-allowed pointer-events-none">
-                <i class="las la-terminal text-primary text-3xl"></i>
-                <h2 class="text-2xl font-extrabold tracking-tight">Tecnologías de Información (TI)</h2>
-                <span class="ml-auto text-xs font-bold text-slate-400 bg-slate-100 dark:bg-primary/5 px-2 py-1 rounded">3
-                    ARCHIVOS</span>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div
-                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
-                            <i class="las la-shield-alt text-primary text-3xl"></i>
+                <!-- CONTENIDO -->
+                <div class="lg:col-span-9">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <!-- Título -->
+                            <div class="shrink-0">
+                                <h2 class="text-2xl font-bold text-gray-800">
+                                    @if ($selectedCategory !== 'all')
+                                        {{ $categoriesWithCount[$selectedCategory]['name'] ?? 'Documentos' }}
+                                    @else
+                                        Todos los Documentos
+                                    @endif
+                                </h2>
+                                @if ($search)
+                                    <p class="text-gray-600 mt-1">
+                                        Resultados para: <span class="font-semibold">"{{ $search }}"</span>
+                                    </p>
+                                @endif
+                            </div>
+                            <!-- Derecha: filtros + buscador -->
+                            <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                                <!-- Search -->
+                                <form method="GET" action="{{ route('documentos.biblioteca') }}" class="relative">
+                                    <div class="relative">
+                                        <input type="text" name="search" value="{{ request('search') }}"
+                                            class="w-full md:w-64 pl-10 pr-4 py-2 rounded-lg border border-gray-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                            placeholder="Buscar documentos...">
+                                        <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                            <i class="fas fa-search"></i>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- Sort Dropdown -->
+                                <div class="relative">
+                                    <select onchange="window.location.href = this.value"
+                                        class="appearance-none bg-white border border-gray-300 rounded-lg pl-4 pr-10 py-2 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none text-sm">
+                                        <option
+                                            value="{{ route('documentos.biblioteca', ['category' => $selectedCategory, 'search' => $search]) }}">
+                                            Más recientes
+                                        </option>
+                                        <option
+                                            value="{{ route('documentos.biblioteca', ['category' => $selectedCategory, 'search' => $search, 'sort' => 'downloads']) }}">
+                                            Más descargados
+                                        </option>
+                                        <option
+                                            value="{{ route('documentos.biblioteca', ['category' => $selectedCategory, 'search' => $search, 'sort' => 'title']) }}">
+                                            A-Z
+                                        </option>
+                                    </select>
+                                    <i
+                                        class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                                </div>
+                                <!-- Limpiar búsqueda -->
+                                @if ($search)
+                                    <a href="{{ route('documentos.biblioteca', ['category' => $selectedCategory]) }}"
+                                        class="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors text-sm">
+                                        <i class="fas fa-times mr-2"></i> Limpiar búsqueda
+                                    </a>
+                                @endif
+                            </div>
                         </div>
-                        <span
-                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">PDF
-                            • 2.4 MB</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Política de Ciberseguridad
-                        2024</h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Lineamientos oficiales para la
-                        protección de activos digitales y gestión de incidentes.</p>
-                    <button
-                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
-                        <i class="ri-file-download-line text-sm"></i>
-                        Descargar
-                    </button>
-                </div>
-                <!-- Card 2 -->
-                <div
-                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
-                            <i class="las la-key text-3xl"></i>
-                        </div>
-                        <span
-                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">GUIDE
-                            • 1.8 MB</span>
+
+                    <div>
+                        <!-- Documents Grid -->
+                        @if ($documents->count() > 0)
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                @foreach ($documents as $document)
+                                    <div
+                                        class="group bg-white border border-slate-200 rounded-2xl p-5
+                                        hover:shadow-md hover:border-primary/40 transition">
+                                        <!-- Header -->
+                                        <div class="flex items-center justify-between mb-3">
+                                            <span class="text-xs font-semibold"
+                                                style="color: {{ $document->category_info->color }}">
+                                                {{ $document->category_info->name }}
+                                            </span>
+                                            <span class="text-xs text-slate-400">
+                                                {{ $document->created_at->format('d/m/Y') }}
+                                            </span>
+                                        </div>
+                                        <!-- Contenido -->
+                                        <div class="flex items-start gap-3 mb-4">
+                                            <div class="p-3 rounded-xl"
+                                                style="background-color: {{ $document->category_info->color }}15;
+                                                color: {{ $document->category_info->color }}">
+                                                <i class="{{ $document->icon }} text-lg"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h3
+                                                    class="font-semibold text-slate-800 text-sm group-hover:text-primary transition">
+                                                    {{ $document->title }}
+                                                </h3>
+                                                @if ($document->description)
+                                                    <p class="text-xs text-slate-500 mt-1 line-clamp-2">
+                                                        {{ $document->description }}
+                                                    </p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <!-- Footer -->
+                                        <div class="flex items-center justify-between text-xs text-slate-500">
+                                            <span class="flex items-center gap-1">
+                                                <i class="las la-file"></i>
+                                                .{{ strtoupper($document->extension) }}
+                                            </span>
+                                            <span>{{ $document->formatted_size }}</span>
+                                        </div>
+                                        <!-- Acciones -->
+                                        <div class="flex gap-2 mt-4">
+                                            <a href="{{ route('documentos.ver-detalle', $document) }}"
+                                                class="flex-1 text-center text-xs py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">
+                                                Ver
+                                            </a>
+                                            <a href="{{ route('documentos.download', $document) }}"
+                                                class="flex-1 text-center text-xs py-2 rounded-lg text-white"
+                                                style="background-color: {{ $document->category_info->color }}">
+                                                Descargar
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <!-- Pagination -->
+                            @if ($documents->hasPages())
+                                <div class="mt-8">
+                                    {{ $documents->links('vendor.pagination.tailwind') }}
+                                </div>
+                            @endif
+                        @else
+                            <!-- Empty State -->
+                            <div class="text-center py-12">
+                                <div
+                                    class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gray-100 mb-6">
+                                    <i class="fas fa-search text-gray-400 text-4xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-700 mb-3">No se encontraron documentos</h3>
+                                <p class="text-gray-600 max-w-md mx-auto mb-8">
+                                    @if ($selectedCategory !== 'all' || $search)
+                                        No hay documentos que coincidan con tus criterios de búsqueda.
+                                    @else
+                                        Aún no hay documentos disponibles en la biblioteca.
+                                    @endif
+                                </p>
+                                <a href="{{ route('documentos.biblioteca') }}"
+                                    class="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200">
+                                    <i class="fas fa-home mr-2"></i> Volver al inicio
+                                </a>
+                            </div>
+                        @endif
                     </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Manual de Configuración
-                        VPN
-                    </h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Paso a paso para establecer
-                        conexiones seguras remotas a la infraestructura corporativa.</p>
-                    <button
-                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
-                        <i class="ri-file-download-line text-sm"></i>
-                        Descargar
-                    </button>
-                </div>
-                <!-- Card 3 -->
-                <div
-                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
-                            <i class="ri-line-chart-line text-3xl"></i>
-                        </div>
-                        <span
-                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">TOOL
-                            • 5.2 MB</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Diagnóstico de Red Local
-                    </h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Herramienta automatizada para la
-                        validación de latencia y estado de puertos locales.</p>
-                    <button
-                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
-                        <i class="ri-file-download-line text-sm"></i>
-                        Descargar
-                    </button>
-                </div>
-            </div>
-        </section>
-        <!-- Category: RH -->
-        <section class="mb-12">
-            <div class="flex items-center gap-3 mb-6 border-b border-slate-200 dark:border-primary/20 pb-3">
-                <i class="ri-team-line text-primary text-3xl"></i>
-                <h2 class="text-2xl font-extrabold tracking-tight">Recursos Humanos</h2>
-                <span class="ml-auto text-xs font-bold text-slate-400 bg-slate-100 dark:bg-primary/5 px-2 py-1 rounded">2
-                    ARCHIVOS</span>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card RH 1 -->
-                <div
-                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
-                            <i class="ri-auction-line text-3xl"></i>
-                        </div>
-                        <span
-                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">DOC
-                            • 1.1 MB</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Código de Ética y Conducta
-                    </h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Valores y normas que rigen el
-                        comportamiento profesional dentro de Netjer Networks.</p>
-                    <button
-                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
-                        <i class="ri-file-download-line text-sm"></i>
-                        Descargar
-                    </button>
-                </div>
-                <!-- Card RH 2 -->
-                <div
-                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
-                            <i class="ri-calendar-event-line text-3xl"></i>
-                        </div>
-                        <span
-                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">PDF
-                            • 3.4 MB</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Calendario de Vacaciones
-                        2024
-                    </h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Fechas oficiales, días festivos
-                        y
-                        periodos de solicitud para el personal administrativo.</p>
-                    <button
-                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
-                        <i class="ri-file-download-line text-sm"></i>
-                        Descargar
-                    </button>
-                </div>
-            </div>
-        </section>
-        <!-- Category: Ventas -->
-        <section class="mb-12">
-            <div class="flex items-center gap-3 mb-6 border-b border-slate-200 dark:border-primary/20 pb-3">
-                <i class="ri-bill-line text-primary text-3xl"></i>
-                <h2 class="text-2xl font-extrabold tracking-tight">Ventas &amp; Comercial</h2>
-                <span class="ml-auto text-xs font-bold text-slate-400 bg-slate-100 dark:bg-primary/5 px-2 py-1 rounded">1
-                    ARCHIVO</span>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card Ventas 1 -->
-                <div
-                    class="bg-white dark:bg-primary/5 border border-slate-200 dark:border-primary/20 rounded-xl p-5 hover:border-primary transition-all group shadow-sm">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary">
-                            <i class="ri-calculator-line text-3xl"></i>
-                        </div>
-                        <span
-                            class="text-[10px] font-black bg-slate-100 dark:bg-primary/20 px-2 py-1 rounded text-slate-500 dark:text-slate-300">XLS
-                            • 0.9 MB</span>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Calculadora de Comisiones
-                        v4
-                    </h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Plantilla interactiva para el
-                        cálculo de incentivos comerciales según objetivos trimestrales.</p>
-                    <button
-                        class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors">
-                        <i class="ri-file-download-line text-sm"></i>
-                        Descargar
-                    </button>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 @endsection

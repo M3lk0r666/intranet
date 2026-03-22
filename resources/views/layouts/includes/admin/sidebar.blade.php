@@ -19,7 +19,7 @@
         [
             'name' => 'Ver los Posts',
             'icon' => 'ri-eye-line',
-            'href' => route('intranet.posts.index'),
+            'href' => route('posts.index'),
             'active' => false,
             'new_tab' => true,
         ],

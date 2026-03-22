@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('client_documents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->constrained()->cascadeOnDelete();
-            $table->enum('type', ['poliza','inventario']);
+            $table->enum('type', ['poliza','inventario','activos']);
             $table->string('technology')->nullable();
+            $table->string('year')->nullable();
             $table->string('file');
             $table->timestamps();
         });

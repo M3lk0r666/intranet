@@ -62,7 +62,7 @@
                     <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Definición de jerarquías, roles y
                         responsabilidades de los equipos de trabajo.</p>
                     <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
-                        href="{{ route('intranet.estructurainterna.organigrama') }}">
+                        href="{{ route('estructurainterna.organigrama') }}">
                         Ver organigrama <i class="ri-arrow-right-long-line text-sm"></i>
                     </a>
                 </div>
@@ -80,7 +80,7 @@
                     <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Ciclo de vida de ventas, desde la
                         prospección hasta el cierre de soluciones tecnológicas.</p>
                     <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
-                        href="{{ route('intranet.estructurainterna.proceso-comercial') }}">
+                        href="{{ route('estructurainterna.proceso-comercial') }}">
                         Ver proceso <i class="ri-arrow-right-long-line text-sm"></i>
                     </a>
                 </div>
@@ -98,7 +98,7 @@
                     <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Estandarización de la entrega de
                         servicios y soporte técnico especializado.</p>
                     <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
-                        href="{{ route('intranet.estructurainterna.operaciones') }}">
+                        href="{{ route('estructurainterna.operaciones') }}">
                         Ver proceso <i class="ri-arrow-right-long-line text-sm"></i>
                     </a>
                 </div>
@@ -116,7 +116,7 @@
                     <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Lineamientos de marca,
                         comunicación visual y posicionamiento del mercado.</p>
                     <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
-                        href="{{ route('intranet.estructurainterna.imagen-corporativa') }}">
+                        href="{{ route('estructurainterna.imagen-corporativa') }}">
                         Ver recursos <i class="ri-arrow-right-long-line text-sm"></i>
                     </a>
                 </div>
@@ -134,7 +134,7 @@
                     <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Desarrollo de infraestructura,
                         diseño de redes y protocolos de innovación.</p>
                     <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
-                        href="{{ route('intranet.estructurainterna.ingenieria') }}">
+                        href="{{ route('estructurainterna.ingenieria') }}">
                         Ver proceso <i class="ri-arrow-right-long-line text-sm"></i>
                     </a>
                 </div>
@@ -152,7 +152,7 @@
                     <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Control presupuestario,
                         facturación y gestión administrativa central.</p>
                     <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
-                        href="{{ route('intranet.estructurainterna.admnistracion') }}">
+                        href="{{ route('estructurainterna.admnistracion') }}">
                         Ver proceso <i class="ri-arrow-right-long-line text-sm"></i>
                     </a>
                 </div>

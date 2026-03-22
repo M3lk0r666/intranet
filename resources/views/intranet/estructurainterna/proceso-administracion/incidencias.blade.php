@@ -33,14 +33,14 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.admnistracion') }}"
+                            <a href="{{ route('estructurainterna.admnistracion') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Administración</a>
                         </div>
                     </li>
@@ -101,12 +101,6 @@
             <div
                 class="bg-white text-slate-900 rounded-xl shadow-sm border-2 border-primary/20 overflow-hidden relative group">
                 <div class="relative p-6 flex flex-col items-center text-center">
-                    {{-- <div class="w-48 h-48 bg-white p-4 rounded-xl shadow-inner mb-6 transition-transform group-hover:scale-105 duration-300 cursor-pointer"
-                        onclick="openModal()">
-                        <img class="w-full h-full object-contain"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuChTevV17OaSf57Y0Q9rnWPZsQ-0Mne4Nu-shQPsiidxiDA_C41gsafZII6MVzTa76SEx-8pjWyIxoot9Jg-tUDqAw_ScFSKkRZmdQK9ViYHLH_DMCT3Biux8VX44VSgbbuJHPby5mVCWkRnY_sKldGgi0OkitakL5s3wO-xgz9tMw0vPhOwcwrH-AqTD2zdsMJvYsGXE3cRts6esISg1zQKeAugRHfkRxTyI8c-LLKikYfe4YkyPqhKcOu3-mhx5eDPmKNTssNK3wb"
-                            alt="Código QR">
-                    </div> --}}
                     <h3 class="text-xl font-bold mb-2 text-slate-900">Levantamiento de Incidencia</h3>
                     <p class="text-slate-600 text-sm leading-relaxed mb-6">
                         Se tendrán Posters en la oficina para poder hacer este registro de forma rápida desde tu dispositivo
@@ -133,8 +127,6 @@
                         class="w-80 max-w-full mx-auto rounded-lg shadow-lg" alt="Código QR Grande">
                 </div>
             </div> --}}
-
-
         </div>
         <!-- Right Column: Process Flows -->
         <div class="lg:col-span-8 space-y-8">
@@ -154,7 +146,6 @@
                         </h3>
                     </div>
                     <div class="p-6">
-
                         <ol class="text-medium space-y-2 list-decimal ml-4 mb-4">
                             <li>Se deberá informar al Jefe Inmediato, las fechas que se están solicitando.</li>
                             <li>Una vez avisado y autorizado el Jefe Inmediato se ingresa a registrar la información, usando
@@ -366,9 +357,7 @@
                         </ol>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 

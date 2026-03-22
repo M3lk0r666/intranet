@@ -3,8 +3,6 @@
 @section('title', 'Intranet Corporativa')
 
 @push('css')
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="/assets/css/intrahome.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
 @endpush
@@ -32,7 +30,7 @@
                     </li>
                     <li class="inline-flex items-center">
                         <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                        <a href="{{ route('intranet.biblioteca-recursos.departamentos') }}"
+                        <a href="{{ route('documentos.biblioteca') }}"
                             class="inline-flex items-center text-sm text-gray-600 hover:text-orange-600">Biblioteca
                         </a>
                     </li>
@@ -48,371 +46,451 @@
         </div>
     </div>
 
-    <!-- Encabezado -->
-    <div class="text-center mb-16 mt-8">
-        <h1 class="text-4xl font-black font-display tracking-tight text-slate-900 uppercase">
-            Vista detalle: <span class="text-primary  uppercase"> {{ $document->title }}</span>
-        </h1>
-        <p></p>
-        <p class="text-slate-600 mt-6 text-lg">{{ $document->description }}</p>
-    </div>
-
-    <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
+    <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8 mt-8">
         <div class="flex flex-col lg:flex-row gap-8">
-            <aside class="lg:w-64 flex-shrink-0">
-                <div class="sticky top-24 space-y-6" id="chapter-aside">
+            <aside class="lg:w-80 w-full">
+                <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-5 space-y-6 sticky top-24">
+                    <!-- 📄 INFO PRINCIPAL -->
                     <div>
-                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 px-2">
-                            Capítulos de la Guía
+                        <h3 class="text-sm font-semibold text-slate-800 mb-2 line-clamp-2">
+                            {{ $document->title }}
                         </h3>
-
-                        <div class="space-y-1">
-                            <a href="#previas" data-section="previas"
-                                class="chapter-link flex items-center gap-3 px-3 py-2 rounded-lg transition-colors">
-                                <i class="las la-tasks"></i>
-                                Previas
-                            </a>
-
-                            <a href="#cambio" data-section="cambio"
-                                class="chapter-link flex items-center gap-3 px-3 py-2 rounded-lg transition-colors">
-                                <i class="lab la-stack-exchange"></i>
-                                El Cambio
-                            </a>
-
-                            <a href="#verificacion" data-section="verificacion"
-                                class="chapter-link flex items-center gap-3 px-3 py-2 rounded-lg transition-colors">
-                                <i class="las la-list-alt"></i>
-                                Verificación
-                            </a>
-
-                            <a href="#finales" data-section="finales"
-                                class="chapter-link flex items-center gap-3 px-3 py-2 rounded-lg transition-colors">
-                                <i class="las la-check-circle"></i>
-                                Finales
-                            </a>
-
-                            <a href="#retorno" data-section="retorno"
-                                class="chapter-link flex items-center gap-3 px-3 py-2 rounded-lg transition-colors">
-                                <i class="las la-history"></i>
-                                Rollback
-                            </a>
+                        <p class="text-xs text-slate-500">
+                            {{ $document->description ?? 'Sin descripción disponible' }}
+                        </p>
+                    </div>
+                    <!-- ⚡ ACCIONES -->
+                    <div class="space-y-2">
+                        <!-- Descargar -->
+                        <a href="{{ route('documentos.download', $document) }}"
+                            class="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition">
+                            <i class="las la-download"></i>
+                            Descargar
+                        </a>
+                    </div>
+                    <!-- 📊 MÉTRICAS -->
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div class="bg-slate-50 rounded-lg p-3 text-center">
+                            <p class="text-slate-400">Tamaño</p>
+                            <p class="font-semibold text-slate-700">
+                                {{ $document->formatted_size }}
+                            </p>
+                        </div>
+                        <div class="bg-slate-50 rounded-lg p-3 text-center">
+                            <p class="text-slate-400">Vistas</p>
+                            <p class="font-semibold text-slate-700">
+                                {{ $document->views ?? 0 }}
+                            </p>
+                        </div>
+                        <div class="bg-slate-50 rounded-lg p-3 text-center col-span-2">
+                            <p class="text-slate-400">Tipo</p>
+                            <p class="font-semibold text-slate-700 uppercase">
+                                .{{ $document->extension }}
+                            </p>
                         </div>
                     </div>
-
-                    <!-- Bloque extra intacto -->
-                    <div class="p-4 bg-orange-500 rounded-2xl text-white shadow-lg shadow-orange-500/10">
-                        <p class="text-xs font-bold opacity-80 uppercase mb-2">Recursos Rápidos</p>
-                        <div class="space-y-2">
-                            <button
-                                class="w-full bg-white/20 hover:bg-white/30 text-white text-xs font-bold py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
-                                Descargar Script
-                            </button>
+                    <!-- 🏷️ CATEGORÍA -->
+                    <div class="pt-4 border-t border-slate-200">
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                            Categoría
+                        </p>
+                        <div class="flex items-center gap-2 text-sm font-medium"
+                            style="color: {{ $document->category_info->color }}">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center"
+                                style="background-color: {{ $document->category_info->color }}20">
+                                <i class="{{ $document->category_info->icon }}"></i>
+                            </div>
+                            {{ $document->category_info->name }}
                         </div>
                     </div>
-
+                    <!-- 👤 AUTOR -->
+                    <div class="pt-4 border-t border-slate-200">
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                            Subido por
+                        </p>
+                        <div class="flex items-center gap-2 text-sm text-slate-600">
+                            <i class="las la-user text-slate-400"></i>
+                            {{ $document->user->name ?? 'Sistema' }}
+                        </div>
+                    </div>
+                    <!-- 📅 FECHA -->
+                    <div class="pt-4 border-t border-slate-200">
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+                            Fecha
+                        </p>
+                        <div class="text-sm text-slate-600">
+                            {{ $document->created_at->format('d/m/Y') }}
+                        </div>
+                    </div>
                 </div>
             </aside>
+
             <article class="flex-grow max-w-4xl lg:max-w-6xl space-y-16">
-                <div>
-                    <span
-                        class="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-primary text-xs font-bold mb-4">
-                        GUÍA DE IMPLEMENTACIÓN v3.0
-                    </span>
-                    <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Sustitución de Switches de Acceso</h1>
-                    <p class="text-lg text-slate-600 leading-relaxed">
-                        Guía detallada para el proceso de sustitución y configuración de switches, asegurando el
-                        cumplimiento de estándares corporativos y minimizando el tiempo de inactividad.
-                    </p>
+                <div class="text-center mb-4 mt-8">
+                    <h1 class="text-4xl font-black font-display tracking-tight text-slate-900 uppercase">
+                        Vista: <span class="text-primary  uppercase"> {{ $document->title }}</span>
+                    </h1>
+                    {{-- <p></p>
+                    <p class="text-slate-600 mt-6 text-lg">{{ $document->description }}</p> --}}
+                    @if ($document->description)
+                        <div class="bg-gray-50 border-l-4 border-blue-500 p-4 rounded-r-lg mt-6">
+                            <div class="flex">
+                                <i class="fas fa-info-circle text-primary-500 mr-3 mt-1"></i>
+                                <p class="text-gray-700">{{ $document->description }}</p>
+                            </div>
+                        </div>
+                    @endif
                 </div>
-                <section class="scroll-mt-32" id="previas">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                            <i class="las la-brain"></i>
+                <div>
+                    <!-- Document Preview -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+                        <div class="px-6 py-4 border-b border-slate-200">
+                            <h3 class="text-base font-semibold text-slate-800 flex items-center gap-2">
+                                <i class="las la-eye text-primary"></i>
+                                Vista previa
+                            </h3>
+                            <p class="text-xs text-slate-500 mt-1">
+                                Visualización del documento
+                            </p>
                         </div>
-                        <h2 class="text-2xl font-bold text-slate-900">1. Actividades Previas &amp; Auditoría</h2>
-                    </div>
-                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-                        <p class="text-slate-600 mb-6 font-medium">Ejecute los siguientes comandos para documentar el estado
-                            actual del equipo antes de proceder con el cambio físico.</p>
-                        <div
-                            class="rounded-xl bg-slate-50 p-6 overflow-hidden border border-slate-200 font-mono text-sm leading-relaxed mb-6">
-                            <div class="flex items-center justify-between mb-4 border-b border-slate-200 pb-2">
-                                <span class="text-slate-400 uppercase text-xs tracking-widest font-bold">Terminal Output -
-                                    Pre-Check</span>
-                                <span class="material-symbols-outlined text-slate-400 text-sm">content_copy</span>
-                            </div>
-                            <div class="space-y-1">
-                                <div class="flex gap-4">
-                                    <span class="text-slate-300 w-4 select-none">01</span>
-                                    <code class="text-slate-900"># <span class="text-orange-600 font-semibold">show
-                                            running-config</span>
-                                    </code>
+                        <!-- Preview -->
+                        <div class="p-6">
+                            @if ($document->extension === 'pdf')
+                                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                                    <iframe src="{{ Storage::url($document->file_path) }}" class="w-full h-[75vh] bg-white"
+                                        title="Vista previa del PDF">
+                                    </iframe>
                                 </div>
-                                <div class="flex gap-4">
-                                    <span class="text-slate-300 w-4 select-none">02</span>
-                                    <code class="text-slate-900"># <span class="text-orange-600 font-semibold">show version
-                                            detail</span>
-                                    </code>
+                                <div class="mt-4 flex items-center text-sm text-gray-500">
+                                    <i class="fas fa-info-circle mr-2 text-primary-500"></i>
+                                    Esta es una vista previa del documento. Para verlo completo o imprimirlo, descarga
+                                    el
+                                    archivo.
                                 </div>
-                                <div class="flex gap-4">
-                                    <span class="text-slate-300 w-4 select-none">03</span>
-                                    <code class="text-slate-900"># <span class="text-orange-600 font-semibold">show
-                                            inventory</span>
-                                    </code>
+                            @elseif(in_array($document->extension, ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg']))
+                                <div class="text-center">
+                                    <img src="{{ Storage::url($document->file_path) }}" alt="{{ $document->title }}"
+                                        class="max-w-full h-auto mx-auto rounded-lg shadow-md max-h-96">
                                 </div>
-                                <div class="flex gap-4">
-                                    <span class="text-slate-300 w-4 select-none">04</span>
-                                    <code class="text-slate-900"># <span class="text-orange-600 font-semibold">show ip
-                                            interface brief</span>
-                                    </code>
-                                </div>
-                                <div class="flex gap-4">
-                                    <span class="text-slate-300 w-4 select-none">05</span>
-                                    <code class="text-slate-900"># <span class="text-orange-600 font-semibold">show lldp
-                                            neighbors</span>
-                                    </code>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3 text-slate-600 text-sm">
-
-                                <i class="las la-check-circle text-emerald-500 text-xl"></i>
-                                Verificar que el archivo de configuración haya sido respaldado externamente.
-                            </li>
-                            <li class="flex items-center gap-3 text-slate-600 text-sm">
-
-                                <i class="las la-check-circle text-emerald-500 text-xl"></i>
-                                Etiquetar cada cable conectado al switch actual con su número de puerto correspondiente.
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                <section class="scroll-mt-32" id="cambio">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                            <i class="las la-cog"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-slate-900">2. Actividades en el Cambio</h2>
-                    </div>
-                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-                        <div class="grid md:grid-cols-3 gap-6 mb-8">
-                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50">
-                                <p class="text-xs font-bold text-primary uppercase mb-2">Paso A</p>
-                                <h4 class="font-bold mb-1 text-slate-900">Desconexión</h4>
-                                <p class="text-xs text-slate-500">Apagado y retiro de cables de alimentación y datos.</p>
-                            </div>
-                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50">
-                                <p class="text-xs font-bold text-primary uppercase mb-2">Paso B</p>
-                                <h4 class="font-bold mb-1 text-slate-900">Montado</h4>
-                                <p class="text-xs text-slate-500">Instalación física en Rack con soportes adecuados.</p>
-                            </div>
-                            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50">
-                                <p class="text-xs font-bold text-primary uppercase mb-2">Paso C</p>
-                                <h4 class="font-bold mb-1 text-slate-900">Conexión</h4>
-                                <p class="text-xs text-slate-500">Re-cableado siguiendo el etiquetado previo.</p>
-                            </div>
-                        </div>
-                        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl">
-                            <h4 class="text-sm font-bold text-orange-800 flex items-center gap-2 mb-1">
-                                <i class="las la-info-circle"></i> Toma de Datos Post-Instalación
-                            </h4>
-                            <p class="text-sm text-orange-700">Confirmar encendido de fuentes de poder y que los LEDs de
-                                sistema (SYST) estén en verde sólido.</p>
-                        </div>
-                    </div>
-                </section>
-                <section class="scroll-mt-32" id="verificacion">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                            <i class="las la-tasks"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-slate-900">3. Verificación de Operatividad</h2>
-                    </div>
-                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-slate-400 tracking-wider mb-4">Pruebas de
-                                    Conectividad</h4>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div
-                                        class="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200">
-                                        <span class="text-sm font-semibold text-slate-900">Ping a Gateway (DGW)</span>
-                                        <span
-                                            class="px-2 py-1 rounded-md bg-emerald-100 text-emerald-700 text-[10px] font-bold">REQUERIDO</span>
+                            @elseif(in_array($document->extension, ['txt', 'md', 'html', 'css', 'js']))
+                                <div class="bg-gray-900 rounded-lg overflow-hidden">
+                                    <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                                        <div class="flex items-center text-gray-300 text-sm">
+                                            <i class="fas fa-code mr-2"></i>
+                                            <span>.{{ strtoupper($document->extension) }}</span>
+                                        </div>
+                                        <button onclick="loadTextContent()"
+                                            class="text-xs px-3 py-1 bg-gray-700 text-gray-300 rounded hover:bg-gray-600">
+                                            <i class="fas fa-sync-alt mr-1"></i> Cargar contenido
+                                        </button>
                                     </div>
+                                    {{-- <pre id="text-content" class="p-4 text-gray-100 overflow-auto max-h-96 font-mono text-sm">
+                                        Cargando contenido del archivo...
+                                    </pre> --}}
+                                    <pre id="text-content"
+                                        class="whitespace-pre-wrap break-words p-4 text-gray-100 overflow-auto max-h-96 font-mono text-sm">
+                                        Cargando contenido...
+                                        </pre>
+                                </div>
+                            @else
+                                <div class="text-center py-12">
                                     <div
-                                        class="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200">
-                                        <span class="text-sm font-semibold text-slate-900">Ping a Core Switch</span>
-                                        <span
-                                            class="px-2 py-1 rounded-md bg-emerald-100 text-emerald-700 text-[10px] font-bold">REQUERIDO</span>
+                                        class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-100 mb-4">
+                                        <i class="fas fa-eye-slash text-gray-400 text-3xl"></i>
                                     </div>
+                                    <h4 class="text-xl font-bold text-gray-700 mb-2">Vista previa no disponible</h4>
+                                    <p class="text-gray-600 max-w-md mx-auto mb-6">
+                                        El formato .{{ strtoupper($document->extension) }} no admite vista previa en el
+                                        navegador.
+                                        Descarga el archivo para ver su contenido completo.
+                                    </p>
+                                    <a href="{{ route('documentos.download', $document) }}"
+                                        class="inline-flex items-center px-5 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium">
+                                        <i class="fas fa-download mr-2"></i> Descargar para ver
+                                    </a>
                                 </div>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-bold uppercase text-slate-400 tracking-wider mb-4">Comparativa de
-                                    Interfaces</h4>
-                                <div
-                                    class="p-4 bg-slate-50 rounded-xl font-mono text-xs text-slate-600 border border-slate-200">
-                                    <span class="text-orange-600 font-bold"># verify-interfaces --compare
-                                        baseline.txt</span>
-                                    <br />
-                                    Checking Gi1/0/1... UP/UP<br />
-                                    Checking Gi1/0/2... UP/UP<br />
-                                    Checking Gi1/0/3... DOWN/DOWN (Matches baseline)<br />
-                                    <span class="text-emerald-600 font-bold">Status: All critical interfaces match baseline
-                                        state.</span>
-                                </div>
-                            </div>
+                            @endif
                         </div>
-                    </div>
-                </section>
-                <section class="scroll-mt-32" id="finales">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                            <i class="las la-clipboard-check"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-slate-900">4. Actividades Finales</h2>
-                    </div>
-                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-                        <div class="space-y-8">
-                            <div>
-                                <h4 class="text-sm font-bold mb-4 text-slate-900">Registro Fotográfico</h4>
-                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                    <div
-                                        class="aspect-square bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-2 text-slate-400 hover:border-primary/50 transition-colors cursor-pointer group">
-                                        <i class="las la-camera-retro group-hover:text-primary"></i>
 
-                                        <span class="text-[10px] font-bold uppercase">Front View</span>
-                                    </div>
-                                    <div
-                                        class="aspect-square bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-2 text-slate-400 hover:border-primary/50 transition-colors cursor-pointer group">
-                                        <i class="las la-camera-retro group-hover:text-primary"></i>
 
-                                        <span class="text-[10px] font-bold uppercase">Cable Map</span>
-                                    </div>
-                                    <div
-                                        class="aspect-square bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-2 text-slate-400 hover:border-primary/50 transition-colors cursor-pointer group">
-                                        <i class="las la-camera-retro group-hover:text-primary"></i>
+                        <!-- Document Metadata -->
+                        @if ($document->tags || $document->version)
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+                                <h3 class="text-lg font-bold text-gray-800 mb-4">
+                                    <i class="fas fa-info-circle mr-2"></i>Información adicional
+                                </h3>
 
-                                        <span class="text-[10px] font-bold uppercase">Power A/B</span>
-                                    </div>
-                                    <div
-                                        class="aspect-square bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center gap-2 text-slate-400 hover:border-primary/50 transition-colors cursor-pointer group">
-                                        <i class="las la-camera-retro group-hover:text-primary"></i>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    @if ($document->tags && count($document->tags) > 0)
+                                        <div>
+                                            <h4 class="font-medium text-gray-700 mb-3">
+                                                <i class="fas fa-tags mr-2"></i>Etiquetas
+                                            </h4>
+                                            <div class="flex flex-wrap gap-2">
+                                                @foreach ($document->tags as $tag)
+                                                    <span
+                                                        class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-800">
+                                                        <i class="fas fa-hashtag mr-1 text-gray-500"></i>
+                                                        {{ $tag }}
+                                                    </span>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
 
-                                        <span class="text-[10px] font-bold uppercase">Labeling</span>
-                                    </div>
+                                    @if ($document->version)
+                                        <div>
+                                            <h4 class="font-medium text-gray-700 mb-3">
+                                                <i class="fas fa-code-branch mr-2"></i>Versión del documento
+                                            </h4>
+                                            <div class="flex items-center">
+                                                <div class="p-3 bg-primary-50 rounded-lg mr-4">
+                                                    <i class="fas fa-flag text-primary-600 text-xl"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-2xl font-bold text-gray-800">{{ $document->version }}
+                                                    </p>
+                                                    <p class="text-sm text-gray-600">Versión actual del documento</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="p-6 rounded-2xl bg-slate-900 text-white shadow-lg">
-                                    <h4 class="font-bold mb-2 flex items-center gap-2">
-                                        <i class="las la-save text-primary"></i> Config Backup
-                                    </h4>
-                                    <p class="text-xs text-slate-300 mb-4">Realice el guardado final de la configuración y
-                                        envíe a la bóveda de seguridad central.</p>
-                                    <button
-                                        class="w-full py-2 bg-primary rounded-lg text-sm font-bold hover:bg-orange-600 transition-colors">Copy
-                                        Run Start</button>
+                        @endif
+
+                        <!-- Same Category Documents -->
+                        @if ($sameCategoryDocuments->count() > 0)
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h3 class="text-lg font-bold text-gray-800">
+                                        <i class="fas fa-folder mr-2"
+                                            style="color: {{ $document->category_info->color }}"></i>
+                                        Más documentos en {{ $document->category_info->name }}
+                                    </h3>
+                                    <a href="{{ route('documentos.biblioteca', ['category' => $document->category]) }}"
+                                        class="text-sm text-primary-600 hover:text-primary-800 font-medium">
+                                        Ver todos <i class="fas fa-arrow-right ml-1"></i>
+                                    </a>
                                 </div>
-                                <div class="p-6 rounded-2xl border border-slate-200 bg-white">
-                                    <h4 class="font-bold mb-2 flex items-center gap-2 text-slate-900">
-                                        <i class="las la-signature text-primary"></i> Sign-off
-                                    </h4>
-                                    <p class="text-xs text-slate-500 mb-4">Firma del responsable del sitio confirmando la
-                                        operatividad total de los servicios.</p>
-                                    <button
-                                        class="w-full py-2 bg-slate-100 rounded-lg text-sm font-bold text-slate-900 hover:bg-slate-200 transition-colors">Subir
-                                        Acta</button>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                                    @foreach ($sameCategoryDocuments->take(4) as $doc)
+                                        <a href="{{ route('documentos.ver-detalle', $doc) }}" class="group block">
+                                            <div
+                                                class="bg-gray-50 border border-gray-200 rounded-xl p-4 hover:border-primary-300 hover:shadow-md transition-all duration-300 h-full">
+                                                <div class="flex items-start mb-3">
+                                                    <div class="p-2 rounded-lg mr-3"
+                                                        style="background-color: {{ $document->category_info->color }}20; color: {{ $doc->category_info->color }}">
+                                                        <i class="{{ $doc->icon }}"></i>
+                                                    </div>
+                                                    <div class="flex-1">
+                                                        <h4
+                                                            class="font-medium text-gray-800 group-hover:text-primary-600 line-clamp-2 mb-2">
+                                                            {{ $doc->title }}
+                                                        </h4>
+                                                        <div class="flex items-center text-xs text-gray-500">
+                                                            <span class="mr-3">
+                                                                .{{ strtoupper($doc->extension) }}
+                                                            </span>
+                                                            <span>{{ $doc->formatted_size }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="flex items-center justify-between">
+                                                    <span class="text-xs px-2 py-1 rounded-full"
+                                                        style="background-color: {{ $doc->category_info->color }}20; color: {{ $doc->category_info->color }}">
+                                                        {{ $doc->category_info->name }}
+                                                    </span>
+                                                    <span class="text-xs text-gray-500">
+                                                        <i class="fas fa-download mr-1"></i>{{ $doc->downloads }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    @endforeach
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
-                </section>
-                <section class="scroll-mt-32" id="retorno">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-red-600">
-                            <i class="las la-exclamation-triangle"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-slate-900">5. Plan de Retorno (Rollback)</h2>
-                    </div>
-                    <div class="bg-white rounded-2xl border border-red-100 p-8 shadow-sm">
-                        <p class="text-slate-600 mb-6 font-medium">En caso de fallas críticas insalvables durante la
-                            ventana de mantenimiento, proceda con la reversión:</p>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0 font-bold text-sm">
-                                    1</div>
-                                <p class="text-sm text-slate-600 pt-1">Desmontar el equipo nuevo y reinstalar el equipo
-                                    original en el rack siguiendo las etiquetas previas.</p>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0 font-bold text-sm">
-                                    2</div>
-                                <p class="text-sm text-slate-600 pt-1">Re-conectar cables de alimentación y fibra/cobre
-                                    según el mapeo inicial documentado en el paso 1.</p>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0 font-bold text-sm">
-                                    3</div>
-                                <p class="text-sm text-slate-600 pt-1">Validar conectividad básica para asegurar que el
-                                    servicio ha retornado a su estado funcional anterior.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                </div>
             </article>
         </div>
+
     </div>
+
 
 
 
 @endsection
-@push('js')
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+@push('styles')
+    {{-- <style>
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
 
-            const links = document.querySelectorAll('.chapter-link')
-            const sections = Array.from(links).map(link =>
-                document.getElementById(link.dataset.section)
-            )
+        .badge-pulse {
+            animation: pulse 2s infinite;
+        }
 
-            function setActive(id) {
-                links.forEach(link => {
-                    link.classList.toggle(
-                        'active',
-                        link.dataset.section === id
-                    )
-                })
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
             }
 
-            function onScroll() {
-                const scrollPos = window.scrollY + 200
-                let currentSection = sections[0]?.id
+            70% {
+                box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+            }
 
-                sections.forEach(section => {
-                    if (!section) return
-                    if (section.offsetTop <= scrollPos) {
-                        currentSection = section.id
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style> --}}
+@endpush
+@push('scripts')
+    <script>
+        // Increment view count
+        document.addEventListener('DOMContentLoaded', function() {
+            // Increment views
+            fetch("{{ route('documentos.view', $document) }}", {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            // Load text content for preview
+            @if (in_array($document->extension, ['txt', 'md', 'html', 'css', 'js']))
+                loadTextContent();
+            @endif
+        });
+
+        function loadTextContent() {
+            const contentElement = document.getElementById('text-content');
+            const modalContentElement = document.getElementById('modal-text-content');
+
+            if (contentElement) {
+                contentElement.textContent = 'Cargando contenido...';
+            }
+
+            if (modalContentElement) {
+                modalContentElement.textContent = 'Cargando contenido...';
+            }
+
+            fetch("{{ route('documentos.content', $document) }}")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al cargar el contenido');
+                    }
+                    return response.text();
+                })
+                .then(content => {
+                    if (contentElement) {
+                        contentElement.textContent = content;
+                    }
+                    if (modalContentElement) {
+                        modalContentElement.textContent = content;
                     }
                 })
+                .catch(error => {
+                    const errorMessage = 'Error al cargar el contenido del archivo.';
+                    if (contentElement) {
+                        contentElement.textContent = errorMessage;
+                    }
+                    if (modalContentElement) {
+                        modalContentElement.textContent = errorMessage;
+                    }
+                    console.error('Error:', error);
+                });
+        }
 
-                setActive(currentSection)
+        function copyTextContent() {
+            const modalContentElement = document.getElementById('modal-text-content');
+            if (modalContentElement) {
+                const content = modalContentElement.textContent;
+                navigator.clipboard.writeText(content).then(() => {
+                    showNotification('Contenido copiado al portapapeles', 'success');
+                });
             }
+        }
 
-            // Click → activa inmediatamente
-            links.forEach(link => {
-                link.addEventListener('click', () => {
-                    setActive(link.dataset.section)
-                })
-            })
+        function copyToClipboard() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                showNotification('Enlace copiado al portapapeles', 'success');
+            });
+        }
 
-            window.addEventListener('scroll', onScroll)
-            onScroll()
-        })
+        function shareDocument() {
+            if (navigator.share) {
+                navigator.share({
+                        title: '{{ $document->title }}',
+                        text: 'Mira este documento: {{ $document->title }}',
+                        url: window.location.href,
+                    })
+                    .then(() => showNotification('Documento compartido', 'success'))
+                    .catch(error => {
+                        if (error.name !== 'AbortError') {
+                            showNotification('Error al compartir', 'error');
+                        }
+                    });
+            } else {
+                copyToClipboard();
+            }
+        }
+
+        function showNotification(message, type = 'success') {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.custom-notification');
+            existingNotifications.forEach(notification => notification.remove());
+
+            // Create notification
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 custom-notification p-4 rounded-lg shadow-lg text-white ${
+        type === 'success' ? 'bg-green-500' : 'bg-red-500'
+    }`;
+            notification.innerHTML = `
+        <div class="flex items-center">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} mr-3"></i>
+            <span>${message}</span>
+        </div>
+    `;
+
+            document.body.appendChild(notification);
+
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Handle download count animation
+        document.querySelectorAll('a[href*="download"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Animation for download count
+                const downloadCount = document.querySelector('.download-count');
+                if (downloadCount) {
+                    const count = parseInt(downloadCount.textContent);
+                    downloadCount.textContent = count + 1;
+
+                    // Add animation class
+                    downloadCount.classList.add('animate__animated', 'animate__bounce');
+                    setTimeout(() => {
+                        downloadCount.classList.remove('animate__animated', 'animate__bounce');
+                    }, 1000);
+                }
+            });
+        });
     </script>
 @endpush

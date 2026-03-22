@@ -13,10 +13,7 @@
             <i class="ri-add-large-line"></i>
             Nuevo
         </x-wire-button>
-
     </x-slot>
 
     @livewire('admin.datatables.post-table')
-
-
 </x-admin-layout>

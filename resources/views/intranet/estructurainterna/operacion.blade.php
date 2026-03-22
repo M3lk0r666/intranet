@@ -30,7 +30,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
@@ -56,7 +56,7 @@
         <h1 class="text-3xl font-bold text-gray-800 mb-2">Descripcion de Puestos</h1>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
             class="bg-white dark:bg-[#1a1a1a] rounded shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col min-h-[400px] opacity-40 pointer-events-none cursor-not-allowed">
             <div class="p-4 flex items-center justify-between border-b border-slate-100 dark:border-slate-800">
@@ -106,7 +106,6 @@
                 <h4 class="text-xl font-bold text-black dark:text-white">Descripcion Corta del puesto</h4>
                 <p class="text-sm text-slate-600 dark:text-slate-400">Continúa donde lo dejaste o explora nuevas
                     certificaciones disponibles.</p>
-
                 <div class="space-y-3">
                     <div class="flex items-center text-sm font-semibold text-black dark:text-white">
                         <span class="material-symbols-outlined text-orange-500 mr-2 text-lg"><i
@@ -161,7 +160,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="p-4 border-t border-slate-100 dark:border-slate-800">
                 <button
@@ -169,10 +167,43 @@
                     Documento</button>
             </div>
         </div>
+    </div> --}}
+    <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8 mt-8 flex items-center justify-center">
+        <div class="text-center px-6 py-4">
+
+            <!-- Imagen -->
+            <div class="flex justify-center mb-8">
+                <div
+                    class="w-48 h-48 rounded-full overflow-hidden border-4 border-primary shadow-xl ring-4 ring-primary/10">
+                    <img src="{{ asset('assets/media/trabajando-enello.png') }}" alt="En construcción"
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Título -->
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
+                Estamos trabajando en esta sección
+            </h1>
+
+            <!-- Mensaje -->
+            <p class="text-gray-600 max-w-md mx-auto">
+                Actualmente se esta trabajando en la <br><span class="font-semibold text-orange-500">Descripción de
+                    Puestos</span>.
+            </p>
+            <p class="text-gray-600 max-w-md mx-auto">
+                Vuelve pronto para ver contenido
+            </p>
+
+            <!-- Badge opcional -->
+            <div class="mt-6">
+                <span
+                    class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold text-primary bg-primary/10 rounded-full">
+                    <i class="las la-clock text-sm"></i>
+                    En proceso
+                </span>
+            </div>
+        </div>
     </div>
-
-
-
 @endsection
 @push('js')
 @endpush

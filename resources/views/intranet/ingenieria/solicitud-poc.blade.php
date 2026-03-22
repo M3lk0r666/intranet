@@ -33,14 +33,14 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                            <a href="{{ route('estructurainterna.ingenieria') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Ingenieria
                             </a>
                         </div>
@@ -427,7 +427,6 @@
         </div>
     </div>
 
-
     <!-- Matriz RACI -->
     <div class="mb-12 mt-6">
         <h1 class="text-5xl font-black font-display tracking-tight text-slate-900 mb-2 text-center">
@@ -610,11 +609,6 @@
 
 
     </div>
-
-
-
-
-
 @endsection
 @push('js')
 @endpush

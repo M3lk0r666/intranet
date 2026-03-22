@@ -390,7 +390,7 @@
                 <div class="flex flex-wrap justify-center gap-4">
                     <a href="{{ route('intranet.index') }}"
                         class="bg-white text-orange-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 text-lg">
-                        <i class="fas fa-door-open mr-2"></i> Acceder al Portal
+                        <i class="fas fa-door-open mr-2"></i> Acceder a la Intranet
                     </a>
                 </div>
             </div>

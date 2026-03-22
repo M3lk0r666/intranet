@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('intranet.posts.index') }}"
+                    <a href="{{ route('posts.index') }}"
                         class="text-gray-600 hover:text-blue-600 transition text-sm font-medium">
                         Artículos
                     </a>

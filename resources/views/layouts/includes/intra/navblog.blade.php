@@ -10,13 +10,13 @@
         <div class="flex items-center space-x-4">
             <div class="hidden md:flex space-x-6">
                 <a href="{{ route('intranet.index') }}" class="text-gray-600 hover:text-orange-600 font-medium">Home</a>
-                <a href="{{ route('intranet.procesos-empresariales') }}"
+                <a href="{{ route('procesos-empresariales') }}"
                     class="text-gray-600 hover:text-orange-600 font-medium">Procesos
                     Empresariales</a>
-                <a href="{{ route('intranet.posts.index') }}" class="nav-active font-medium border-b-2 pb-1">Blog de
+                <a href="{{ route('posts.index') }}" class="nav-active font-medium border-b-2 pb-1">Blog de
                     Redes</a>
                 <a href="#" class="text-gray-600 hover:text-orange-600 font-medium">Formación Académica</a>
-                <a href="{{ route('intranet.ingenieria.portal-soporte') }}"
+                <a href="{{ route('ingenieria.portal-soporte') }}"
                     class="text-gray-600 hover:text-orange-600 font-medium">Soporte</a>
             </div>
 

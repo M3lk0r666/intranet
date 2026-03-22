@@ -37,21 +37,21 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.admnistracion') }}"
+                            <a href="{{ route('estructurainterna.admnistracion') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Administración</a>
                         </div>
                     </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">Inventario</span>
+                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">RM - Inventario</span>
                         </div>
                     </li>
                 </ol>
@@ -60,9 +60,6 @@
     </div>
 
     <header class="text-center mb-16 mt-12">
-        {{-- <h1 class="text-5xl font-black font-display tracking-tight text-primary uppercase">
-            Proceso Inventario
-        </h1> --}}
         <h1 class="text-5xl font-black font-display tracking-tight text-slate-900 uppercase">
             Proceso <span class="text-primary  uppercase"> Inventario-Facturación</span>
         </h1>
@@ -178,7 +175,6 @@
                                 <li>✓ Pago deferido en N numero de exhibiciones</li>
                             </ul>
                         </li>
-
                     </ol>
                 </div>
                 <div class="phase-card">
@@ -334,13 +330,7 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
-
-
-
 @endsection
 @push('js')
 @endpush

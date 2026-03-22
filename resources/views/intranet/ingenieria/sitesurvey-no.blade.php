@@ -30,7 +30,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                            <a href="{{ route('estructurainterna.ingenieria') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Ingenieria
                             </a>
                         </div>
@@ -288,7 +288,6 @@
                         class="bg-slate-50 dark:bg-slate-800/30 p-4 rounded-xl border border-dashed border-slate-300 dark:border-slate-700">
                         <div class="flex flex-col items-center justify-center py-4 space-y-2">
                             <i class="ri-file-upload-line text-4xl text-slate-400"></i>
-
                             <p class="text-sm font-medium">Subir Diagrama de Red u Onboarding Connectivity Plan</p>
                             <p class="text-xs text-slate-400">PDF, JPG o PNG (Max 10MB)</p>
                             <button class="mt-2 text-primary font-bold text-sm">Seleccionar archivos</button>
@@ -376,8 +375,6 @@
             </section>
         </div>
     </div>
-
-
 @endsection
 @push('js')
 @endpush

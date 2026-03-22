@@ -23,11 +23,6 @@
                         class="mt-4 inline-flex items-center px-3 py-1 text-sm font-medium rounded-full border transition duration-150 bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200">
                         Ver articulos<i class="fas fa-arrow-right ml-1"></i>
                     </label>
-
-
-                    {{-- <div class="mt-4 text-blue-600 text-sm font-medium">
-                        Ver artículos 
-                    </div> --}}
                 </a>
             @endforeach
         </div>

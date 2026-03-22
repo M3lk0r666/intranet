@@ -9,14 +9,14 @@
         <nav class="bg-white border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 <div class="flex items-center space-x-2 text-sm">
-                    <a href="{{ route('intranet.documentos.index') }}"
+                    <a href="{{ route('documentos.index') }}"
                         class="text-primary-600 hover:text-primary-800 flex items-center">
                         <i class="fas fa-home mr-2"></i> Inicio
                     </a>
                     <span class="text-gray-400">
                         <i class="fas fa-chevron-right"></i>
                     </span>
-                    <a href="{{ route('intranet.documentos.index', ['category' => $document->category]) }}"
+                    <a href="{{ route('documentos.index', ['category' => $document->category]) }}"
                         class="text-primary-600 hover:text-primary-800">
                         {{ $document->category_info->name }}
                     </a>
@@ -52,7 +52,6 @@
                                     {{ $document->category_info->name }}
                                 </span>
                             </div>
-
                             <!-- Document Details -->
                             <div class="space-y-3">
                                 <div class="flex items-center justify-between py-2 border-b border-gray-100">
@@ -61,28 +60,24 @@
                                     </span>
                                     <span class="font-medium">.{{ strtoupper($document->extension) }}</span>
                                 </div>
-
                                 <div class="flex items-center justify-between py-2 border-b border-gray-100">
                                     <span class="text-sm text-gray-600">
                                         <i class="fas fa-weight-hanging mr-2"></i>Tamaño
                                     </span>
                                     <span class="font-medium">{{ $document->formatted_size }}</span>
                                 </div>
-
                                 <div class="flex items-center justify-between py-2 border-b border-gray-100">
                                     <span class="text-sm text-gray-600">
                                         <i class="fas fa-download mr-2"></i>Descargas
                                     </span>
                                     <span class="font-medium">{{ $document->downloads }}</span>
                                 </div>
-
                                 <div class="flex items-center justify-between py-2 border-b border-gray-100">
                                     <span class="text-sm text-gray-600">
                                         <i class="fas fa-calendar-alt mr-2"></i>Fecha de subida
                                     </span>
                                     <span class="font-medium">{{ $document->created_at->format('d/m/Y') }}</span>
                                 </div>
-
                                 <div class="flex items-center justify-between py-2">
                                     <span class="text-sm text-gray-600">
                                         <i class="fas fa-eye mr-2"></i>Vistas
@@ -90,15 +85,13 @@
                                     <span class="font-medium">{{ $document->views ?? 0 }}</span>
                                 </div>
                             </div>
-
                             <!-- Download Button -->
                             <div class="mt-6">
-                                <a href="{{ route('intranet.documentos.download', $document) }}"
+                                <a href="{{ route('documentos.download', $document) }}"
                                     class="w-full inline-flex items-center justify-center px-4 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:opacity-90 transition-all duration-200 font-medium shadow-lg badge-pulse">
                                     <i class="fas fa-download mr-2"></i> Descargar Documento
                                 </a>
                             </div>
-
                             <!-- Share Actions -->
                             <div class="mt-4 flex space-x-2">
                                 <button onclick="copyToClipboard()"
@@ -142,7 +135,7 @@
                                 </h4>
                                 <div class="space-y-4">
                                     @foreach ($relatedDocuments as $related)
-                                        <a href="{{ route('intranet.documentos.show', $related) }}" class="block group">
+                                        <a href="{{ route('documentos.show', $related) }}" class="block group">
                                             <div class="flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors">
                                                 <div class="flex-shrink-0 p-2 rounded-lg mr-3"
                                                     style="background-color: {{ $related->category_info->color }}20; color: {{ $related->category_info->color }}">
@@ -222,7 +215,7 @@
                                     </button>
                                 @endif
 
-                                <a href="{{ route('intranet.documentos.download', $document) }}"
+                                <a href="{{ route('documentos.download', $document) }}"
                                     class="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:opacity-90 font-medium shadow-lg badge-pulse">
                                     <i class="fas fa-download mr-2"></i> Descargar
                                 </a>
@@ -326,7 +319,7 @@
                                         </button>
                                     </div>
                                     <pre id="text-content" class="p-4 text-gray-100 overflow-auto max-h-96 font-mono text-sm">
-Cargando contenido del archivo...
+                                    Cargando contenido del archivo...
                             </pre>
                                 </div>
                             @else
@@ -341,7 +334,7 @@ Cargando contenido del archivo...
                                         navegador.
                                         Descarga el archivo para ver su contenido completo.
                                     </p>
-                                    <a href="{{ route('public.documents.download', $document) }}"
+                                    <a href="{{ route('documentos.download', $document) }}"
                                         class="inline-flex items-center px-5 py-2.5 bg-primary-600 text-white rounded-lg hover:bg-primary-700 font-medium">
                                         <i class="fas fa-download mr-2"></i> Descargar para ver
                                     </a>
@@ -404,7 +397,7 @@ Cargando contenido del archivo...
                                         style="color: {{ $document->category_info->color }}"></i>
                                     Más documentos en {{ $document->category_info->name }}
                                 </h3>
-                                <a href="{{ route('intranet.documentos.index', ['category' => $document->category]) }}"
+                                <a href="{{ route('documentos.index', ['category' => $document->category]) }}"
                                     class="text-sm text-primary-600 hover:text-primary-800 font-medium">
                                     Ver todos <i class="fas fa-arrow-right ml-1"></i>
                                 </a>
@@ -412,7 +405,7 @@ Cargando contenido del archivo...
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                                 @foreach ($sameCategoryDocuments->take(4) as $doc)
-                                    <a href="{{ route('intranet.documentos.show', $doc) }}" class="group block">
+                                    <a href="{{ route('documentos.show', $doc) }}" class="group block">
                                         <div
                                             class="bg-gray-50 border border-gray-200 rounded-xl p-4 hover:border-primary-300 hover:shadow-md transition-all duration-300 h-full">
                                             <div class="flex items-start mb-3">
@@ -493,8 +486,7 @@ Cargando contenido del archivo...
                                     </button>
                                 </div>
                             </div>
-                            <pre id="modal-text-content" class="p-6 text-gray-100 overflow-auto h-[calc(100%-60px)] font-mono text-sm">
-Cargando contenido completo...
+                            <pre id="modal-text-content" class="p-6 text-gray-100 overflow-auto h-[calc(100%-60px)] font-mono text-sm">Cargando contenido completo...
                     </pre>
                         </div>
                     @else
@@ -515,7 +507,7 @@ Cargando contenido completo...
                         Documento: {{ $document->title }}
                     </div>
                     <div class="flex space-x-3">
-                        <a href="{{ route('intranet.documentos.download', $document) }}"
+                        <a href="{{ route('documentos.download', $document) }}"
                             class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-medium">
                             <i class="fas fa-download mr-2"></i> Descargar
                         </a>
@@ -570,7 +562,7 @@ Cargando contenido completo...
         // Increment view count
         document.addEventListener('DOMContentLoaded', function() {
             // Increment views
-            fetch("{{ route('intranet.documentos.view', $document) }}", {
+            fetch("{{ route('documentos.view', $document) }}", {
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
@@ -596,7 +588,7 @@ Cargando contenido completo...
                 modalContentElement.textContent = 'Cargando contenido...';
             }
 
-            fetch("{{ route('intranet.documentos.content', $document) }}")
+            fetch("{{ route('documentos.content', $document) }}")
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Error al cargar el contenido');

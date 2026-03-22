@@ -30,7 +30,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                            <a href="{{ route('estructurainterna.ingenieria') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Ingenieria
                             </a>
                         </div>
@@ -38,7 +38,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.ingenieria.guias-on-site') }}"
+                            <a href="{{ route('ingenieria.guias-on-site') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Guias on Site
                             </a>
                         </div>
@@ -109,7 +109,7 @@
                             Descargar Recursos
                         </p>
                         <div class="space-y-2">
-                            <a href="{{ route('intranet.ingenieria.instalacion-switch-pdf') }}"
+                            <a href="{{ route('ingenieria.instalacion-switch-pdf') }}"
                                 class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium  text-slate-600 bg-slate-50  hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Esta Guía</span>
                                 <i
@@ -122,7 +122,7 @@
                                 <i
                                     class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                             </a>
-                            <a href="{{ route('intranet.ingenieria.guias-on-site') }}"
+                            <a href="{{ route('ingenieria.guias-on-site') }}"
                                 class="group flex flex-row-reverse items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Regresar</span>
                                 <i
@@ -175,11 +175,11 @@
                             </p>
                             <!-- Contenedor de botones -->
                             <div class="mt-3 flex gap-2">
-                                <a href="{{ route('intranet.ingenieria.sitesurvey-si') }}" target="_black"
+                                <a href="{{ route('ingenieria.sitesurvey-si') }}" target="_black"
                                     class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">
                                     Si cuenta con Wifi
                                 </a>
-                                <a href="{{ route('intranet.ingenieria.sitesurvey-no') }}" target="_black"
+                                <a href="{{ route('ingenieria.sitesurvey-no') }}" target="_black"
                                     class="bg-white border border-orange-500 text-orange-500 px-4 py-2 rounded hover:bg-orange-100 transition">
                                     No cuenta con Wifi
                                 </a>

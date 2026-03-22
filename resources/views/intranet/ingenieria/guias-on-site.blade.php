@@ -30,7 +30,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                            <a href="{{ route('estructurainterna.ingenieria') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Ingenieria
                             </a>
                         </div>
@@ -59,7 +59,7 @@
         <!-- Grid guias -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <!-- CARD1 -->
-            <a href="{{ route('intranet.ingenieria.instalacion-switch') }}"
+            <a href="{{ route('ingenieria.instalacion-switch') }}"
                 class="group relative block bg-white border border-slate-200 rounded-2xl p-6 hover:border-orange-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 <!-- categoría -->
                 <span class="absolute top-4 right-4 text-xs font-semibold text-pink-600 bg-pink-100 px-3 py-1 rounded-full">
@@ -92,7 +92,7 @@
             </a>
 
             <!-- CARD2 -->
-            <a href="{{ route('intranet.ingenieria.instalacion-firewall') }}"
+            <a href="{{ route('ingenieria.instalacion-firewall') }}"
                 class="group relative block bg-white border border-slate-200 rounded-2xl p-6 hover:border-orange-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 <span
                     class="absolute top-4 right-4 text-xs font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">
@@ -121,7 +121,7 @@
             </a>
 
             <!-- CARD3 -->
-            <a href="{{ route('intranet.ingenieria.instalacion-aps') }}"
+            <a href="{{ route('ingenieria.instalacion-aps') }}"
                 class="group relative block bg-white border border-slate-200 rounded-2xl p-6 hover:border-orange-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 <span
                     class="absolute top-4 right-4 text-xs font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
@@ -150,7 +150,7 @@
             </a>
 
             <!-- CARD4 -->
-            <a href="{{ route('intranet.ingenieria.instalacion-poc') }}"
+            <a href="{{ route('ingenieria.instalacion-poc') }}"
                 class="group relative block bg-white border border-slate-200 rounded-2xl p-6 hover:border-orange-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 <span
                     class="absolute top-4 right-4 text-xs font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
@@ -179,7 +179,7 @@
             </a>
 
             <!-- CARD5 -->
-            <a href="{{ route('intranet.ingenieria.guia-preventivo') }}"
+            <a href="{{ route('ingenieria.guia-preventivo') }}"
                 class="group relative block bg-white border border-slate-200 rounded-2xl p-6 hover:border-orange-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 <span
                     class="absolute top-4 right-4 text-xs font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
@@ -208,7 +208,7 @@
             </a>
 
             <!-- CARD6 -->
-            <a href="{{ route('intranet.ingenieria.guia-correctivo') }}"
+            <a href="{{ route('ingenieria.guia-correctivo') }}"
                 class="group relative block bg-white border border-slate-200 rounded-2xl p-6 hover:border-orange-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 <span
                     class="absolute top-4 right-4 text-xs font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
@@ -237,7 +237,7 @@
             </a>
 
             <!-- CARD7 -->
-            <a href="{{ route('intranet.ingenieria.site-survey') }}"
+            <a href="{{ route('ingenieria.site-survey') }}"
                 class="group relative block bg-white border border-slate-200 rounded-2xl p-6 hover:border-orange-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 <span
                     class="absolute top-4 right-4 text-xs font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
@@ -266,12 +266,6 @@
             </a>
         </div>
     </div>
-
-
-
-
-
-
 @endsection
 @push('js')
 @endpush

@@ -33,7 +33,7 @@
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="{{ route('intranet.documentos.index') }}" class="flex items-center space-x-2">
+                    <a href="{{ route('documentos.index') }}" class="flex items-center space-x-2">
                         <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
                             <i class="fas fa-book-open text-white text-lg"></i>
                         </div>
@@ -43,7 +43,7 @@
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-4">
-                    <a href="{{ route('intranet.documentos.index') }}"
+                    <a href="{{ route('documentos.index') }}"
                         class="px-3 py-2 rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('intranet.documents.index') ? 'bg-white/10' : '' }}">
                         <i class="fas fa-home mr-2"></i> Inicio
                     </a>
@@ -52,7 +52,7 @@
                     </a>
 
                     <!-- Search -->
-                    <form method="GET" action="{{ route('intranet.documentos.index') }}" class="relative">
+                    <form method="GET" action="{{ route('documentos.index') }}" class="relative">
                         <div class="relative">
                             <input type="text" name="search" value="{{ request('search') }}"
                                 class="w-64 pl-10 pr-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -77,7 +77,7 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
             <div class="space-y-2">
-                <a href="{{ route('intranet.documentos.index') }}"
+                <a href="{{ route('documentos.index') }}"
                     class="block px-3 py-2 rounded-lg hover:bg-white/10 transition-colors">
                     <i class="fas fa-home mr-2"></i> Inicio
                 </a>
@@ -86,7 +86,7 @@
                 </a>
 
                 <!-- Search mobile -->
-                <form method="GET" action="{{ route('intranet.documentos.index') }}">
+                <form method="GET" action="{{ route('documentos.index') }}">
                     <div class="relative">
                         <input type="text" name="search" value="{{ request('search') }}"
                             class="w-full pl-10 pr-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -127,7 +127,7 @@
                     <h3 class="text-lg font-semibold mb-4">Enlaces rápidos</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a href="{{ route('intranet.documentos.index') }}"
+                            <a href="{{ route('documentos.index') }}"
                                 class="text-gray-300 hover:text-white transition-colors">
                                 <i class="fas fa-chevron-right text-xs mr-2"></i> Todos los documentos
                             </a>

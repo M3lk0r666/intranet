@@ -58,8 +58,6 @@
                         @endif
                     </div>
                 </div>
-
-
             @empty
                 <div class="col-span-full text-center py-12">
                     <i class="fas fa-inbox text-4xl text-gray-400 mb-4"></i>
@@ -84,27 +82,11 @@
         <div class="text-center mt-2 mb-8">
             <label
                 class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-full border transition duration-150 bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200">
-                <a href="{{ route('categories.index') }}" {{-- class="inline-flex items-center text-blue-600 hover:text-blue-700 transition duration-150" --}}>
+                <a href="{{ route('categories.index') }}">
                     <i class="fas fa-arrow-left mr-2"></i>
                     Volver a todas las categorías
                 </a>
             </label>
         </div>
     </div>
-
-    {{-- <style>
-        .line-clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .line-clamp-3 {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-    </style> --}}
 @endsection

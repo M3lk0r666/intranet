@@ -33,7 +33,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
@@ -109,7 +109,7 @@
                 <div class="bg-primary-light border border-orange-200 rounded-lg p-4">
                     <h3 class="font-bold text-gray-800 mb-3">Acciones Rápidas</h3>
                     <div class="space-y-2">
-                        <a href="{{ route('intranet.estructurainterna.proceso-diagrama') }}"
+                        <a href="{{ route('estructurainterna.proceso-diagrama') }}"
                             class="flex items-center text-gray-700 hover:text-primary p-2 hover:bg-white rounded">
                             <i class="fas fa-eye mr-2"></i>
                             <span>Ver Diagrama</span>
@@ -136,31 +136,31 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
                 <button class="phase-btn text-phase-1">
-                    <a href="{{ route('intranet.estructurainterna.proceso-comercial.demanda-omnicanal') }}">
+                    <a href="{{ route('estructurainterna.proceso-comercial.demanda-omnicanal') }}">
                         Generación de Demanda Omnicanal
                     </a>
                 </button>
 
                 <button class="phase-btn text-phase-2">
-                    <a href="{{ route('intranet.estructurainterna.proceso-comercial.asignacion-cuenta') }}">
+                    <a href="{{ route('estructurainterna.proceso-comercial.asignacion-cuenta') }}">
                         Asignación de cuenta y segmentación de oportunidades
                     </a>
                 </button>
 
                 <button class="phase-btn text-phase-3">
-                    <a href="{{ route('intranet.estructurainterna.proceso-comercial.analisis-requerimiento') }}">
+                    <a href="{{ route('estructurainterna.proceso-comercial.analisis-requerimiento') }}">
                         Analisis de requerimientos
                     </a>
                 </button>
 
                 <button class="phase-btn text-phase-4">
-                    <a href="{{ route('intranet.estructurainterna.proceso-comercial.solucion-propuesta') }}">
+                    <a href="{{ route('estructurainterna.proceso-comercial.solucion-propuesta') }}">
                         Diseño de solución y propuesta Técnico-Comercial
                     </a>
                 </button>
 
                 <button class="phase-btn text-phase-5">
-                    <a href="{{ route('intranet.estructurainterna.proceso-comercial.negociacion-cierre') }}">
+                    <a href="{{ route('estructurainterna.proceso-comercial.negociacion-cierre') }}">
                         Negociación y Cierre
                     </a>
                 </button>
@@ -253,12 +253,6 @@
                         Diseñadores de Contenido, Gerencia Ventas, Dirección General
                     </span>
                 </div>
-                {{-- <div class="p-4  flex justify-center space-x-2  ">
-                    <a href="{{ route('intranet.estructurainterna.proceso-comercial.demanda-omnicanal') }}"
-                        class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded text-xs font-bold transition-colors">
-                        Mostrar detalle Fase 1: Demanda Omnicanal
-                    </a>
-                </div> --}}
             </div>
 
             <!-- Paso 2 -->
@@ -286,7 +280,6 @@
                         <li>Tasa de conversión por tipo de oportunidad</li>
                     </ol>
                 </div>
-
 
                 <div class="flex items-center text-sm text-gray-500">
                     <span class="mr-4">
@@ -351,15 +344,10 @@
                     <p class="text-gray-700 mb-3">Preparar y presentar una propuesta
                         detallada que incluya costos, términos y condiciones, según las
                         necesidades del proyecto.</p>
-                    {{-- <h4 class="font-bold text-gray-700 mb-2 text-base">Ver Proceso:
-                        <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
-                            class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
-                            Proceso Comercial Ingeniería</a>
-                    </h4> --}}
                     <h4 class="font-bold text-gray-700 mb-2 text-base">
                         Ver Proceso:
                     </h4>
-                    <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
+                    <a href="{{ route('estructurainterna.proceso-ingenieria') }}" target="_blank"
                         class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
                         Proceso Comercial Ingeniería
                     </a>
@@ -390,15 +378,10 @@
                         <li>Generación de facturación (anticipos, pago a una exposición, inicio de pagos a varias
                             exposiciones)</li>
                     </ol>
-                    {{-- <h4 class="font-bold text-gray-700 mb-2 mt-2">Ver Proceso:
-                        <a href="{{ route('intranet.administracion.facturacion-inventario') }}" target="_blank"
-                            class="text-orange-500">
-                            Administración Finanzas - Inventario</a>
-                    </h4> --}}
                     <h4 class="font-bold text-gray-700 mb-2 text-base py-2">
                         Ver Proceso:
                     </h4>
-                    <a href="{{ route('intranet.administracion.facturacion-inventario') }}" target="_blank"
+                    <a href="{{ route('administracion.facturacion-inventario') }}" target="_blank"
                         class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
                         Finanzas - Inventario
                     </a>
@@ -468,15 +451,10 @@
                     <p class="text-gray-700 mb-3">Realizar la implementación de la solución, cuidando el
                         alcance, tiempo y entregables que se ofreció en el contrato</p>
                     <p class="text-gray-700 mb-3">Entrega formal del proyecto finalizado al cliente</p>
-
-                    {{--  <h4 class="font-bold text-gray-700 mb-2">Ver Proceso:
-                        <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" class="text-orange-500">
-                            Ingeniería Proceso Comercial Ingeniería</a>
-                    </h4> --}}
                     <h4 class="font-bold text-gray-700 mb-2 text-base">
                         Ver Proceso:
                     </h4>
-                    <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
+                    <a href="{{ route('estructurainterna.proceso-ingenieria') }}" target="_blank"
                         class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
                         Proceso Comercial Ingeniería
                     </a>
@@ -506,16 +484,10 @@
                     <p class="text-gray-700 mb-3">Asegurar la operación continua y eficiente de los servicios, cumpliendo
                         SLA y
                         gestionando incidentes,problemas y cambios.</p>
-
-                    {{--  <h4 class="font-bold text-gray-700 mb-2">Ver Proceso:
-                        <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
-                            class="text-orange-500">
-                            Ingeniería Proceso Comercial Ingeniería</a>
-                    </h4> --}}
                     <h4 class="font-bold text-gray-700 mb-2 text-base">
                         Ver Proceso:
                     </h4>
-                    <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}" target="_blank"
+                    <a href="{{ route('estructurainterna.proceso-ingenieria') }}" target="_blank"
                         class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
                         Proceso Comercial Ingeniería
                     </a>

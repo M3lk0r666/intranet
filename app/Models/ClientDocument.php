@@ -13,6 +13,7 @@ class ClientDocument extends Model
         'client_id',
         'type',
         'technology',
+        'year',
         'file'
     ];
 

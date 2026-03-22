@@ -127,10 +127,10 @@ class FileDocumentController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function getContent(FileDocument $document)
+    public function getContent($id)
     {
         // Solo para archivos de texto
-        if (!in_array($document->extension, ['txt', 'md', 'html', 'css', 'js'])) {
+        /* if (!in_array($document->extension, ['txt', 'md', 'html', 'css', 'js'])) {
             abort(400, 'Formato no soportado para vista previa');
         }
         
@@ -142,7 +142,23 @@ class FileDocumentController extends Controller
         
         return response()->file($path, [
             'Content-Type' => 'text/plain; charset=utf-8'
-        ]);
+        ]); */
+
+        /* if (!in_array(strtolower($document->extension), ['txt', 'md', 'html', 'css', 'js'])) {
+            abort(400, 'Formato no soportado para vista previa');
+        }
+    
+        $path = storage_path('app/public/' . $document->file_path);
+    
+        if (!file_exists($path)) {
+            abort(404, 'Archivo no encontrado');
+        }
+    
+        return response()->make(file_get_contents($path), 200, [
+            'Content-Type' => 'text/plain; charset=utf-8'
+        ]); */
+
+        return $id;
     }
 
     public function biblioteca(Request $request)
@@ -199,6 +215,34 @@ class FileDocumentController extends Controller
 
     // Vista individual de documento
     public function verdocs(FileDocument $document)
+    {
+        /* // Incrementar vistas (puedes crear un campo 'views' si quieres)
+        $document->increment('downloads'); // O crear campo 'views'
+        
+        // Documentos relacionados (misma categoría)
+        $relatedDocuments = FileDocument::where('category', $document->category)
+            ->where('id', '!=', $document->id)
+            ->orderBy('created_at', 'desc')
+            ->take(4)
+            ->get();
+        
+        return view('documents.show', compact('document', 'relatedDocuments')); */
+
+        //$document->load('user', 'category_info');
+        $relatedDocuments = FileDocument::where('category', $document->category)
+            ->where('id', '!=', $document->id)
+            ->limit(5)
+            ->get();
+        $sameCategoryDocuments = FileDocument::where('category', $document->category)
+            ->where('id', '!=', $document->id)
+            ->limit(8)
+            ->get();
+
+        return view('documents.ver-detalle', compact('document', 'relatedDocuments', 'sameCategoryDocuments'));
+    }
+
+    // Vista individual de documento
+    public function verdetalle(FileDocument $document)
     {
         /* // Incrementar vistas (puedes crear un campo 'views' si quieres)
         $document->increment('downloads'); // O crear campo 'views'

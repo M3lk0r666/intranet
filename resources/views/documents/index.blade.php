@@ -57,7 +57,7 @@
                         </h3>
 
                         <!-- All Categories -->
-                        <a href="{{ route('intranet.documentos.index') }}"
+                        <a href="{{ route('documentos.index') }}"
                             class="flex items-center justify-between p-3 rounded-lg mb-2 {{ $selectedCategory == 'all' ? 'bg-primary-50 border-l-4 border-primary-500' : 'hover:bg-gray-50' }}">
                             <div class="flex items-center">
                                 <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center mr-3">
@@ -73,7 +73,7 @@
                         <!-- Categories List -->
                         <div class="space-y-2">
                             @foreach ($categoriesWithCount as $key => $category)
-                                <a href="{{ route('intranet.documentos.index', ['category' => $key]) }}"
+                                <a href="{{ route('documentos.index', ['category' => $key]) }}"
                                     class="flex items-center justify-between p-3 rounded-lg {{ $selectedCategory == $key ? 'bg-primary-50 border-l-4 border-primary-500' : 'hover:bg-gray-50' }}">
                                     <div class="flex items-center">
                                         <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3"
@@ -96,7 +96,7 @@
                                 <h4 class="text-sm font-semibold text-gray-700 mb-4">Más descargados</h4>
                                 <div class="space-y-3">
                                     @foreach ($topDownloads as $doc)
-                                        <a href="{{ route('intranet.documentos.show', $doc) }}"
+                                        <a href="{{ route('documentos.show', $doc) }}"
                                             class="flex items-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
                                             <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center mr-3"
                                                 style="background-color: {{ $doc->category_info->color }}20; color: {{ $doc->category_info->color }}">
@@ -147,15 +147,15 @@
                                     <select onchange="window.location.href = this.value"
                                         class="appearance-none bg-white border border-gray-300 rounded-lg pl-4 pr-10 py-2 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none text-sm">
                                         <option
-                                            value="{{ route('intranet.documentos.index', ['category' => $selectedCategory, 'search' => $search]) }}">
+                                            value="{{ route('documentos.index', ['category' => $selectedCategory, 'search' => $search]) }}">
                                             Más recientes
                                         </option>
                                         <option
-                                            value="{{ route('intranet.documentos.index', ['category' => $selectedCategory, 'search' => $search, 'sort' => 'downloads']) }}">
+                                            value="{{ route('documentos.index', ['category' => $selectedCategory, 'search' => $search, 'sort' => 'downloads']) }}">
                                             Más descargados
                                         </option>
                                         <option
-                                            value="{{ route('intranet.documentos.index', ['category' => $selectedCategory, 'search' => $search, 'sort' => 'title']) }}">
+                                            value="{{ route('documentos.index', ['category' => $selectedCategory, 'search' => $search, 'sort' => 'title']) }}">
                                             A-Z
                                         </option>
                                     </select>
@@ -164,7 +164,7 @@
                                 </div>
 
                                 @if ($search)
-                                    <a href="{{ route('intranet.documentos.index', ['category' => $selectedCategory]) }}"
+                                    <a href="{{ route('documentos.index', ['category' => $selectedCategory]) }}"
                                         class="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors text-sm">
                                         <i class="fas fa-times mr-2"></i> Limpiar búsqueda
                                     </a>
@@ -241,11 +241,11 @@
                                     <!-- Actions -->
                                     <div class="px-6 pb-6 pt-0">
                                         <div class="flex space-x-3">
-                                            <a href="{{ route('intranet.documentos.show', $document) }}"
+                                            <a href="{{ route('documentos.show', $document) }}"
                                                 class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors duration-200 text-sm">
                                                 <i class="fas fa-eye mr-2"></i> Ver
                                             </a>
-                                            <a href="{{ route('intranet.documentos.download', $document) }}"
+                                            <a href="{{ route('documentos.download', $document) }}"
                                                 class="flex-1 inline-flex items-center justify-center px-4 py-2 text-white rounded-lg hover:opacity-90 transition-all duration-200 text-sm badge-pulse"
                                                 style="background-color: {{ $document->category_info->color }}">
                                                 <i class="fas fa-download mr-2"></i> Descargar

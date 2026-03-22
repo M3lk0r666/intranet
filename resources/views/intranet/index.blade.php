@@ -9,13 +9,6 @@
 @section('content')
     <div class="container mx-auto py-6 px-4">
         <!-- CONTENIDO PRINCIPAL -->
-        {{-- <div class="mb-6">
-            <h1 class="text-2xl font-bold text-gray-800">Portal de Intranet</h1>
-            <p class="text-gray-600">
-                Accede a todas las herramientas y recursos de la empresa
-            </p>
-        </div> --}}
-        <!-- CONTENIDO PRINCIPAL -->
         <div class="mb-6 text-center">
             <h1 class="text-4xl font-extrabold text-gray-900 relative inline-block">
                 Portal de Intranet
@@ -32,7 +25,6 @@
 
     <!-- GRID DE TARJETAS FULL WIDTH -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
         <!-- Tarjeta 1 -->
         <a href="#"
             class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm opacity-50 cursor-not-allowed pointer-events-none">
@@ -53,7 +45,7 @@
         </a>
 
         <!-- Tarjeta 2: Procesos Empresariales -->
-        <a href="{{ route('intranet.procesos-empresariales') }}"
+        <a href="{{ route('procesos-empresariales') }}"
             class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
             <!-- Imagen de la tarjeta -->
             <div class="w-full aspect-[4/3] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
@@ -91,7 +83,7 @@
         </a>
 
         <!-- Tarjeta 4: Blog -->
-        <a href="{{ route('intranet.posts.index') }}"
+        <a href="{{ route('posts.index') }}"
             class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
             <!-- Imagen de la tarjeta -->
             <div class="w-full aspect-[4/3] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
@@ -104,13 +96,13 @@
                     Blog
                 </h3>
                 <p class="text-gray-600 text-sm leading-relaxed line-clamp-2">
-                    Artículos de apoyo
+                    Artículos, Manuales y Guias de apoyo
                 </p>
             </div>
         </a>
 
         <!-- Tarjeta 6: Soporte -->
-        <a href="{{ route('intranet.ingenieria.portal-soporte') }}"
+        <a href="{{ route('ingenieria.portal-soporte') }}"
             class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
             <!-- Imagen de la tarjeta -->
             <div class="w-full aspect-[4/3] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
@@ -129,10 +121,10 @@
         </a>
 
         <!-- Tarjeta 7: Formación Académica -->
-        <a href="#"
-            class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm opacity-50 cursor-not-allowed pointer-events-none">
+        <a href="{{ route('formacion-academica.index') }}"
+            class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
             <!-- Imagen de la tarjeta -->
-            <div class="w-full aspect-[4/3] bg-cover bg-center transition-transform duration-300"
+            <div class="w-full aspect-[4/3] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
                 style="background-image: url('{{ asset('storage/media/formacion-academica.png') }}');">
             </div>
             <!-- Texto debajo -->
@@ -140,15 +132,14 @@
                 <h3 class="text-2xl font-extrabold text-primary mb-2">
                     Formación Académica
                 </h3>
-                <p class="text-gray-400 text-sm leading-relaxed line-clamp-2">
-                    Próximamente disponible
-                    <!-- Cursos, certificaciones y materiales de aprendizaje -->
+                <p class="text-gray-600 text-sm leading-relaxed line-clamp-2">
+                    Videos de cursos y material audiovisual
                 </p>
             </div>
         </a>
 
         <!-- Tarjeta 8: Biblioteca Recursos -->
-        <a href="{{ route('intranet.biblioteca-recursos.departamentos') }}"
+        <a href="{{ route('documentos.biblioteca') }}"
             class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
             <!-- Imagen de la tarjeta -->
             <div class="w-full aspect-[4/3] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
@@ -191,18 +182,15 @@
             <h2 class="text-xl font-bold text-gray-800">Lo mas buscado</h2>
         </div>
         <p class="text-gray-600 mb-4">Lo que los colaboradores mas revisan y requieren</p>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-orange-300 transition-colors">
                 <img src="{{ url('/storage/media/reserva-vehiculo.png') }}" alt="reserva-vehiculo"
                     data-url="https://api.leadconnectorhq.com/widget/booking/FiuBKgXfyoEvw5l1PlTJ"
                     class="w-full h-48 object-cover" onclick="openImage(this)">
-
                 <div class="p-4">
                     <h4 class="font-medium text-gray-800 mb-2">
                         Solicitar uso de Camioneta
                     </h4>
-
                     <p
                         class="inline-block bg-primary text-white px-2 py-1 text-sm rounded-lg font-semibold shadow-lg cursor-default select-none">
                         Click en la imagen
@@ -211,7 +199,6 @@
             </div>
             <!-- Modal Imagen -->
             <div id="camionetaModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
-
                 <!-- Botón cerrar -->
                 <button onclick="closeImage()"
                     class="absolute top-5 right-6 text-white text-3xl font-bold hover:scale-110 transition">
@@ -230,33 +217,15 @@
                 </a>
             </div>
             <!-- Incidencias -->
-            {{-- <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-orange-300 transition-colors">
-                <img src="{{ url('/storage/media/incidencias.png') }}" alt="incidencias" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h4 class="font-medium text-gray-800 mb-2">
-                        Registrar una Incidencia
-                    </h4>
-                    <a href="https://netjernetworksproduccion.odoo.com/vacaciones-rh" target="_blank"
-                        class="bg-primary text-white px-2 py-1 text-sm rounded-lg font-semibold shadow-lg hover:bg-primary/90 transition">
-                        Ir al portal
-                    </a>
-                    <a href="https://netjernetworksproduccion.odoo.com/vacaciones-rh" target="_blank"
-                        class="bg-primary text-white px-2 py-1 text-sm rounded-lg font-semibold shadow-lg hover:bg-primary/90 transition">
-                        Ir al portal
-                    </a>
-                </div>
-            </div> --}}
             <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-orange-300 transition-colors">
                 <img src="{{ url('/storage/media/incidencias.png') }}" alt="incidencias" class="w-full h-48 object-cover">
-
                 <div class="p-4">
                     <h4 class="font-medium text-gray-800 mb-2">
                         Registrar una Incidencia
                     </h4>
-
                     <!-- Botones centrados -->
                     <div class="flex justify-center gap-3 mt-2">
-                        <a href="{{ route('intranet.administracion.incidencias') }}"
+                        <a href="{{ route('administracion.incidencias') }}"
                             class="bg-primary text-white px-4 py-1 text-sm rounded-lg font-semibold shadow-lg hover:bg-primary/90 transition">
                             Ver guia
                         </a>
@@ -272,18 +241,16 @@
             <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-orange-300 transition-colors">
                 <img src="{{ url('/storage/media/genera-ticket.png') }}" alt="genera-ticket"
                     class="w-full h-48 object-cover">
-
                 <div class="p-4">
                     <h4 class="font-medium text-gray-800 mb-2">
                         Levantar Ticket
                     </h4>
-                    <a href="{{ route('intranet.ingenieria.guia-tickets') }}"
+                    <a href="{{ route('ingenieria.guia-tickets') }}"
                         class="bg-primary text-white px-2 py-1 text-sm rounded-lg font-semibold shadow-lg hover:bg-primary/90 transition">
                         Ver guia
                     </a>
                 </div>
             </div>
-
             <!-- Directorio -->
             <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-orange-300 transition-colors">
                 <img src="{{ url('/storage/media/directorio-telefonico.png') }}" alt="directorio-telefonico"
@@ -293,7 +260,7 @@
                     <h4 class="font-medium text-gray-800 mb-2">
                         Directorio Empresarial
                     </h4>
-                    <a href="{{ route('intranet.estructurainterna.directorio-empresarial') }}"
+                    <a href="{{ route('estructurainterna.directorio-empresarial') }}"
                         class="bg-primary text-white px-2 py-1 text-sm rounded-lg font-semibold shadow-lg hover:bg-primary/90 transition">
                         Ver directorio
                     </a>
@@ -305,8 +272,6 @@
     </div>
 @endsection
 @push('js')
-    <!-- Include the Dropdown -->
-    {{-- <script src="{{ asset('/assets/scripts/dropintro.js') }}"></script> --}}
     <script>
         function openImage(img) {
             const modal = document.getElementById('camionetaModal');

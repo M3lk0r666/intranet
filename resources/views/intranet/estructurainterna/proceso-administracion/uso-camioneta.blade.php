@@ -33,14 +33,14 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.admnistracion') }}"
+                            <a href="{{ route('estructurainterna.admnistracion') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Administración</a>
                         </div>
                     </li>
@@ -48,7 +48,7 @@
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">RH - Uso Camioneta</span>
+                            <span class="ml-1 text-sm text-primary font-medium md:ml-2">RM - Uso Camioneta</span>
                         </div>
                     </li>
                 </ol>
@@ -70,8 +70,6 @@
         <p></p>
         <p class="text-slate-600 mt-6 text-lg">Flujo completo de ejecución</p>
     </div>
-
-
     <!-- Grid de fases solicitud camioneta -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
         <!-- Fase 1: registro -->
@@ -102,7 +100,6 @@
                             Asignación camioneta</a>
                     </li>
                 </ol>
-
                 <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
                     <h5 class="font-bold text-xs mb-1 text-blue-700">Participantes</h5>
                     <ul class="text-xs text-blue-600 space-y-1">
@@ -141,19 +138,16 @@
                         <li>✓ Revisión carroceria</li>
                     </ul>
                 </div>
-
                 <h6 class="font-bold text-sm mb-2 uppercase text-phase-1">Retiro de la camioneta de Netjer:</h6>
                 <ol class="text-xs space-y-2 list-decimal ml-4 mb-4">
                     <li>Solicitante hace uso de la camioneta para su traslado y del equipo</li>
                 </ol>
-
                 <h6 class="font-bold text-sm mb-2 uppercase text-phase-1">Regreso de la camioneta a Netjer:</h6>
                 <ol class="text-xs space-y-2 list-decimal ml-4 mb-4">
                     <li>Solicitante regresa la unidad, estacionada en su lugar asignado</li>
                     <li>Reporta cualquier falla o anomalia</li>
                     <li>Entrega llaves de la unidad</li>
                 </ol>
-
                 <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
                     <h5 class="font-bold text-xs mb-1 text-blue-700">Participantes:</h5>
                     <ul class="text-xs text-blue-600 space-y-1">
@@ -181,13 +175,11 @@
                     <li>Seamos consientes de mantener la unidad presentable para que los colaboradores disfruten el viaje y
                         mantenerla en buen estado.</li>
                 </ol>
-
                 <h6 class="font-bold text-sm mb-2 uppercase text-phase-1">Estacionamiento:</h6>
                 <ol class="text-xs space-y-2 list-decimal ml-4 mb-4">
                     <li>Dejar la camioneta en lugares seguros. Si se estacionan en parquimetros, estar atentos al tiempo
                         permitido y eviatar multas innecesarias.</li>
                 </ol>
-
                 <h6 class="font-bold text-sm mb-2 uppercase text-phase-1">Documentación de manejo vigente</h6>
             </div>
         </div>
@@ -309,13 +301,7 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
-
-
-
 @endsection
 @push('js')
 @endpush

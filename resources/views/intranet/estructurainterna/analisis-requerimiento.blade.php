@@ -33,14 +33,14 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.proceso-comercial') }}"
+                            <a href="{{ route('estructurainterna.proceso-comercial') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Comercial</a>
                         </div>
                     </li>
@@ -106,8 +106,6 @@
                     </ol>
                 </div>
             </div>
-
-
         </div>
 
         <!-- Sidebar -->
@@ -208,14 +206,9 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-
         </div>
     </div>
-
 @endsection
 @push('js')
 @endpush

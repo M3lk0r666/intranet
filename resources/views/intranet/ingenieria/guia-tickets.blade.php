@@ -33,7 +33,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                            <a href="{{ route('estructurainterna.ingenieria') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Ingenieria
                             </a>
                         </div>
@@ -41,7 +41,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.ingenieria.portal-soporte') }}"
+                            <a href="{{ route('ingenieria.portal-soporte') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Soporte
                             </a>
                         </div>
@@ -75,13 +75,11 @@
                             Reporte de
                             <span class="text-primary"> Incidencias</span>
                         </h1>
-
                         <p class="text-lg text-gray-600 leading-relaxed max-w-xl">
                             La formalización de cada incidente garantiza trazabilidad, cumplimiento de SLA y resolución
                             eficiente.
                             Nuestro modelo está diseñado bajo estándares operativos empresariales.
                         </p>
-
                         <div class="border-l-4 border-orange-700 pl-6 py-4 bg-gray-50 rounded-r-lg">
                             <p class="font-semibold text-gray-800">
                                 Política Operativa: Todo incidente debe registrarse vía ticket.
@@ -90,14 +88,12 @@
                                 Sin registro formal, no se activa el flujo de atención.
                             </p>
                         </div>
-
                         <div class="flex gap-6 pt-4">
                             <a href="https://netjernetworks.atlassian.net/servicedesk/customer/user/login?destination=portals"
                                 target="_blank"
                                 class="px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:shadow-primary/20 hover:scale-105 active:scale-95 transition-all shadow-md">
                                 Abrir Ticket
                             </a>
-
                             <a href="#guia-ejemplos"
                                 class="px-8 py-4 border border-orange-400 text-slate-500 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition">
                                 Ver Ejemplos

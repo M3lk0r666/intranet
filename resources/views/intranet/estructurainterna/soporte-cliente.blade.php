@@ -33,14 +33,14 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                            <a href="{{ route('estructurainterna.ingenieria') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Ingenieria
                             </a>
                         </div>
@@ -84,13 +84,11 @@
                         </div>
                     </div>
                 </div>
-
                 <p class="text-gray-700 text-lg mb-6 text-justify">
                     Acompañar al cliente en la correcta adopción y uso de la solución implementada, asegurando su operación
                     continua y eficiente, atendiendo las posibles incidencias o fallas que se presenten durante el tiempo de
                     soporte al cliente.
                 </p>
-
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                     <div class="text-center p-3 bg-gray-50 rounded-lg">
                         <div class="text-2xl font-bold text-primary">4</div>
@@ -140,7 +138,6 @@
             <!-- Pasos Detallados del Proceso -->
             <div class="bg-white rounded-lg shadow p-6 mb-8 mt-4">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6">Pasos Detallados del Proceso</h2>
-
                 <div class="space-y-6">
                     <!-- Paso 1 -->
                     <div class="process-step" id="fase-1">
@@ -326,21 +323,19 @@
                     Documentos del Proceso
                 </p>
                 <div class="space-y-2">
-                    <a href="{{ route('intranet.estructurainterna.proceso-ingenieria.soporte-diagrama') }}"
+                    <a href="{{ route('estructurainterna.proceso-ingenieria.soporte-diagrama') }}"
                         class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium  text-slate-600 bg-slate-50  hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                         <span>Ver Esquema</span>
                         <i
                             class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                     </a>
-
                     <a href="#"
                         class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600transition-colors duration-300">
                         <span>Descargar Esquema</span>
                         <i
                             class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                     </a>
-
-                    <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                    <a href="{{ route('estructurainterna.ingenieria') }}"
                         class="group flex flex-row-reverse items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                         <span>Regresar</span>
                         <i
@@ -350,8 +345,6 @@
             </div>
         </div>
     </div>
-
-
 @endsection
 @push('js')
 @endpush

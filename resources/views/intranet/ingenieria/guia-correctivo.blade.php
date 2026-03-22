@@ -30,7 +30,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                            <a href="{{ route('estructurainterna.ingenieria') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Ingenieria
                             </a>
                         </div>
@@ -38,7 +38,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.ingenieria.guias-on-site') }}"
+                            <a href="{{ route('ingenieria.guias-on-site') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Guias on Site
                             </a>
                         </div>
@@ -69,20 +69,17 @@
                         <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 px-2">
                             Capítulos de la Guía
                         </h3>
-
                         <div class="space-y-1">
                             <a href="#previas" data-section="previas"
                                 class="chapter-link flex items-center gap-3 px-3 py-2 rounded-lg transition-colors">
                                 <i class="las la-tasks"></i>
                                 Previas
                             </a>
-
                             <a href="#verificacion" data-section="verificacion"
                                 class="chapter-link flex items-center gap-3 px-3 py-2 rounded-lg transition-colors">
                                 <i class="las la-list-alt"></i>
                                 Verificación
                             </a>
-
                             <a href="#finales" data-section="finales"
                                 class="chapter-link flex items-center gap-3 px-3 py-2 rounded-lg transition-colors">
                                 <i class="las la-check-circle"></i>
@@ -97,7 +94,7 @@
                             Descargar Recursos
                         </p>
                         <div class="space-y-2">
-                            <a href="{{ route('intranet.ingenieria.instalacion-switch-pdf') }}"
+                            <a href="{{ route('ingenieria.instalacion-switch-pdf') }}"
                                 class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium  text-slate-600 bg-slate-50  hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Esta Guía</span>
                                 <i
@@ -110,7 +107,7 @@
                                 <i
                                     class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                             </a>
-                            <a href="{{ route('intranet.ingenieria.guias-on-site') }}"
+                            <a href="{{ route('ingenieria.guias-on-site') }}"
                                 class="group flex flex-row-reverse items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Regresar</span>
                                 <i
@@ -386,7 +383,6 @@
             </article>
         </div>
     </div>
-
 
 @endsection
 @push('js')

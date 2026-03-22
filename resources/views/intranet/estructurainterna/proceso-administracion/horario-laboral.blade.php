@@ -33,14 +33,14 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.admnistracion') }}"
+                            <a href="{{ route('estructurainterna.admnistracion') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Administración</a>
                         </div>
                     </li>
@@ -99,13 +99,9 @@
                     <p class="text-slate-600 leading-relaxed text-justify">
                         Aplica a todos los colaboradores de la empresa en modalidad presencial o home office, incluyendo
                         personal administrativo, operativo y directivo
-
                     </p>
                 </div>
             </div>
-
-
-
         </div>
         <!-- Right Column: Process Flows -->
         <div class="lg:col-span-8 space-y-8">
@@ -125,7 +121,6 @@
                         </h3>
                     </div>
                     <div class="p-6">
-
                         <ol class="text-medium space-y-2 list-decimal ml-4 mb-4">
                             <li>Horario laboral: <span class="text-primary font-medium">09:00 a 18:00</span> hrs.</li>
                             <li>Hora de comida: <span class="text-primary font-medium">14:00 a 15:00</span> hrs.</li>
@@ -198,7 +193,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 @endsection

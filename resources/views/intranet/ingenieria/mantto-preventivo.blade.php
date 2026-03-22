@@ -33,14 +33,14 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                            <a href="{{ route('estructurainterna.ingenieria') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Ingenieria
                             </a>
                         </div>
@@ -95,21 +95,13 @@
                 </ol>
 
                 <h6 class="font-bold text-sm mb-2 uppercase text-phase-1">Verificar recursos:</h6>
-                {{-- <ol class="text-xs space-y-2 list-decimal ml-4 mb-4">
-                    <li>Asegurarse de contar con las herramientas necesarias (tester de cables, software de diagnostico,
-                        etc.)</li>
-                    <li>Confirmar disponibilidad de respuestos (fuentes de poder, ventiladores, cables, etc.)</li>
-                    <li>Levantar ticket JIRA</li>
-                    <a href="{{ route('intranet.ingenieria.guia-tickets') }}" target="_blank"
-                        class="text-orange-500 text-base">Levantar Ticket</a>
-                </ol> --}}
                 <ol class="text-xs space-y-2 list-decimal ml-4 mb-4">
                     <li>Asegurarse de contar con las herramientas necesarias (tester de cables, software de diagnostico,
                         etc.)</li>
                     <li>Confirmar disponibilidad de respuestos (fuentes de poder, ventiladores, cables, etc.)</li>
                     <li>Levantar ticket JIRA</li>
                     <li class="list-none mt-2">
-                        <a href="{{ route('intranet.ingenieria.guia-tickets') }}" target="_blank"
+                        <a href="{{ route('ingenieria.guia-tickets') }}" target="_blank"
                             class="inline-block bg-orange-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-orange-600 transition">
                             Levantar Ticket
                         </a>

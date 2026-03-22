@@ -30,14 +30,14 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.proceso-ingenieria.soporte-cliente') }}"
+                            <a href="{{ route('estructurainterna.proceso-ingenieria.soporte-cliente') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Soporte a Cliente</a>
                         </div>
                     </li>
@@ -72,7 +72,6 @@
         </div>
     </div>
 
-
     <header class="text-center mb-16 mt-8">
         <h1 class="text-5xl font-black font-display tracking-tight text-primary uppercase">
             PROCESO COMERCIAL IT
@@ -81,13 +80,6 @@
 
         <p class="text-slate-600 mt-4">Fases 1 a 4 - Ciclo completo del Proceso Comercial IT</p>
     </header>
-
-    <div class="p-4 bg-slate-50 flex justify-start space-x-2 border-t border-slate-100">
-        <a href="3"
-            class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded text-xs font-bold transition-colors">
-            <i class="ri-arrow-left-line"></i> Regresar
-        </a>
-    </div>
 
     <!-- Grid de fases (1-4 en primera fila, 6-10 en segunda fila) -->
     <div class="space-y-12">
@@ -281,7 +273,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 @push('js')
 @endpush

@@ -30,7 +30,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.ingenieria') }}"
+                            <a href="{{ route('estructurainterna.ingenieria') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Ingenieria
                             </a>
                         </div>
@@ -151,8 +151,8 @@
                                     Consejo para un mejor soporte
                                 </p>
                                 <p class="text-sm text-amber-800">
-                                    Nuestro equipo de IT aún <span class="font-semibold">no tiene poderes de lectura de
-                                        mentes o clarividencia</span>.
+                                    Nuestro equipo de IT aún <span class="font-semibold">no tiene poderes de
+                                        clarividencia</span>.
                                     Describe tu incidente de forma
                                     <span class="font-semibold">clara, detallada y con el mayor contexto posible</span>.
                                 </p>
@@ -265,7 +265,7 @@
                     </div>
                     <!-- Botón guía -->
                     <div class="flex flex-col gap-4">
-                        <a href="{{ route('intranet.ingenieria.guia-tickets') }}"
+                        <a href="{{ route('ingenieria.guia-tickets') }}"
                             class="flex items-center justify-center self-center px-6 py-3 gap-4 rounded-lg bg-primary text-white text-lg font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
                             Guía para levantar un Ticket
                             <i class="las la-graduation-cap text-4xl"></i>
@@ -361,8 +361,6 @@
             </div>
         </div>
     </div>
-
-
 @endsection
 @push('js')
 @endpush

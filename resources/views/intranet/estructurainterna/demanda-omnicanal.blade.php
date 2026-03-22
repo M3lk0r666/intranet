@@ -33,14 +33,14 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.estructurainterna.proceso-comercial') }}"
+                            <a href="{{ route('estructurainterna.proceso-comercial') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Comercial</a>
                         </div>
                     </li>
@@ -70,8 +70,6 @@
         <div class="lg:w-1/1">
             <!-- Fase1 -->
             <div class="bg-white rounded-lg shadow p-6 mb-8">
-                {{-- <h2 class="text-2xl font-bold text-gray-800 mb-6">Generación de Demanda Omnicanal</h2> --}}
-
                 <!-- Fase 1 -->
                 <div id="fase-1" class="phase-section flex flex-col space-y-4">
                     <div
@@ -112,10 +110,7 @@
                         </ol>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
 
         <!-- Sidebar -->
@@ -223,14 +218,9 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-
         </div>
     </div>
-
 @endsection
 @push('js')
 @endpush

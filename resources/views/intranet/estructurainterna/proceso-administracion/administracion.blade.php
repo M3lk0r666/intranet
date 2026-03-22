@@ -30,7 +30,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
@@ -61,95 +61,105 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Alta -->
-            <a href="{{ route('intranet.administracion.alta-colaborador') }}"
-                class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="p-3 rounded-xl bg-green-50 text-green-600">
-                        <i class="las la-user-plus text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-slate-800 group-hover:text-orange-600">
-                            Alta de Personal
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-1">
-                            Procedimiento de contratación y bienvenida.
-                        </p>
+            <div
+                class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
+                <!-- Imagen -->
+                <div class="h-48 overflow-hidden relative">
+                    <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
+                        style='background-image: url({{ asset('assets/media/alta-personal.png') }});'>
                     </div>
                 </div>
-                <span class="mt-4 text-sm text-orange-600 flex items-center gap-1">
-                    Ver procedimiento
-                    <i class="las la-arrow-right"></i>
-                </span>
-            </a>
+                <!-- Contenido -->
+                <div class="p-6 flex flex-col gap-3">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">
+                        Alta de Personal
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Procedimiento de contratación y bienvenida.
+                    </p>
+                    <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
+                        href="{{ route('administracion.alta-colaborador') }}">
+                        Ver procedimiento
+                        <i class="las la-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
             <!-- Baja -->
-            <a href="{{ route('intranet.administracion.baja-colaborador') }}"
-                class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="p-3 rounded-xl bg-red-50 text-red-600">
-                        <i class="las la-user-minus text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-slate-800 group-hover:text-orange-600">
-                            Baja de Personal
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-1">
-                            Proceso de desvinculación y entrega de activos.
-                        </p>
+            <div
+                class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
+                <!-- Imagen -->
+                <div class="h-48 overflow-hidden relative">
+                    <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
+                        style='background-image: url({{ asset('assets/media/baja-personal.png') }});'>
                     </div>
                 </div>
-                <span class="mt-4 text-sm text-orange-600 flex items-center gap-1">
-                    Ver procedimiento
-                    <i class="las la-arrow-right"></i>
-                </span>
-            </a>
+                <!-- Contenido -->
+                <div class="p-6 flex flex-col gap-3">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">
+                        Baja de Personal
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Proceso de desvinculación y entrega de activos.
+                    </p>
+                    <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
+                        href="{{ route('administracion.baja-colaborador') }}">
+                        Ver procedimiento
+                        <i class="las la-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 py-6">
             <!-- horario -->
-            <a href="{{ route('intranet.administracion.horario-laboral') }}"
-                class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="p-3 rounded-xl bg-yellow-50 text-yellow-600">
-                        <i class="las la-calendar text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-slate-800 group-hover:text-orange-600">
-                            Horario Laboral
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-1">
-                            Registro de asistencia, turnos rotativos y cumplimiento de jornada
-                        </p>
+            <div
+                class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
+                <!-- Imagen -->
+                <div class="h-48 overflow-hidden relative">
+                    <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
+                        style='background-image: url({{ asset('assets/media/horario-laboral.png') }});'>
                     </div>
                 </div>
-                <span class="mt-4 text-sm text-orange-600 flex items-center gap-1">
-                    Ver procedimiento
-                    <i class="las la-arrow-right"></i>
-                </span>
-            </a>
+                <!-- Contenido -->
+                <div class="p-6 flex flex-col gap-3">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">
+                        Horario Laboral
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Registro de asistencia, turnos rotativos y cumplimiento de jornada.
+                    </p>
+                    <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
+                        href="{{ route('administracion.horario-laboral') }}">
+                        Ver procedimiento
+                        <i class="las la-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
             <!-- incidencia -->
-            <a href="{{ route('intranet.administracion.incidencias') }}"
-                class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="p-3 rounded-xl bg-pink-50 text-pink-600">
-                        <i class="las la-calendar-times text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-slate-800 group-hover:text-orange-600">
-                            Incidencias
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-1">
-                            Reporte de nómina, faltas, retardos y bonificaciones extraordinarias
-                        </p>
+            <div
+                class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
+                <!-- Imagen -->
+                <div class="h-48 overflow-hidden relative">
+                    <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
+                        style='background-image: url({{ asset('assets/media/incidencia-laboral.png') }});'>
                     </div>
                 </div>
-                <span class="mt-4 text-sm text-orange-600 flex items-center gap-1">
-                    Ver procedimiento
-                    <i class="las la-arrow-right"></i>
-                </span>
-            </a>
+                <!-- Contenido -->
+                <div class="p-6 flex flex-col gap-3">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">
+                        Incidencias Laborales
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Reporte de nómina, faltas, retardos y bonificaciones extraordinarias.
+                    </p>
+                    <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
+                        href="{{ route('administracion.incidencias') }}">
+                        Ver procedimiento
+                        <i class="las la-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-
-
     </div>
 
     <div class="bg-white rounded-lg shadow p-6 mt-4">
@@ -159,7 +169,6 @@
                     <i class="las la-cog text-orange-500"></i>
                     Recursos Materiales
                 </h1>
-
                 <p class="text-slate-500 mt-1 text-sm">
                     Procedimiento para el uso adecuado del vehiculo. Asi como el procedimiento de Inventario y Facturación.
                 </p>
@@ -168,47 +177,53 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- vehiculo -->
-            <a href="{{ route('intranet.administracion.uso-camioneta') }}"
-                class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="p-3 rounded-xl bg-purple-50 text-purple-600">
-                        <i class="las la-car-side text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-slate-800 group-hover:text-orange-600">
-                            Uso del Vehiculo
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-1">
-                            Control de bitácoras, mantenimiento y asignación de vehículos.
-                        </p>
+            <div
+                class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
+                <!-- Imagen -->
+                <div class="h-48 overflow-hidden relative">
+                    <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
+                        style='background-image: url({{ asset('assets/media/uso-vehiculo.png') }});'>
                     </div>
                 </div>
-                <span class="mt-4 text-sm text-orange-600 flex items-center gap-1">
-                    Ver procedimiento
-                    <i class="las la-arrow-right"></i>
-                </span>
-            </a>
+                <!-- Contenido -->
+                <div class="p-6 flex flex-col gap-3">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">
+                        Uso del Vehiculo
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Control de bitácoras, mantenimiento y asignación de vehículos.
+                    </p>
+                    <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
+                        href="{{ route('administracion.uso-camioneta') }}">
+                        Ver procedimiento
+                        <i class="las la-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
             <!-- inventario -->
-            <a href="{{ route('intranet.administracion.facturacion-inventario') }}"
-                class="group bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
-                <div class="flex items-start gap-4">
-                    <div class="p-3 rounded-xl bg-blue-50 text-blue-600">
-                        <i class="las la-user-minus text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-slate-800 group-hover:text-orange-600">
-                            Inventario y Facturación
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-1">
-                            Control de existencias, flujo de ventas y emisión de facturas fiscales.
-                        </p>
+            <div
+                class="group flex flex-col bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 shadow-sm hover:shadow-xl">
+                <!-- Imagen -->
+                <div class="h-48 overflow-hidden relative">
+                    <div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
+                        style='background-image: url({{ asset('assets/media/facturacion-inventario.png') }});'>
                     </div>
                 </div>
-                <span class="mt-4 text-sm text-orange-600 flex items-center gap-1">
-                    Ver procedimiento
-                    <i class="las la-arrow-right"></i>
-                </span>
-            </a>
+                <!-- Contenido -->
+                <div class="p-6 flex flex-col gap-3">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">
+                        Inventario y Facturación
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Control de existencias, flujo de ventas y emisión de facturas fiscales.
+                    </p>
+                    <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
+                        href="{{ route('administracion.facturacion-inventario') }}">
+                        Ver procedimiento
+                        <i class="las la-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
         </div>
 
 

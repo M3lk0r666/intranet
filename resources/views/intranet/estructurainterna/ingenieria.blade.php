@@ -33,7 +33,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.procesos-empresariales') }}"
+                            <a href="{{ route('procesos-empresariales') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos Empresariales</a>
                         </div>
                     </li>
@@ -60,7 +60,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Categoría 1 -->
-            <a href="{{ route('intranet.estructurainterna.proceso-ingenieria') }}"
+            <a href="{{ route('estructurainterna.proceso-ingenieria') }}"
                 class="group block bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-orange-400 hover:shadow-lg transition-all duration-300">
 
                 <!-- Imagen -->
@@ -74,8 +74,7 @@
                 <!-- Contenido -->
                 <div class="p-6 text-left">
                     <h3
-                        class="text-base font-semibold text-slate-800 
-                   group-hover:text-orange-600 transition-colors duration-300">
+                        class="text-base font-semibold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">
                         Proceso Comercial IT
                     </h3>
                     <p class="text-sm text-slate-500 mt-2">
@@ -87,15 +86,14 @@
                         </span>
                         <span class="inline-flex items-center gap-1 text-orange-600 font-medium">
                             <i
-                                class="las la-arrow-right text-base 
-                          group-hover:translate-x-1 transition-transform duration-300"></i>
+                                class="las la-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
                         </span>
                     </div>
                 </div>
             </a>
 
             <!-- Categoría 2 -->
-            <a href="{{ route('intranet.estructurainterna.proceso-ingenieria.soporte-cliente') }}"
+            <a href="{{ route('estructurainterna.proceso-ingenieria.soporte-cliente') }}"
                 class="group block bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-orange-400 hover:shadow-lg transition-all duration-300">
 
                 <!-- Imagen -->
@@ -135,7 +133,7 @@
         <h2 class="text-2xl font-bold text-gray-800 mb-6">Proceso Interno</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Categoría 1 -->
-            <a href="{{ route('intranet.estructurainterna.proceso-ingenieria.solicitud-poc') }}"
+            <a href="{{ route('estructurainterna.proceso-ingenieria.solicitud-poc') }}"
                 class="group block bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-orange-400 hover:shadow-lg transition-all duration-300">
                 <!-- Imagen -->
                 <div class="relative h-52 overflow-hidden">
@@ -167,7 +165,7 @@
             </a>
 
             <!-- Categoría 2 -->
-            <a href="{{ route('intranet.estructurainterna.proceso-ingenieria.mantto-preventivo') }}"
+            <a href="{{ route('estructurainterna.proceso-ingenieria.mantto-preventivo') }}"
                 class="group block bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-orange-400 hover:shadow-lg transition-all duration-300">
                 <!-- Imagen -->
                 <div class="relative h-52 overflow-hidden">
@@ -199,7 +197,7 @@
             </a>
 
             <!-- Categoría 3 -->
-            <a href="{{ route('intranet.estructurainterna.proceso-ingenieria.mantto-correctivo') }}"
+            <a href="{{ route('estructurainterna.proceso-ingenieria.mantto-correctivo') }}"
                 class="group block bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-orange-400 hover:shadow-lg transition-all duration-300">
                 <!-- Imagen -->
                 <div class="relative h-52 overflow-hidden">
@@ -235,12 +233,10 @@
     <!-- 3era seccion -->
     <div class="bg-white rounded-lg shadow p-6 mt-8">
         <h2 class="text-2xl font-bold text-gray-800 mb-6"> Apoyo y Conocimiento de Actividades</h2>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Categoría 1 -->
-            <a href="{{ route('intranet.ingenieria.guias-on-site') }}"
+            <a href="{{ route('ingenieria.guias-on-site') }}"
                 class="group block bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-orange-400 hover:shadow-lg transition-all duration-300">
-
                 <!-- Imagen -->
                 <div class="relative h-52 overflow-hidden">
                     <img src="{{ asset('storage/media/guias-on-site.png') }}"
@@ -271,9 +267,8 @@
             </a>
 
             <!-- Categoría 2 -->
-            <a href="{{ route('intranet.ingenieria.clientes-polizas') }}"
+            <a href="{{ route('ingenieria.clientes-polizas') }}"
                 class="group block bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-orange-400 hover:shadow-lg transition-all duration-300">
-
                 <!-- Imagen -->
                 <div class="relative h-52 overflow-hidden">
                     <img src="{{ asset('storage/media/polizas-inventario.png') }}"
@@ -304,7 +299,6 @@
             </a>
         </div>
     </div>
-
 @endsection
 @push('js')
 @endpush

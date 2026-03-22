@@ -25,7 +25,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('intranet.posts.index') }}"
+                            <a href="{{ route('posts.index') }}"
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Blog</a>
                         </div>
                     </li>
@@ -43,7 +43,6 @@
 
     <div class="mt-4 bg-white rounded-lg shadow p-6">
         <div class="flex flex-col lg:flex-row gap-8 items-start">
-
             <!-- Contenido principal del post -->
             <div class="lg:w-2/3">
                 <!-- Encabezado del post -->
@@ -181,10 +180,8 @@
             <!-- Sidebar -->
             {{-- <div class="lg:w-1/3 sticky top-24 self-start"> --}}
             <div class="lg:w-1/3 lg:sticky lg:top-24 self-start">
-
                 <!-- TOC -->
                 <aside id="toc" class="hidden lg:block sticky top-24 max-h-[80vh] overflow-y-auto pr-4">
-
                     <div class="mb-4 flex items-center justify-between">
                         <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">
                             Contenido En esta página
@@ -194,9 +191,7 @@
                             Ocultar
                         </button>
                     </div>
-
                     <ul id="toc-list" class="space-y-2 text-sm"></ul>
-
                     <!-- Back to top -->
                     <div class="mt-6 pt-4 border-t">
                         <button id="back-to-top"
@@ -207,7 +202,6 @@
                         transition-all duration-300
                         opacity-0 translate-y-4
                         hover:scale-110 hover:shadow-xl">
-
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
@@ -236,7 +230,7 @@
                                 class="las la-file-download text-lg text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                         </a>
 
-                        <a href="{{ route('intranet.posts.index') }}"
+                        <a href="{{ route('posts.index') }}"
                             class="group flex flex-row-reverse items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                             <span>Regresar</span>
                             <i

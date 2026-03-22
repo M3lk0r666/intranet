@@ -42,7 +42,12 @@ class ClientController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {        
+        $request->validate([
+            'documents.*.file' => 'required|file|mimes:pdf,xls,,xlsx,doc,docx,txt|max:2048',
+        ]);
+
+        
         if($request->client_id){
             $client = Client::findOrFail($request->client_id);
         }else{
@@ -58,17 +63,14 @@ class ClientController extends Controller
             foreach ($files as $index => $fileData) {
                 if (isset($fileData['file'])) {
                     $file = $fileData['file'];
-                    //$originalName = $file->getClientOriginalName();
                     $originalName = time().'_'.$file->getClientOriginalName();
-                    
-                    //$path = $file->store('clients', 'public');
-
                     $path = $file->storeAs('polizas/'.$client->id,$originalName,'public');
                     
                     ClientDocument::create([
                         'client_id' => $client->id,
                         'type' => $documents[$index]['type'] ?? null,
                         'technology' => $documents[$index]['technology'] ?? null,
+                        'year' => $documents[$index]['year'] ?? null,
                         'file' => $path
                     ]);
                 }
