@@ -13,6 +13,22 @@ class ClientController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('intranet.ingenieria.clientes-polizas', compact('clients'));
+            $clientsFormatted = $clients->map(function ($c) {
+                return [
+                    'id' => $c->id,
+                    'name' => $c->name,
+                    'documents' => $c->documents->map(function ($d) {
+                        return [
+                            'id' => $d->id,
+                            'type' => $d->type,
+                            'file' => basename($d->file),
+                            'url' => asset('storage/' . $d->file),
+                            'year' => $d->year,
+                        ];
+                    }),
+                ];
+            });
+
+        return view('intranet.ingenieria.clientes-polizas', compact('clients','clientsFormatted'));
     }
 }

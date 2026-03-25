@@ -21,6 +21,15 @@
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Wire UI -->
+    <wireui:scripts />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!--SweetAlert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Line Awesome -->
     <link rel= "stylesheet" href= "/assets/lineawesome/css/line-awesome.min.css">
     <!-- Remix Icon -->
@@ -35,12 +44,14 @@
 <body class="min-h-screen flex flex-col bg-gray-50 text-slate-900 font-sans grid-pattern">
 
     <!-- Menú Superior -->
+
     @include('layouts.includes.intra.navbarintra')
 
     <!-- Contenido principal -->
     <main class="flex-grow pt-20 container mx-auto px-4 max-w-[1600px] sm:px-6 lg:px-8 py-12">
         @yield('content')
     </main>
+
 
     <!-- Footer -->
     @include('layouts.includes.intra.footer')
@@ -52,12 +63,34 @@
     @livewireScripts
 
     <!-- Flowbite JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> --}}
 
     <!-- Script para los dropdowns -->
     @stack('js')
-    <!-- Scripts adicionales -->
-    @vite(['resources/js/app.js'])
+    {{-- <script>
+        // Script para manejar el sidebar en móviles
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.querySelector('[data-drawer-toggle="logo-sidebar"]');
+            const sidebar = document.getElementById('logo-sidebar');
+
+            if (sidebarToggle && sidebar) {
+                sidebarToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('-translate-x-full');
+                });
+            }
+
+            // Cerrar sidebar al hacer clic fuera en móviles
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth < 640) {
+                    if (!sidebar.contains(event.target) && !sidebarToggle.contains(event.target)) {
+                        sidebar.classList.add('-translate-x-full');
+                    }
+                }
+            });
+        });
+    </script> --}}
 
 </body>
 

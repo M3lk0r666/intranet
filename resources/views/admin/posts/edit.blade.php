@@ -107,8 +107,8 @@
 
                     <div>
                         <label class="block mb-2.5 text-sm font-medium text-heading">Imagen</label>
-                        <img class="h-auto max-w-xs-image" src="{{ $post->image }}" alt="image description"
-                            id="imgPreview">
+                        <img class="w-32 h-32 object-cover rounded-lg border shadow-sm" src="{{ $post->image }}"
+                            alt="image description" id="imgPreview">
                         <label class="block mb-2.5 text-sm font-medium text-heading" for="file_input">Upload
                             file</label>
                         <input

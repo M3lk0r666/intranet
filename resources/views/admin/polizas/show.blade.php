@@ -14,13 +14,9 @@
 
 
     <x-wire-card>
-
         <div class="p-6">
-
             <h2 class="text-xl font-bold mb-4">
-
                 {{ $client->name }}
-
             </h2>
             @if (Str::endsWith($document->file, '.pdf'))
                 {{-- <iframe src="{{ asset('storage/' . $document->file) }}" width="100%" height="900px"
@@ -28,11 +24,7 @@
                 </iframe> --}}
                 <embed src="{{ asset('storage/' . $document->file) }}" type="application/pdf" width="100%" height="900px">
             @endif
-
-
         </div>
-
     </x-wire-card>
-
 
 </x-admin-layout>
