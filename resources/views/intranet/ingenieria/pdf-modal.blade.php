@@ -63,4 +63,3 @@
         document.getElementById('pdfModal').classList.add('hidden');
     }
 </script>
-</script>

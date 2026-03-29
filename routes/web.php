@@ -129,7 +129,7 @@ Route::get('/biblioteca/documentos/{document}/content', [FileDocumentController:
 
 Route::get('/intranet/documentos', [FileDocumentController::class, 'index'])->name('documentos.index');
 Route::get('/intranet/biblioteca-recursos/{document}', [FileDocumentController::class, 'show'])->name('documentos.show');
-Route::get('/intranet/documentos/{document}', [FileDocumentController::class, 'verdocs'])->name('documentos.ver-detalle');
+//Route::get('/intranet/documentos/{document}', [FileDocumentController::class, 'verdocs'])->name('documentos.ver-detalle');
 //Route::get('/intranet/documentos/{document}/descargar', [FileDocumentController::class, 'download'])->name('documentos.download');
 //Route::post('/intranet/documentos/{document}/view', [FileDocumentController::class, 'incrementView'])->name('documentos.view');
 //Route::get('/intranet/documentos/{document}/content', [FileDocumentController::class, 'getContent'])->name('documentos.content');

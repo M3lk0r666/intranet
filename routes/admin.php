@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\GuideExportController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\StepController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\RoleController;
 
 Route::get('/', function () {
     return view('admin.dashboard');
@@ -39,6 +42,13 @@ Route::delete('guide-files/{file}', [GuideController::class, 'deleteFile'])->nam
 
 //Rutas PolizasClientes
 Route::resource('clients', ClientController::class);
+
+//Directorio
+Route::resource('profiles', ProfileController::class);
+Route::resource('departments', DepartmentController::class);
+
+//Rutas de Gestion Roles
+Route::resource('roles', RoleController::class);
 
 // Importación
 

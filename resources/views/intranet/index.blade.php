@@ -224,7 +224,7 @@
                         Registrar una Incidencia
                     </h4>
                     <!-- Botones centrados -->
-                    <div class="flex justify-center gap-3 mt-2">
+                    <div class="flex gap-3 mt-2">
                         <a href="{{ route('administracion.incidencias') }}"
                             class="bg-primary text-white px-4 py-1 text-sm rounded-lg font-semibold shadow-lg hover:bg-primary/90 transition">
                             Ver guia

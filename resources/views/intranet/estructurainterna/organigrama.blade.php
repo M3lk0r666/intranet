@@ -53,61 +53,44 @@
         </div>
 
         <div class="max-w-5xl mx-auto">
-
             <div class="flex flex-wrap justify-center gap-4 mb-8">
-
                 <span class="flex items-center gap-2 text-xs bg-white border px-3 py-1 rounded-full">
                     <span class="w-2 h-2 bg-primary rounded-full"></span>
                     CEO
                 </span>
-
                 <span class="flex items-center gap-2 text-xs bg-white border px-3 py-1 rounded-full">
                     <span class="w-2 h-2 bg-slate-400 rounded-full"></span>
                     Directores
                 </span>
-
             </div>
 
             <!-- CEO -->
             <div class="flex flex-col items-center">
-
-                <div
-                    class="bg-gradient-to-br from-primary to-orange-500 text-white p-6 w-72 rounded-2xl shadow-lg text-center">
+                <div class="bg-orange-500 text-white p-6 w-72 rounded-2xl shadow-lg text-center">
                     <div class="flex flex-col items-center text-center">
-
                         <img src="{{ asset('storage/media/male.png') }}"
                             class="w-16 h-16 rounded-full object-cover border-2 border-white shadow mb-3">
-
                         <h3 class="font-bold text-lg">Xavier Martinez</h3>
                         <p class="text-sm opacity-90">CEO</p>
-
                     </div>
-
                 </div>
 
                 <div class="w-[2px] h-16 bg-slate-300"></div>
 
                 <!-- DIRECTORES -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 w-full">
-
                     <!-- DIRECTOR -->
                     <div class="flex flex-col items-center">
-
                         <div onclick="toggleNode('director1')"
                             class="cursor-pointer bg-white border border-slate-200 p-5 w-full max-w-xs rounded-xl shadow-sm text-center hover:shadow-md transition">
-
                             {{-- <div onclick="toggleNode('director1')"
                                 class="cursor-pointer bg-white border border-slate-200 p-5 w-full max-w-xs rounded-xl shadow-sm text-center hover:shadow-md transition">
-
                                 <img src="{{ asset('storage/media/male.png') }}"
                                     class="w-14 h-14 rounded-full object-cover mx-auto mb-2 border border-slate-200 shadow-sm">
-
                                 <h4 class="font-bold text-sm text-slate-800">
                                     Rogelio Marín
                                 </h4>
-
                                 <p class="text-xs text-slate-500">CEO Adjunto</p>
-
                             </div> --}}
                             <div onclick='openProfile({
                                 name: "Rogelio Marín",
@@ -115,7 +98,7 @@
                                 area: "Business & Solution Development",
                                 email: "rogelio@empresa.com",
                                 photo: "{{ asset('storage/media/male.png') }}", extra: "Lidera desarrollo de soluciones"})'
-                                class="cursor-pointer bg-white border border-slate-200 p-5 rounded-xl shadow-sm text-center hover:shadow-md transition">
+                                class="cursor-pointer bg-orange-500 border border-slate-200 p-5 rounded-xl shadow-sm text-center hover:shadow-md transition">
                                 <img src="{{ asset('storage/media/male.png') }}"
                                     class="w-14 h-14 rounded-full mx-auto mb-2">
                                 <h4 class="font-bold text-sm">Rogelio Marín</h4>
@@ -204,97 +187,68 @@
                         </div>
 
                     </div>
-
                     <!-- DIRECTOR 2 -->
                     <div class="flex flex-col items-center">
-
                         <div onclick="toggleNode('director2')"
-                            class="cursor-pointer bg-white border border-slate-200 p-5 w-full max-w-xs rounded-xl shadow-sm text-center hover:shadow-md transition">
-
+                            class="cursor-pointer bg-orange-500 border border-slate-200 p-5 w-full max-w-xs rounded-xl shadow-sm text-center hover:shadow-md transition">
                             {{-- <h4 class="font-bold text-sm text-slate-800">
                                 Giselle Martinez
                             </h4>
                             <p class="text-xs text-slate-500">Administración</p> --}}
                             <div onclick="toggleNode('director1')"
                                 class="cursor-pointer bg-white border border-slate-200 p-5 w-full max-w-xs rounded-xl shadow-sm text-center hover:shadow-md transition">
-
                                 <img src="{{ asset('storage/media/female.png') }}"
                                     class="w-14 h-14 rounded-full object-cover mx-auto mb-2 border border-slate-200 shadow-sm">
-
                                 <h4 class="font-bold text-sm text-slate-800">
                                     Giselle Martinez
                                 </h4>
-
                                 <p class="text-xs text-slate-500">Finanzas & Administración</p>
-
                             </div>
-
                             <span class="text-[10px] text-primary mt-2 block">
                                 Ver áreas ↓
                             </span>
                         </div>
-
                         <div class="w-[2px] h-10 bg-slate-300"></div>
-
                         <div id="director2" class="hidden space-y-6 w-full max-w-sm">
-
                             <div class="flex flex-col items-center">
-
                                 <div onclick="toggleNode('area3')"
                                     class="cursor-pointer bg-primary/10 border border-primary/20 px-4 py-2 rounded-xl text-xs font-bold text-primary text-center w-full">
                                     ADMINISTRACIÓN
                                 </div>
-
                                 <div class="w-[2px] h-6 bg-slate-300"></div>
-
                                 <div id="area3" class="hidden space-y-3 w-full">
-
                                     <div class="tree-item">Reclutamiento</div>
                                     <div class="tree-item">Nómina</div>
                                     <div class="tree-item">Capacitación</div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
 
                     <div class="flex flex-col items-center">
-
                         <!-- DIRECTOR -->
                         <div onclick="toggleNode('director3')" class="card-director">
                             Marketing
                         </div>
-
                         <div id="director3" class="hidden">
-
                             <!-- ÁREAS -->
                             <!-- mismas reglas -->
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
         <div class="w-full px-6 py-10">
 
             <div class="max-w-2xl mx-auto">
-
                 <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-8 text-center">
-
                     <!-- Imagen / Icono -->
                     <div class="flex justify-center mb-8">
                         <div
                             class="w-44 h-44 rounded-full overflow-hidden border-4 border-primary shadow-xl ring-4 ring-primary/10">
                             <img src="{{ asset('assets/media/trabajando-enello.png') }}"
-                                class="w-full h-full object-cover animate-pulse">
+                                class="w-full h-full object-cover">
                         </div>
                     </div>
 
@@ -322,44 +276,28 @@
                             En proceso
                         </span>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
     <!-- MODAL PERFIL -->
     <div id="profileModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50">
-
         <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative animate-fadeIn">
-
             <!-- Botón cerrar -->
             <button onclick="closeProfileModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600">
                 ✕
             </button>
-
             <!-- CONTENIDO -->
             <div class="flex flex-col items-center text-center">
-
                 <img id="modal-photo" class="w-20 h-20 rounded-full object-cover border-2 border-slate-200 shadow mb-3">
-
                 <h3 id="modal-name" class="text-lg font-bold text-slate-800"></h3>
-
                 <p id="modal-role" class="text-sm text-primary font-medium"></p>
-
                 <p id="modal-area" class="text-xs text-slate-500 mt-1"></p>
-
                 <div class="mt-4 w-full border-t pt-4 text-sm text-slate-600 space-y-2">
-
                     <p id="modal-email"></p>
                     <p id="modal-extra"></p>
-
                 </div>
-
             </div>
-
         </div>
     </div>
 @endsection

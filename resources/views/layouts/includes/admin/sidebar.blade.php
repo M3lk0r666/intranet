@@ -72,6 +72,27 @@
             'active' => request()->routeIs('admin.clients.*'),
         ],
         [
+            'header' => 'Directorio',
+        ],
+        [
+            'name' => 'Colaborador',
+            'icon' => 'ri-id-card-line',
+            'href' => route('admin.profiles.index'),
+            'active' => request()->routeIs('admin.profiles.*'),
+        ],
+        [
+            'name' => 'Departamento',
+            'icon' => 'ri-file-user-line',
+            'href' => route('admin.departments.index'),
+            'active' => request()->routeIs('admin.departments.*'),
+        ],
+        [
+            'name' => 'Roles y Permisos',
+            'icon' => 'ri-user-settings-line',
+            'href' => '#',
+            'active' => false,
+        ],
+        [
             'header' => 'Mi Cuenta',
         ],
         [

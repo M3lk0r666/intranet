@@ -95,14 +95,19 @@ class PostController extends Controller
          
         //return $data;
     
-        if($request->hasFile('image_path')){
-            //return "Se ha subido una imagen";
-            /* Storage::put('posts', $request->image_path);
-        } */
+        /* if($request->hasFile('image_path')){
             if($post->image_path){
                 Storage::delete($post->image_path);
             }
             $data['image_path'] = Storage::put('posts', $request->image_path);
+        } */
+        if ($request->hasFile('image_path')) {
+
+            if ($post->image_path) {
+                Storage::disk('public')->delete($post->image_path);
+            }
+        
+            $data['image_path'] = $request->file('image_path')->store('posts', 'public');
         }
       
         $post->update($data);
