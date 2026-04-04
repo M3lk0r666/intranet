@@ -15,6 +15,9 @@
     @push('css')
         <!-- Include your favorite highlight.js stylesheet -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+        <link href="{{ asset('assets/prims/prism.css') }}" rel="stylesheet">
+        <script src="{{ asset('assets/prims/prism.js') }}"></script>
+        <link href="/assets/css/intradmin.css" rel="stylesheet">
     @endpush
 
     <x-wire-card>
@@ -127,7 +130,19 @@
 
             <x-wire-card title="Contenido del Post" rounded="3xl">
                 <div>
-                    <label class="block mb-2.5 text-sm font-medium text-heading">Contenido</label>
+                    <label class="block mb-2.5 text-sm font-medium text-heading">Escribiendo el contenido de tu
+                        Post</label>
+                    <div class="note-demo">
+                        <h3>📝 Instrucciones de uso Notas:</h3>
+                        <ul>
+                            <li><strong>Dentro de una nota:</strong> Presiona ENTER para añadir nueva línea</li>
+                            <li><strong>Para salir de la nota:</strong> Presiona ENTER 3 veces seguidas o haz clic fuera
+                            </li>
+                            <li><strong>Editar notas:</strong> Haz clic en cualquier nota para editarla</li>
+                            <li><strong>Seleccionar tipo:</strong> Usa el botón para elegir el tipo de nota</li>
+                        </ul>
+                    </div>
+                    <!-- Textarea de contenido -->
                     <textarea name="content" id="content" cols="50">{{ old('content', $post->content) }}</textarea>
                 </div>
             </x-wire-card>
@@ -143,139 +158,41 @@
                     <i class="lar la-save"></i>
                 </x-wire-button>
             </div>
-
         </form>
     </x-wire-card>
 
     @push('js')
         <!-- Include the highlight.js library -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
         <!-- Include the TinyMCE library -->
         <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
         <script>
-            const dialogConfig = {
-                title: 'Agregar Nota',
-                body: {
-                    type: 'panel',
-                    items: [{
-                            type: 'selectbox', // component type
-                            name: 'choosydata', // identifier
-                            label: 'Selecciona el tipo de Nota',
-                            enabled: true, // enabled state
-                            items: [{
-                                    text: 'Informativa',
-                                    value: 'info'
-                                },
-                                {
-                                    text: 'Advertencia',
-                                    value: 'warning'
-                                },
-                                {
-                                    text: 'Peligro',
-                                    value: 'danger'
-                                },
-                                {
-                                    text: 'Link',
-                                    value: 'link'
-                                },
-                                {
-                                    text: 'Bueno',
-                                    value: 'bueno'
-                                },
-
-                            ],
-                            context: 'mode:design' // listbox is active when the editor is in design mode, only effective when enabled is true
-                        },
-                        /* {
-                            type: 'input',
-                            name: 'textnote',
-                            label: 'Digite el texto de la Nota'
-                        }, */
-                        {
-                            type: 'textarea', // component type
-                            name: 'textnote', // identifier
-                            label: 'Texto de la Nota: ',
-                            placeholder: 'informacion relacionada a la nota que desea agregar',
-                            enabled: true, // enabled state
-                            maximized: false, // grow width to take as much space as possible
-                            context: 'mode:design' // textarea is active when the editor is in design mode, only effective when enabled is true
-                        },
-                    ]
-                },
-                buttons: [{
-                        type: 'cancel',
-                        name: 'closeButton',
-                        text: 'Cancelar'
-                    },
-                    {
-                        type: 'custom',
-                        name: 'lastpage',
-                        text: 'Agregar',
-                        enable: true,
-                        buttonType: 'primary'
-                    }
-                ],
-                initialData: {
-                    choosydata: '',
-                    textnote: '',
-                },
-                onAction: (dialogApi, details) => {
-                    const data = dialogApi.getData();
-
-                    /* const result = 'You chose wisely: ' + data.choosydata; */
-                    const result = data.choosydata;
-                    console.log(result);
-                    /* if(data.choosydata === 'danger'){
-                        console.log('es peligro');
-                    }else{
-                        console.log('es otro');
-                    } */
-                    switch (data.choosydata) {
-                        case 'info':
-                            //console.log('es informativa');
-                            tinymce.activeEditor.execCommand('mceInsertContent', true,
-                                `<div style="border: 1px solid #d1c4e9; background-color: #6591c329; box-shadow: inset 4px 0 0 #054c9d;  border-radius: 6px; padding: 12px 16px; max-width: 800px; text-align: justify;"><div class="callout-header"><span style="font-weight: bold; color: #054c9d;">Información</span></div><div class="callout-content"><p>${data.textnote}</p></div></div>&nbsp;`
-                            );
-
-                            break;
-                        case 'warning':
-                            //console.log('es advertencia');
-                            tinymce.activeEditor.execCommand('mceInsertContent', false,
-                                `<div style="border: 1px solid #d1c4e9; background-color: #dd5a0721; box-shadow: inset 4px 0 0 #fbc02d;  border-radius: 6px; padding: 12px 16px; max-width: 800px; text-align: justify;"><div class="callout-header"><span style="font-weight: bold; color: #e75908;">Advertencia</span></div><div class="callout-content"><p>${data.textnote}</p></div></div>&nbsp;`
-                            );
-                            break;
-                        case 'danger':
-                            //console.log('es peligro');
-                            /* tinymce.activeEditor.execCommand('mceInsertContent', false, `<p><strong>${data.textnote}</strong></p>`); */
-                            tinymce.activeEditor.execCommand('mceInsertContent', false,
-                                `<div style="border: 1px solid #d1c4e9; background-color: #ffebee; box-shadow: inset 4px 0 0 #e53935;  border-radius: 6px; padding: 12px 16px; max-width: 800px; text-align: justify;"><div class="callout-header"><span style="font-weight: bold; color: #e53935;">Peligro</span></div><div class="callout-content"><p>${data.textnote}</p></div></div>&nbsp;`
-                            );
-                            break;
-                        case 'link':
-                            //console.log('es bueno');
-                            tinymce.activeEditor.execCommand('mceInsertContent', false,
-                                `<div style="border: 1px solid #5ae9db; background-color: #defefb; box-shadow: inset 4px 0 0 #4cebdc;  border-radius: 6px; padding: 12px 16px; max-width: 800px; text-align: justify;"><div class="callout-header"><span style="font-weight: bold; color: #00988a;"><b>Links de consulta</b></span></div><div class="callout-content"><p><a target="_blank" rel="nofollow noreferrer noopener" class="external free" href="${data.textnote}">${data.textnote}</a></p></div></div>&nbsp;`
-                            );
-                            break;
-                        case 'bueno':
-                            //console.log('es bueno');
-                            tinymce.activeEditor.execCommand('mceInsertContent', false,
-                                `<div style="border: 1px solid #d1c4e9; background-color: #e8f5e9; box-shadow: inset 4px 0 0 #43a047;  border-radius: 6px; padding: 12px 16px; max-width: 800px; text-align: justify;"><div class="callout-header"><span style="font-weight: bold; color: #43a047;">Visto Bueno</span></div><div class="callout-content"><p>${data.textnote}</p></div></div>&nbsp;`
-                            );
-                            break;
-                    }
-
-
-                    dialogApi.close();
-                }
-            };
-
+            // Configuración del editor
             tinymce.init({
                 selector: '#content',
-                toolbar_mode: 'floating',
-                skin: 'oxide',
+                height: 500,
+                menubar: true,
+                menubar: 'file edit view insert format tools table help',
                 plugins: [
-                    'codesample', 'preview', 'image', 'table', 'code',
+                    'searchreplace',
+                    'visualblocks',
+                    'fullscreen',
+                    'code',
+                    'codesample',
+                    'advlist',
+                    'autolink',
+                    'lists',
+                    'link',
+                    'image',
+                    'charmap',
+                    'preview',
+                    'anchor',
+                    'insertdatetime',
+                    'media',
+                    'table',
+                    'help',
+                    'wordcount'
                 ],
                 codesample_languages: [{
                         text: 'PHP',
@@ -286,69 +203,475 @@
                         value: 'python'
                     },
                     {
-                        text: 'cfg',
+                        text: 'Cisco',
                         value: 'cisco'
                     },
                     {
-                        text: 'exreme',
+                        text: 'Extreme',
                         value: 'extreme'
                     }
                 ],
-                toolbar: 'codesample | link image | undo redo | dialog-example-btn | tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol',
-                /*Boton personalizado*/
-                setup: (editor) => {
-                    editor.ui.registry.addButton('dialog-example-btn', {
-                        tooltip: 'Agregar nota',
-                        icon: 'comment-add',
-                        onAction: () => editor.windowManager.open(dialogConfig)
-                    })
-                },
+                toolbar_mode: 'wrap',
+                toolbar: `
+                    undo redo |
+                    blocks |
+                    bold italic underline strikethrough |
+                    forecolor backcolor |
+                    alignleft aligncenter alignright alignjustify |
+                    bullist numlist outdent indent |
+                    link image table |
+                    codesample code |
+                    dialog-example-btn customnotes |
+                    removeformat
+                `,
+                block_formats: 'Párrafo=p; Encabezado 1=h1; Encabezado 2=h2; Encabezado 3=h3; Encabezado 4=h4; Encabezado 5=h5; Encabezado 6=h6',
 
-                /* enable title field in the Image dialog*/
-                image_title: true,
-                /* enable automatic uploads of images represented by blob or data URIs*/
                 automatic_uploads: true,
-                /*
-                    URL of our upload handler (for more details check: https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_url)
-                    images_upload_url: 'postAcceptor.php',
-                    here we add custom filepicker only to Image dialog
-                */
-                file_picker_types: 'image',
-                /* and here's our custom image picker*/
-                file_picker_callback: (cb, value, meta) => {
-                    const input = document.createElement('input');
-                    input.setAttribute('type', 'file');
-                    input.setAttribute('accept', 'image/*');
 
-                    input.addEventListener('change', (e) => {
-                        const file = e.target.files[0];
+                // 🔥 AQUÍ VA
+                images_upload_handler: function(blobInfo) {
 
-                        const reader = new FileReader();
-                        reader.addEventListener('load', () => {
-                            /*
-                            Note: Now we need to register the blob in TinyMCEs image blob
-                            registry. In the next release this part hopefully won't be
-                            necessary, as we are looking to handle it internally.
-                            */
-                            const id = 'blobid' + (new Date()).getTime();
-                            const blobCache = tinymce.activeEditor.editorUpload.blobCache;
-                            const base64 = reader.result.split(',')[1];
-                            const blobInfo = blobCache.create(id, file, base64);
-                            blobCache.add(blobInfo);
+                    let formData = new FormData();
+                    formData.append('file', blobInfo.blob());
+                    formData.append('_token', document.querySelector('meta[name="csrf-token"]').getAttribute(
+                        'content'));
 
-                            /* call the callback and populate the Title field with the file name */
-                            cb(blobInfo.blobUri(), {
-                                title: file.name
+                    return fetch('/admin/upload-image', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                return response.json().then(err => {
+                                    throw new Error(err.error || 'Error al subir imagen');
+                                });
+                            }
+                            return response.json();
+                        })
+                        .then(result => {
+                            if (!result || !result.location) {
+                                throw new Error('Respuesta inválida del servidor');
+                            }
+
+                            return result.location; // 🔥 CLAVE
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            // 🔥 AQUÍ VA
+                            tinymce.activeEditor.notificationManager.open({
+                                text: error.message,
+                                type: 'error'
                             });
+                            throw error; // importante para TinyMCE
                         });
-                        reader.readAsDataURL(file);
-                    });
-
-                    input.click();
                 },
-                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+
+                images_upload_url: '/upload-image', // ruta en Laravel
+                images_upload_credentials: true, // importante si usas sesión/csrf
+                image_title: true,
                 license_key: 'gpl',
                 promotion: false,
+                content_style: `
+                    body { 
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                        font-size: 14px; 
+                        line-height: 1.6;
+                        padding: 20px;
+                    }
+                    
+                    /* ESTILOS DE NOTAS DENTRO DEL EDITOR */
+                    .note {
+                        border-left: 5px solid #f4c430 !important;
+                        background-color: #fff9e6 !important;
+                        padding: 12px 12px 12px 50px !important;
+                        margin: 15px 0 !important;
+                        font-style: italic !important;
+                        min-height: 60px !important;
+                        position: relative !important;
+                        border-radius: 4px !important;
+                        transition: all 0.3s ease !important;
+                        cursor: text !important;
+                    }
+                    
+                    .note::before {
+                        content: "📝 " !important;
+                        display: block !important;
+                        font-weight: bold !important;
+                        margin-bottom: 6px !important;
+                        font-style: normal !important;
+                        color: #333 !important;
+                        position: absolute !important;
+                        left: 12px !important;
+                        top: 12px !important;
+                        font-size: 16px !important;
+                    }
+                    
+                    .note.editing {
+                        box-shadow: 0 0 0 2px #3498db !important;
+                        background-color: #fff9e6 !important;
+                    }
+                    
+                    .info-note {
+                        border-left-color: #3498db !important;
+                        background-color: #ebf5fb !important;
+                    }
+                    
+                    .info-note::before {
+                        content: "ℹ️ " !important;
+                        color: #2980b9 !important;
+                    }
+                    
+                    .warning-note {
+                        border-left-color: #f39c12 !important;
+                        background-color: #fef9e7 !important;
+                    }
+                    
+                    .warning-note::before {
+                        content: "⚠️ " !important;
+                        color: #d68910 !important;
+                    }
+                    
+                    .error-note {
+                        border-left-color: #e74c3c !important;
+                        background-color: #fdedec !important;
+                    }
+                    
+                    .error-note::before {
+                        content: "❌ " !important;
+                        color: #c0392b !important;
+                    }
+                    
+                    .success-note {
+                        border-left-color: #27ae60 !important;
+                        background-color: #eafaf1 !important;
+                    }
+                    
+                    .success-note::before {
+                        content: "✅ " !important;
+                        color: #229954 !important;
+                    }
+                    
+                    .tip-note {
+                        border-left-color: #9b59b6 !important;
+                        background-color: #f4ecf7 !important;
+                    }
+                    
+                    .tip-note::before {
+                        content: "💡 " !important;
+                        color: #8e44ad !important;
+                    }
+                    
+                    .question-note {
+                        border-left-color: #1abc9c !important;
+                        background-color: #e8f8f5 !important;
+                    }
+                    
+                    .question-note::before {
+                        content: "❓ " !important;
+                        color: #16a085 !important;
+                    }
+                    
+                    /* Estilo para el indicador de salida */
+                    .exit-indicator {
+                        color: #7f8c8d !important;
+                        font-size: 12px !important;
+                        font-style: normal !important;
+                        opacity: 0.6 !important;
+                        margin-top: 5px !important;
+                        padding-left: 10px !important;
+                        border-left: 2px dashed #bdc3c7 !important;
+                    }
+                `,
+                content_css: false,
+                toolbar_mode: 'wrap',
+                valid_elements: '*[*]',
+                /* valid_styles: {
+                    '*': 'color,font-size,font-weight,font-style,text-decoration,float,margin,padding,background,border'
+                }, */
+                valid_styles: {
+                    '*': 'color,font-size,font-weight,font-style,text-decoration,float,margin,padding,background,border,border-left'
+                },
+                keep_styles: true,
+
+                setup: function(editor) {
+                    // Variables para control de salida con Enter
+                    let enterCount = 0;
+                    let lastEnterTime = 0;
+                    const ENTER_DELAY = 1000; // 1 segundo entre Enters
+                    const EXIT_ENTER_COUNT = 3; // 3 Enters para salir
+
+                    // Función para obtener la clase CSS según el tipo
+                    function getNoteClass(type) {
+                        const classes = {
+                            'basic': '',
+                            'info': 'info-note',
+                            'warning': 'warning-note',
+                            'error': 'error-note',
+                            'success': 'success-note',
+                            'tip': 'tip-note',
+                            'question': 'question-note'
+                        };
+                        return classes[type] || '';
+                    }
+
+                    // Función para verificar si el cursor está dentro de una nota
+                    function isCursorInNote() {
+                        const node = editor.selection.getNode();
+                        return node.closest && node.closest('.note');
+                    }
+
+                    // Función para salir de la nota
+                    function exitNote() {
+                        const selection = editor.selection;
+                        const node = selection.getNode();
+                        const noteElement = node.closest('.note');
+
+                        if (noteElement) {
+                            // Crear un párrafo vacío después de la nota
+                            const p = document.createElement('p');
+                            p.innerHTML = '&nbsp;';
+                            noteElement.parentNode.insertBefore(p, noteElement.nextSibling);
+
+                            // Mover el cursor al nuevo párrafo
+                            selection.setCursorLocation(p, 0);
+
+                            // Remover clase de edición
+                            noteElement.classList.remove('editing');
+                        }
+
+                        // Reiniciar contador
+                        enterCount = 0;
+                    }
+
+                    // Manejar eventos de teclado
+                    editor.on('keydown', function(e) {
+                        const key = e.keyCode || e.which;
+
+                        if (key === 13) { // Tecla ENTER
+                            const now = Date.now();
+
+                            // Verificar si estamos dentro de una nota
+                            if (isCursorInNote()) {
+                                e.preventDefault();
+
+                                // Verificar si es un Enter rápido (dentro del tiempo límite)
+                                if (now - lastEnterTime < ENTER_DELAY) {
+                                    enterCount++;
+                                } else {
+                                    enterCount = 1; // Reiniciar si pasó mucho tiempo
+                                }
+
+                                lastEnterTime = now;
+
+                                // Insertar salto de línea normal
+                                editor.execCommand('InsertLineBreak');
+
+                                // Si llegamos a 3 Enters, salir de la nota
+                                if (enterCount >= EXIT_ENTER_COUNT) {
+                                    setTimeout(exitNote, 50);
+                                    return;
+                                }
+
+                                // Mostrar indicador visual de cuántos Enters llevamos
+                                showExitIndicator(enterCount);
+                            } else {
+                                // Fuera de una nota, comportamiento normal
+                                enterCount = 0;
+                            }
+                        } else if (key === 27) { // Tecla ESC
+                            // ESC para salir inmediatamente
+                            if (isCursorInNote()) {
+                                e.preventDefault();
+                                exitNote();
+                            }
+                        } else {
+                            // Cualquier otra tecla reinicia el contador
+                            if (!isCursorInNote()) {
+                                enterCount = 0;
+                            }
+                        }
+                    });
+
+                    // Mostrar indicador visual de salida
+                    function showExitIndicator(count) {
+                        const node = editor.selection.getNode();
+                        const noteElement = node.closest('.note');
+
+                        if (noteElement) {
+                            // Remover indicadores anteriores
+                            const oldIndicators = noteElement.querySelectorAll('.exit-indicator');
+                            oldIndicators.forEach(ind => ind.remove());
+
+                            // Crear nuevo indicador
+                            if (count > 1) {
+                                const indicator = document.createElement('div');
+                                indicator.className = 'exit-indicator';
+                                indicator.innerHTML =
+                                    `Presiona ENTER ${EXIT_ENTER_COUNT - count} vez(es) más para salir de la nota`;
+
+                                // Insertar al final de la nota
+                                noteElement.appendChild(indicator);
+
+                                // Auto-remover después de 2 segundos
+                                setTimeout(() => {
+                                    if (indicator.parentNode) {
+                                        indicator.remove();
+                                    }
+                                }, 2000);
+                            }
+                        }
+                    }
+
+                    // Manejar clics en notas para edición
+                    editor.on('click', function(e) {
+                        const node = e.target;
+                        if (node.classList && node.classList.contains('note')) {
+                            node.classList.add('editing');
+                            enterCount = 0; // Reiniciar contador al hacer clic
+                        }
+                    });
+
+                    // Remover clase de edición al salir de la nota
+                    editor.on('blur', function() {
+                        const notes = editor.getBody().querySelectorAll('.note.editing');
+                        notes.forEach(note => note.classList.remove('editing'));
+                        enterCount = 0;
+                    });
+
+                    // Botón personalizado mejorado
+                    editor.ui.registry.addButton('customnotes', {
+                        text: '📝 Insertar Nota',
+                        tooltip: 'Insertar nota especial con diferentes estilos',
+                        onAction: function() {
+                            editor.windowManager.open({
+                                title: 'Insertar Nota Personalizada',
+                                body: {
+                                    type: 'panel',
+                                    items: [{
+                                            type: 'selectbox',
+                                            name: 'noteType',
+                                            label: 'Tipo de nota:',
+                                            items: [{
+                                                    value: 'basic',
+                                                    text: '📝 Nota Básica'
+                                                },
+                                                {
+                                                    value: 'info',
+                                                    text: 'ℹ️ Informativa'
+                                                },
+                                                {
+                                                    value: 'warning',
+                                                    text: '⚠️ Advertencia'
+                                                },
+                                                {
+                                                    value: 'error',
+                                                    text: '❌ Error'
+                                                },
+                                                {
+                                                    value: 'success',
+                                                    text: '✅ Éxito'
+                                                },
+                                                {
+                                                    value: 'tip',
+                                                    text: '💡 Consejo'
+                                                },
+                                                {
+                                                    value: 'question',
+                                                    text: '❓ Pregunta'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            type: 'textarea',
+                                            name: 'noteText',
+                                            label: 'Contenido (ENTER para nuevas líneas):',
+                                            placeholder: 'Escribe el contenido de la nota aquí...\nPuedes usar ENTER para nuevas líneas.\nPresiona ENTER 3 veces seguidas para salir.',
+                                            maximized: true,
+                                            rows: 8
+                                        }
+                                    ]
+                                },
+                                buttons: [{
+                                        type: 'cancel',
+                                        text: 'Cancelar'
+                                    },
+                                    {
+                                        type: 'submit',
+                                        text: 'Insertar Nota',
+                                        primary: true
+                                    }
+                                ],
+                                onSubmit: function(api) {
+                                    const data = api.getData();
+                                    if (data.noteText.trim() === '') {
+                                        alert(
+                                            'Por favor, escribe algún texto para la nota.'
+                                        );
+                                        return;
+                                    }
+
+                                    const noteClass = getNoteClass(data.noteType);
+                                    // Convertir saltos de línea a párrafos para mejor estructura
+                                    const lines = data.noteText.split('\n').filter(line =>
+                                        line.trim() !== '');
+                                    const content = lines.map(line => `<p>${line}</p>`)
+                                        .join('');
+
+                                    /* const noteHTML = `
+                                <div class="note ${noteClass} editing">
+                                    ${content}
+                                    <div class="exit-indicator">Listo para editar. Presiona ENTER 3 veces seguidas para salir.</div>
+                                </div>
+                                <p>&nbsp;</p> <!-- Párrafo vacío después para continuar escribiendo -->
+                            `; */
+                                    function getInlineStyle(type) {
+                                        const styles = {
+                                            basic: "border-left:5px solid #f4c430;background:#fff9e6;",
+                                            info: "border-left:5px solid #3498db;background:#ebf5fb;",
+                                            warning: "border-left:5px solid #f39c12;background:#fef9e7;",
+                                            error: "border-left:5px solid #e74c3c;background:#fdedec;",
+                                            success: "border-left:5px solid #27ae60;background:#eafaf1;",
+                                            tip: "border-left:5px solid #9b59b6;background:#f4ecf7;",
+                                            question: "border-left:5px solid #1abc9c;background:#e8f8f5;"
+                                        };
+
+                                        return `
+                                            ${styles[type] || styles.basic}
+                                            padding:12px;
+                                            margin:15px 0;
+                                            border-radius:4px;
+                                        `;
+                                    }
+
+                                    const inlineStyle = getInlineStyle(data.noteType);
+
+                                    const noteHTML = `
+                                        <div class="note ${noteClass}" style="${inlineStyle}">
+                                            ${content}
+                                            <div class="exit-indicator">Presiona ENTER 3 veces para salir</div>
+                                        </div>
+                                        <p>&nbsp;</p>
+                                    `;
+
+                                    editor.insertContent(noteHTML);
+                                    api.close();
+
+                                    // Enfocar la nota recién insertada
+                                    setTimeout(() => {
+                                        const notes = editor.getBody()
+                                            .querySelectorAll('.note');
+                                        if (notes.length > 0) {
+                                            const lastNote = notes[notes.length -
+                                                1];
+                                            editor.selection.select(lastNote, true);
+                                            editor.selection.collapse(false);
+                                        }
+                                    }, 100);
+                                }
+                            });
+                        }
+                    });
+                }
 
             });
         </script>

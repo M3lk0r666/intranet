@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\FileDocumentController;
 use App\Http\Controllers\Admin\GuideController;
 use App\Http\Controllers\Admin\GuideExportController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\ImageController;
 
 Route::get('/', function () {
     return view('admin.dashboard');
@@ -21,10 +23,17 @@ Route::get('/', function () {
 
 Route::resource('categories', CategoryController::class);
 Route::resource('posts', PostController::class);
+//Para Imagen el contenido del Post
+Route::post('/upload-image', [ImageController::class, 'upload']);
+
 Route::resource('tags', TagController::class);
 
 // Rutas Videos
 Route::resource('videos', VideoController::class);
+
+// Rutas Contenido
+Route::resource('contents', ContentController::class);
+Route::patch('contents/{content}/toggle', [ContentController::class, 'toggle'])->name('contents.toggle');
 
 
 //Rutas Documentos

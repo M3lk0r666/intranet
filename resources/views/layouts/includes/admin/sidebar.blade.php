@@ -45,13 +45,19 @@
             'active' => request()->routeIs('admin.posts.*'),
         ],
         [
-            'header' => 'Multimedia',
+            'header' => 'Academia',
         ],
         [
             'name' => 'Videos',
             'icon' => 'las la-video',
             'href' => route('admin.videos.index'),
             'active' => request()->routeIs('admin.videos.*'),
+        ],
+        [
+            'name' => 'Guias',
+            'icon' => 'las la-file',
+            'href' => route('admin.contents.index'),
+            'active' => request()->routeIs('admin.contents.*'),
         ],
         [
             'header' => 'Documentos',

@@ -82,4 +82,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+
+    public function contents()
+    {
+        return $this->hasMany(Content::class);
+    }
 }

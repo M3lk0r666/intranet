@@ -1,9 +1,17 @@
 @extends('layouts.public')
+
 @push('css')
-    <link href="{{ asset('/assets/prims/prism-php.css') }}" rel="stylesheet" />
-@endpush
-@push('js')
-    <script src="{{ asset('/assets/prims/prism-php.js') }}"></script>
+    <!-- Prism base -->
+    <link href="{{ asset('assets/prims/prism.css') }}" rel="stylesheet">
+    <script src="{{ asset('assets/prims/prism.js') }}"></script>
+
+    <!-- Tu lenguaje -->
+    <script src="{{ asset('assets/js/prism-extreme.js') }}"></script>
+    <script src="{{ asset('assets/js/prism-cisco.js') }}"></script>
+
+    <!-- Tus estilos -->
+    <link href="{{ asset('assets/css/prism-extreme.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/prism-cisco.css') }}" rel="stylesheet">
 @endpush
 
 @section('title', 'Listado de Posts')
@@ -42,6 +50,7 @@
     </div>
 
     <div class="mt-4 bg-white rounded-lg shadow p-6">
+        @php $summary = $post->summary; @endphp
         <div class="flex flex-col lg:flex-row gap-8 items-start">
             <!-- Contenido principal del post -->
             <div class="lg:w-2/3">
@@ -51,18 +60,13 @@
                     <div class="flex flex-wrap items-center justify-between mb-6">
                         <div class="flex items-center space-x-4">
                             <span class="bg-primary-light text-primary text-sm font-medium px-3 py-1 rounded-full">
-                                Noticias Corporativas
+                                {{ $summary['category'] }}
                             </span>
                             <span class="text-gray-500 text-sm">
-                                <i class="far fa-calendar-alt mr-1"></i> {{ $post->created_at->format('d M, Y') }}
+                                <i class="far fa-clock mr-1"></i> {{ $summary['reading_time'] }}
                             </span>
                             <span class="text-gray-500 text-sm">
-                                <i class="far fa-clock mr-1"></i> 8 min lectura
-                            </span>
-                        </div>
-                        <div class="mt-4 md:mt-0">
-                            <span class="text-gray-500 text-sm">
-                                <i class="far fa-eye mr-1"></i> 1 vistas
+                                <i class="far fa-eye mr-1"></i> {{ $summary['views'] }}
                             </span>
                         </div>
                     </div>
@@ -88,12 +92,13 @@
                     <!-- Imagen destacada -->
                     <div class="mb-8">
                         <div class="w-full h-64 md:h-96 rounded-lg overflow-hidden">
-                            <img class="w-full h-full object-cover" src="{{ $post->image }}" alt="{{ $post->title }}">
+                            <img class="w-full h-full object-cover"
+                                src="{{ $post->image_path ? asset('storage/' . $post->image_path) : asset('assets/media/no-disponible.jpg') }}"
+                                alt="{{ $post->title }}">
                         </div>
                     </div>
 
                     <!-- Contenido del post -->
-                    {{-- <div class="post-content" id="post-content"> --}}
                     <div class="post-content prose prose-sm md:prose-base max-w-none break-words" id="post-content">
                         {!! $post->content !!}
                     </div>
@@ -102,10 +107,10 @@
                     <div class="mt-8 pt-6 border-t border-gray-200">
                         <h3 class="font-bold text-gray-700 mb-3">Etiquetas:</h3>
                         <div class="flex flex-wrap gap-2">
-                            @if ($post->tags->count() > 0)
+                            @if (count($summary['tags']) > 0)
                                 <div class="mt-6">
                                     <div class="flex flex-wrap gap-2 justify-center">
-                                        @foreach ($post->tags as $tag)
+                                        @foreach ($summary['tags'] as $index => $tag)
                                             @php
                                                 $colors = [
                                                     'bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-200',
@@ -114,12 +119,12 @@
                                                     'bg-orange-100 text-orange-800 border-orange-200 hover:bg-orange-200',
                                                     'bg-pink-100 text-pink-800 border-pink-200 hover:bg-pink-200',
                                                 ];
-                                                $color = $colors[$loop->index % count($colors)];
+                                                $color = $colors[$index % count($colors)];
                                             @endphp
                                             <span
                                                 class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-full border transition duration-150 {{ $color }}">
                                                 <i class="ri-price-tag-3-fill mr-1"></i>
-                                                {{ $tag->name }}
+                                                {{ $tag }}
                                             </span>
                                         @endforeach
                                     </div>
@@ -132,32 +137,34 @@
                 <!-- Posts relacionados -->
                 <div class="bg-white rounded-lg shadow p-6">
                     <h2 class="text-2xl font-bold text-gray-800 mb-6">Posts Relacionados</h2>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Post relacionados -->
                         @forelse($similarPosts as $similarPost)
                             <a href="{{ route('posts.show', $similarPost) }}"
                                 class="card-hover border border-gray-200 rounded-lg overflow-hidden hover:border-orange-300">
-
                                 <div class="h-32 overflow-hidden">
-                                    <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                                        src="{{ $similarPost->image }}" alt="{{ $similarPost->title }}">
+                                    {{-- <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                        src="{{ $similarPost->image }}" alt="{{ $similarPost->title }}"> --}}
+                                    @if ($similarPost->image)
+                                        <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                            src="{{ asset($similarPost->image) }}" alt="{{ $similarPost->title }}">
+                                    @endif
                                 </div>
-
                                 <div class="p-4">
-                                    <span
+                                    {{-- <span
                                         class="bg-blue-100 text-blue-600 text-xs font-medium px-2 py-1 rounded-full mb-2 inline-block">
                                         Tecnología
+                                    </span> --}}
+                                    <span
+                                        class="bg-blue-100 text-blue-600 text-xs font-medium px-2 py-1 rounded-full mb-2 inline-block">
+                                        {{ optional($similarPost->category)->name ?? 'Sin categoría' }}
                                     </span>
-
                                     <h3 class="font-bold text-gray-800 mb-2">
                                         {{ $similarPost->title }}
                                     </h3>
-
                                     <p class="text-gray-600 text-sm mb-3">
                                         {{ Str::limit(strip_tags($similarPost->content), 50) }}
                                     </p>
-
                                     <div class="flex items-center text-sm text-gray-500">
                                         <span class="mr-3">
                                             <i class="far fa-calendar mr-1"></i>
@@ -169,7 +176,6 @@
                                     </div>
                                 </div>
                             </a>
-
                         @empty
                             <p class="text-gray-500 text-center py-4">No hay artículos similares disponibles.</p>
                         @endforelse

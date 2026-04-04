@@ -57,7 +57,7 @@
                             </div>
 
                             <!-- URL del Video -->
-                            <div>
+                            {{-- <div>
                                 <label for="video_url" class="block text-sm font-medium text-gray-700 mb-1">URL del
                                     Video *</label>
                                 <input type="url" name="video_url" id="video_url" value="{{ old('video_url') }}"
@@ -67,7 +67,7 @@
                                 @error('video_url')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
-                            </div>
+                            </div> --}}
 
                             <!-- Thumbnail -->
                             <div>

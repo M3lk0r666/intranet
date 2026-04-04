@@ -111,16 +111,16 @@
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            @if ($video->thumbnail_url)
-                                                <div class="flex-shrink-0 h-10 w-16 mr-3">
-                                                    <img class="h-10 w-16 object-cover rounded"
-                                                        src="{{ $video->thumbnail_url }}" alt="{{ $video->title }}">
-                                                </div>
-                                            @endif
+                                            <div class="flex-shrink-0 h-10 w-16 mr-3">
+                                                <img class="h-10 w-16 object-cover rounded"
+                                                    src="{{ $video->thumbnail_source }}" alt="{{ $video->title }}">
+                                            </div>
                                             <div>
-                                                <div class="text-sm font-medium text-gray-900">{{ $video->title }}
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    {{ $video->title }}
                                                 </div>
-                                                <div class="text-sm text-gray-500">Subido por {{ $video->user->name }}
+                                                <div class="text-sm text-gray-500">
+                                                    Subido por {{ $video->user->name }}
                                                 </div>
                                             </div>
                                         </div>

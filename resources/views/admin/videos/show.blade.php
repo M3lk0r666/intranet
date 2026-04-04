@@ -142,20 +142,23 @@
                         </div>
 
                         <!-- Thumbnail -->
-                        @if ($video->thumbnail_url)
+                        {{-- @if ($video->thumbnail_url)
                             <div class="bg-gray-50 p-4 rounded-lg">
                                 <h3 class="text-lg font-semibold text-gray-800 mb-3">Thumbnail</h3>
                                 <img src="{{ $video->thumbnail_url }}" alt="Thumbnail"
                                     class="w-full h-48 object-cover rounded-lg">
                             </div>
-                        @endif
+                        @endif --}}
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">Thumbnail</h3>
+                            <img src="{{ $video->thumbnail_source }}" alt="Thumbnail"
+                                class="w-full h-48 object-cover rounded-lg">
+                        </div>
+
                     </div>
                 </div>
             </div>
-
         </div>
 
     </x-wire-card>
-
-
 </x-admin-layout>

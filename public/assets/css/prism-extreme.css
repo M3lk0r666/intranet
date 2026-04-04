@@ -1,0 +1,63 @@
+.token.keyword-main {
+    color: #ff6b6b !important;
+    font-weight: bold !important;
+}
+.token.config-object {
+    color: #51cf66 !important;
+    font-weight: bold !important;
+}
+.token.attribute-specific {
+    color: #339af0 !important;
+    font-weight: bold !important;
+}
+.token.prompt {
+    color: #22b8cf !important;
+    font-weight: bold !important;
+}
+.token.ip,
+.token.mac {
+    color: #ffd43b !important;
+    font-weight: bold !important;
+}
+.token.port-specifier {
+    color: #ff922b !important;
+    font-weight: bold !important;
+}
+.token.vlan-name {
+    color: #f06595 !important;
+    font-weight: bold !important;
+}
+.token.interface-name {
+    color: #cc5de8 !important;
+}
+.token.state,
+.token.state-indicator {
+    color: #94d82d !important;
+}
+.token.error {
+    color: #fa5252 !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+}
+.token.type {
+    color: #4dabf7 !important;
+}
+.token.comment {
+    color: #868e96 !important;
+    font-style: italic;
+}
+.token.keyword {
+    color: #20c997 !important;
+}
+.token.command {
+    color: #748ffc !important;
+}
+.token.attribute {
+    color: #9775fa !important;
+}
+
+/* pre[class*="language-"] {
+    font-family: "Fira Code", monospace;
+    font-size: 14px;
+    border-radius: 6px;
+} */

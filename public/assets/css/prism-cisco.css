@@ -1,0 +1,64 @@
+.token.prompt {
+    color: #22b8cf !important;
+    font-weight: bold;
+}
+
+.token.keyword-main {
+    color: #ff6b6b !important;
+    font-weight: bold;
+}
+
+.token.protocol {
+    color: #51cf66 !important;
+    font-weight: bold;
+}
+
+.token.interface {
+    color: #845ef7 !important;
+}
+
+.token.ip {
+    color: #ffd43b !important;
+    font-weight: bold;
+}
+
+.token.subnet {
+    color: #fab005 !important;
+}
+
+.token.vlan-id {
+    color: #f06595 !important;
+    font-weight: bold;
+}
+
+.token.state {
+    color: #94d82d !important;
+}
+
+.token.number {
+    color: #ff922b !important;
+}
+
+.token.mac {
+    color: #ffa94d !important;
+}
+
+.token.keyword {
+    color: #20c997 !important;
+}
+
+.token.comment {
+    color: #868e96 !important;
+    font-style: italic;
+}
+
+.token.error {
+    color: #fa5252 !important;
+    font-weight: bold;
+}
+
+pre[class*="language-cisco"] {
+    background: #0d1117 !important;
+    border-left: 4px solid #339af0 !important;
+    color: #e6edf3;
+}

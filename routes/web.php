@@ -11,6 +11,7 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\IngenieriaController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\LearningController;
 
 /*Route::redirect('/', 'posts')->name('home');
  Route::get('/', function () {
@@ -141,9 +142,11 @@ Route::get('/intranet/ingenieria/clientes', [ClientController::class,'index'])->
 //Route::get('/documents/{document}/content', [FileDocumentController::class, 'getContent'])->name('intranet.documents.content');
 
 # Rutas VIDEOS
-Route::get('/formacion-academica/videos', [VideoController::class,'index'])->name('formacion-academica.index');
+//Route::get('/formacion-academica/videos', [VideoController::class,'index'])->name('formacion-academica.index');
 
-
+//Rutas para aprendizaje
+Route::get('/formacion-academica/learning', [LearningController::class,'index'])->name('learning.index');
+Route::get('/formacion-academica/learning/{type}/{id}', [LearningController::class, 'show'])->name('learning.show');
 
 //revisar el como se muestran los elementos, se ve bien
 Route::get('/estructura-interna', function () {
@@ -164,8 +167,10 @@ Route::get('/videos', function () {
     return view('videos.oldindex');
 });
 
-
-
+//ruta momentanea -quitar despues
+Route::match(['get', 'post'], '/register', function () {
+    return redirect('/login');
+});
 
 
 //Rutas para las Guias las que se arman automaticamente
@@ -179,20 +184,20 @@ Route::get('/categorias', [CategoryController::class, 'index'])->name('categorie
 Route::get('/categoria/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 // Búsqueda
-Route::get('/buscar', [SearchController::class, 'index'])->name('search.index');
+//Route::get('/buscar', [SearchController::class, 'index'])->name('search.index');
 //Route::get('/categorias/{category}', [CategoryController::class, 'show'])->name('categories.show');
 //Route::get('/etiquetas/{tag}', [TagController::class, 'show'])->name('tags.show');
 
 // Si no tienes controladores para categorías y tags
-Route::get('/categorias/{category}', function($category) {
+/* Route::get('/categorias/{category}', function($category) {
     // Redirigir a posts filtrados por categoría
     return redirect()->route('posts.index', ['category' => $category]);
-})->name('categories.show');
+})->name('categories.show'); */
 
-Route::get('/etiquetas/{tag}', function($tag) {
+/* Route::get('/etiquetas/{tag}', function($tag) {
     // Redirigir a posts filtrados por tag
     return redirect()->route('posts.index', ['tag' => $tag]);
-})->name('tags.show');
+})->name('tags.show'); */
 
 Route::middleware([
     'auth:sanctum',

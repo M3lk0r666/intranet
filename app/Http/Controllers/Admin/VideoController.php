@@ -9,6 +9,9 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class VideoController extends Controller
 {
@@ -295,18 +298,11 @@ class VideoController extends Controller
     private function optimizeThumbnail($thumbnailPath)
     {
         try {
+            $manager = new ImageManager(new Driver());
             $fullPath = storage_path('app/public/' . $thumbnailPath);
-            
-            // Redimensionar a máximo 800x450 (16:9)
-            $image = Image::make($fullPath);
-            $image->resize(800, 450, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
-            
-            // Guardar optimizado
-            $image->save($fullPath, 80); // Calidad 80%
-            
+            $image = $manager->read($fullPath);
+            $image->resize(800, 450);
+            $image->save($fullPath, quality: 80);
         } catch (\Exception $e) {
             \Log::error('Error optimizando thumbnail: ' . $e->getMessage());
         }

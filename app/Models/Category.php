@@ -14,17 +14,22 @@ class Category extends Model
         'name',
     ];
 
-    /* public function posts(){
+    public function posts(){
         return $this->hasMany(Post::class);
-    } */
+    }
 
-    public function posts()
+    /* public function posts()
     {
         return $this->belongsToMany(Post::class);
-    }
+    } */
 
     public function videos()
     {
         return $this->hasMany(Video::class);
+    }
+
+    public function contents()
+    {
+        return $this->hasMany(Content::class);
     }
 }

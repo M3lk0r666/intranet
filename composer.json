@@ -18,7 +18,9 @@
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
+        "league/commonmark": "^2.8",
         "livewire/livewire": "^3.6.4",
+        "mews/purifier": "^3.4",
         "rappasoft/laravel-livewire-tables": "^3.7",
         "wireui/wireui": "^2.5"
     },

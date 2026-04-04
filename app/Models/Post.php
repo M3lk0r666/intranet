@@ -55,7 +55,7 @@ class Post extends Model
     // Relación muchos a muchos con tags
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class)->distinct();
     }
 
     // Si también quieres mantener una relación singular con una categoría principal
@@ -69,16 +69,49 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-   
+    // Tiempo de lectura
+    public function getReadingTimeAttribute()
+    {
+        $words = str_word_count(strip_tags($this->content));
+        $minutes = ceil($words / 200); // 200 palabras por minuto
+        return $minutes . ' min lectura';
+    }
 
-    
+    // Número de vistas formateado
+    public function getFormattedViewsAttribute()
+    {
+        $views = $this->views ?? 0;
 
-    
+        if ($views >= 1000) {
+            return number_format($views / 1000, 1) . 'k vistas';
+        }
 
+        return $views . ' vistas';
+    }
 
-    
+    // Tags como array de nombres
+    public function getTagNamesAttribute()
+    {
+        return $this->tags->pluck('name')->toArray();
+    }
 
-    
+    // Resumen completo
+    public function getSummaryAttribute()
+    {
+        return [
+            'category' => optional($this->category)->name ?? 'Sin categoría',
+            'reading_time' => $this->reading_time,
+            'views' => $this->formatted_views,
+            'tags' => $this->tag_names,
+        ];
+    }
+
+   /*  public function getReadingTimeAttribute()
+    {
+        $words = str_word_count(strip_tags($this->content));
+        $minutes = ceil($words / 200); // 200 palabras por minuto
+        return $minutes . ' min lectura';
+    } */
 
     //Route Model Binding
    /*  public function getRouteKeyName(){

@@ -18,17 +18,31 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //$posts = Post::where('is_published', true)->orderBy('published_at', 'desc')->paginate(10);
+        $category = $request->query('category');
+        $search = $request->query('query');
 
-        //return $posts;
-        
-        //return view('posts.index', compact('posts'));
+        $posts = Post::where('is_published', true)
+            ->when($category, function ($query, $category) {
+                $query->whereHas('category', function ($q) use ($category) {
+                    $q->where('name', $category);
+                });
+            })
+            ->when($search, function ($query, $search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('title', 'like', "%{$search}%")
+                    ->orWhere('content', 'like', "%{$search}%");
+                });
+            })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString(); // mantiene category y query en la paginación
 
-        $categories = Category::withCount('posts')->get();
-        $posts = Post::where('is_published', true)->orderBy('published_at', 'desc')->paginate(10);
-   
+        $categories = Category::withCount(['posts' => function ($q) {
+            $q->where('is_published', true);
+        }])->get();
+
         return view('posts.index', compact('posts', 'categories'));
     }
 
@@ -43,10 +57,19 @@ class PostController extends Controller
 
         $categories = Category::withCount('posts')->get();
         $similarPosts = Post::where('id', '!=', $post->id)
-                            ->where('category_id', $post->category_id)
+                            /* ->where('category_id', $post->category_id)
                             ->orWhereHas('tags', function($query) use ($post) {
                                 $query->whereIn('name', $post->tags->pluck('name'));
+                            }) */
+                            ->where(function ($query) use ($post) {
+                                $query->where('category_id', $post->category_id)
+                                      ->orWhereHas('tags', function ($q) use ($post) {
+                                          $q->whereIn('name', $post->tags->pluck('name'));
+                                      });
                             })
+                            ->whereNotNull('image_path') // clave
+                            ->where('is_published', true) // recomendado
+                            ->with(['category'])
                             ->limit(5)
                             ->get();
 

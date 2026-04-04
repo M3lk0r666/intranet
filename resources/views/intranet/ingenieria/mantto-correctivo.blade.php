@@ -68,7 +68,6 @@
         <h1 class="text-5xl font-black font-display tracking-tight text-slate-900 uppercase">
             Proceso <span class="text-primary  uppercase">Mantenimiento Correctivo</span>
         </h1>
-        <p></p>
         <p class="text-slate-600 mt-6 text-lg">Flujo completo de ejecución</p>
     </div>
 

@@ -10,6 +10,8 @@ class Video extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $appends = ['thumbnail_source', 'video_source'];
+
     protected $fillable = [
         'title',
         'slug',
@@ -26,6 +28,7 @@ class Video extends Model
         'category_id',
         'user_id'
     ];
+
 
     protected $casts = [
         'status' => 'string',
@@ -97,11 +100,20 @@ class Video extends Model
      */
     public function getVideoSourceAttribute()
     {
-        if ($this->video_type === 'uploaded' && $this->video_path) {
+        /* if ($this->video_type === 'uploaded' && $this->video_path) {
             return asset('storage/' . $this->video_path);
         }
-        
-        return $this->video_url;
+        return $this->video_url; */
+
+        if ($this->video_type === 'uploaded' && !empty($this->video_path)) {
+            return asset('storage/' . $this->video_path);
+        }
+    
+        if (!empty($this->video_url)) {
+            return $this->video_url;
+        }
+    
+        return null;
     }
 
     /**
@@ -109,11 +121,27 @@ class Video extends Model
      */
     public function getThumbnailSourceAttribute()
     {
-        if ($this->thumbnail_path) {
+        //esto es lo bueno antes del cambio
+        /* if ($this->thumbnail_url) {
+            return $this->thumbnail_url;
+        }
+    
+        if ($this->thumbnail_path && file_exists(storage_path('app/public/' . $this->thumbnail_path))) {
             return asset('storage/' . $this->thumbnail_path);
         }
-        
-        return $this->thumbnail_url;
+    
+        return asset('images/default-thumbnail.jpg'); */
+
+        //esto lo ultimo q se agrego
+        if (!empty($this->thumbnail_url)) {
+            return $this->thumbnail_url;
+        }
+    
+        if (!empty($this->thumbnail_path)) {
+            return asset('storage/' . $this->thumbnail_path);
+        }
+    
+        return asset('images/default-thumbnail.jpg');
     }
 
     /**
@@ -150,4 +178,18 @@ class Video extends Model
         
         return round($bytes, 2) . ' ' . $units[$i];
     }
+    
+    // para el thumbnail
+   /*  public function getThumbnailAttribute()
+    {
+        if ($this->thumbnail_url) {
+            return $this->thumbnail_url;
+        }
+
+        if ($this->thumbnail_path) {
+            return asset('storage/' . $this->thumbnail_path);
+        }
+
+        return asset('images/default-thumbnail.jpg');
+    } */
 }
