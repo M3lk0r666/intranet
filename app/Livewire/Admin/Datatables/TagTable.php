@@ -34,7 +34,6 @@ class TagTable extends DataTableComponent
                     'tag' => $row
                 ]);
             })
-
         ];
     }
 }

@@ -16,17 +16,23 @@ class ClientController extends Controller
     public function index()
     {
         
-        /* $clients = Client::with('documents')->get();
-        $documents = ClientDocument::with('client')
-        ->orderBy('client_id')
-        ->orderBy('created_at','desc')
-        ->get();
+        
+        /* $documents = ClientDocument::with('client')
+            ->orderBy('client_id')
+            ->orderBy('year','desc')
+            ->get();
 
-        return view('admin.polizas.index', compact('documents', 'clients')); */
+        $clients = Client::with('documents')->get();
 
-        $clients = Client::with('documents')->orderBy('name')->get();
+        return view('admin.polizas.index', [
+            'documents' => $documents,
+            'clients' => $clients,
+            'total' => $documents->count(),
+            'pdfs' => $documents->filter(fn($d) => str_ends_with($d->file,'.pdf'))->count(),
+            'excels' => $documents->filter(fn($d) => str_ends_with($d->file,'.xlsx') || str_ends_with($d->file,'.xls'))->count(),
+        ]); */
 
-        return view('admin.polizas.index', compact('clients'));
+        return view('admin.clients.index');
     }
 
     /**
@@ -34,8 +40,10 @@ class ClientController extends Controller
      */
     public function create()
     {
-        $clients = Client::orderBy('name')->get();
-        return view('admin.polizas.create', compact('clients'));
+        /* $clients = Client::orderBy('name')->get();
+        return view('admin.polizas.create', compact('clients')); */
+
+        return view('admin.clients.create');
     }
 
     /**
@@ -43,8 +51,8 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {        
-        $request->validate([
-            'documents.*.file' => 'required|file|mimes:pdf,xls,,xlsx,doc,docx,txt|max:2048',
+        /* $request->validate([
+            'documents.*.file' => 'required|file|mimes:pdf,xls,xlsx,doc,docx,txt|max:2048',
         ]);
 
         
@@ -77,7 +85,19 @@ class ClientController extends Controller
             }
         }
 
+        return redirect()->route('admin.clients.index'); */
+
+        $request->validate([
+            'name' => 'required|string|min:3|max:255',
+        ]);
+
+        $client = Client::create([
+            'name' => $request->name
+        ]);
+
         return redirect()->route('admin.clients.index');
+
+
     }
 
     /**
@@ -85,32 +105,110 @@ class ClientController extends Controller
      */
     public function show(Request $request, Client $client)
     {
-        $document = ClientDocument::findOrFail($request->doc);
+        /* $document = ClientDocument::findOrFail($request->doc);
 
-        return view('admin.polizas.show', compact('client','document'));
+        return view('admin.polizas.show', compact('client','document')); */
+
+        $client->load('documents');
+
+        return view('admin.clients.show', compact('client'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Client $client)
     {
-        //
+        /* return view('admin.polizas.edit', compact('document')); */
+
+        return view('admin.clients.edit', compact('client'));
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Client $client)
     {
-        //
+        /* $request->validate([
+            'type' => 'required',
+            'file' => 'nullable|file|mimes:pdf,xls,xlsx,doc,docx,txt|max:2048'
+        ]);
+
+        // Si sube nuevo archivo
+        if ($request->hasFile('file')) {
+
+            // eliminar archivo anterior
+            if ($document->file && Storage::disk('public')->exists($document->file)) {
+                Storage::disk('public')->delete($document->file);
+            }
+
+            $file = $request->file('file');
+
+            $originalName = time().'_'.$file->getClientOriginalName();
+
+            $path = $file->storeAs(
+                'polizas/'.$document->client_id,
+                $originalName,
+                'public'
+            );
+
+            $document->file = $path;
+        }
+
+        // actualizar datos
+        $document->update([
+            'type' => $request->type,
+            'technology' => $request->technology,
+            'year' => $request->year
+        ]);
+
+        return redirect()->route('admin.polizas.index')
+            ->with('success','Documento actualizado'); */
+
+        
+            $data = $request->validate([
+                'name' => 'required|string|min:3|max:255',
+            ]);
+    
+            $client->update($data);
+    
+            session()->flash('swal',[
+                    'icon' => 'success',
+                    'title' => '¡Buen hecho!',
+                    'text' => '¡El Cliente se ha actualizado con Exito!',
+            ]);
+    
+            return redirect()->route('admin.clients.edit', $client);
+
+
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Client $client)
     {
-        //
+        /* // eliminar archivo físico
+        if ($document->file && Storage::disk('public')->exists($document->file)) {
+            Storage::disk('public')->delete($document->file);
+        }
+
+        // eliminar registro
+        $document->delete();
+
+        return back()->with('success','Documento eliminado'); */
+
+        $client->delete();
+        session()->flash('swal',[
+            'icon' => 'success',
+            'title' => '¡Buen hecho!',
+            'text' => '¡El Cliente se ha eliminado con Exito!',
+        ]);
+
+        return redirect()->route('admin.clients.index');
+
     }
 }

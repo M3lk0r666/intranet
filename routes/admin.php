@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\ClientDocumentController;
 
 Route::get('/', function () {
     return view('admin.dashboard');
@@ -51,6 +52,9 @@ Route::delete('guide-files/{file}', [GuideController::class, 'deleteFile'])->nam
 
 //Rutas PolizasClientes
 Route::resource('clients', ClientController::class);
+//Rutas Documentos-Polizas
+Route::resource('inventarios', ClientDocumentController::class);
+Route::get('inventarios/{document}/edit', [ClientDocumentController::class,'edit'])->name('admin.inventarios.edit');
 
 //Directorio
 Route::resource('profiles', ProfileController::class);
