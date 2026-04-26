@@ -266,6 +266,21 @@
                     </a>
                 </div>
             </div>
+            <!-- Polizas Clientes -->
+            <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-orange-300 transition-colors">
+                <img src="{{ url('/assets/media/polizas-inventarios-clientes.png') }}" alt="directorio-telefonico"
+                    class="w-full h-48 object-cover">
+
+                <div class="p-4">
+                    <h4 class="font-medium text-gray-800 mb-2">
+                        Gestión de Servicios Contratados
+                    </h4>
+                    <a href="{{ route('ingenieria.clientes-polizas') }}"
+                        class="bg-primary text-white px-2 py-1 text-sm rounded-lg font-semibold shadow-lg hover:bg-primary/90 transition">
+                        Ver Polizas e Inventario
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
