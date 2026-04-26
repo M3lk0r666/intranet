@@ -17,6 +17,9 @@ use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\ClientDocumentController;
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\ModuleController;
+use App\Http\Controllers\Admin\LessonController;
 
 Route::get('/', function () {
     return view('admin.dashboard');
@@ -59,6 +62,35 @@ Route::get('inventarios/{document}/edit', [ClientDocumentController::class,'edit
 //Directorio
 Route::resource('profiles', ProfileController::class);
 Route::resource('departments', DepartmentController::class);
+
+//Rutas Cursos
+Route::resource('courses', CourseController::class);
+//Rutas Modulos
+Route::get('modules/create', [ModuleController::class, 'create'])->name('modules.create');
+Route::post('modules', [ModuleController::class, 'store'])->name('modules.store');
+Route::get('modules/{module}/edit', [ModuleController::class, 'edit'])->name('modules.edit');
+Route::put('modules/{module}', [ModuleController::class, 'update'])->name('modules.update');
+Route::delete('modules/{module}', [ModuleController::class, 'destroy'])->name('modules.destroy');
+// reorder módulos
+Route::post('modules/reorder', [ModuleController::class, 'reorder'])->name('modules.reorder');
+
+//Rutas Lecciones
+Route::get('lessons/create', [LessonController::class, 'create'])->name('lessons.create');
+Route::post('lessons', [LessonController::class, 'store'])->name('lessons.store');
+Route::get('lessons/{lesson}/edit', [LessonController::class, 'edit'])->name('lessons.edit');
+Route::put('lessons/{lesson}', [LessonController::class, 'update'])->name('lessons.update');
+Route::delete('lessons/{lesson}', [LessonController::class, 'destroy'])->name('lessons.destroy');
+// reorder lecciones
+Route::post('lessons/reorder', [LessonController::class, 'reorder'])->name('lessons.reorder');
+
+//Ruta Preview
+Route::get('lessons/{lesson}/preview',[LessonController::class, 'preview'])->name('lessons.preview');
+
+//Route::get('preview/content', [LessonController::class, 'previewContent'])->name('preview.content');
+Route::get('preview/content', [LessonController::class, 'previewContent'])->name('preview.content');
+
+
+
 
 //Rutas de Gestion Roles
 Route::resource('roles', RoleController::class);

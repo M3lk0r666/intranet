@@ -105,7 +105,18 @@ class Video extends Model
         }
         return $this->video_url; */
 
-        if ($this->video_type === 'uploaded' && !empty($this->video_path)) {
+        //este era el bueno
+        /* if ($this->video_type === 'uploaded' && !empty($this->video_path)) {
+            return asset('storage/' . $this->video_path);
+        }
+    
+        if (!empty($this->video_url)) {
+            return $this->video_url;
+        }
+    
+        return null; */
+
+        if (!empty($this->video_path)) {
             return asset('storage/' . $this->video_path);
         }
     
@@ -192,4 +203,6 @@ class Video extends Model
 
         return asset('images/default-thumbnail.jpg');
     } */
+
+    
 }

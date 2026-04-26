@@ -1,0 +1,241 @@
+:root {
+    --primary: #ea580c;
+    --primary-light: #ffedd5;
+    --primary-dark: #c2410c;
+    --border: #e5e2db;
+    --text-muted: #888;
+}
+
+/* ══════════════════════════════
+   BASE
+══════════════════════════════ */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text-primary {
+    color: var(--primary);
+}
+.bg-primary-light {
+    background: var(--primary-light);
+}
+.border-primary {
+    border-color: var(--primary);
+}
+
+.card-hover {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(234, 88, 12, 0.15);
+}
+
+/* Inputs */
+.input,
+.select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    background: #fff;
+}
+
+.input:focus,
+.select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Animaciones */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ══════════════════════════════
+   BUTTONS
+══════════════════════════════ */
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn-outline {
+    border: 0.5px solid var(--primary);
+    color: var(--primary);
+    background: transparent;
+}
+.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* ══════════════════════════════
+   MODAL (GLOBAL)
+══════════════════════════════ */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 100;
+}
+
+.modal-box {
+    background: #fff;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ══════════════════════════════
+   SIDEBAR (UNIFICADO)
+══════════════════════════════ */
+.sidebar {
+    background: #fff;
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+}
+
+/* ══════════════════════════════
+   HERO BASE
+══════════════════════════════ */
+.hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1a0e 60%, #3d2410 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.hero-title span {
+    color: #e8874a;
+}
+
+.hero-desc {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+}
+
+/* ══════════════════════════════
+   TOOLBAR
+══════════════════════════════ */
+.toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-wrap {
+    position: relative;
+    flex: 1;
+}
+
+.search-wrap i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbb;
+}
+
+.search-input {
+    padding-left: 32px;
+}
+
+/* ══════════════════════════════
+   CARDS (GENERIC)
+══════════════════════════════ */
+.card {
+    background: #fff;
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 26px rgba(194, 98, 42, 0.1);
+}
+
+/* ══════════════════════════════
+   LIST ROW
+══════════════════════════════ */
+.list-row {
+    background: #fff;
+    border: 0.5px solid var(--border);
+    padding: 0.9rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.list-row:hover {
+    background: #faf9f7;
+}
+
+/* ══════════════════════════════
+   TAGS / BADGES
+══════════════════════════════ */
+.badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+/* ══════════════════════════════
+   SKILLS
+══════════════════════════════ */
+.skill-chip {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: #f0ede8;
+    color: var(--text-muted);
+}
+
+.skill-tag {
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+/* ══════════════════════════════
+   EMPTY STATE
+══════════════════════════════ */
+.empty-state {
+    text-align: center;
+    color: #aaa;
+}
+
+/* ══════════════════════════════
+   UTILIDADES
+══════════════════════════════ */
+[x-cloak] {
+    display: none !important;
+}

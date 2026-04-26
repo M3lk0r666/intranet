@@ -492,6 +492,40 @@
                 <!-- Foto -->
                 <div
                     class="h-20 w-20 rounded-xl overflow-hidden border-2 border-slate-100 group-hover:border-orange-400 transition-colors">
+                    <img class="w-full h-full object-cover" src="{{ asset('storage/media/female.png') }}" />
+                </div>
+            </div>
+            <!-- Nombre y Cargo -->
+            <h3 class="text-lg font-semibold text-slate-800 mb-1">Jocelyn Sarah Jasso Arreola</h3>
+            <p class="text-sm font-medium text-orange-600 uppercase tracking-wider mb-4">
+                Marketing
+            </p>
+            <!-- Información de contacto -->
+            <div class="space-y-3 pt-4 border-t border-slate-100">
+                <!-- Extensión -->
+                <div class="flex items-center gap-3 text-sm text-slate-600">
+                    <i class="las la-phone-volume text-lg text-slate-400"></i>
+                    <span class="font-medium">
+                        Zoom Ext: <span class="text-slate-800">208</span>
+                    </span>
+                </div>
+                <!-- Email -->
+                <div class="flex items-center gap-3 text-sm text-slate-600">
+                    <i class="las la-envelope text-lg text-slate-400"></i>
+                    <a class="hover:text-orange-600 transition-colors" href="mailto:jocelyn.jasso@netjernetworks.com">
+                        jocelyn.jasso@netjernetworks.com
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Card de colaborador -->
+        <div
+            class="group bg-white border border-slate-200 rounded-xl p-6 hover:border-orange-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <!-- Top: Foto + Botón de acción -->
+            <div class="flex justify-between items-start mb-4">
+                <!-- Foto -->
+                <div
+                    class="h-20 w-20 rounded-xl overflow-hidden border-2 border-slate-100 group-hover:border-orange-400 transition-colors">
                     <img class="w-full h-full object-cover" src="{{ asset('storage/media/male.png') }}" />
                 </div>
             </div>

@@ -60,6 +60,12 @@
             'active' => request()->routeIs('admin.contents.*'),
         ],
         [
+            'name' => 'Curso',
+            'icon' => 'ri-graduation-cap-line',
+            'href' => route('admin.courses.index'),
+            'active' => request()->routeIs('admin.courses.*'),
+        ],
+        [
             'header' => 'Documentos',
         ],
         [

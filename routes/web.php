@@ -12,6 +12,8 @@ use App\Http\Controllers\IngenieriaController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\LearningController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
 
 /*Route::redirect('/', 'posts')->name('home');
  Route::get('/', function () {
@@ -147,6 +149,28 @@ Route::get('/intranet/ingenieria/clientes', [ClientController::class,'index'])->
 //Rutas para aprendizaje
 Route::get('/formacion-academica/learning', [LearningController::class,'index'])->name('learning.index');
 Route::get('/formacion-academica/learning/{type}/{id}', [LearningController::class, 'show'])->name('learning.show');
+
+//RUTAS APRENDIZAJE
+
+Route::prefix('courses')->scopeBindings()->group(function () {
+    Route::get('/', [CourseController::class, 'index'])->name('courses.index');
+    Route::get('/{course:slug}', [CourseController::class, 'show'])->name('courses.show');
+    Route::get('/{course:slug}/lessons/{lesson}', [LessonController::class, 'show'])->name('courses.lessons.show');
+});
+
+
+
+
+// 📚 listado
+//Route::get('/', [CourseController::class, 'index'])->name('courses.index');
+
+// 🎓 vista curso
+//Route::get('/{course:slug}', [CourseController::class, 'show'])->name('courses.show');
+
+// ▶️ lección
+//Route::get('/{course:slug}/lessons/{lesson}', [LessonController::class, 'show'])->name('courses.lessons.show');
+
+
 
 //revisar el como se muestran los elementos, se ve bien
 Route::get('/estructura-interna', function () {

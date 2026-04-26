@@ -55,7 +55,7 @@ class ContentController extends Controller
         ];
 
         if ($request->type === 'pdf') {
-            $rules['file'] = 'required|file|mimes:pdf|max:10240';
+            $rules['file'] = 'required|file|mimes:pdf|max:20480';
         }
 
         if ($request->type === 'guide') {
@@ -75,7 +75,7 @@ class ContentController extends Controller
         ];
 
         // 📄 PDF
-        if ($request->type === 'pdf' && $request->hasFile('file')) {
+        /* if ($request->type === 'pdf' && $request->hasFile('file')) {
             $file = $request->file('file');
 
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -83,6 +83,24 @@ class ContentController extends Controller
 
             $data['file_path'] = $path;
             $data['original_filename'] = $file->getClientOriginalName();
+            $data['file_type'] = $file->getClientMimeType();
+            $data['file_size'] = $file->getSize();
+        } */
+        if ($request->type === 'pdf' && $request->hasFile('file')) {
+            $file = $request->file('file');
+        
+            // 🔥 Nombre limpio
+            $name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+        
+            $cleanName = Str::slug($name); // elimina acentos y espacios
+            //$filename = time() . '_' . $cleanName . '.' . $extension;
+            $filename = uniqid() . '_' . $cleanName . '.' . $extension;
+        
+            $path = $file->storeAs('contents/pdfs', $filename, 'public');
+        
+            $data['file_path'] = $path;
+            $data['original_filename'] = $file->getClientOriginalName(); // 👈 lo conservas
             $data['file_type'] = $file->getClientMimeType();
             $data['file_size'] = $file->getSize();
         }

@@ -12,7 +12,7 @@ class Content extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $appends = ['html_content'];
+    protected $appends = ['file_url', 'html_content'];
 
     protected $fillable = [
         'title',
@@ -64,7 +64,6 @@ class Content extends Model
     public function getReadableSizeAttribute()
     {
         if (!$this->file_size) return null;
-
         $units = ['B', 'KB', 'MB', 'GB'];
         $size = $this->file_size;
         $i = 0;
@@ -90,7 +89,6 @@ class Content extends Model
         ]);
 
         $converter = new CommonMarkConverter([], $environment);
-
         $html = $converter->convert($this->content)->getContent();
 
         // Agregar IDs a headings
@@ -109,5 +107,23 @@ class Content extends Model
         }
 
         return asset('images/default-thumbnail.jpg');
+    }
+
+    public function getFileUrlAttribute()
+    {
+        // Archivo local
+        if (!empty($this->file_path)) {
+            $fullPath = storage_path('app/public/' . $this->file_path);
+    
+            if (file_exists($fullPath)) {
+                return asset('storage/' . $this->file_path);
+            }
+        }
+
+        // URL externa (sin recursión)
+        if (!empty($this->attributes['file_url'])) {
+            return $this->attributes['file_url'];
+        }
+        return null;
     }
 }

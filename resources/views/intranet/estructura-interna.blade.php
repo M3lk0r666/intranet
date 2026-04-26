@@ -94,9 +94,10 @@
                     </div>
                 </div>
                 <div class="p-6 flex flex-col gap-3">
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Operaciones</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Estandarización de la entrega de
-                        servicios y soporte técnico especializado.</p>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Descripción de Puestos</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Estructura de puestos de las areas
+                        dentro de la organización, junto con la descripción detallada de sus responsabilidades, alcance y
+                        habilidades.</p>
                     <a class="mt-4 flex items-center gap-2 text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
                         href="{{ route('estructurainterna.operaciones') }}">
                         Ver proceso <i class="ri-arrow-right-long-line text-sm"></i>

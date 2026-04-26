@@ -16,8 +16,6 @@
     </x-slot>
 
     <x-wire-card>
-
-
         <div class="p-6">
 
             {{-- Header --}}
@@ -142,11 +140,5 @@
             </div>
 
         </div>
-
-
-
     </x-wire-card>
-
-
-
 </x-admin-layout>

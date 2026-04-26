@@ -121,7 +121,7 @@
         </a>
 
         <!-- Tarjeta 7: Formación Académica -->
-        <a href="{{ route('learning.index') }}"
+        <a href="{{ route('courses.index') }}"
             class="group flex flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
             <!-- Imagen de la tarjeta -->
             <div class="w-full aspect-[4/3] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
