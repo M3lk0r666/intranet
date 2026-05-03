@@ -109,19 +109,18 @@
                             Descargar Recursos
                         </p>
                         <div class="space-y-2">
-                            <a href="{{ route('ingenieria.instalacion-switch-pdf') }}"
+                            {{-- <a href="{{ route('ingenieria.instalacion-switch-pdf') }}"
                                 class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium  text-slate-600 bg-slate-50  hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
-                                <span>Esta Guía</span>
+                                <span>Exportar a PDF</span>
                                 <i
                                     class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
+                            </a> --}}
+                            <a href="{{ route('ingenieria.site-survey-pdf') }}"
+                            class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition">
+                                <span>Exportar PDF</span>
+                                <i class="las la-file-pdf text-slate-300 group-hover:text-orange-500"></i>
                             </a>
 
-                            <a href="#"
-                                class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
-                                <span>Reporte Actividades</span>
-                                <i
-                                    class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
-                            </a>
                             <a href="{{ route('ingenieria.guias-on-site') }}"
                                 class="group flex flex-row-reverse items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Regresar</span>
@@ -187,6 +186,179 @@
                         </div>
                     </div>
                 </section>
+
+                <section class="scroll-mt-32" id="previas">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                            <i class="las la-brain"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">1. Actividades Previas</h2>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                            <div class="bg-slate-50 p-5 rounded-xl border">
+                                <h4 class="font-bold mb-3">Información del Proyecto</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>Objetivo del Site Survey</li>
+                                    <li>Problemas actuales</li>
+                                    <li>Aplicaciones críticas</li>
+                                    <li>Tipo de cobertura requerida</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 p-5 rounded-xl border">
+                                <h4 class="font-bold mb-3">Usuarios y Dispositivos</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>Usuarios concurrentes</li>
+                                    <li>Dispositivos conectados</li>
+                                    <li>Tipos de dispositivos</li>
+                                    <li>Dispositivo más limitado</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+
+                <section class="scroll-mt-32" id="cambio">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                            <i class="las la-tools"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">2. Preparación del Equipamiento</h2>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-center gap-3"><i class="las la-check-circle text-emerald-500"></i> AP de
+                                prueba configurado</li>
+                            <li class="flex items-center gap-3"><i class="las la-check-circle text-emerald-500"></i>
+                                Ekahau listo</li>
+                            <li class="flex items-center gap-3"><i class="las la-check-circle text-emerald-500"></i>
+                                Tablet / Laptop cargada</li>
+                            <li class="flex items-center gap-3"><i class="las la-check-circle text-emerald-500"></i>
+                                Baterías al 100%</li>
+                            <li class="flex items-center gap-3"><i class="las la-check-circle text-emerald-500"></i>
+                                Herramientas de medición</li>
+                        </ul>
+
+                    </div>
+                </section>
+
+                <section class="scroll-mt-32" id="verificacion">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                            <i class="las la-wifi"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">3. Ejecución del Site Survey</h2>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+
+                        <div class="grid md:grid-cols-3 gap-6 mb-6">
+
+                            <div class="p-4 bg-slate-50 rounded-xl border">
+                                <h4 class="font-bold text-slate-900">Inicio</h4>
+                                <p class="text-xs text-slate-500">Validación con cliente y acceso a áreas</p>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 rounded-xl border">
+                                <h4 class="font-bold text-slate-900">Recorrido</h4>
+                                <p class="text-xs text-slate-500">Medición de señal (RSSI / SNR)</p>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 rounded-xl border">
+                                <h4 class="font-bold text-slate-900">Interferencias</h4>
+                                <p class="text-xs text-slate-500">Detección de ruido y redes externas</p>
+                            </div>
+
+                        </div>
+
+                        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl">
+                            <h4 class="text-sm font-bold text-orange-800 flex items-center gap-2">
+                                <i class="las la-info-circle"></i> Toma de Datos
+                            </h4>
+                            <p class="text-sm text-orange-700">
+                                Registrar RSSI, SNR, ruido e interferencias durante el recorrido.
+                            </p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section class="scroll-mt-32" id="finales">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                            <i class="las la-chart-bar"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">4. Análisis y Validación</h2>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm space-y-4">
+
+                        <div class="flex justify-between bg-slate-50 p-4 rounded-xl">
+                            <span class="font-semibold">RSSI ≥ -65 dBm</span>
+                            <span class="bg-emerald-100 text-emerald-700 text-xs px-2 py-1 rounded">REQUERIDO</span>
+                        </div>
+
+                        <div class="flex justify-between bg-slate-50 p-4 rounded-xl">
+                            <span class="font-semibold">SNR ≥ 25 dB</span>
+                            <span class="bg-emerald-100 text-emerald-700 text-xs px-2 py-1 rounded">REQUERIDO</span>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section class="scroll-mt-32" id="retorno">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-red-600">
+                            <i class="las la-history"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">5. Plan de Retorno (Rollback)</h2>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-red-100 p-8 shadow-sm space-y-4">
+
+                        <div class="flex gap-3">
+                            <span class="font-bold text-red-600">1</span>
+                            <p class="text-sm text-slate-600">Retiro de equipos temporales</p>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <span class="font-bold text-red-600">2</span>
+                            <p class="text-sm text-slate-600">Restaurar configuración original</p>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <span class="font-bold text-red-600">3</span>
+                            <p class="text-sm text-slate-600">Validar red original</p>
+                        </div>
+
+                    </div>
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </article>
         </div>
     </div>

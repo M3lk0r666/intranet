@@ -109,19 +109,19 @@
                             Descargar Recursos
                         </p>
                         <div class="space-y-2">
-                            <a href="#"
+                            <a href="{{ route('ingenieria.instalacion-poc-pdf') }}"
                                 class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium  text-slate-600 bg-slate-50  hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Esta Guía</span>
                                 <i
                                     class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                             </a>
 
-                            <a href="#"
+                            {{-- <a href="#"
                                 class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Reporte Actividades</span>
                                 <i
                                     class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
-                            </a>
+                            </a> --}}
                             <a href="{{ route('ingenieria.guias-on-site') }}"
                                 class="group flex flex-row-reverse items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                                 <span>Regresar</span>

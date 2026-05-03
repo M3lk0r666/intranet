@@ -171,10 +171,19 @@
                 </div>
             </a>
 
+            {{-- ── CARD 8 — Levantamiento Infra ── --}}
+            <a href="{{ route('ingenieria.levantamiento-switches') }}" class="guide-card cat-guide">
+                <div class="card-stripe"></div>
+                <span class="cat-badge"><i class="las la-file-alt" style="font-size:12px"></i> Guía</span>
+                <div class="guide-icon"><i class="las la-file-alt"></i></div>
+                <p class="guide-title">Levantamiento de Infraestructura de Red</p>
+                <p class="guide-desc">Custionario basico para poder saber el estado de equipos de red con el cliente</p>
+                <div class="guide-footer">
+                    <span class="guide-date"><i class="las la-calendar" style="font-size:13px"></i> 01/05/2026</span>
+                    <span class="guide-cta">Abrir <i class="las la-arrow-right"></i></span>
+                </div>
+            </a>
         </div>
     </div>
 
 @endsection
-
-@push('js')
-@endpush

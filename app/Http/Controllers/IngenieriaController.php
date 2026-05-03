@@ -86,5 +86,77 @@ class IngenieriaController extends Controller
     {
         return view('intranet.ingenieria.guias-on-site');
     }
+
+    public function infra()
+    {
+        return view('intranet.ingenieria.levantamiento-infra');
+    }
+
+    public function exportPdf()
+    {
+        $pdf = Pdf::loadView('pdf.site-survey')
+            ->setPaper('a4', 'portrait');
+        return $pdf->download('guia-site-survey.pdf');
+    }
+
+    public function expswitch()
+    {
+        $pdf = Pdf::loadView('pdf.implementacion-switch')
+            ->setPaper('a4', 'portrait');
+        return $pdf->download('guia-implementacion-switch.pdf');
+    }
+
+    public function exportMantoCorrectivoPdf()
+    {
+        $pdf = Pdf::loadView('pdf.mantto-correctivo')
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download('mantto-correctivo.pdf');
+    }
+
+    public function exportFirewallPdf()
+    {
+        $pdf = Pdf::loadView('pdf.instalacion-firewall')
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download('guia-firewall.pdf');
+    }
+
+    public function exportApPdf()
+    {
+        $pdf = Pdf::loadView('pdf.instalacion-aps')
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download('guia-access-points.pdf');
+    }
+
+    public function exportPocPdf()
+    {
+        $pdf = Pdf::loadView('pdf.instalacion-poc')
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download('guia-poc.pdf');
+    }
+
+    public function exportManttoPreventivoPdf()
+    {
+        $pdf = Pdf::loadView('pdf.mantto-preventivo')
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download('mantenimiento-preventivo.pdf');
+    }
+
+    public function preRequisito()
+    {
+        return view('intranet.ingenieria.pre-requisito-switch');
+    }
+
+    public function exportChecklistSwitchPdf()
+    {
+        $pdf = Pdf::loadView('pdf.checklist-switches')
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download('checklist-switches.pdf');
+    }
 }
 

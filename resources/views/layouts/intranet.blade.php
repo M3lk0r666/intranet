@@ -8,6 +8,8 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"> --}}
 
     <!-- Tailwind CSS -->
     @vite(['resources/css/app.css'])
@@ -20,9 +22,6 @@
 
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Wire UI -->
-    <wireui:scripts />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])

@@ -110,10 +110,9 @@
                         </p>
                         <div class="space-y-2">
                             <a href="{{ route('ingenieria.instalacion-switch-pdf') }}"
-                                class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium  text-slate-600 bg-slate-50  hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
-                                <span>Esta Guía</span>
-                                <i
-                                    class="las la-arrow-right text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
+                                class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition">
+                                <span>Esta guia</span>
+                                <i class="las la-file-pdf text-slate-300 group-hover:text-orange-500"></i>
                             </a>
 
                             <a href="#"
@@ -139,7 +138,7 @@
                     </div>
                 </div>
             </aside>
-            <article class="flex-grow max-w-4xl lg:max-w-6xl space-y-16">
+            <article class="flex-grow max-w-4xl lg:max-w-6xl space-y-4">
                 <div>
                     <span
                         class="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-primary text-xs font-bold mb-4">
@@ -150,6 +149,21 @@
                         Guía detallada para el proceso de sustitución y configuración de switches, asegurando el
                         cumplimiento de estándares corporativos y minimizando el tiempo de inactividad.
                     </p>
+                </div>
+                <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-xl mb-3">
+                    <h4 class="text-sm font-bold text-orange-800 flex items-center gap-2 mb-1">
+                        <i class="las la-info-circle"></i> Checklist Switches
+                    </h4>
+                    <p class="text-sm text-orange-700">
+                        Guía para recopilación de información previa a la instalación de switches en sitio
+                    </p>
+                    <!-- Contenedor de botones -->
+                    <div class="mt-2 flex gap-2">
+                        <a href="{{ route('ingenieria.switch-pre-requisito') }}"
+                            class="bg-white border border-orange-500 text-orange-500 px-4 py-2 rounded hover:bg-orange-100 transition">
+                            Pre-requisitos Intalacion de Switches
+                        </a>
+                    </div>
                 </div>
                 <section class="scroll-mt-32" id="previas">
                     <div class="flex items-center gap-4 mb-6">

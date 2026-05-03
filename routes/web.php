@@ -95,8 +95,13 @@ Route::get('/estructura-interna/proceso-ingenieria/mantto-correctivo', [Intranet
 Route::get('/ingenieria/guias-on-site', [IngenieriaController::class, 'onsite'])->name('ingenieria.guias-on-site');
 //Ruta guias
 Route::get('/ingenieria/guias/instalacion-switch', [IngenieriaController::class, 'switch'])->name('ingenieria.instalacion-switch');
+Route::get('/ingenieria/guias/instalacion-switch/pre-requisitos', [IngenieriaController::class, 'preRequisito'])->name('ingenieria.switch-pre-requisito');
+
+
 // Ruta para descargar PDF del post
-Route::get('/ingenieria/guias/instalacion-switch/pdf', [IngenieriaController::class, 'downloadPDF'])->name('ingenieria.instalacion-switch-pdf');
+Route::get('/ingenieria/guias/instalacion-switch/pdf', [IngenieriaController::class, 'expswitch'])->name('ingenieria.instalacion-switch-pdf');
+
+//Route::get('/ingenieria/guias/instalacion-switch/pdf', [IngenieriaController::class, 'downloadPDF'])->name('ingenieria.instalacion-switch-pdf');
 
 Route::get('/ingenieria/guias/instalacion-firewall', [IngenieriaController::class, 'firewall'])->name('ingenieria.instalacion-firewall');
 Route::get('/ingenieria/guias/implementacion-aps', [IngenieriaController::class, 'wireless'])->name('ingenieria.instalacion-aps');
@@ -105,8 +110,21 @@ Route::get('/ingenieria/guias/instalacion-poc', [IngenieriaController::class, 'p
 Route::get('/ingenieria/guias/mantto-preventivo', [IngenieriaController::class, 'preventivo'])->name('ingenieria.guia-preventivo');
 Route::get('/ingenieria/guias/mantto-correctivo', [IngenieriaController::class, 'correctivo'])->name('ingenieria.guia-correctivo');
 Route::get('/ingenieria/guias/site-survey', [IngenieriaController::class, 'survey'])->name('ingenieria.site-survey');
+//descargar guias
+Route::get('/ingenieria/site-survey/pdf', [IngenieriaController::class, 'exportPdf'])->name('ingenieria.site-survey-pdf');
+Route::get('/ingenieria/instalacion-firewall/pdf', [IngenieriaController::class, 'exportFirewallPdf'])->name('ingenieria.instalacion-firewall-pdf');
+Route::get('/ingenieria/instalacion-aps/pdf', [IngenieriaController::class, 'exportApPdf'])->name('ingenieria.instalacion-aps-pdf');
+Route::get('/ingenieria/instalacion-poc/pdf', [IngenieriaController::class, 'exportPocPdf'])->name('ingenieria.instalacion-poc-pdf');
+Route::get('/ingenieria/mantto-preventivo/pdf', [IngenieriaController::class, 'exportManttoPreventivoPdf'])->name('ingenieria.mantenimiento-preventivo-pdf');
+Route::get('/ingenieria/mantto-correctivo/pdf', [IngenieriaController::class, 'exportMantoCorrectivoPdf'])->name('ingenieria.mantenimiento-correctivo-pdf');
+Route::get('/ingenieria/guias/instalacion-switch/checklist-switches/pdf', [IngenieriaController::class, 'exportChecklistSwitchPdf'])->name('ingenieria.checklist-switches');
+
+
+
+
 Route::get('/ingenieria/guias/site-survey/si-wifi', [IngenieriaController::class, 'surveysi'])->name('ingenieria.sitesurvey-si');
 Route::get('/ingenieria/guias/site-survey/no-wifi', [IngenieriaController::class, 'surveyno'])->name('ingenieria.sitesurvey-no');
+Route::get('/ingenieria/guias/levantamiento-infraestrcutura', [IngenieriaController::class, 'infra'])->name('ingenieria.levantamiento-switches');
 
 //Ruta Soporte
 Route::get('/ingenieria/portal-soporte', [IntranetController::class, 'portsoporte'])->name('ingenieria.portal-soporte');
