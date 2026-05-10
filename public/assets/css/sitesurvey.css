@@ -1,0 +1,831 @@
+/* =========================================================
+                           ESTILOS DEL FORMULARIO (PANTALLA)
+                           ========================================================= */
+.ss-badge {
+    display: inline-block;
+    background: #fb923c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.ss-section-header {
+    background: #0f172a;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.ss-section-header .ss-num {
+    background: #fb923c;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.ss-section {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    overflow: hidden;
+}
+
+.ss-section-body {
+    padding: 22px;
+}
+
+.ss-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.ss-label-bar {
+    border-left: 3px solid #fb923c;
+    padding-left: 10px;
+}
+
+.ss-input,
+.ss-select,
+.ss-textarea {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    background: #f8fafc;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.ss-input:focus,
+.ss-select:focus,
+.ss-textarea:focus {
+    outline: none;
+    border-color: #fb923c;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+}
+
+.ss-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    background: #fff;
+}
+
+.ss-check:hover {
+    border-color: #fb923c;
+    background: #fff7ed;
+}
+
+.ss-check input[type="checkbox"],
+.ss-check input[type="radio"] {
+    accent-color: #fb923c;
+}
+
+.ss-risk {
+    text-align: right;
+}
+
+.ss-risk-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.ss-risk-value {
+    font-size: 22px;
+    font-weight: 900;
+    color: #dc2626;
+    letter-spacing: 0.04em;
+}
+
+.ss-btn-primary {
+    background: #ea580c;
+    color: #fff;
+    border: 0;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.ss-btn-primary:hover {
+    background: #c2410c;
+}
+
+.ss-btn-secondary {
+    background: #fff;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.ss-btn-secondary:hover {
+    background: #f1f5f9;
+}
+
+/* Tarjeta secundaria interna (sub-secciones tipo SW-01, SW-02, etc.) */
+.ss-subcard {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+
+.ss-subcard-header {
+    background: #f1f5f9;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #475569;
+    text-transform: uppercase;
+}
+
+.ss-subcard-body {
+    padding: 16px;
+}
+
+/* =========================================================
+                           VISTA DE IMPRESIÓN (REPORTE)
+                           ========================================================= */
+#print-report {
+    display: none;
+}
+
+@media print {
+    /* Oculta toda la interfaz */
+    body * {
+        visibility: hidden !important;
+    }
+
+    /* Oculta breadcrumbs, navbar, footer del layout */
+    nav,
+    header,
+    footer,
+    .breadcrumb,
+    .no-print {
+        display: none !important;
+    }
+
+    /* Muestra solo la vista de impresión */
+    #print-report,
+    #print-report * {
+        visibility: visible !important;
+    }
+
+    #print-report {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 24px 30px;
+        background: #fff;
+        color: #0f172a;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 11px;
+    }
+
+    @page {
+        size: A4;
+        margin: 14mm 12mm;
+    }
+}
+
+/* Estilos compartidos para vista de impresión (también usados al previsualizar en pantalla si se desea) */
+.pr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+}
+
+.pr-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-top: 8px;
+}
+
+.pr-title .pr-accent {
+    color: #ea580c;
+}
+
+.pr-badge {
+    display: inline-block;
+    background: #fb923c;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.pr-meta {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 11px;
+    min-width: 240px;
+}
+
+.pr-meta-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+}
+
+.pr-meta-row span:first-child {
+    color: #64748b;
+}
+
+.pr-meta-row span:last-child {
+    font-weight: 700;
+}
+
+.pr-section-header {
+    background: #0f172a;
+    color: #fff;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    margin-top: 14px;
+    border-radius: 4px 4px 0 0;
+}
+
+.pr-section-header .pr-num {
+    background: #fb923c;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.pr-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 4px;
+}
+
+.pr-table tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.pr-table td {
+    padding: 8px 14px;
+    vertical-align: top;
+    font-size: 11px;
+}
+
+.pr-table td.pr-q {
+    width: 40%;
+    color: #475569;
+}
+
+.pr-table td.pr-a {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.pr-chip {
+    display: inline-block;
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1px solid #fed7aa;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin: 2px 3px 2px 0;
+    font-weight: 600;
+}
+
+.pr-chip-green {
+    background: #f0fdf4;
+    color: #15803d;
+    border-color: #bbf7d0;
+}
+
+.pr-chip-red {
+    background: #fef2f2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+
+.pr-chip-blue {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
+
+.pr-yes {
+    color: #15803d;
+    font-weight: 700;
+}
+
+.pr-no {
+    color: #b91c1c;
+    font-weight: 700;
+}
+
+.pr-empty {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.pr-footer {
+    margin-top: 22px;
+    padding-top: 10px;
+    border-top: 1px solid #cbd5e1;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #64748b;
+}
+/* SITE SURVEY SI*/
+/* =========================================================
+                   ESTILOS DEL FORMULARIO (PANTALLA)
+                   ========================================================= */
+.ss-badge {
+    display: inline-block;
+    background: #fb923c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.ss-section-header {
+    background: #0f172a;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.ss-section-header .ss-num {
+    background: #fb923c;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.ss-section {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    overflow: hidden;
+}
+
+.ss-section-body {
+    padding: 22px;
+}
+
+.ss-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.ss-label-bar {
+    border-left: 3px solid #fb923c;
+    padding-left: 10px;
+}
+
+.ss-input,
+.ss-select,
+.ss-textarea {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    background: #f8fafc;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.ss-input:focus,
+.ss-select:focus,
+.ss-textarea:focus {
+    outline: none;
+    border-color: #fb923c;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.15);
+}
+
+.ss-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    background: #fff;
+}
+
+.ss-check:hover {
+    border-color: #fb923c;
+    background: #fff7ed;
+}
+
+.ss-check input[type="checkbox"],
+.ss-check input[type="radio"] {
+    accent-color: #fb923c;
+}
+
+.ss-risk {
+    text-align: right;
+}
+
+.ss-risk-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.ss-risk-value {
+    font-size: 22px;
+    font-weight: 900;
+    color: #dc2626;
+    letter-spacing: 0.04em;
+}
+
+.ss-btn-primary {
+    background: #ea580c;
+    color: #fff;
+    border: 0;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.ss-btn-primary:hover {
+    background: #c2410c;
+}
+
+.ss-btn-secondary {
+    background: #fff;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.ss-btn-secondary:hover {
+    background: #f1f5f9;
+}
+
+/* Tarjeta secundaria interna (sub-secciones, ej. SSID-01) */
+.ss-subcard {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+
+.ss-subcard-header {
+    background: #f1f5f9;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #475569;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ss-subcard-body {
+    padding: 16px;
+}
+
+.ss-add-btn {
+    width: 100%;
+    border: 1px dashed #cbd5e1;
+    background: #f8fafc;
+    color: #475569;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.ss-add-btn:hover {
+    background: #fff7ed;
+    border-color: #fb923c;
+    color: #c2410c;
+}
+
+.ss-remove-btn {
+    background: transparent;
+    border: 0;
+    color: #ef4444;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* =========================================================
+                   VISTA DE IMPRESIÓN (REPORTE)
+                   ========================================================= */
+#print-report {
+    display: none;
+}
+
+@media print {
+    body * {
+        visibility: hidden !important;
+    }
+
+    nav,
+    header,
+    footer,
+    .breadcrumb,
+    .no-print {
+        display: none !important;
+    }
+
+    #print-report,
+    #print-report * {
+        visibility: visible !important;
+    }
+
+    #print-report {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 24px 30px;
+        background: #fff;
+        color: #0f172a;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 11px;
+    }
+
+    @page {
+        size: A4;
+        margin: 14mm 12mm;
+    }
+}
+
+/* Estilos compartidos vista impresión */
+.pr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+}
+
+.pr-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-top: 8px;
+}
+
+.pr-title .pr-accent {
+    color: #ea580c;
+}
+
+.pr-badge {
+    display: inline-block;
+    background: #fb923c;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.pr-meta {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 11px;
+    min-width: 240px;
+}
+
+.pr-meta-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+}
+
+.pr-meta-row span:first-child {
+    color: #64748b;
+}
+
+.pr-meta-row span:last-child {
+    font-weight: 700;
+}
+
+.pr-section-header {
+    background: #0f172a;
+    color: #fff;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    margin-top: 14px;
+    border-radius: 4px 4px 0 0;
+}
+
+.pr-section-header .pr-num {
+    background: #fb923c;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.pr-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 4px;
+}
+
+.pr-table tr {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.pr-table td {
+    padding: 8px 14px;
+    vertical-align: top;
+    font-size: 11px;
+}
+
+.pr-table td.pr-q {
+    width: 40%;
+    color: #475569;
+}
+
+.pr-table td.pr-a {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.pr-chip {
+    display: inline-block;
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1px solid #fed7aa;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin: 2px 3px 2px 0;
+    font-weight: 600;
+}
+
+.pr-chip-green {
+    background: #f0fdf4;
+    color: #15803d;
+    border-color: #bbf7d0;
+}
+
+.pr-chip-red {
+    background: #fef2f2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+
+.pr-chip-blue {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
+
+.pr-yes {
+    color: #15803d;
+    font-weight: 700;
+}
+
+.pr-no {
+    color: #b91c1c;
+    font-weight: 700;
+}
+
+.pr-empty {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.pr-footer {
+    margin-top: 22px;
+    padding-top: 10px;
+    border-top: 1px solid #cbd5e1;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #64748b;
+}
+
+/* Tabla SSIDs en vista impresión */
+.pr-ssid-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 0;
+}
+
+.pr-ssid-table th,
+.pr-ssid-table td {
+    border: 1px solid #cbd5e1;
+    padding: 5px 8px;
+    font-size: 11px;
+    text-align: left;
+}
+
+.pr-ssid-table th {
+    background: #f1f5f9;
+    color: #475569;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+}

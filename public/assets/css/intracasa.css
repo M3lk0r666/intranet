@@ -1,0 +1,858 @@
+/* ====================================================
+                   HERO premium con grano sutil y orbes flotantes
+                   ==================================================== */
+.hero-premium {
+    position: relative;
+    background: radial-gradient(
+            1000px 280px at 90% -10%,
+            rgba(249, 115, 22, 0.22),
+            transparent 55%
+        ),
+        radial-gradient(
+            700px 220px at -10% 110%,
+            rgba(139, 92, 246, 0.18),
+            transparent 55%
+        ),
+        linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+    border: 1px solid #fed7aa;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 20px 50px -20px rgba(249, 115, 22, 0.18);
+}
+
+.hero-premium::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        #3b82f6 0%,
+        #8b5cf6 25%,
+        #ec4899 50%,
+        #f97316 75%,
+        #10b981 100%
+    );
+    opacity: 0.9;
+}
+
+/* Orbes flotantes decorativos */
+.hero-premium .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-premium .orb-1 {
+    width: 280px;
+    height: 280px;
+    top: -80px;
+    right: 5%;
+    background: radial-gradient(
+        circle,
+        rgba(249, 115, 22, 0.45),
+        transparent 70%
+    );
+    animation: floatA 12s ease-in-out infinite;
+}
+
+.hero-premium .orb-2 {
+    width: 220px;
+    height: 220px;
+    bottom: -60px;
+    left: 10%;
+    background: radial-gradient(
+        circle,
+        rgba(236, 72, 153, 0.35),
+        transparent 70%
+    );
+    animation: floatB 14s ease-in-out infinite;
+}
+
+@keyframes floatA {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-20px, 15px);
+    }
+}
+
+@keyframes floatB {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(20px, -15px);
+    }
+}
+
+.hero-premium > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Patrón de grid sutil dentro del hero (renombrado para no chocar con la clase del body) */
+.hero-grid-pattern {
+    background-image: linear-gradient(
+            rgba(249, 115, 22, 0.06) 1px,
+            transparent 1px
+        ),
+        linear-gradient(90deg, rgba(249, 115, 22, 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.6) 0%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.6) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+/* Saludo premium */
+.greet-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    border: 1px solid #fed7aa;
+    color: #c2410c;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px -4px rgba(249, 115, 22, 0.25);
+}
+
+.greet-pill .ic {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+/* Tarjeta de fecha */
+.date-glass {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    padding: 0.9rem 1.15rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 22px -10px rgba(0, 0, 0, 0.18);
+}
+
+.date-glass .ic {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    color: #ea580c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+}
+
+/* ====================================================
+                   ATAJOS RÁPIDOS PREMIUM
+                   ==================================================== */
+.quick-shortcut {
+    position: relative;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 0.95rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+    overflow: hidden;
+    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.06);
+}
+
+.quick-shortcut::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        var(--qs-color, #fb923c),
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.quick-shortcut > * {
+    position: relative;
+}
+
+.quick-shortcut:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.12);
+    border-color: var(--qs-color, #fed7aa);
+}
+
+.quick-shortcut:hover::before {
+    opacity: 0.04;
+}
+
+.quick-shortcut .ic {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.quick-shortcut:hover .ic {
+    transform: scale(1.06) rotate(-4deg);
+}
+
+/* ====================================================
+                   SECCIÓN HEADER ELEGANTE
+                   ==================================================== */
+.section-elegant-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.section-elegant-head .left {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.section-elegant-head .accent {
+    width: 4px;
+    min-height: 48px;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, #f97316, #ec4899);
+    margin-top: 4px;
+}
+
+.section-elegant-head h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.section-elegant-head .subtitle {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-top: 0.35rem;
+}
+
+.section-elegant-head .badge-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    color: #c2410c;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    border: 1px solid #fed7aa;
+}
+
+/* ====================================================
+                   TARJETAS PRINCIPALES PREMIUM
+                   ==================================================== */
+.premium-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    border-radius: 22px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.premium-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
+        0 30px 60px -28px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--c-color, #fb923c);
+    border-color: transparent;
+}
+
+.premium-card .img-area {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Zoom suave de imagen */
+.premium-card .img-zoom {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.premium-card:hover .img-zoom {
+    transform: scale(1.08);
+}
+
+/* Overlay degradado elegante (más sutil para no oscurecer la imagen) */
+.premium-card .img-area::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.35) 0%,
+        rgba(15, 23, 42, 0.05) 40%,
+        transparent 70%
+    );
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.premium-card:hover .img-area::after {
+    opacity: 0.7;
+}
+
+/* Patrón sutil sobre imagen al hover */
+.premium-card .img-area::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+        circle at 1px 1px,
+        rgba(255, 255, 255, 0.15) 1px,
+        transparent 0
+    );
+    background-size: 12px 12px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 1;
+}
+
+.premium-card:hover .img-area::before {
+    opacity: 1;
+}
+
+/* Icono flotante premium con glass */
+.premium-card .float-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    color: var(--c-color, #ea580c);
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+    transition: all 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.premium-card:hover .float-badge {
+    transform: scale(1.1) rotate(-6deg);
+    background: var(--c-color, #ea580c);
+    color: #fff;
+}
+
+/* Status pill premium */
+.premium-card .status-pill {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.66rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.status-pill.active {
+    background: rgba(16, 185, 129, 0.92);
+    color: #fff;
+    box-shadow: 0 4px 12px -2px rgba(16, 185, 129, 0.4);
+}
+
+.status-pill.coming {
+    background: rgba(28, 20, 13, 0.92);
+    color: #fff;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+}
+
+.status-pill.external {
+    background: rgba(245, 158, 11, 0.92);
+    color: #fff;
+    box-shadow: 0 4px 12px -2px rgba(245, 158, 11, 0.4);
+}
+
+/* Cuerpo de la tarjeta */
+.premium-card .body {
+    padding: 1.5rem 1.6rem 1.4rem;
+    text-align: left;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: relative;
+}
+
+.premium-card h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+}
+
+.premium-card:hover h3 {
+    color: var(--c-color, #ea580c);
+}
+
+.premium-card p {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.premium-card .footer-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.15rem;
+    padding-top: 0.95rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+.premium-card .meta {
+    font-size: 0.78rem;
+    color: var(--c-color, #ea580c);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.premium-card .arrow-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--c-bg, #fff7ed);
+    color: var(--c-color, #ea580c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+    border: 1.5px solid transparent;
+}
+
+.premium-card:hover .arrow-circle {
+    background: var(--c-color, #ea580c);
+    color: #fff;
+    transform: rotate(-45deg) scale(1.06);
+    box-shadow: 0 8px 18px -4px var(--c-color, rgba(249, 115, 22, 0.45));
+}
+
+/* Tarjetas deshabilitadas - look elegante */
+.premium-card.disabled {
+    opacity: 0.9;
+    pointer-events: none;
+    background: linear-gradient(135deg, #fafaf9, #f5f5f4);
+}
+
+.premium-card.disabled .img-zoom {
+    filter: grayscale(0.4) brightness(0.95);
+}
+
+.premium-card.disabled::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 12px,
+        rgba(0, 0, 0, 0.015) 12px,
+        rgba(0, 0, 0, 0.015) 13px
+    );
+    pointer-events: none;
+}
+
+/* ====================================================
+                   BLOQUE "Lo más buscado" elegante
+                   ==================================================== */
+.featured-block {
+    background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+    border: 1px solid #f1f5f9;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+        circle,
+        rgba(249, 115, 22, 0.06),
+        transparent 70%
+    );
+    border-radius: 50%;
+    transform: translate(40%, -40%);
+    pointer-events: none;
+}
+
+.featured-block > * {
+    position: relative;
+}
+
+.featured-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -16px rgba(249, 115, 22, 0.22);
+    border-color: #fed7aa;
+}
+
+.featured-card .img-wrap {
+    position: relative;
+    height: 190px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fafafa, #f5f5f4);
+}
+
+.featured-card .img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.featured-card:hover .img-wrap img {
+    transform: scale(1.06);
+}
+
+.featured-card .img-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.4) 0%,
+        transparent 55%
+    );
+}
+
+.featured-card .tag-corner {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    color: #ea580c;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.15);
+}
+
+.featured-card .body {
+    padding: 1.2rem 1.25rem 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.85rem;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+.featured-card .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+/* Botones premium */
+.btn-grad {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 11px;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    box-shadow: 0 6px 16px -4px rgba(249, 115, 22, 0.45);
+    transition: all 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-grad::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.btn-grad > * {
+    position: relative;
+}
+
+.btn-grad:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px -4px rgba(249, 115, 22, 0.55);
+}
+
+.btn-grad:hover::before {
+    opacity: 1;
+}
+
+.btn-out {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 11px;
+    background: #fff;
+    color: #ea580c;
+    font-weight: 700;
+    font-size: 0.8rem;
+    border: 1.5px solid #fed7aa;
+    transition: all 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.btn-out:hover {
+    background: #fff7ed;
+    border-color: #f97316;
+    transform: translateY(-1px);
+}
+
+.clickable-img-hint {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.featured-card:hover .clickable-img-hint {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ====================================================
+                   ANIMACIONES
+                   ==================================================== */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anim-up {
+    animation: fadeUp 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.premium-card {
+    animation: fadeUp 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.premium-card:nth-child(1) {
+    animation-delay: 0.04s;
+}
+
+.premium-card:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.premium-card:nth-child(3) {
+    animation-delay: 0.12s;
+}
+
+.premium-card:nth-child(4) {
+    animation-delay: 0.16s;
+}
+
+.premium-card:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+.premium-card:nth-child(6) {
+    animation-delay: 0.24s;
+}
+
+.premium-card:nth-child(7) {
+    animation-delay: 0.28s;
+}
+
+.premium-card:nth-child(8) {
+    animation-delay: 0.32s;
+}
+
+@keyframes pulse-soft {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+    }
+}
+
+.pulse-dot {
+    animation: pulse-soft 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.shimmer-text {
+    background: linear-gradient(
+        90deg,
+        #f97316 0%,
+        #ec4899 25%,
+        #8b5cf6 50%,
+        #ec4899 75%,
+        #f97316 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 6s linear infinite;
+}
+
+/* ====================================================
+                   FIX: prevenir cualquier overlay accidental
+                   ==================================================== */
+#camionetaModal[style*="display:none"],
+#camionetaModal[style*="display: none"] {
+    display: none !important;
+}
+
+/* El modal solo debe verse cuando se le aplica display:flex inline */
+#camionetaModal:not([style*="flex"]) {
+    display: none !important;
+}
+
+/* Garantizar que pseudo-elementos decorativos no bloqueen clics */
+.hero-premium::before,
+.hero-premium::after,
+.hero-grid-pattern,
+.orb,
+.featured-block::before,
+.premium-card .img-area::before,
+.premium-card .img-area::after,
+.featured-card .img-wrap::after,
+.btn-grad::before {
+    pointer-events: none !important;
+}

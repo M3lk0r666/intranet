@@ -1,0 +1,649 @@
+/* ====================================================
+                   HERO premium del organigrama
+                   Todas las clases prefijadas "org-" para no chocar
+                   con clases globales del layout (body, etc.)
+                   ==================================================== */
+.org-hero {
+    position: relative;
+    background: radial-gradient(
+            900px 260px at 90% -10%,
+            rgba(249, 115, 22, 0.2),
+            transparent 60%
+        ),
+        radial-gradient(
+            700px 220px at -10% 110%,
+            rgba(59, 130, 246, 0.14),
+            transparent 60%
+        ),
+        linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+    border: 1px solid #fed7aa;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 18px 40px -18px rgba(249, 115, 22, 0.18);
+}
+
+.org-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f97316);
+}
+
+.org-hero-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    color: #ea580c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+    box-shadow: 0 12px 28px -10px rgba(249, 115, 22, 0.45);
+    flex-shrink: 0;
+}
+
+/* Leyenda */
+.org-legend-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    color: #475569;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+}
+
+.org-legend-pill:hover {
+    border-color: #fed7aa;
+    transform: translateY(-1px);
+}
+
+.org-legend-pill .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ====================================================
+                   TARJETA CEO
+                   ==================================================== */
+.org-ceo {
+    position: relative;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: #fff;
+    padding: 1.5rem 2rem;
+    width: 320px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 18px 40px -12px rgba(249, 115, 22, 0.55);
+    overflow: hidden;
+}
+
+.org-ceo::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.18),
+        transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.org-ceo .photo-ring {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.6));
+    margin: 0 auto 0.85rem;
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.25);
+}
+
+.org-ceo .photo-ring img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.org-ceo .badge-role {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.5rem;
+}
+
+/* ====================================================
+                   Conectores entre niveles
+                   ==================================================== */
+.org-connector-vertical {
+    width: 3px;
+    background: linear-gradient(to bottom, #fed7aa, #cbd5e1);
+    border-radius: 999px;
+}
+
+.org-connector-vertical.large {
+    height: 56px;
+}
+
+.org-connector-vertical.small {
+    height: 36px;
+}
+
+.org-connector-vertical.tiny {
+    height: 24px;
+}
+
+/* ====================================================
+                   TARJETAS DIRECTORES
+                   ==================================================== */
+.org-director {
+    position: relative;
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 1.25rem 1.25rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+    width: 100%;
+    max-width: 280px;
+    overflow: hidden;
+}
+
+.org-director::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--dir-color, #f97316);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.org-director:hover {
+    transform: translateY(-4px);
+    border-color: var(--dir-color, #f97316);
+    box-shadow: 0 16px 32px -12px rgba(0, 0, 0, 0.18);
+}
+
+.org-director:hover::before {
+    transform: scaleX(1);
+}
+
+.org-director.active {
+    border-color: var(--dir-color, #f97316);
+    box-shadow: 0 0 0 4px var(--dir-bg, #fff7ed);
+}
+
+.org-director.active::before {
+    transform: scaleX(1);
+}
+
+.org-director-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: 0 auto 0.75rem;
+    border: 3px solid var(--dir-bg, #fff7ed);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+    object-fit: cover;
+}
+
+.org-director-name {
+    font-weight: 800;
+    color: #0f172a;
+    font-size: 0.95rem;
+    margin-bottom: 0.15rem;
+}
+
+.org-director-role {
+    color: var(--dir-color, #ea580c);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.org-director-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.85rem;
+    background: var(--dir-bg, #fff7ed);
+    color: var(--dir-color, #ea580c);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+}
+
+.org-director.active .org-director-toggle {
+    background: var(--dir-color, #f97316);
+    color: #fff;
+}
+
+.org-director.active .org-director-toggle .chev {
+    transform: rotate(180deg);
+}
+
+.chev {
+    transition: transform 0.25s ease;
+    display: inline-block;
+}
+
+/* Empty director (sin asignar) */
+.org-director.empty {
+    background: #fafafa;
+    border: 2px dashed #cbd5e1;
+    cursor: default;
+}
+
+.org-director.empty:hover {
+    transform: none;
+    border-color: #cbd5e1;
+    box-shadow: none;
+}
+
+.org-director.empty::before {
+    display: none;
+}
+
+.org-director-empty-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 0.75rem;
+}
+
+/* ====================================================
+                   ÁREAS y SUBÁREAS
+                   ==================================================== */
+.org-area-wrap {
+    width: 100%;
+    max-width: 360px;
+}
+
+.org-area-button {
+    cursor: pointer;
+    background: var(--dir-bg, #fff7ed);
+    border: 1.5px solid var(--dir-border, #fed7aa);
+    color: var(--dir-color, #c2410c);
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
+    width: 100%;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.org-area-button:hover {
+    background: var(--dir-color, #f97316);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.org-area-button.active {
+    background: var(--dir-color, #f97316);
+    color: #fff;
+}
+
+.org-area-button.active .chev {
+    transform: rotate(180deg);
+}
+
+.org-subareas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    padding-top: 0.25rem;
+}
+
+/* ====================================================
+                   Tarjeta de subárea / persona
+                   ==================================================== */
+.org-tree-item {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.78rem;
+    text-align: center;
+    min-width: 130px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.org-tree-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    border-color: var(--dir-color, #fed7aa);
+}
+
+.org-tree-item img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 0.35rem;
+    border: 2px solid var(--dir-bg, #fff7ed);
+}
+
+.org-tree-item p {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.org-tree-item span {
+    display: block;
+    font-size: 0.68rem;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: 0.1rem;
+}
+
+/* ====================================================
+                   Hero "en desarrollo"
+                   ==================================================== */
+.org-wip-card {
+    background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+    border: 1px solid #fed7aa;
+    border-radius: 22px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 28px -10px rgba(249, 115, 22, 0.18);
+}
+
+.org-wip-card::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(
+        circle,
+        rgba(249, 115, 22, 0.1),
+        transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.org-wip-card > * {
+    position: relative;
+}
+
+.org-wip-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 4px solid #f97316;
+    box-shadow: 0 12px 30px -8px rgba(249, 115, 22, 0.4);
+    position: relative;
+}
+
+.org-wip-photo::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(249, 115, 22, 0.2);
+}
+
+.org-wip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    border: 1px solid #fed7aa;
+    color: #c2410c;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+}
+
+.org-wip-badge .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f97316;
+    animation: org-pulse 2s infinite;
+}
+
+@keyframes org-pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 0 7px rgba(249, 115, 22, 0);
+    }
+}
+
+/* ====================================================
+                   MODAL de perfil — robusto contra clases globales
+                   ==================================================== */
+.org-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1rem;
+}
+
+.org-modal-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 28px 60px -20px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 420px;
+    padding: 1.75rem;
+    position: relative;
+    animation: org-fadeIn 0.25s ease-out;
+}
+
+@keyframes org-fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.org-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #475569;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all 0.25s ease;
+}
+
+.org-modal-close:hover {
+    background: #fee2e2;
+    color: #dc2626;
+    transform: rotate(90deg);
+}
+
+.org-modal-photo {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    margin: 0.25rem auto 1rem;
+    border: 4px solid #fff7ed;
+    box-shadow: 0 8px 22px -6px rgba(249, 115, 22, 0.35);
+    object-fit: cover;
+}
+
+.org-modal-name {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.org-modal-role {
+    text-align: center;
+    color: #ea580c;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-top: 0.15rem;
+}
+
+.org-modal-area {
+    text-align: center;
+    display: inline-block;
+    margin: 0.65rem auto 0;
+    background: #fff7ed;
+    color: #c2410c;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid #fed7aa;
+}
+
+.org-modal-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 1.25rem 0;
+}
+
+.org-modal-info-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: #475569;
+    font-size: 0.9rem;
+    padding: 0.35rem 0;
+}
+
+.org-modal-info-row .ic {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: #fff7ed;
+    color: #ea580c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* ====================================================
+                   Animaciones
+                   ==================================================== */
+@keyframes org-fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.org-anim-up {
+    animation: org-fadeUp 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes org-slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        max-height: 1000px;
+        transform: translateY(0);
+    }
+}
+
+.org-collapsible {
+    display: none;
+}
+
+.org-collapsible.open {
+    display: block;
+    animation: org-slideDown 0.35s ease-out;
+}

@@ -4,15 +4,6 @@
 
 @push('css')
     <link href="/assets/css/intrahome.css" rel="stylesheet">
-    {{--  <style>
-        :root {
-            --primary: #c2622a;
-            --primary-light: #f5ede6;
-            --primary-dark: #9e4e1e;
-        }
-
-        
-    </style> --}}
 @endpush
 
 @section('content')
@@ -46,43 +37,52 @@
         </div>
     </div>
 
-    <div class="px-6 py-7">
-
-        {{-- ── Hero ── --}}
-        <div class="biblioteca-hero">
-            <div class="hero-top">
-                <div>
-                    <h1 class="hero-title">Biblioteca de <span>Recursos Digitales</span></h1>
-                    <p class="hero-desc">
-                        Documentación técnica, guías operativas, tutoriales multimedia y formatos
-                        oficiales actualizados para optimizar tus procesos diarios.
+    <div class="container mx-auto px-4 py-8 max-w-[1280px]">
+        {{-- HERO con stats rápidos == --}}
+        <section class="proc-hero p-6 md:p-9 mb-10 proc-anim-up">
+            <div class="flex flex-col md:flex-row md:items-center gap-6 mb-6">
+                <div class="proc-hero-icon">
+                    <i class="las la-project-diagram"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 text-xs font-bold text-orange-600 uppercase tracking-widest mb-2">
+                        <i class="las la-building"></i>
+                        <span>Biblioteca</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                        Recursos Digitales
+                    </h1>
+                    <p class="text-gray-600 mt-2 text-base md:text-lg max-w-2xl">
+                        Documentación técnica, guías operativas, tutoriales multimedia y formatos oficiales actualizados
+                        para optimizar tus procesos diarios.
                     </p>
                 </div>
-                <div class="hero-total-pill">
-                    <span class="big">{{ \App\Models\FileDocument::count() }}</span>
+            </div>
+            {{-- Stats rápidos --}}
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="proc-stat">
+                    <div class="ic" style="background:#fff7ed; color:#ea580c;"><i class="las la-th-large"></i></div>
                     <div>
-                        <div class="small" style="color:rgba(255,255,255,.7);font-weight:600">documentos</div>
-                        <div class="small">disponibles</div>
+                        <div class="num">9</div>
+                        <div class="label">Categorias</div>
+                    </div>
+                </div>
+                <div class="proc-stat">
+                    <div class="ic" style="background:#dbeafe; color:#1d4ed8;"><i class="las la-sitemap"></i></div>
+                    <div>
+                        <div class="num">{{ \App\Models\FileDocument::count() }}</div>
+                        <div class="label">Documentos disponibles</div>
+                    </div>
+                </div>
+                <div class="proc-stat">
+                    <div class="ic" style="background:#dcfce7; color:#15803d;"><i class="las la-sync"></i></div>
+                    <div>
+                        <div class="num">Libre</div>
+                        <div class="label">Acceso</div>
                     </div>
                 </div>
             </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="num">9</div>
-                    <div class="lbl">Categorías</div>
-                </div>
-                <div class="hero-sep"></div>
-                <div class="hero-stat">
-                    <div class="num">TI</div>
-                    <div class="lbl">Departamento</div>
-                </div>
-                <div class="hero-sep"></div>
-                <div class="hero-stat">
-                    <div class="num">Libre</div>
-                    <div class="lbl">Acceso</div>
-                </div>
-            </div>
-        </div>
+        </section>
 
         {{-- ── Layout ── --}}
         <div class="biblioteca-layout">
@@ -112,7 +112,6 @@
                 </div>
             </aside>
             <div>
-
                 {{-- Toolbar --}}
                 <div class="content-toolbar">
                     {{-- Título activo --}}
@@ -164,7 +163,6 @@
                             <i class="las la-times"></i> Limpiar
                         </a>
                     @endif
-
                     <span class="results-count">{{ $documents->total() }}
                         resultado{{ $documents->total() != 1 ? 's' : '' }}</span>
                 </div>
@@ -261,5 +259,4 @@
             </div>
         </div>
     </div>
-
 @endsection

@@ -26,10 +26,18 @@
                                 class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Intranet</a>
                         </div>
                     </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                            <a href="{{ route('procesos-empresariales') }}"
+                                class="ml-1 text-sm text-gray-600 hover:text-orange-600 md:ml-2">Procesos
+                                Empresariales</a>
+                        </div>
+                    </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="ml-1 text-sm text-orange-600 font-medium md:ml-2">Puestos de Trabajo</span>
+                            <span class="ml-1 text-sm text-orange-600 font-medium md:ml-2">Descipcion de Puestos</span>
                         </div>
                     </li>
                 </ol>
@@ -37,82 +45,62 @@
         </div>
     </div>
 
-    <div class="px-6 py-7" x-data="puestosApp()">
-
-        {{-- ── Hero ── --}}
-        {{-- <div class="puestos-hero">
-            <div class="hero-inner">
-                <div class="hero-top">
-                    <div>
-                        <h1 class="hero-title">Puestos de <span>Trabajo</span></h1>
-                        <p class="hero-desc">
-                            Consulta la descripción, responsabilidades, habilidades y relaciones
-                            clave de cada puesto dentro de la organización.
-                        </p>
+    <div class="container mx-auto px-4 py-8 max-w-[1280px]" x-data="puestosApp()">
+        {{-- ============================================
+             HERO con stats rápidos
+             ============================================ --}}
+        <section class="proc-hero p-6 md:p-9 mb-10 proc-anim-up">
+            <div class="flex flex-col md:flex-row md:items-center gap-6 mb-6">
+                <div class="proc-hero-icon">
+                    <i class="las la-project-diagram"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 text-xs font-bold text-orange-600 uppercase tracking-widest mb-2">
+                        <i class="las la-building"></i>
+                        <span>Estructura Interna</span>
                     </div>
-                    <div class="hero-pill">
-                        <span class="big">10</span>
-                        <div>
-                            <div class="small" style="color:rgba(255,255,255,.8);font-weight:600">puestos</div>
-                            <div class="small">registrados</div>
-                        </div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                        Puestos de Trabajo
+                    </h1>
+                    <p class="text-gray-600 mt-2 text-base md:text-lg max-w-2xl">
+                        Consulta la descripción, responsabilidades, habilidades y relaciones
+                        clave de cada puesto dentro de la organización.
+                    </p>
+                </div>
+            </div>
+
+            {{-- Stats rápidos --}}
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="proc-stat">
+                    <div class="ic" style="background:#fff7ed; color:#ea580c;"><i class="las la-th-large"></i></div>
+                    <div>
+                        <div class="num">4</div>
+                        <div class="label">Áreas documentadas</div>
                     </div>
                 </div>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="num">4</div>
-                        <div class="lbl">Áreas</div>
-                    </div>
-                    <div class="hero-sep"></div>
-                    <div class="hero-stat">
+                <div class="proc-stat">
+                    <div class="ic" style="background:#dbeafe; color:#1d4ed8;"><i class="las la-sitemap"></i></div>
+                    <div>
                         <div class="num">10</div>
-                        <div class="lbl">Roles definidos</div>
+                        <div class="label">Roles definidos</div>
                     </div>
-                    <div class="hero-sep"></div>
-                    <div class="hero-stat">
-                        <div class="num">Activo</div>
-                        <div class="lbl">Estado</div>
+                </div>
+                <div class="proc-stat">
+                    <div class="ic" style="background:#f3e8ff; color:#7e22ce;"><i class="las la-cogs"></i></div>
+                    <div>
+                        <div class="num">3</div>
+                        <div class="label">Puestos</div>
+                    </div>
+                </div>
+                <div class="proc-stat">
+                    <div class="ic" style="background:#dcfce7; color:#15803d;"><i class="las la-sync"></i></div>
+                    <div>
+                        <div class="num">2026</div>
+                        <div class="label">Actualizado</div>
                     </div>
                 </div>
             </div>
-        </div> --}}
-
-        <div class="biblioteca-hero">
-            <div class="hero-inner">
-                <div class="hero-top">
-                    <div>
-                        <h1 class="hero-title">Puestos de <span>Trabajo</span></h1>
-                        <p class="hero-desc">
-                            Consulta la descripción, responsabilidades, habilidades y relaciones
-                            clave de cada puesto dentro de la organización.
-                        </p>
-                    </div>
-                    <div class="hero-pill">
-                        <span class="big">10</span>
-                        <div>
-                            <div class="small" style="color:rgba(255,255,255,.8);font-weight:600">puestos</div>
-                            <div class="small">registrados</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="num">4</div>
-                        <div class="lbl">Áreas</div>
-                    </div>
-                    <div class="hero-sep"></div>
-                    <div class="hero-stat">
-                        <div class="num">10</div>
-                        <div class="lbl">Roles definidos</div>
-                    </div>
-                    <div class="hero-sep"></div>
-                    <div class="hero-stat">
-                        <div class="num">Activo</div>
-                        <div class="lbl">Estado</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
 
         {{-- ── Toolbar ── --}}
         <div class="toolbar">

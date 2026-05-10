@@ -184,20 +184,24 @@
             </div>
 
             <!-- Sidebar -->
-            {{-- <div class="lg:w-1/3 sticky top-24 self-start"> --}}
-            <div class="lg:w-1/3 lg:sticky lg:top-24 self-start">
+
+            {{-- <div class="lg:w-1/3 lg:sticky lg:top-24 self-start"> --}}
+            <div class="lg:w-1/3 lg:sticky lg:top-24 self-start h-fit">
                 <!-- TOC -->
-                <aside id="toc" class="hidden lg:block sticky top-24 max-h-[80vh] overflow-y-auto pr-4">
+                {{-- <aside id="toc" class="hidden lg:block sticky top-24 max-h-[80vh] overflow-y-auto pr-4"> --}}
+                <aside id="toc" class="hidden lg:block">
                     <div class="mb-4 flex items-center justify-between">
                         <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">
                             Contenido En esta página
                         </h2>
-
                         <button id="toc-toggle" class="text-xs text-primary hover:underline">
                             Ocultar
                         </button>
                     </div>
-                    <ul id="toc-list" class="space-y-2 text-sm"></ul>
+                    {{-- <ul id="toc-list" class="space-y-2 text-sm"></ul> --}}
+                    <div class="max-h-[55vh] overflow-y-auto pr-2">
+                        <ul id="toc-list" class="space-y-2 text-sm"></ul>
+                    </div>
                     <!-- Back to top -->
                     <div class="mt-6 pt-4 border-t">
                         <button id="back-to-top"
@@ -215,7 +219,6 @@
                         </button>
                     </div>
                 </aside>
-
                 <!-- Botones -->
                 <div class="bg-white border border-slate-200 rounded-xl p-5">
                     <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-4">
@@ -228,14 +231,12 @@
                             <i
                                 class="las la-eye text-lg text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                         </a>
-
                         <a href="{{ route('posts.pdf', $post) }}"
                             class="group flex items-center justify-between w-full px-3 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600transition-colors duration-300">
                             <span>Descargar Artículo</span>
                             <i
                                 class="las la-file-download text-lg text-slate-300 group-hover:text-orange-500 group-hover:translate-x-1 transition-all duration-300"></i>
                         </a>
-
                         <a href="{{ route('posts.index') }}"
                             class="group flex flex-row-reverse items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-medium text-slate-600 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300">
                             <span>Regresar</span>
@@ -267,7 +268,6 @@
             let h3Count = 0;
 
             headings.forEach((heading, index) => {
-
                 if (!heading.id) {
                     heading.id = "section-" + index;
                 }
@@ -284,7 +284,6 @@
                 let number = heading.tagName === "H2" ?
                     `${h2Count}` :
                     `${h2Count}.${h3Count}`;
-
                 heading.setAttribute("data-number", number);
 
                 const li = document.createElement("li");
@@ -321,11 +320,9 @@
             }, {
                 /* rootMargin: "-40% 0px -55% 0px" */
                 rootMargin: "-30% 0px -60% 0px"
-
             });
 
             headings.forEach(section => observer.observe(section));
-
             // Toggle TOC
             document.getElementById("toc-toggle").addEventListener("click", function() {
                 tocList.classList.toggle("hidden");
@@ -342,7 +339,6 @@
                         behavior: "smooth"
                     });
                 });
-
             const scrollBtn = document.getElementById("back-to-top");
 
             window.addEventListener("scroll", () => {
@@ -364,11 +360,9 @@
                 const scrollTop = window.scrollY;
                 const docHeight = document.body.scrollHeight - window.innerHeight;
                 const progress = (scrollTop / docHeight) * 100;
-
                 document.getElementById("reading-progress")
                     .style.width = progress + "%";
             });
-
         });
     </script>
 @endpush

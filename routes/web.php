@@ -165,12 +165,12 @@ Route::get('/intranet/ingenieria/clientes', [ClientController::class,'index'])->
 //Route::get('/formacion-academica/videos', [VideoController::class,'index'])->name('formacion-academica.index');
 
 //Rutas para aprendizaje
-Route::get('/formacion-academica/learning', [LearningController::class,'index'])->name('learning.index');
-Route::get('/formacion-academica/learning/{type}/{id}', [LearningController::class, 'show'])->name('learning.show');
+//Route::get('/formacion-academica/learning', [LearningController::class,'index'])->name('learning.index');
+//Route::get('/formacion-academica/learning/{type}/{id}', [LearningController::class, 'show'])->name('learning.show');
 
 //RUTAS APRENDIZAJE
 
-Route::prefix('courses')->scopeBindings()->group(function () {
+Route::prefix('formacion-academica')->scopeBindings()->group(function () {
     Route::get('/', [CourseController::class, 'index'])->name('courses.index');
     Route::get('/{course:slug}', [CourseController::class, 'show'])->name('courses.show');
     Route::get('/{course:slug}/lessons/{lesson}', [LessonController::class, 'show'])->name('courses.lessons.show');
@@ -191,28 +191,28 @@ Route::prefix('courses')->scopeBindings()->group(function () {
 
 
 //revisar el como se muestran los elementos, se ve bien
-Route::get('/estructura-interna', function () {
+/* Route::get('/estructura-interna', function () {
     return view('estructura-interna');
-});
+}); */
 
 /* Route::get('/proceso-comercial-it', function () {
     return view('proceso-comercial-it');
 }); */
 
 //para los videos -revisar este se va usar para los videos
-Route::get('/formacion-academica', function () {
+/* Route::get('/formacion-academica', function () {
     return view('formacion-academica');
-});
+}); */
 
 // Ruta para mostrar el frontend
-Route::get('/videos', function () {
+/* Route::get('/videos', function () {
     return view('videos.oldindex');
-});
+}); */
 
 //ruta momentanea -quitar despues
-Route::match(['get', 'post'], '/register', function () {
+/* Route::match(['get', 'post'], '/register', function () {
     return redirect('/login');
-});
+}); */
 
 
 //Rutas para las Guias las que se arman automaticamente

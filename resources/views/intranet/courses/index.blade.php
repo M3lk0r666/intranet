@@ -37,31 +37,52 @@
         </div>
     </div>
 
-    <div class="px-6 py-8">
-        {{-- ── Hero ── --}}
-        <div class="academia-hero">
-            <h1 class="hero-title">Formación <span>Académica</span></h1>
-            <p class="hero-desc">
-                Fortalece tus conocimientos y mantente actualizado. Accede a videos, guías prácticas
-                y materiales de apoyo en distintas áreas tecnológicas.
-            </p>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="num">{{ $courses->total() }}</div>
-                    <div class="lbl">Cursos disponibles</div>
+    <div class="container mx-auto px-4 py-8 max-w-[1280px]">
+        {{-- HERO con stats rápidos == --}}
+        <section class="proc-hero p-6 md:p-9 mb-10 proc-anim-up">
+            <div class="flex flex-col md:flex-row md:items-center gap-6 mb-6">
+                <div class="proc-hero-icon">
+                    <i class="las la-project-diagram"></i>
                 </div>
-                <div class="hero-stat-sep"></div>
-                <div class="hero-stat">
-                    <div class="num">{{ $categories->count() }}</div>
-                    <div class="lbl">Categorías</div>
-                </div>
-                <div class="hero-stat-sep"></div>
-                <div class="hero-stat">
-                    <div class="num">Libre</div>
-                    <div class="lbl">Acceso</div>
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 text-xs font-bold text-orange-600 uppercase tracking-widest mb-2">
+                        <i class="las la-building"></i>
+                        <span>Formación Académica</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                        Aprendizaje .....
+                    </h1>
+                    <p class="text-gray-600 mt-2 text-base md:text-lg max-w-2xl">
+                        Fortalece tus conocimientos y mantente actualizado. Accede a videos, guías prácticas y materiales de
+                        apoyo en distintas áreas tecnológicas.
+                    </p>
                 </div>
             </div>
-        </div>
+            {{-- Stats rápidos --}}
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="proc-stat">
+                    <div class="ic" style="background:#fff7ed; color:#ea580c;"><i class="las la-th-large"></i></div>
+                    <div>
+                        <div class="num">{{ $courses->total() }}</div>
+                        <div class="label">Cursos disponibles</div>
+                    </div>
+                </div>
+                <div class="proc-stat">
+                    <div class="ic" style="background:#dbeafe; color:#1d4ed8;"><i class="las la-sitemap"></i></div>
+                    <div>
+                        <div class="num">{{ $categories->count() }}</div>
+                        <div class="label">Categorías</div>
+                    </div>
+                </div>
+                <div class="proc-stat">
+                    <div class="ic" style="background:#dcfce7; color:#15803d;"><i class="las la-sync"></i></div>
+                    <div>
+                        <div class="num">Libre</div>
+                        <div class="label">Acceso</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         {{-- ── Layout principal ── --}}
         <div class="academy-layout">
@@ -185,7 +206,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @push('js')
