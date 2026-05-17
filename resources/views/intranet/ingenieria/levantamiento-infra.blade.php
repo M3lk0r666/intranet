@@ -107,8 +107,20 @@
                     <h2>Infraestructura Física</h2>
                 </div>
                 <div class="lev-section-body">
-
                     <div class="lev-grid-2" style="margin-bottom: 1.5rem;">
+                        <div>
+                            <p class="lev-sub"></p>
+                            <div class="lev-field">
+                                <label class="lev-label">¿Es cableado estructurado?</label>
+                                <select class="lev-select" x-model="cable.estructura">
+                                    <option value="">Seleccionar…</option>
+                                    <option value="si">Si</option>
+                                    <option value="no">No</option>
+                                    <option value="parcial">Parcialmente</option>
+                                    <option value="no_aplica">No Aplica</option>
+                                </select>
+                            </div>
+                        </div>
                         {{-- Cableado --}}
                         <div>
                             <p class="lev-sub">Tipo de Cableado</p>
@@ -119,8 +131,12 @@
                                 <label class="lev-check-item"><input type="checkbox" x-model="fisico.cat6" /> Cat 6</label>
                                 <label class="lev-check-item"><input type="checkbox" x-model="fisico.cat6e" /> Cat
                                     6e</label>
-                                <label class="lev-check-item"><input type="checkbox" x-model="fisico.cat7" /> Cat 7</label>
-                                <label class="lev-check-item"><input type="checkbox" x-model="fisico.cat8" /> Cat 8</label>
+                                <label class="lev-check-item"><input type="checkbox" x-model="fisico.cat7" /> Cat
+                                    7</label>
+                                <label class="lev-check-item"><input type="checkbox" x-model="fisico.cat8" /> Cat
+                                    8</label>
+                                <label class="lev-check-item"><input type="checkbox" x-model="fisico.se_desconoce" /> Se
+                                    desconce</label>
                             </div>
                         </div>
                         {{-- Fibra --}}
@@ -134,6 +150,79 @@
                                 <label class="lev-check-item"><input type="checkbox" x-model="fisico.no_aplica_fibra" />
                                     No
                                     Aplica</label>
+                                <label class="lev-check-item"><input type="checkbox" x-model="fisico.se_desconoce" />
+                                    Se desconoce</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="lev-divider">
+
+                    <div class="lev-grid-2" style="margin-bottom: 1.5rem;">
+                        {{-- Rack o gabinete --}}
+                        <div>
+                            <p class="lev-sub">Rack / Gabinete</p>
+                            <div class="lev-radio-row">
+                                <span>¿Cuenta con rack o gabinete para switches / patch panel?</span>
+                                <div class="lev-radios">
+                                    <label class="lev-radio-item">
+                                        <input type="radio" name="rack" value="si" x-model="fisico.rack">
+                                        Sí
+                                    </label>
+                                    <label class="lev-radio-item">
+                                        <input type="radio" name="rack" value="no" x-model="fisico.rack">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            {{-- Tipo de rack --}}
+                            <div class="lev-field" x-show="fisico.rack === 'si'" x-transition>
+                                <label class="lev-label">Tipo de rack</label>
+                                <select class="lev-select" x-model="fisico.tipo_rack">
+                                    <option value="">Seleccionar…</option>
+                                    <option value="abierto">Abierto</option>
+                                    <option value="cerrado">Cerrado</option>
+                                    <option value="pared">Pared</option>
+                                    <option value="piso">Piso</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        {{-- Patch Panel --}}
+                        <div>
+                            <p class="lev-sub">Patch Panel</p>
+                            <div class="lev-radio-row">
+                                <span>¿Cuenta con patch panel?</span>
+                                <div class="lev-radios">
+                                    <label class="lev-radio-item">
+                                        <input type="radio" name="patch_panel" value="si"
+                                            x-model="fisico.patch_panel">
+                                        Sí
+                                    </label>
+                                    <label class="lev-radio-item">
+                                        <input type="radio" name="patch_panel" value="no"
+                                            x-model="fisico.patch_panel">
+                                        No
+                                    </label>
+                                    <label class="lev-radio-item">
+                                        <input type="radio" name="patch_panel" value="se_desconoce"
+                                            x-model="fisico.patch_panel">
+                                        Se desconoce
+                                    </label>
+                                </div>
+                            </div>
+                            {{-- Opcionales si existe patch panel --}}
+                            <div x-show="fisico.patch_panel === 'si'" x-transition>
+                                <div class="lev-checks">
+                                    <label class="lev-check-item">
+                                        <input type="checkbox" x-model="fisico.etiquetados" />
+                                        Etiquetado
+                                    </label>
+                                    <label class="lev-check-item">
+                                        <input type="checkbox" x-model="fisico.organizados" />
+                                        Organizado
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -152,23 +241,121 @@
                             </div>
                         </div>
                         {{-- Cableado gral --}}
-                        <div>
+                        {{-- <div>
                             <p class="lev-sub">Estado del Cableado</p>
                             <div class="lev-checks">
                                 <label class="lev-check-item"><input type="checkbox" x-model="fisico.cableado_ok" />
                                     Etiquetado e Identificado</label>
+                            </div>
+                        </div> --}}
+                        <div>
+                            <p class="lev-sub">Estado del Cableado</p>
+                            <div class="lev-checks">
+                                <label class="lev-check-item">
+                                    <input type="checkbox" x-model="fisico.cableado_etiquetado" />
+                                    Etiquetado
+                                </label>
+                                <label class="lev-check-item">
+                                    <input type="checkbox" x-model="fisico.cableado_identificado" />
+                                    Identificado
+                                </label>
                             </div>
                         </div>
                     </div>
 
                     <hr class="lev-divider">
 
-                    {{-- UPS --}}
+                    {{-- Respaldo de Energía --}}
                     <div style="margin-bottom: 1.5rem;">
                         <p class="lev-sub">Respaldo de Energía</p>
-                        <div class="lev-checks" style="max-width: 300px;">
-                            <label class="lev-check-item"><input type="checkbox" x-model="fisico.ups" /> UPS
-                                instalado</label>
+                        <div class="lev-grid-2">
+                            {{-- Planta de emergencia --}}
+                            <div>
+                                <div class="lev-radio-row">
+                                    <span>¿Cuenta con planta de emergencia?</span>
+                                    <div class="lev-radios">
+                                        <label class="lev-radio-item">
+                                            <input type="radio" name="planta_emergencia" value="si"
+                                                x-model="fisico.planta_emergencia">
+                                            Sí
+                                        </label>
+                                        <label class="lev-radio-item">
+                                            <input type="radio" name="planta_emergencia" value="no"
+                                                x-model="fisico.planta_emergencia">
+                                            No
+                                        </label>
+                                        <label class="lev-radio-item">
+                                            <input type="radio" name="planta_emergencia" value="parcial"
+                                                x-model="fisico.planta_emergencia">
+                                            Parcial
+                                        </label>
+                                    </div>
+                                </div>
+                                {{-- Datos de planta --}}
+                                <div x-show="fisico.planta_emergencia === 'si' || fisico.planta_emergencia === 'parcial'"
+                                    x-transition>
+                                    <div class="lev-field">
+                                        <label class="lev-label">Capacidad (kVA)</label>
+                                        <input type="text" class="lev-input" placeholder="Ej. 30 kVA"
+                                            x-model="fisico.planta_capacidad">
+                                    </div>
+                                    <div class="lev-field">
+                                        <label class="lev-label">Autonomía</label>
+                                        <input type="text" class="lev-input" placeholder="Ej. 4 horas"
+                                            x-model="fisico.planta_autonomia">
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- UPS --}}
+                            <div>
+                                {{-- UPS general --}}
+                                <div class="lev-radio-row">
+                                    <span>¿Cuenta con UPS general?</span>
+                                    <div class="lev-radios">
+                                        <label class="lev-radio-item">
+                                            <input type="radio" name="ups_general" value="si"
+                                                x-model="fisico.ups_general">
+                                            Sí
+                                        </label>
+                                        <label class="lev-radio-item">
+                                            <input type="radio" name="ups_general" value="no"
+                                                x-model="fisico.ups_general">
+                                            No
+                                        </label>
+                                        <label class="lev-radio-item">
+                                            <input type="radio" name="ups_general" value="se_desconoce"
+                                                x-model="fisico.ups_general">
+                                            Se desconoce
+                                        </label>
+                                    </div>
+                                </div>
+                                {{-- UPS por rack --}}
+                                <div class="lev-radio-row">
+                                    <span>¿Cuenta con UPS por IDF o por rack?</span>
+                                    <div class="lev-radios">
+                                        <label class="lev-radio-item">
+                                            <input type="radio" name="ups_rack" value="si"
+                                                x-model="fisico.ups_rack">
+                                            Sí
+                                        </label>
+                                        <label class="lev-radio-item">
+                                            <input type="radio" name="ups_rack" value="no"
+                                                x-model="fisico.ups_rack">
+                                            No
+                                        </label>
+                                        <label class="lev-radio-item">
+                                            <input type="radio" name="ups_rack" value="algunos"
+                                                x-model="fisico.ups_rack">
+                                            Algunos
+                                        </label>
+                                        <label class="lev-radio-item">
+                                            <input type="radio" name="ups_rack" value="se_desconoce"
+                                                x-model="fisico.ups_rack">
+                                            Se desconoce
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -185,6 +372,8 @@
                                             x-model="fisico.diagrama" /> Sí</label>
                                     <label class="lev-radio-item"><input type="radio" name="diagrama" value="no"
                                             x-model="fisico.diagrama" /> No</label>
+                                    <label class="lev-radio-item"><input type="radio" name="diagrama"
+                                            value="sin-respuesta" x-model="fisico.diagrama" /> Sin respuesta</label>
                                 </div>
                             </div>
                             <div class="lev-radio-row">
@@ -194,6 +383,8 @@
                                             x-model="fisico.vlans" /> Sí</label>
                                     <label class="lev-radio-item"><input type="radio" name="vlans" value="no"
                                             x-model="fisico.vlans" /> No</label>
+                                    <label class="lev-radio-item"><input type="radio" name="vlans"
+                                            value="sin-respuesta" x-model="fisico.vlans" /> Sin Rsspuesta</label>
                                 </div>
                             </div>
                             <div class="lev-radio-row">
@@ -203,6 +394,20 @@
                                             value="si" x-model="fisico.direccionamiento" /> Sí</label>
                                     <label class="lev-radio-item"><input type="radio" name="direccionamiento"
                                             value="no" x-model="fisico.direccionamiento" /> No</label>
+                                    <label class="lev-radio-item"><input type="radio" name="direccionamiento"
+                                            value="sin-respuesta" x-model="fisico.direccionamiento" /> Sin
+                                        Respuesta</label>
+                                </div>
+                            </div>
+                            <div class="lev-radio-row">
+                                <span>¿Existe Memoria técnica del cableado? </span>
+                                <div class="lev-radios">
+                                    <label class="lev-radio-item"><input type="radio" name="memoria_tecnica"
+                                            value="si" x-model="fisico.memoria_tecnica" /> Sí</label>
+                                    <label class="lev-radio-item"><input type="radio" name="memoria_tecnica"
+                                            value="no" x-model="fisico.memoria_tecnica" /> No</label>
+                                    <label class="lev-radio-item"><input type="radio" name="memoria_tecnica"
+                                            value="no" x-model="fisico.memoria_tecnica" /> Sin Respuesta</label>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +418,6 @@
                                 x-model="fisico.notas"></textarea>
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -224,7 +428,6 @@
                     <h2>Inventario de Switches</h2>
                 </div>
                 <div class="lev-section-body">
-
                     <template x-for="(sw, i) in switches" :key="i">
                         <div class="sw-card">
                             <div class="sw-card-head">
@@ -279,7 +482,6 @@
                             </div>
                         </div>
                     </template>
-
                     <button class="btn-add-sw" @click="addSwitch()">
                         <i class="ri-add-line"></i> Agregar Switch
                     </button>
@@ -308,12 +510,77 @@
                     </div>
 
                     <hr class="lev-divider">
-                    <p class="lev-sub" style="margin-bottom: .85rem;">Direccionamiento IP</p>
-                    <div class="lev-service-cards" style="margin-bottom: 1.5rem;">
-                        <label class="lev-service-card"><input type="checkbox" x-model="servicios.ip_estatico"><i
-                                class="ri-global-line"></i><span>IPs Estáticas</span></label>
-                        <label class="lev-service-card"><input type="checkbox" x-model="servicios.ip_dinamico"><i
-                                class="ri-refresh-line"></i><span>IPs Dinámicas (DHCP)</span></label>
+
+                    <p class="lev-sub" style="margin-bottom: .85rem;">
+                        Direccionamiento IP
+                    </p>
+                    <div class="lev-grid-2" style="margin-bottom: 1.5rem;">
+                        {{-- Columna izquierda --}}
+                        <div>
+                            {{-- Pertenece al cliente --}}
+                            <div class="lev-radio-row">
+                                <span>¿El direccionamiento IP pertenece al cliente?</span>
+                                <div class="lev-radios">
+                                    <label class="lev-radio-item">
+                                        <input type="radio" name="ip_cliente" value="si"
+                                            x-model="servicios.ip_cliente">
+                                        Sí
+                                    </label>
+                                    <label class="lev-radio-item">
+                                        <input type="radio" name="ip_cliente" value="no"
+                                            x-model="servicios.ip_cliente">
+                                        No
+                                    </label>
+                                    <label class="lev-radio-item">
+                                        <input type="radio" name="ip_cliente" value="parcial"
+                                            x-model="servicios.ip_cliente">
+                                        Parcial
+                                    </label>
+                                </div>
+                            </div>
+                            {{-- Tipo de asignación --}}
+                            <div class="lev-field">
+                                <label class="lev-label">
+                                    Asignación de IPs
+                                </label>
+                                <select class="lev-select" x-model="servicios.asignacion_ip">
+                                    <option value="">Seleccionar…</option>
+                                    <option value="fijas">
+                                        Fijas (estáticas)
+                                    </option>
+                                    <option value="dhcp">
+                                        Entregadas por DHCP server
+                                    </option>
+                                    <option value="mixtas">
+                                        Mixtas
+                                    </option>
+                                </select>
+                            </div>
+                            {{-- DHCP --}}
+                            <div x-show="servicios.asignacion_ip === 'dhcp' || servicios.asignacion_ip === 'mixtas'"
+                                x-transition>
+                                <div class="lev-field">
+                                    <label class="lev-label">
+                                        Servidor DHCP
+                                    </label>
+                                    <input type="text" class="lev-input"
+                                        placeholder="Ej. Router, Windows Server, Linux, Fortigate..."
+                                        x-model="servicios.dhcp_server">
+                                </div>
+                            </div>
+                        </div>
+                        {{-- Columna derecha --}}
+                        <div>
+                            {{-- Subredes --}}
+                            <div class="lev-field">
+                                <label class="lev-label">
+                                    Rangos de IPs utilizadas (subredes)
+                                </label>
+                                <textarea class="lev-textarea" placeholder="Ej. 192.168.1.0/24&#10;10.10.0.0/16&#10;172.16.5.0/24"
+                                    x-model="servicios.subredes">
+                                </textarea>
+                            </div>
+                        </div>
                     </div>
 
                     <hr class="lev-divider">
@@ -404,6 +671,9 @@
                 </button>
                 <button class="btn-outline-lev" @click="exportHTML()">
                     <i class="ri-download-line"></i> Exportar HTML
+                </button>
+                <button class="btn-outline-lev" @click="limpiar()" style="color:#dc2626;border-color:#fecaca;">
+                    <i class="ri-eraser-line"></i> Limpiar Formulario
                 </button>
             </div>
 

@@ -17,33 +17,45 @@ function createSwitch() {
     };
 }
 
-document.addEventListener("alpine:init", () => {
-    Alpine.data("app", () => ({
-        /* ── Estado ── */
+/* ── Estado inicial reutilizable ── */
+function estadoInicial() {
+    return {
         cliente: "",
         fecha: new Date().toISOString().split("T")[0],
         ingeniero: "",
 
         fisico: {
+            rack: "",
+            tipo_rack: "",
+            patch_panel: "",
+            etiquetados: false,
+            organizados: false,
             cat5: false,
             cat5e: false,
             cat6: false,
             cat6e: false,
             cat7: false,
             cat8: false,
+            se_desconoce: false,
+            cableado_etiquetado: false,
+            cableado_identificado: false,
             multimodo: false,
             monomodo: false,
             no_aplica_fibra: false,
-            etiquetados: false,
-            organizados: false,
             cableado_ok: false,
-            ups: false,
-            ups_documentado: false,
+            planta_emergencia: "",
+            planta_capacidad: "",
+            planta_autonomia: "",
+            ups_general: "",
+            ups_rack: "",
             diagrama: null,
             vlans: null,
             direccionamiento: null,
+            memoria_tecnica: "",
             notas: "",
         },
+
+        cable: { estructura: "" },
 
         switches: [createSwitch()],
 
@@ -53,13 +65,113 @@ document.addEventListener("alpine:init", () => {
             bgp: false,
             eigrp: false,
             mpls: false,
-            ip_estatico: false,
-            ip_dinamico: false,
             dns: false,
             radius: false,
             ad: false,
             ntp: false,
             snmp: false,
+            ip_cliente: "",
+            ip_estatico: false,
+            ip_dinamico: false,
+            asignacion_ip: "",
+            dhcp_server: "",
+            subredes: "",
+        },
+
+        seguridad: {
+            tipo_fw: "",
+            marca: "",
+            modelo: "",
+            ubicacion: "",
+            puertos: "",
+            ip: "",
+            ids: false,
+            vpn: false,
+            nat: false,
+            dmz: false,
+            waf: false,
+            acl: false,
+            notas: "",
+        },
+    };
+}
+
+document.addEventListener("alpine:init", () => {
+    Alpine.data("app", () => ({
+        /* ── Estado inicial ── */
+        ...estadoInicial(),
+        /* ── Estado ── */
+        cliente: "",
+        fecha: new Date().toISOString().split("T")[0],
+        ingeniero: "",
+
+        fisico: {
+            /* Rack */
+            rack: "",
+            tipo_rack: "",
+            /* Patch panel */
+            patch_panel: "",
+            etiquetados: false,
+            organizados: false,
+            /*Cableado*/
+            cat5: false,
+            cat5e: false,
+            cat6: false,
+            cat6e: false,
+            cat7: false,
+            cat8: false,
+            /* Estado cableado */
+            cableado_etiquetado: false,
+            cableado_identificado: false,
+            /* Fibra */
+            multimodo: false,
+            monomodo: false,
+            no_aplica_fibra: false,
+            etiquetados: false,
+            organizados: false,
+            cableado_ok: false,
+            /* Energía */
+            planta_emergencia: "",
+            planta_capacidad: "",
+            planta_autonomia: "",
+            ups_general: "",
+            ups_rack: "",
+            /* Documentación */
+            diagrama: null,
+            vlans: null,
+            direccionamiento: null,
+            memoria_tecnica: "",
+            notas: "",
+        },
+
+        cable: {
+            estructura: "",
+        },
+
+        switches: [createSwitch()],
+
+        servicios: {
+            /* Routing */
+            estatico: false,
+            ospf: false,
+            bgp: false,
+            eigrp: false,
+            mpls: false,
+            ip_estatico: false,
+            ip_dinamico: false,
+            /* Servicios */
+            dns: false,
+            radius: false,
+            ad: false,
+            ntp: false,
+            snmp: false,
+            /* Direccionamiento */
+            ip_cliente: "",
+            ip_estatico: false,
+            ip_dinamico: false,
+            asignacion_ip: "",
+            dhcp_server: "",
+            subredes: "",
         },
 
         seguridad: {
@@ -85,6 +197,16 @@ document.addEventListener("alpine:init", () => {
 
         removeSwitch(i) {
             this.switches.splice(i, 1);
+        },
+        /* 🧹 Limpiar formulario */
+        limpiar() {
+            if (
+                !confirm(
+                    "¿Seguro que deseas limpiar todo el formulario? Se perderán los datos no guardados."
+                )
+            )
+                return;
+            Object.assign(this, estadoInicial());
         },
 
         score() {

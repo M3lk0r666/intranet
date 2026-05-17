@@ -229,21 +229,38 @@ export function generarHTMLImpresion(ctx) {
       <td>${badgesFromText(d.fibra, "tag-teal")}</td>
     </tr>
     <tr>
+      <td>¿Cableado estructurado?</td>
+      <td>${radioHTML(ctx.cable.estructura)}</td>
+    </tr>
+    <tr>
+      <td>Rack / Gabinete</td>
+      <td>${d.rackInfo}</td>
+    </tr>
+    <tr>
       <td>Patch panel</td>
-      <td>${badgesFromText(d.patchPanel, "tag-muted")}</td>
+      <td>${radioHTML(ctx.fisico.patch_panel)}</td>
     </tr>
     <tr>
-      <td>Cableado etiquetado e identificado</td>
-      <td>${chk(ctx.fisico.cableado_ok)}</td>
+      <td>Estado del cableado</td>
+      <td>${badgesFromText(d.estadoCableado, "tag-blue")}</td>
     </tr>
     <tr>
-      <td>Respaldo de energía (UPS)</td>
-      <td>${chk(ctx.fisico.ups)}</td>
+    <td>Planta de emergencia</td>
+      <td>${radioHTML(ctx.fisico.planta_emergencia)}</td>
     </tr>
     <tr>
-      <td>UPS documentado</td>
-      <td>${chk(ctx.fisico.ups_documentado)}</td>
+      <td>Capacidad / autonomía</td>
+      <td>${d.plantaDetalle}</td>
     </tr>
+    <tr>
+      <td>UPS general</td>
+      <td>${radioHTML(ctx.fisico.ups_general)}</td>
+    </tr>
+    <tr>
+      <td>UPS por IDF / Rack</td>
+      <td>${ctx.fisico.ups_rack || "No especificado"}</td>
+    </tr>
+    
     <tr>
       <td>¿Existe diagrama de red actual?</td>
       <td>${radioHTML(ctx.fisico.diagrama)}</td>
@@ -279,10 +296,30 @@ export function generarHTMLImpresion(ctx) {
       <td>Protocolos de enrutamiento</td>
       <td>${d.enrutamientoBadges}</td>
     </tr>
+
     <tr>
-      <td>Direccionamiento IP</td>
-      <td>${badgesFromText(d.direccionamientoIP, "tag-blue")}</td>
+      <td>IP pertenece al cliente</td>
+      <td>${radioHTML(ctx.servicios.ip_cliente)}</td>
     </tr>
+
+    <tr>
+      <td>Asignación IP</td>
+      <td>${d.direccionamientoIP}</td>
+    </tr>
+
+    <tr>
+      <td>Servidor DHCP</td>
+      <td>${ctx.servicios.dhcp_server || "—"}</td>
+    </tr>
+
+    <tr>
+      <td>Subredes utilizadas</td>
+      <td style="white-space:pre-wrap">
+        ${ctx.servicios.subredes || "—"}
+      </td>
+    </tr>
+    
+    
     <tr>
       <td>Servicios activos</td>
       <td>${d.serviciosActivosBadges}</td>
@@ -340,10 +377,27 @@ function radio(val) {
     return "Sin respuesta";
 }
 
-function radioHTML(val) {
+/* function radioHTML(val) {
     if (val === "si") return `<span class="chk-ok">✔ Sí</span>`;
     if (val === "no") return `<span class="chk-no">✘ No</span>`;
     return `<span class="chk-na">Sin respuesta</span>`;
+} */
+function radioHTML(val) {
+    const map = {
+        si: ["✔ Sí", "chk-ok"],
+        no: ["✘ No", "chk-no"],
+        parcial: ["◐ Parcial", "chk-na"],
+        algunos: ["◐ Algunos", "chk-na"],
+        no_especificado: ["No especificado", "chk-na"],
+        "sin-respuesta": ["Sin respuesta", "chk-na"],
+        "": ["—", "chk-na"],
+        undefined: ["—", "chk-na"],
+        null: ["—", "chk-na"],
+    };
+
+    const [label, cls] = map[val] || [val, "chk-na"];
+
+    return `<span class="${cls}">${label}</span>`;
 }
 
 function chk(val) {
@@ -407,9 +461,32 @@ function obtenerDatos(ctx) {
             .filter(Boolean)
             .join(", ") || "No especificado";
 
-    const estadoCableado = ctx.fisico.cableado_ok
+    const rackInfo =
+        ctx.fisico.rack === "si"
+            ? `Sí (${ctx.fisico.tipo_rack || "Tipo no especificado"})`
+            : ctx.fisico.rack === "no"
+            ? "No"
+            : "No especificado";
+
+    const plantaEmergencia = ctx.fisico.planta_emergencia || "No especificado";
+
+    const plantaDetalle =
+        ctx.fisico.planta_capacidad || ctx.fisico.planta_autonomia
+            ? `${ctx.fisico.planta_capacidad || "—"} / ${
+                  ctx.fisico.planta_autonomia || "—"
+              }`
+            : "—";
+
+    /* const estadoCableado = ctx.fisico.cableado_ok
         ? "Etiquetado e identificado"
-        : "No cumple";
+        : "No cumple"; */
+    const estadoCableado =
+        [
+            ctx.fisico.cableado_etiquetado && "Etiquetado",
+            ctx.fisico.cableado_identificado && "Identificado",
+        ]
+            .filter(Boolean)
+            .join(", ") || "No especificado";
 
     const enrutamientoBadges = listAsBadges(
         ctx.servicios,
@@ -423,10 +500,18 @@ function obtenerDatos(ctx) {
         "tag-brand"
     );
 
-    const direccionamientoIP = listFromChecks(ctx.servicios, {
+    /* const direccionamientoIP = listFromChecks(ctx.servicios, {
         ip_estatico: "IPs Estáticas",
         ip_dinamico: "IPs Dinámicas (DHCP)",
-    });
+    }); */
+    const asignacionIPMap = {
+        fijas: "Fijas (Estáticas)",
+        dhcp: "DHCP",
+        mixtas: "Mixtas",
+    };
+
+    const direccionamientoIP =
+        asignacionIPMap[ctx.servicios.asignacion_ip] || "No especificado";
 
     const serviciosActivosBadges = listAsBadges(
         ctx.servicios,
@@ -464,7 +549,10 @@ function obtenerDatos(ctx) {
         cableado,
         fibra,
         patchPanel,
+        rackInfo,
         estadoCableado,
+        plantaEmergencia,
+        plantaDetalle,
 
         enrutamientoBadges,
         direccionamientoIP,

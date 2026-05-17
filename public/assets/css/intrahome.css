@@ -3559,9 +3559,9 @@ textarea.input {
 
 .lev-section-head .num {
     font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--primary);
-    background: rgba(224, 90, 28, 0.15);
+    font-size: 12px;
+    color: var(--color-primary);
+    background: rgba(246, 89, 16, 0.051);
     padding: 2px 7px;
     border-radius: 3px;
 }
