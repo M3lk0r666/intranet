@@ -231,7 +231,10 @@
                         <h2 class="text-2xl font-bold text-slate-900">8. Informacion Técnica (comandos)</h2>
                     </div>
                     <div class="bg-white rounded-2xl border border-red-100 p-8 shadow-sm">
-                        <div class="bg-slate-50 p-4 rounded-xl text-xs font-mono space-y-1">
+                        <div class="bg-purple-50 border-l-4 border-purple-500 p-4 mt-4 mb-4">
+                            Estos comandos son de exos en Extreme, en caso de ser diferente Vendor, usar sus equivalentes
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl text-md font-mono space-y-1">
                             show switch detail <br>
                             show version detail <br>
                             show configuration <br>
@@ -241,8 +244,8 @@
                             show lldp neighbors <br>
                             show ports no-refresh <br>
                         </div>
-                        <div class="mt-4 bg-blue-50 border-l-4 border-blue-500 p-4">
-                            <strong>Stack adicional:</strong><br>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4">
+                            <strong>Comandos en caso de que los equipos esten en Stack:</strong><br>
                             show stacking <br>
                             show slot
                         </div>

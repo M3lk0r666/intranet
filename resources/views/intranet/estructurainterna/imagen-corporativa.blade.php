@@ -59,7 +59,7 @@
                         <span>Estructura Interna</span>
                     </div>
                     <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
-                        Recuros de Marca
+                        Recursos de Marca
                     </h1>
                     <p class="text-gray-600 mt-2 text-base md:text-lg max-w-2xl">
                         Acceda a nuestros fondos institucionales, presentaciones y recursos visuales más recientes.

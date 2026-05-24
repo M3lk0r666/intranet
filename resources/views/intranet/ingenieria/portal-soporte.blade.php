@@ -694,8 +694,9 @@
                             Consejo para un mejor soporte
                         </p>
                         <p class="text-sm text-amber-800 mb-1">
-                            Nuestro equipo de IT aún <span class="font-semibold">no tiene poderes de clarividencia</span>.
-                            Describe tu incidente de forma
+                            Nuestro equipo de IT aún <span class="font-semibold">no adquiere/tiene poderes de
+                                clarividencia</span>.
+                            Por lo que, describe tu incidente de forma
                             <span class="font-semibold">clara, detallada y con el mayor contexto posible</span>.
                         </p>
                         <p class="text-sm text-amber-800">
@@ -852,7 +853,7 @@
                         </div>
                     </details>
 
-                    <details class="faq-item">
+                    <details class="faq-item" open>
                         <summary>
                             <span class="flex items-center gap-3">
                                 <span class="q-icon"><i class="las la-laptop"></i></span>
@@ -866,7 +867,7 @@
                         </div>
                     </details>
 
-                    <details class="faq-item">
+                    <details class="faq-item" open>
                         <summary>
                             <span class="flex items-center gap-3">
                                 <span class="q-icon"><i class="las la-folder-open"></i></span>

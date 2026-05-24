@@ -161,7 +161,7 @@
                     <div class="mt-2 flex gap-2">
                         <a href="{{ route('ingenieria.switch-pre-requisito') }}"
                             class="bg-white border border-orange-500 text-orange-500 px-4 py-2 rounded hover:bg-orange-100 transition">
-                            Pre-requisitos Intalacion de Switches
+                            Pre-requisitos Implementación de Switches
                         </a>
                     </div>
                 </div>
