@@ -385,6 +385,12 @@
             --card-border: #fed7aa;
         }
 
+        .guide-card.cat-tool {
+            --card-color: #07c944;
+            --card-bg: #eeffed;
+            --card-border: #aafec7;
+        }
+
         /* Empty state */
         .empty-state {
             display: none;
@@ -465,6 +471,10 @@
 
         .guide-card:nth-child(8) {
             animation-delay: .30s;
+        }
+
+        .guide-card:nth-child(9) {
+            animation-delay: .34s;
         }
     </style>
 @endpush
@@ -547,7 +557,7 @@
                 <button class="filter-chip active" data-cat="all" style="--chip-color:#0f172a;">
                     <i class="las la-th-large"></i>
                     Todas
-                    <span class="count" id="count-all">8</span>
+                    <span class="count" id="count-all">9</span>
                 </button>
                 <button class="filter-chip" data-cat="cat-infra" style="--chip-color:#3b82f6;">
                     <span class="dot"></span> Infraestructura
@@ -564,6 +574,10 @@
                 <button class="filter-chip" data-cat="cat-guide" style="--chip-color:#f97316;">
                     <span class="dot"></span> Guía
                     <span class="count" id="count-guide">3</span>
+                </button>
+                <button class="filter-chip" data-cat="cat-tool" style="--chip-color:#08e979;">
+                    <span class="dot"></span> Herramienta
+                    <span class="count" id="count-tool">1</span>
                 </button>
             </div>
         </section>
@@ -691,6 +705,23 @@
                         <span class="guide-cta">Abrir <i class="las la-arrow-right"></i></span>
                     </div>
                 </a>
+
+                {{-- CARD 9 — Levantamiento Infra --}}
+                <a href="{{ route('ingenieria.mapeo-de-puertos') }}" class="guide-card cat-tool" data-cat="cat-tool"
+                    data-search="diagrama para mapeo de puertos switches">
+                    <div class="card-stripe"></div>
+                    <span class="cat-badge"><i class="las la-tools"></i> Herramienta</span>
+                    <div class="guide-icon"><i class="las la-wrench"></i></div>
+                    <p class="guide-title">Mapeo de Puertos</p>
+                    <p class="guide-desc">Herramienta para ayudar al mapeo de puertos en reemplazos.
+                    </p>
+                    <div class="guide-footer">
+                        <span class="guide-date"><i class="las la-calendar"></i> 11/06/2026</span>
+                        <span class="guide-cta">Abrir <i class="las la-arrow-right"></i></span>
+                    </div>
+                </a>
+
+
             </div>
 
             {{-- Empty state --}}
@@ -772,7 +803,8 @@
                 'cat-infra': 0,
                 'cat-sec': 0,
                 'cat-mant': 0,
-                'cat-guide': 0
+                'cat-guide': 0,
+                'cat-tool': 0
             };
             cards.forEach(c => {
                 counts[c.dataset.cat] = (counts[c.dataset.cat] || 0) + 1;
@@ -782,7 +814,8 @@
                 'cat-infra': 'count-infra',
                 'cat-sec': 'count-sec',
                 'cat-mant': 'count-mant',
-                'cat-guide': 'count-guide'
+                'cat-guide': 'count-guide',
+                'cat-tool': 'count-tool'
             };
             Object.keys(map).forEach(k => {
                 const el = document.getElementById(map[k]);

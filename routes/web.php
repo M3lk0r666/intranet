@@ -119,12 +119,10 @@ Route::get('/ingenieria/mantto-preventivo/pdf', [IngenieriaController::class, 'e
 Route::get('/ingenieria/mantto-correctivo/pdf', [IngenieriaController::class, 'exportMantoCorrectivoPdf'])->name('ingenieria.mantenimiento-correctivo-pdf');
 Route::get('/ingenieria/guias/instalacion-switch/checklist-switches/pdf', [IngenieriaController::class, 'exportChecklistSwitchPdf'])->name('ingenieria.checklist-switches');
 
-
-
-
 Route::get('/ingenieria/guias/site-survey/si-wifi', [IngenieriaController::class, 'surveysi'])->name('ingenieria.sitesurvey-si');
 Route::get('/ingenieria/guias/site-survey/no-wifi', [IngenieriaController::class, 'surveyno'])->name('ingenieria.sitesurvey-no');
 Route::get('/ingenieria/guias/levantamiento-infraestrcutura', [IngenieriaController::class, 'infra'])->name('ingenieria.levantamiento-switches');
+Route::get('/ingenieria/guias/mapeo-de-puertos', [IngenieriaController::class, 'mapeoPuertos'])->name('ingenieria.mapeo-de-puertos');
 
 //Ruta Soporte
 Route::get('/ingenieria/portal-soporte', [IntranetController::class, 'portsoporte'])->name('ingenieria.portal-soporte');

@@ -158,5 +158,10 @@ class IngenieriaController extends Controller
 
         return $pdf->download('checklist-switches.pdf');
     }
+
+    public function mapeoPuertos()
+    {
+        return view('intranet.ingenieria.mapeo-puertos-tool');
+    }
 }
 
