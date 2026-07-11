@@ -98,7 +98,6 @@ hola borolas
                 </div>
 
                 <div class="space-y-5">
-
                     <div class="flex gap-4">
                         <div
                             class="flex-shrink-0 w-9 h-9 rounded-full bg-orange-500 text-white font-bold flex items-center justify-center">
@@ -121,8 +120,20 @@ hola borolas
                         <div>
                             <h3 class="font-semibold text-gray-900">Marca el estado de los puertos</h3>
                             <p class="text-gray-600">
-                                Haz clic sobre cada puerto para indicar su estado: activo, sin enlace, deshabilitado o
-                                re-asignado.
+                                Haz clic sobre cada puerto para indicar su estado:
+                            <div class="legend">
+                                <span><span class="dot" style="background:#e8e9eb;border-color:#c4c7cc"></span> Sin
+                                    definir</span>
+                                <span><span class="dot" style="background:#b5dd8f;border-color:#7fb84e"></span> Activo
+                                    (se
+                                    mantiene)</span>
+                                <span><span class="dot" style="background:#fbfbfb;border-color:#b7bbc2"></span> Sin
+                                    link</span>
+                                <span><span class="dot" style="background:#ffd98e;border-color:#e0a83c"></span>
+                                    Re-asignado</span>
+                                <span><span class="dot" style="background:#f5b5b5;border-color:#d97070"></span>
+                                    Deshabilitado</span>
+                            </div>
                             </p>
                         </div>
                     </div>
