@@ -1,4 +1,3 @@
-hola borolas
 @extends('layouts.intranet')
 
 @section('title', 'Intranet Corporativa')

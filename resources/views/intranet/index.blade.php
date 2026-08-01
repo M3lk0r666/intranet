@@ -12,8 +12,8 @@
 @section('content')
     <div class="container mx-auto px-4">
         {{-- ============================================
-             HERO PREMIUM con bienvenida personalizada
-             ============================================ --}}
+        HERO PREMIUM con bienvenida personalizada
+        ============================================ --}}
         <section class="hero-premium p-6 md:p-12 mt-6 mb-10 anim-up">
             <div class="orb orb-1"></div>
             <div class="orb orb-2"></div>
@@ -92,8 +92,8 @@
         </section>
 
         {{-- ============================================
-             GRID PRINCIPAL DE MÓDULOS
-             ============================================ --}}
+        GRID PRINCIPAL DE MÓDULOS
+        ============================================ --}}
         <div class="section-elegant-head">
             <div class="left">
                 <div class="accent"></div>
@@ -261,11 +261,32 @@
                     </div>
                 </div>
             </a>
+
+            {{-- Tarjeta 9: Inventario --}}
+            <a href="https://inventario-it.netjernetworks.net/" target="_blank" class="premium-card"
+                style="--c-color:#d20bf5; --c-bg:#f3c7fe;">
+                <div class="img-area">
+                    <div class="img-zoom"
+                        style="background-image: url('{{ asset('assets/media/inventario-it.png') }}');"></div>
+                    <span class="float-badge"><i class="las la-dolly-flatbed"></i></span>
+                    <span class="status-pill externale"><i class="las la-external-link-alt"></i> Externo</span>
+                </div>
+                <div class="body">
+                    <h3>Inventario de Bienes</h3>
+                    <p>Portal para el control e inventario de los Bienes Informaticos de la empresa.</p>
+                    <div class="footer-line">
+                        <span class="meta"><i class="las la-globe"></i> inventario-it</span>
+                        <span class="arrow-circle"><i class="las la-external-link-alt"></i></span>
+                    </div>
+                </div>
+            </a>
+
+
         </div>
 
         {{-- ============================================
-             Lo más buscado - Premium
-             ============================================ --}}
+        Lo más buscado - Premium
+        ============================================ --}}
         <section class="featured-block mb-14 anim-up">
             <div class="section-elegant-head" style="margin-bottom: 1.5rem;">
                 <div class="left">

@@ -284,6 +284,119 @@
         .anim-up {
             animation: fadeUp .5s ease both;
         }
+
+        /* ===== Sección "Próximamente" ===== */
+        .panel-coming {
+            position: relative;
+            background: linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%);
+            border: 1px dashed #d6d3d1;
+            border-radius: 20px;
+            padding: 1.75rem;
+            overflow: hidden;
+        }
+
+        .coming-overlay {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: linear-gradient(135deg, #1c140d, #44403c);
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            padding: .4rem .85rem;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px -2px rgba(0, 0, 0, .25);
+            display: inline-flex;
+            align-items: center;
+            gap: .35rem;
+            z-index: 5;
+        }
+
+        .panel-coming .panel-content {
+            opacity: .55;
+            pointer-events: none;
+        }
+
+        /* ===== Cards de categorías de tickets ===== */
+        .ticket-card {
+            position: relative;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all .3s ease;
+            overflow: hidden;
+        }
+
+        .ticket-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--card-color, #f97316);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .35s ease;
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px -12px rgba(0, 0, 0, .18);
+            border-color: var(--card-border, #fed7aa);
+        }
+
+        .ticket-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .ticket-card .tc-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: var(--card-bg, #fff7ed);
+            color: var(--card-color, #ea580c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 1rem auto;
+            transition: transform .35s ease;
+        }
+
+        .ticket-card:hover .tc-icon {
+            transform: scale(1.08) rotate(-4deg);
+        }
+
+        .ticket-card h3 {
+            font-weight: 700;
+            color: #1c140d;
+            margin-bottom: .55rem;
+        }
+
+        .ticket-card p {
+            color: #6b7280;
+            font-size: .88rem;
+            line-height: 1.55;
+        }
+
+        .ticket-card.no-ticket {
+            background: linear-gradient(135deg, #fef2f2 0%, #fff 100%);
+            border-color: #fecaca;
+        }
+
+        .ticket-card.no-ticket::before {
+            background: #ef4444;
+        }
+
+        .ticket-card.no-ticket .tc-icon {
+            background: #fee2e2;
+            color: #dc2626;
+        }
     </style>
 @endpush
 
@@ -350,7 +463,7 @@
             </div>
 
             <!-- Stats rápidos -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-7">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mt-7">
                 <div class="stat-mini">
                     <div class="ic" style="background:#fff7ed; color:#ea580c;"><i class="las la-stream"></i></div>
                     <div>
@@ -370,6 +483,14 @@
                     <div>
                         <div class="text-lg font-extrabold text-gray-900 leading-none">40+</div>
                         <div class="text-xs text-gray-500 font-medium">Documentos</div>
+                    </div>
+                </div>
+                <div class="stat-mini">
+                    <div class="ic" style="background:#ffe8ff; color:#ce2298;"><i class="las la-external-link-alt"></i>
+                    </div>
+                    <div>
+                        <div class="text-lg font-extrabold text-gray-900 leading-none">4</div>
+                        <div class="text-xs text-gray-500 font-medium">Portales</div>
                     </div>
                 </div>
                 <div class="stat-mini">
@@ -561,6 +682,61 @@
                 </a>
             </div>
         </section>
+
+        <!-- ============ Sección 4: Herramientas Redes ============ -->
+        <section class="section-block mb-12 anim-up">
+            <div class="section-head">
+                <div class="ic" style="background:#dce8fc; color:#0668b8;">
+                    <i class="las la-toolbox"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900">Herramientas de apoyo</h2>
+                    <p class="text-sm text-gray-500">Portales con herramientas de analisis de tech-suuport, generación de
+                        diagramas, conversion de configuraciones</p>
+                </div>
+                <span class="right-meta hidden md:inline-flex">
+                    <i class="las la-folder"></i> 4 portales
+                </span>
+            </div>
+
+            <div class="panel-content">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                    <a href="http://exos-tool.netjernetworks.net/" class="ticket-card"
+                        style="--card-color:#3b82f6; --card-bg:#dbeafe;" target="_blank">
+                        <div class="tc-icon"><i class="las la-wrench"></i></div>
+                        <h3>Extrem EXOs Tool</h3>
+                        <p>Portal para el analisis de tech-support y generadion de reporte.</p>
+                    </a>
+                    <a href="http://genera-diagramas.netjernetworks.net/" class="ticket-card"
+                        style="--card-color:#10b981; --card-bg:#ecfdf5;" target="_blank">
+                        <div class="tc-icon"><i class="las la-draw-polygon"></i></div>
+                        <h3>Generador Diagramas</h3>
+                        <p>Portal para el analisis y generacion de diagramas de red.</p>
+                    </a>
+                    <a href="http://convert-configs.netjernetworks.net/" class="ticket-card"
+                        style="--card-color:#8b5cf6; --card-bg:#f5f3ff;" target="_blank">
+                        <div class="tc-icon"><i class="las la-hammer"></i></div>
+                        <h3>Network Converter Config</h3>
+                        <p>Portal para la conversion de configuraciones entre vendors.</p>
+                    </a>
+                    <a href="http://convert-configs.netjernetworks.net/" class="ticket-card"
+                        style="--card-color:#ec4899; --card-bg:#fdf2f8;" target="_blank">
+                        <div class="tc-icon"><i class="las la-dolly-flatbed"></i></div>
+                        <h3>Inventario de Bienes Informaticos</h3>
+                        <p>Portal para el control de los Bienes Informaticos, asignaciones y cartas.</p>
+                    </a>
+                    <a href="{{ route('ingenieria.mapeo-de-puertos') }}" class="ticket-card"
+                        style="--card-color:#ec7f48; --card-bg:#fdf8f2;">
+                        <div class="tc-icon"><i class="las la-pencil-ruler"></i></div>
+                        <h3>Mapero de Puertos</h3>
+                        <p>Herramienta de ayuda visual para el mapeo de puertos.</p>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+
     </div>
 @endsection
 

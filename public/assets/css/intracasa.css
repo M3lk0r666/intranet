@@ -1,9 +1,10 @@
 /* ====================================================
-                   HERO premium con grano sutil y orbes flotantes
-                   ==================================================== */
+HERO premium con grano sutil y orbes flotantes
+==================================================== */
 .hero-premium {
     position: relative;
-    background: radial-gradient(
+    background:
+        radial-gradient(
             1000px 280px at 90% -10%,
             rgba(249, 115, 22, 0.22),
             transparent 55%
@@ -17,7 +18,8 @@
     border: 1px solid #fed7aa;
     border-radius: 28px;
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
         0 20px 50px -20px rgba(249, 115, 22, 0.18);
 }
 
@@ -101,10 +103,8 @@
 
 /* Patrón de grid sutil dentro del hero (renombrado para no chocar con la clase del body) */
 .hero-grid-pattern {
-    background-image: linear-gradient(
-            rgba(249, 115, 22, 0.06) 1px,
-            transparent 1px
-        ),
+    background-image:
+        linear-gradient(rgba(249, 115, 22, 0.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(249, 115, 22, 0.06) 1px, transparent 1px);
     background-size: 28px 28px;
     -webkit-mask-image: linear-gradient(
@@ -174,8 +174,8 @@
 }
 
 /* ====================================================
-                   ATAJOS RÁPIDOS PREMIUM
-                   ==================================================== */
+ATAJOS RÁPIDOS PREMIUM
+==================================================== */
 .quick-shortcut {
     position: relative;
     background: #fff;
@@ -234,8 +234,8 @@
 }
 
 /* ====================================================
-                   SECCIÓN HEADER ELEGANTE
-                   ==================================================== */
+SECCIÓN HEADER ELEGANTE
+==================================================== */
 .section-elegant-head {
     display: flex;
     align-items: flex-end;
@@ -287,8 +287,8 @@
 }
 
 /* ====================================================
-                   TARJETAS PRINCIPALES PREMIUM
-                   ==================================================== */
+TARJETAS PRINCIPALES PREMIUM
+==================================================== */
 .premium-card {
     position: relative;
     background: #fff;
@@ -303,8 +303,10 @@
 
 .premium-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04),
-        0 30px 60px -28px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--c-color, #fb923c);
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.04),
+        0 30px 60px -28px rgba(0, 0, 0, 0.25),
+        0 0 0 1px var(--c-color, #fb923c);
     border-color: transparent;
 }
 
@@ -432,6 +434,12 @@
     box-shadow: 0 4px 12px -2px rgba(245, 158, 11, 0.4);
 }
 
+.status-pill.externale {
+    background: rgba(167, 11, 245, 0.92);
+    color: #fff;
+    box-shadow: 0 4px 12px -2px rgba(226, 11, 245, 0.4);
+}
+
 /* Cuerpo de la tarjeta */
 .premium-card .body {
     padding: 1.5rem 1.6rem 1.4rem;
@@ -529,8 +537,8 @@
 }
 
 /* ====================================================
-                   BLOQUE "Lo más buscado" elegante
-                   ==================================================== */
+BLOQUE "Lo más buscado" elegante
+==================================================== */
 .featured-block {
     background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
     border: 1px solid #f1f5f9;
@@ -736,8 +744,8 @@
 }
 
 /* ====================================================
-                   ANIMACIONES
-                   ==================================================== */
+ANIMACIONES
+==================================================== */
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -832,8 +840,8 @@
 }
 
 /* ====================================================
-                   FIX: prevenir cualquier overlay accidental
-                   ==================================================== */
+FIX: prevenir cualquier overlay accidental
+==================================================== */
 #camionetaModal[style*="display:none"],
 #camionetaModal[style*="display: none"] {
     display: none !important;

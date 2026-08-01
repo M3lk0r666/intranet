@@ -412,36 +412,6 @@
                 </div>
             </div>
             {{-- CARD de Colaborador --}}
-            <div class="dir-card" data-search="gabriela cejudo project manager 155 gabriela.cejudo@netjernetworks.com">
-                <div class="dir-card-photo">
-                    <img src="{{ asset('storage/media/female.png') }}" alt="Gabriela Cejudo">
-                    <span class="status-dot" title="Activo"></span>
-                </div>
-                <h3 class="dir-card-name">Gabriela Cejudo</h3>
-                <span class="dir-card-role">Project Manager</span>
-                <div class="dir-contact">
-                    {{-- Extensión Zoom --}}
-                    <div class="dir-contact-row">
-                        <span class="ic"><i class="las la-headset"></i></span>
-                        <div class="dir-contact-info">
-                            <div class="label">Zoom Ext.</div>
-                            <span class="value">155</span>
-                        </div>
-                    </div>
-                    {{-- Correo principal --}}
-                    <div class="dir-contact-row">
-                        <span class="ic"><i class="las la-envelope"></i></span>
-                        <div class="dir-contact-info">
-                            <div class="label">Correo</div>
-                            <a class="value" href="mailto:gabriela.cejudo@netjernetworks.com"
-                                title="gabriela.cejudo@netjernetworks.com">
-                                gabriela.cejudo@netjernetworks.com
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- CARD de Colaborador --}}
             <div class="dir-card"
                 data-search="giselle martinez directora administración finanzas 101 giselle.mel@netjernetworks.com">
                 <div class="dir-card-photo">
@@ -536,67 +506,6 @@
                             <a class="value" href="mailto:jose.torres@netjernetworks.com"
                                 title="jose.torres@netjernetworks.com">
                                 jose.torres@netjernetworks.com
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- CARD de Colaborador --}}
-            <div class="dir-card" data-search="marco antonio ortiz sales development 205 marco.ortiz@netjernetworks.com">
-                <div class="dir-card-photo">
-                    <img src="{{ asset('storage/media/male.png') }}" alt="Marco Antonio Ortiz">
-                    <span class="status-dot" title="Activo"></span>
-                </div>
-                <h3 class="dir-card-name">Marco Antonio Ortiz</h3>
-                <span class="dir-card-role">Sales Development Rep.</span>
-                <div class="dir-contact">
-                    {{-- Extensión Zoom --}}
-                    <div class="dir-contact-row">
-                        <span class="ic"><i class="las la-headset"></i></span>
-                        <div class="dir-contact-info">
-                            <div class="label">Zoom Ext.</div>
-                            <span class="value">205</span>
-                        </div>
-                    </div>
-                    {{-- Correo principal --}}
-                    <div class="dir-contact-row">
-                        <span class="ic"><i class="las la-envelope"></i></span>
-                        <div class="dir-contact-info">
-                            <div class="label">Correo</div>
-                            <a class="value" href="mailto:marco.ortiz@netjernetworks.com"
-                                title="marco.ortiz@netjernetworks.com">
-                                marco.ortiz@netjernetworks.com
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- CARD de Colaborador --}}
-            <div class="dir-card"
-                data-search="miguel angel ortiz analista datos observabilidad 204 miguel.ortiz@netjernetworks.com">
-                <div class="dir-card-photo">
-                    <img src="{{ asset('storage/media/male.png') }}" alt="Miguel Angel Ortiz">
-                    <span class="status-dot" title="Activo"></span>
-                </div>
-                <h3 class="dir-card-name">Miguel Angel Ortiz</h3>
-                <span class="dir-card-role">Analista de Datos y Observabilidad</span>
-                <div class="dir-contact">
-                    {{-- Extensión Zoom --}}
-                    <div class="dir-contact-row">
-                        <span class="ic"><i class="las la-headset"></i></span>
-                        <div class="dir-contact-info">
-                            <div class="label">Zoom Ext.</div>
-                            <span class="value">204</span>
-                        </div>
-                    </div>
-                    {{-- Correo principal --}}
-                    <div class="dir-contact-row">
-                        <span class="ic"><i class="las la-envelope"></i></span>
-                        <div class="dir-contact-info">
-                            <div class="label">Correo</div>
-                            <a class="value" href="mailto:miguel.ortiz@netjernetworks.com"
-                                title="miguel.ortiz@netjernetworks.com">
-                                miguel.ortiz@netjernetworks.com
                             </a>
                         </div>
                     </div>
