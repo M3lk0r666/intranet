@@ -719,7 +719,7 @@
                         <h3>Network Converter Config</h3>
                         <p>Portal para la conversion de configuraciones entre vendors.</p>
                     </a>
-                    <a href="http://convert-configs.netjernetworks.net/" class="ticket-card"
+                    <a href="https://inventario-it.netjernetworks.net/" class="ticket-card"
                         style="--card-color:#ec4899; --card-bg:#fdf2f8;" target="_blank">
                         <div class="tc-icon"><i class="las la-dolly-flatbed"></i></div>
                         <h3>Inventario de Bienes Informaticos</h3>

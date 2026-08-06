@@ -311,6 +311,36 @@
                 </div>
             </div>
             {{-- CARD de Colaborador --}}
+            <div class="dir-card" data-search="enrique lopez sales develpment 110 enrique.lopez@netjernetworks.com">
+                <div class="dir-card-photo">
+                    <img src="{{ asset('storage/media/male.png') }}" alt="Enrique Lopez">
+                    <span class="status-dot" title="Activo"></span>
+                </div>
+                <h3 class="dir-card-name">Enrique Lopez</h3>
+                <span class="dir-card-role">Account Sales</span>
+                <div class="dir-contact">
+                    {{-- Extensión Zoom --}}
+                    <div class="dir-contact-row">
+                        <span class="ic"><i class="las la-headset"></i></span>
+                        <div class="dir-contact-info">
+                            <div class="label">Zoom Ext.</div>
+                            <span class="value">110</span>
+                        </div>
+                    </div>
+                    {{-- Correo principal --}}
+                    <div class="dir-contact-row">
+                        <span class="ic"><i class="las la-envelope"></i></span>
+                        <div class="dir-contact-info">
+                            <div class="label">Correo</div>
+                            <a class="value" href="mailto:enrique.lopez@netjernetworks.com"
+                                title="enrique.lopez@netjernetworks.com">
+                                enrique.lopez@netjernetworks.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- CARD de Colaborador --}}
             <div class="dir-card"
                 data-search="fernando arzaluz director ingeniero 113 fernando.arzaluz@netjernetworks.com">
                 <div class="dir-card-photo">
@@ -325,7 +355,7 @@
                         <span class="ic"><i class="las la-headset"></i></span>
                         <div class="dir-contact-info">
                             <div class="label">Zoom Ext.</div>
-                            <span class="value">105</span>
+                            <span class="value">113</span>
                         </div>
                     </div>
                     {{-- Correo principal --}}
